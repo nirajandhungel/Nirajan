@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Nirajan Dhungel | Full Stack Developer",
-  description: "Portfolio showcasing my projects and skills in Next.js, Tailwind CSS, and modern web development.",
+  description: "Portfolio showcasing my projects and skills in modern web development.",
 };
 
 export default function RootLayout({
@@ -28,12 +28,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://nirajandhungel.com" />
-    </head>
+<head>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="me" href="https://www.linkedin.com/in/nirajan-dhungel" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nirajandhungel.com" />
+
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nirajan Dhungel",
+      "url": "https://nirajandhungel.com.np",
+      "sameAs": [
+        "https://www.linkedin.com/in/nirajan-dhungel",
+        "https://github.com/nirajandhungel",
+        "https://www.instagram.com/nirajan.dhungel19",
+        "https://www.facebook.com/subash.dhungel.712",
+        "https://x.com/SubashDhungel18"
+      ]
+    }
+  ` }} />
+</head>
+
     <body className={`bg-[#E9F5E9] transition-colors dark:bg-[#050D05] dark:text-white ${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
           <Navbar />
