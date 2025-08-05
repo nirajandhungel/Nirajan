@@ -32,7 +32,6 @@ export default function RootLayout({
     <Head>
       <link rel="icon" href="/favicon.ico" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="#E9F5E9" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://nirajandhungel.com" />
     </Head>
