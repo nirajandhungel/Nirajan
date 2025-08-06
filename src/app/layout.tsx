@@ -29,10 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
 <head>
+   <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="me" href="https://www.linkedin.com/in/nirajan-dhungel" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#E9F5E9" />
+
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nirajandhungel.com" />
 

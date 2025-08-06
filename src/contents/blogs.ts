@@ -2,9 +2,9 @@ import { Blog } from "@/types";
 
 export const blogs: Blog[] = [
   {
-    title: "Getting Started with Next.js 14",
+    title: "Getting Started with Next.js ",
     excerpt: "Learn about the new features and improvements in Next.js 14.",
-    date: "2024-03-15",
+    date: "2025-03-16",
     readTime: "5 min read",
     slug: "getting-started-with-nextjs-14",
   },
@@ -12,7 +12,7 @@ export const blogs: Blog[] = [
     title: "Mastering TypeScript for React",
     excerpt:
       "A comprehensive guide to using TypeScript with React applications.",
-    date: "2024-03-10",
+    date: "2025-05-10",
     readTime: "8 min read",
     slug: "mastering-typescript-for-react",
   },
@@ -27,22 +27,22 @@ export const blogs: Blog[] = [
   {
     title: "Understanding React Hooks",
     excerpt: "A deep dive into React Hooks and how to use them effectively.",
-    date: "2024-03-01",
+    date: "2024-08-01",
     readTime: "7 min read",
     slug: "understanding-react-hooks",
   },
   {
-    title: "Deploying Next.js Applications on Vercel",
+    title: "Deploying Node.js Express server on render",
     excerpt:
-      "Step-by-step guide to deploying your Next.js applications on Vercel.",
-    date: "2024-02-25",
+      "Step-by-step guide to deploying your Express server applications on Vercel.",
+    date: "2025-02-25",
     readTime: "4 min read",
-    slug: "deploying-nextjs-applications-on-vercel",
+    slug: "deploying-express-server-on-render",
   },
   {
     title: "Building a RESTful API with Node.js and Express",
     excerpt: "Learn how to create a RESTful API using Node.js and Express.",
-    date: "2024-02-20",
+    date: "2025-02-20",
     readTime: "10 min read",
     slug: "building-a-restful-api-with-nodejs-and-express",
   },

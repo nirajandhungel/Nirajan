@@ -28,7 +28,7 @@ export default function Hero() {
               {...fadeIn}
               transition={{ delay: 0.8 }}
             >
-              Nirajan
+              Nirajan Dhungel
             </motion.span>
           </motion.h1>
           <motion.p 
