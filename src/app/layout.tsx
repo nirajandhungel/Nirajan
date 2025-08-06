@@ -17,9 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nirajan Dhungel | Full Stack Developer",
-  description: "Portfolio showcasing my projects and skills in modern web development.",
+  title: "Nirajan Dhungel | Full Stack Developer in Kathmandu, Nepal",
+  description:
+    "Hi, I'm Nirajan Dhungel — full stack developer in Kathmandu, Nepal. I build fast, modern websites with React, Next.js, Node.js & TypeScript. ",
 };
+
 
 export default function RootLayout({
   children,
