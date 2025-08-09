@@ -7,7 +7,7 @@ export const projects: Project[] = [
         description: 'A full-stack expense tracker web app built with React.js, Node.js, and Tailwind CSS.',
         technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
         githubLink: 'https://github.com/nirajandhungel/Expense-Tracker',
-        demoLink: 'https://expense-tracker-mu-ebon.vercel.app/',
+        demoLink: 'https://nirajan-exp-tracker.vercel.app/login',
         image: '/projects/exp-track.png',
       },
       {
