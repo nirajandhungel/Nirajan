@@ -27,8 +27,7 @@ export default function About() {
         {...fadeInUp}
       >
         <p className="text-lg text-secondary max-w-3xl mx-auto text-center">
-          Nirajan Dhungel is a software engineering student from Nepal with an entrepreneurial mindset. He is known for building MERN stack applications, launcheing tech projects, and shareing insights through blogs (Hashnode) and coding tutorials on <a href="https://www.youtube.com/@Nirajan.Dhungel">Youtube</a>. Connect with him on <a href="https://github.com/nirajandhungel"> GitHub</a> or <a href="https://www.linkedin.com/in/nirajan-dhungel/">Linkedin</a> to collaborate or explore new ideas! 
-        </p>
+       I’m Nirajan Dhungel, a software engineering student from Kathmandu, Nepal with a passion for building impactful technology and exploring entrepreneurial opportunities. I specialise in developing MERN stack applications, launching innovative tech projects, and sharing knowledge through YouTube. I love collaborating with like-minded developers and creators—connect with me on GitHub or LinkedIn to build, learn, and create together!        </p>
       </motion.section>
 
       {/* Skills Section */}
