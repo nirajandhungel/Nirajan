@@ -110,10 +110,10 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="/projects"
+                href="/nirajan_cv.pdf " target="_blank" download
                 className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
               >
-                View Projects
+                Download CV
               </Link>
             </motion.div>
             <motion.div
