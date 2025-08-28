@@ -2,7 +2,7 @@
 
 import { projects } from '@/contents/projects'
 import Image from 'next/image'
-import { FaGithub, FaExternalLinkAlt, FaCode, FaEye, FaStar, FaRocket } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaCode, FaEye, FaStar} from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp } from '@/utils/animations'
 
