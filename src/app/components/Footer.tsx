@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import { FaGithub, FaTwitter, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa'
-import Newsletter from './Newsletter'
 
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-dark ">
-      {<Newsletter/>}
       
       <div className="container max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
