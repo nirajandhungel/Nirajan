@@ -61,7 +61,7 @@ export default function RootLayout({
     <body className={`bg-[#E9F5E9] transition-colors dark:bg-[#050D05] dark:text-white ${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
           <Navbar />
-          <main className="min-h-screen pt-24">
+          <main className="min-h-screen py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-blue-50 dark:from-gray-900 dark:via-green-900/20 dark:to-blue-900/20">
             {children}
           </main>
           <Footer ></Footer>
