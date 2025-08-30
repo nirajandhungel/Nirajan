@@ -114,7 +114,7 @@ export default function About() {
           </motion.p>
         </motion.div>
 
-        {/* Skills Section */}
+        {/* Skills Section - Option 3: Simplified Text-Based List */}
         <motion.section
           className="mb-20"
           {...fadeIn}
@@ -124,7 +124,7 @@ export default function About() {
             <h2 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
               Technical Skills
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-green-600 mx-auto rounded-full"></div>
           </motion.div>
 
           <motion.div
@@ -147,28 +147,16 @@ export default function About() {
                   Frontend
                 </h3>
               </div>
-              <div className="space-y-4">
+              <ul className="space-y-3">
                 {skills.frontend.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-green-700 dark:text-green-400 font-semibold">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                      <motion.div
-                        className="bg-gradient-to-r from-green-500 to-green-800 h-3 rounded-full"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                      />
-                    </div>
-                  </div>
+                  <li key={index} className="flex items-center">
+                    <div className="w-1 h-6 bg-blue-500 rounded-full mr-3" />
+                    <span className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                      {skill.name}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
 
             {/* Backend Skills */}
@@ -185,28 +173,16 @@ export default function About() {
                   Backend
                 </h3>
               </div>
-              <div className="space-y-4">
+              <ul className="space-y-3">
                 {skills.backend.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-900 dark:text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-green-700 dark:text-green-400 font-semibold">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                      <motion.div
-                        className="bg-gradient-to-r from-green-500 to-green-800 h-3 rounded-full"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                      />
-                    </div>
-                  </div>
+                  <li key={index} className="flex items-center">
+                    <div className="w-1 h-6 bg-blue-500 rounded-full mr-3" />
+                    <span className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                      {skill.name}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
 
             {/* Tools & Others */}
@@ -223,28 +199,16 @@ export default function About() {
                   Tools & Others
                 </h3>
               </div>
-              <div className="space-y-4">
+              <ul className="space-y-3">
                 {skills.tools.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-green-700 dark:text-green-400 font-semibold">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                      <motion.div
-                        className="bg-gradient-to-r from-green-500 to-green-800 h-3 rounded-full"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                      />
-                    </div>
-                  </div>
+                  <li key={index} className="flex items-center">
+                    <div className="w-1 h-6 bg-blue-500 rounded-full mr-3" />
+                    <span className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                      {skill.name}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           </motion.div>
         </motion.section>
