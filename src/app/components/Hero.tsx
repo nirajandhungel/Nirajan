@@ -32,6 +32,7 @@ export default function Hero() {
               alt="Profile Image"
               width={100}
               height={100}
+              fetchPriority="high"
               className="rounded-full mb-4 w-32 h-32 object-cover ring-2 ring-primary"
             />
           </motion.div>
