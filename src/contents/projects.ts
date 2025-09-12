@@ -11,6 +11,14 @@ export const projects: Project[] = [
         image: '/projects/exp-track.png',
       },
       {
+        title: 'Sahara Rentals',
+        description: ' JavaFX-based application for managing vehicle rentals having features like vehicle rentals, returns, and customer management.',
+        technologies: ['Java', 'JavaFX', 'MySQL'],
+        githubLink: 'https://github.com/nirajandhungel/Sahara-Rentals',
+        demoLink: 'https://demo.com',
+        image: '/projects/vrs.jpeg',
+      },
+      {
         title: 'Taxi Booking System',
         description: 'A desktop-based Taxi Booking System, supporting role-based access for Admin, Driver, and Passenger',
         technologies: ['Python', 'Tkinter', 'CSS', 'Custom Tkinter'],
@@ -21,34 +29,10 @@ export const projects: Project[] = [
       {
         title: 'Portfolio Website',
         description: 'My personal portfolio website showcasing my projects and skills.',
-        technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-        githubLink: 'https://github.com',
-        demoLink: 'https://demo.com',
-        image: '/projects/portfolio-website.jpg',
-      },
-      {
-        title: 'Blog Platform',
-        description: 'A blogging platform with user authentication and markdown support.',
-        technologies: ['Gatsby', 'GraphQL', 'Contentful'],
-        githubLink: 'https://github.com',
-        demoLink: 'https://demo.com',
-        image: '/projects/blog-website.jpeg',
-      },
-      {
-        title: 'Weather App',
-        description: 'A weather application that provides real-time weather updates.',
-        technologies: ['React', 'OpenWeatherMap API'],
-        githubLink: 'https://github.com',
-        demoLink: 'https://demo.com',
-        image: '/projects/weather-app.png',
-      },
-      {
-        title: 'Chat Application',
-        description: 'A real-time chat application using WebSocket technology.',
-        technologies: ['React', 'Node.js', 'Socket.io'],
-        githubLink: 'https://github.com',
-        demoLink: 'https://demo.com',
-        image: '/projects/chat-app.png',
+        technologies: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+        githubLink: 'https://github.com/nirajandhungel/portfolio',
+        demoLink: 'https://nirajandhungel.com.np',
+        image: '/projects/portfolio.png',
       },
 
 
