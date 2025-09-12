@@ -19,7 +19,61 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nirajan Dhungel | Full Stack Developer in Kathmandu, Nepal",
   description:
-    "Hi, I'm Nirajan Dhungel — full stack developer in Kathmandu, Nepal. I build fast, modern websites with React, Next.js, Node.js & TypeScript. ",
+    "Expert Full Stack Developer specializing in React, Next.js, Node.js & TypeScript. Building high-performance web applications with modern tech stack. Based in Kathmandu, Nepal.",
+   keywords: [
+  "Full Stack Developer",
+  "React Developer",
+  "Next.js Developer",
+  "TypeScript Developer",
+  "Web Developer Nepal",
+  "MERN Stack",
+  "Nirajan Dhungel",
+  "Kathmandu Developer",
+  "Node.js Developer"
+],
+
+  authors: [{ name: "Nirajan Dhungel" }],
+  creator: "Nirajan Dhungel",
+  publisher: "Nirajan Dhungel",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+    openGraph: {
+    title: "Nirajan Dhungel | Full Stack Developer",
+    description:
+      "Expert Full Stack Developer building modern, fast, and scalable web applications with React, Next.js & TypeScript. View my portfolio and latest projects.",
+    url: "https://nirajandhungel.com.np",
+    siteName: "Nirajan Dhungel Portfolio",
+    images: [
+      {
+        url: "https://nirajandhungel.com.np/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nirajan Dhungel - Full Stack Developer Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@SubashDhungel18",
+    title: "Nirajan Dhungel | Full Stack Developer",
+    description: "Web developer sharing projects and blogs on React, Next.js, and AI.",
+    images: ["https://nirajandhungel.com.np/og-image.png"],
+  },
+    alternates: {
+    canonical: "https://nirajandhungel.com.np",
+  },
+
 };
 
 
@@ -29,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
 <head>
    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.ico" />
@@ -39,7 +93,13 @@ export default function RootLayout({
   <meta name="theme-color" content="#E9F5E9" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nirajandhungel.com" />
+  <meta property="og:url" content="https://nirajandhungel.com.np" />
+
+        {/* Preload critical assets */}
+      <link rel="preload" href="/og-image.png" as="image" />
+      <link rel="preload" href="/favicon.png" as="image" />
+
+  {/* Structured Data */}
 
   <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
     {
@@ -52,8 +112,32 @@ export default function RootLayout({
         "https://github.com/nirajandhungel",
         "https://www.instagram.com/nirajan.dhungel19",
         "https://www.facebook.com/subash.dhungel.712",
-        "https://x.com/SubashDhungel18"
-      ]
+        "https://x.com/SubashDhungel18",
+        "https://medium.com/@nirajandhungel"
+      ],
+
+      "jobTitle": "Full Stack Developer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+          },
+          "knowsAbout": [
+            "Web Development",
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "Full Stack Development"
+          ],
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kathmandu",
+              "addressCountry": "Nepal"
+            }
+          }
+
     }
   ` }} />
 </head>
