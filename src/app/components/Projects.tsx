@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt, FaCode, FaEye, FaStar} from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp } from '@/utils/animations'
+import Link from 'next/link'
 
 export default function Projects() {
   const containerVariants = {
@@ -31,7 +32,7 @@ export default function Projects() {
   }
 
   return (
-    <section className="min-h-screen py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-blue-50 dark:from-gray-900 dark:via-green-900/20 dark:to-blue-900/20">
+    <section className="min-h-screen py-20 ">
       <div className="container max-w-7xl mx-auto px-4">
         
         {/* Header Section */}
@@ -244,7 +245,7 @@ export default function Projects() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get In Touch
+                <Link href="/contact"> Get In Touch</Link>
               </motion.button>
             </div>
           </div>
