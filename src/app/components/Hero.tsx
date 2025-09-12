@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { FaEnvelope } from 'react-icons/fa';
+
+
 import {
   FaGithub,
   FaInstagram,
@@ -14,9 +17,10 @@ import { fadeInUp, fadeIn, scaleIn } from "@/utils/animations";
 
 export default function Hero() {
   return (
-    <section className="py-28 min-h-screen">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
+    <section className="relative py-20 lg:py-32 min-h-screen flex items-center overflow-hidden">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          {/* Image section */}
           <motion.div
             className="flex justify-center items-center mb-4"
             {...scaleIn}
@@ -31,110 +35,156 @@ export default function Hero() {
               className="rounded-full mb-4 w-32 h-32 object-cover ring-2 ring-primary"
             />
           </motion.div>
+
+          {/* Main Heading */}
+          {/* Main Heading */}
           <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 leading-tight"
             {...fadeInUp}
             transition={{ delay: 0.3 }}
           >
-            Hi, I&apos;m{" "}
+            <span className="text-gray-800 dark:text-white">Hi, I&apos;m </span>
             <motion.span
-              className="text-primary"
+              className="bg-gradient-to-r from-emerald-700  to-blue-700 bg-clip-text text-transparent"
               {...fadeIn}
               transition={{ delay: 0.8 }}
             >
               Nirajan Dhungel
             </motion.span>
           </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
+
+          {/* Email */}
+{/* Email */}
+<motion.p
+  className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-8 mt-[-10px] tracking-wide"
+  {...fadeInUp}
+  transition={{ delay: 0.35 }}
+>
+  <a
+    href="mailto:info@nirajandhungel.com.np"
+    className="flex items-center gap-2 justify-center hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+  >
+<FaEnvelope className="h-4 w-4 text-gray-600 dark:text-gray-300" />:
+    info@nirajandhungel.com.np
+  </a>
+</motion.p>
+
+
+          {/* Subtitle */}
+          <motion.div
+            className="mb-8"
             {...fadeInUp}
             transition={{ delay: 0.4 }}
           >
-            Full Stack | MERN | Web Products Developer
-          </motion.p>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4">
+              Full Stack | MERN | Web Products Developer
+            </p>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {["React", "Node.js", "MongoDB", "Express", "Next.js"].map(
+                (tech, index) => (
+                  <motion.span
+                    key={tech}
+                    className="px-3 py-1 bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 + index * 0.1 }}
+                  >
+                    {tech}
+                  </motion.span>
+                )
+              )}
+            </div>
+          </motion.div>
+
+          {/* Social Links */}
           <motion.div
-            className="flex justify-center space-x-4 mb-8"
+            className="flex justify-center space-x-6 mb-10"
             {...fadeInUp}
             transition={{ delay: 0.5 }}
           >
-            <motion.a
-              href="https://github.com/nirajandhungel"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Nirajan Dhungel's GitHub profile"
-              className="text-2xl text-gray-600 hover:text-icon dark:text-gray-300 dark:hover:text-icon transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaGithub />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/nirajan-dhungel/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Nirajan Dhungel's Linkedin profile"
-              className="text-2xl text-gray-600 hover:text-icon dark:text-gray-300 dark:hover:text-icon transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaLinkedin />
-            </motion.a>
-
-            <motion.a
-              href="https://www.instagram.com/nirajan.dhungel19/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Nirajan Dhungel's Instagram profile"
-              className="text-2xl text-gray-600 hover:text-icon dark:text-gray-300 dark:hover:text-icon transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaInstagram />
-            </motion.a>
-            <motion.a
-              href="https://x.com/SubashDhungel18"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Nirajan Dhungel's Twitter / X profile"
-              className="text-2xl text-gray-600 hover:text-icon dark:text-gray-300 dark:hover:text-icon transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaTwitter />
-            </motion.a>
-            <motion.a
-              href="https://www.youtube.com/@nirajan.dhungel"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Nirajan Dhungel's Youtube Channel"
-              className="text-2xl text-gray-600 hover:text-icon dark:text-gray-300 dark:hover:text-icon transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaYoutube />
-            </motion.a>
+            {[
+              {
+                href: "https://github.com/nirajandhungel",
+                icon: FaGithub,
+                label: "GitHub",
+                color: "hover:text-gray-800 dark:hover:text-white",
+              },
+              {
+                href: "https://www.linkedin.com/in/nirajan-dhungel/",
+                icon: FaLinkedin,
+                label: "LinkedIn",
+                color: "hover:text-blue-600",
+              },
+              {
+                href: "https://www.instagram.com/nirajan.dhungel19/",
+                icon: FaInstagram,
+                label: "Instagram",
+                color: "hover:text-pink-500",
+              },
+              {
+                href: "https://x.com/SubashDhungel18",
+                icon: FaTwitter,
+                label: "Twitter",
+                color: "hover:text-blue-400",
+              },
+              {
+                href: "https://www.youtube.com/@nirajan.dhungel",
+                icon: FaYoutube,
+                label: "YouTube",
+                color: "hover:text-red-500",
+              },
+            ].map(({ href, icon: Icon, label, color }) => (
+              <motion.a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit Nirajan Dhungel's ${label} profile`}
+                className={`text-2xl sm:text-3xl text-gray-500 dark:text-gray-400 ${color} transition-all duration-300 transform hover:scale-125`}
+                whileHover={{
+                  scale: 1.3,
+                  rotate: [0, -5, 5, 0],
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Icon />
+              </motion.a>
+            ))}
           </motion.div>
+
+          {/* Call to Action Buttons */}
           <motion.div
-            className="flex flex-col md:flex-row justify-center gap-4"
+            className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"
             {...fadeInUp}
             transition={{ delay: 0.6 }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group"
+            >
               <Link
-                href="/nirajan_cv.pdf "
+                href="/nirajan_cv.pdf"
                 target="_blank"
                 download
-                className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                className="relative inline-block w-full sm:w-auto overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-4 text-white font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/25"
               >
-                Download CV
+                <span className="relative z-10">Download CV</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-700 to-teal-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group"
+            >
               <Link
                 href="/contact"
-                className=" inline-block w-full bg-gray-300  md:w-auto text-gray-800 dark:text-gray-800 px-8 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors"
+                className="relative inline-block w-full sm:w-auto overflow-hidden rounded-xl border-2 border-emerald-600 bg-transparent px-8 py-4 text-emerald-600 dark:text-emerald-400 font-semibold transition-all duration-300   hover:shadow-lg hover:shadow-emerald-500/25"
               >
-                Contact Me
+                <span className="relative z-10">Contact Me</span>
               </Link>
             </motion.div>
           </motion.div>
