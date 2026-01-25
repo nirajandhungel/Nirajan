@@ -53,7 +53,7 @@ export const personSchema: WithContext<Person> = {
 };
 
 // Professional Service Schema
-export const professionalServiceSchema: WithContext<ProfessionalService> = {
+export const professionalServiceSchema: WithContext<ProfessionalService> & { serviceType?: string[]; provider?: any } = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${SITE_URL}/#service`,
@@ -110,7 +110,7 @@ export const websiteSchema: WithContext<WebSite> = {
             "urlTemplate": `${SITE_URL}/search?q={search_term_string}`
         },
         "query-input": "required name=search_term_string"
-    }
+    } as any
 };
 
 // LocalBusiness Schema for Contact Page
@@ -122,7 +122,7 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
     "description": "Professional web development services in Kathmandu, Nepal. Specializing in custom websites, web applications, and full stack development.",
     "url": SITE_URL,
     "telephone": "+977-9825883910",
-    "email": "nirajandhungel200@gmail.com",
+    "email": "info@nirajandhungel.com.np",
     "image": `${SITE_URL}/nirajandhungel2.jpeg`,
     "priceRange": "$$",
     "address": {

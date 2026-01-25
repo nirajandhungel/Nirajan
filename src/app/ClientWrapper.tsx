@@ -4,7 +4,7 @@ import React from 'react'
 import { EnquiryProvider } from './EnquiryContext'
 import Footer from '../components/footer'
 import EnquiryModal from '../components/EnquiryModal'
-import WhatsAppButton from '../components/WhatsAppButton'
+import WhatsAppButton from '../components/whatsapp-button'
 import { useEnquiryModal } from './EnquiryContext'
 import  Header  from '../components/navbar/header'
 
