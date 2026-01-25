@@ -1,0 +1,42 @@
+"use client";
+
+import Link from "next/link";
+import { ReactNode } from "react";
+
+interface ServiceItem {
+  name: string;
+  href: string;
+  icon: string;
+}
+
+interface MobileServiceSectionProps {
+  title: string;
+   services: ReadonlyArray<ServiceItem>;
+  onCloseMenu: () => void;
+}
+
+export const MobileServiceSection = ({ title, services, onCloseMenu }: MobileServiceSectionProps) => {
+  return (
+    <div>
+      <div className="flex items-center gap-2 py-2">
+        <span className="w-2 h-2 bg-[#3bb54a] rounded-sm"></span>
+        <span className="font-semibold text-black">{title}</span>
+      </div>
+      <div className="pl-6 space-y-3">
+        {services.map((service) => (
+          <Link
+            key={service.name}
+            href={service.href}
+            className="flex items-center gap-3 py-1 text-black"
+            onClick={onCloseMenu}
+          >
+            <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+              <span className="text-lg">{service.icon}</span>
+            </div>
+            <span className="text-xs">{service.name}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};

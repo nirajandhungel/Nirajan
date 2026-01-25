@@ -1,0 +1,209 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Phone, X, Menu } from "lucide-react";
+import { Logo } from "../../assets/Logo";
+import { NavLink } from "./NavLink";
+import { MobileDropdown } from "./MobileDropdown";
+import { MobileServiceSection } from "./MobileServiceSection";
+import { NAV_ITEMS, SERVICE_DATA } from "./navData";
+import { SERVICES } from "../../../constants";
+import { MenuItem, ProductItem, HoveredLink } from "../MenuComponents";
+
+interface NavbarProps {
+  onOpenEnquiry: () => void;
+}
+
+export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [pricingOpen, setPricingOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => setIsSticky(window.scrollY > 100);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  return (
+    <header
+      className={`sticky top-0 z-50 ${isSticky ? "bg-white shadow-md" : "bg-background py-1"} transition-all duration-300`}
+    >
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <Logo />
+
+          {/* Desktop Navigation */}
+          <nav
+            className="hidden lg:flex items-center gap-1"
+            onMouseLeave={() => setActive(null)}
+          >
+            <NavLink href="/">Home</NavLink>
+
+            <MenuItem setActive={setActive} active={active} item="About">
+              <div className="flex flex-col space-y-2  px-3 min-w-45">
+                {NAV_ITEMS.about.map((item) => (
+                  <HoveredLink key={item.label} href={item.href} className="text-lg px-3 mb-3 mt-1 ">
+                    {item.label}
+                  </HoveredLink>
+                ))}
+              </div>
+            </MenuItem>
+
+            <MenuItem setActive={setActive} active={active} item="Services">
+              <div className="grid grid-cols-2 gap-6 p-4 min-w-125">
+                {["Development", "Marketing"].map((category) => (
+                  <div key={category} className="space-y-4">
+                    <h4 className="text-xs font-semibold text-[#3bb54a] uppercase tracking-wider border-b pb-2">
+                      {category}
+                    </h4>
+                    <div className="grid grid-cols-1 gap-2">
+                      {SERVICES.filter((s) => s.category === category).map((s) => (
+                        <ProductItem
+                          key={s.id}
+                          title={s.title}
+                          description={s.description}
+                          href={s.link}
+                          src={s.icon}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </MenuItem>
+
+            <MenuItem setActive={setActive} active={active} item="Pricing">
+              <div className="flex flex-col space-y-2 p-2 min-w-45">
+                {NAV_ITEMS.pricing.map((item) => (
+                  <HoveredLink key={item.label} href={item.href} className="text-xs px-3 py-2 mb-3">
+                    {item.label}
+                  </HoveredLink>
+                ))}
+              </div>
+            </MenuItem>
+
+            {NAV_ITEMS.regular.map((item) => (
+              <NavLink key={item.label} href={item.href}>
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center space-x-2 text-foreground font-semibold">
+              <i className="fa-solid fa-phone text-primary"></i>
+              <a href="tel:+9779825883910">+977-9825883910</a>
+            </div>
+            <button
+              onClick={onOpenEnquiry}
+              className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white px-3 py-2 rounded-lg font-semibold transition-all"
+            >
+              Get In Touch
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-black"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-50 lg:hidden transition-opacity ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      >
+        <div
+          className="absolute inset-0 bg-black/50"
+          onClick={closeMobileMenu}
+        />
+        <div
+          className={`absolute top-0 left-0 h-full w-[320px] max-w-[85vw] bg-background shadow-xl transform transition-transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+        >
+          <div className="p-6">
+            {/* Mobile Header */}
+            <div className="flex items-center justify-between mb-8">
+              <Logo onClick={closeMobileMenu} />
+              <button onClick={closeMobileMenu} className="text-black">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Mobile Navigation */}
+            <nav className="space-y-2">
+              <NavLink href="/" onClick={closeMobileMenu} className="block border-b border-border">
+                Home
+              </NavLink>
+
+              <MobileDropdown title="About" isOpen={aboutOpen} onToggle={() => setAboutOpen(!aboutOpen)}>
+                {NAV_ITEMS.about.map((item) => (
+                  <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block py-2">
+                    {item.label}
+                  </NavLink>
+                ))}
+              </MobileDropdown>
+
+              <MobileDropdown title="Services" isOpen={servicesOpen} onToggle={() => setServicesOpen(!servicesOpen)}>
+                <div className="space-y-4">
+                  <MobileServiceSection
+                    title="Development"
+                    services={SERVICE_DATA.development}
+                    onCloseMenu={closeMobileMenu}
+                  />
+                  <MobileServiceSection
+                    title="Marketing"
+                    services={SERVICE_DATA.marketing}
+                    onCloseMenu={closeMobileMenu}
+                  />
+                </div>
+              </MobileDropdown>
+
+              <MobileDropdown title="Pricing" isOpen={pricingOpen} onToggle={() => setPricingOpen(!pricingOpen)}>
+                {NAV_ITEMS.pricing.map((item) => (
+                  <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block py-2">
+                    {item.label}
+                  </NavLink>
+                ))}
+              </MobileDropdown>
+
+              {NAV_ITEMS.regular.map((item) => (
+                <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block border-b border-border">
+                  {item.label}
+                </NavLink>
+              ))}
+            </nav>
+
+            {/* Mobile CTA */}
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center text-secondary font-semibold">
+                <Phone className="w-4 h-4 mr-2 text-primary" />
+                <a href="tel:+9779825883910">+977-9825883910</a>
+              </div>
+              <button
+                onClick={() => {
+                  onOpenEnquiry();
+                  closeMobileMenu();
+                }}
+                className="w-full bg-primary text-white px-3 py-3 rounded-md font-semibold hover:bg-green-600 transition-colors shadow-lg"
+              >
+                Get In Touch
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;

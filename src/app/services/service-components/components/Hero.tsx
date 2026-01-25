@@ -1,0 +1,60 @@
+
+
+const Hero: React.FC = () => {
+  return (
+    <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-white to-light">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col-reverse lg:flex-row items-center">
+          <div className="w-full lg:w-7/12 mt-12 lg:mt-0 animate-slide-up">
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold bg-primary/10 text-primary rounded-full uppercase tracking-wider">
+              Innovation & Excellence
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-foreground leading-tight mb-6">
+              Website <span className="text-primary">Development</span>
+            </h1>
+            <h4 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
+              Highly functional and visually appealing website designed to meet your needs.
+            </h4>
+            <p className="text-lg text-muted-foreground mb-10 max-w-2xl">
+              Crafting Digital Excellence: Elevate Your Online Presence with Innovative Website Development Solutions. Tailored Designs, Seamless Functionality, and Future-Ready Technology – Your Journey to Success Starts Here!
+            </p>
+            <button className="group relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center space-x-3 transition-all hover:shadow-lg hover:shadow-primary/30 active:scale-95">
+              <span>Let's Start Conversation</span>
+              <i className="fa-solid fa-chevron-right text-sm group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+
+          <div className="w-full lg:w-5/12 relative">
+            <div className="relative z-10 animate-float">
+              <img 
+                src="https://softbenz.com/media/service-banners/Mask_group.svg" 
+                alt="Website Development Visual" 
+                className="w-full max-w-lg mx-auto"
+              />
+            </div>
+            
+            {/* Stats Grid Overlay */}
+            <div className="grid grid-cols-2 gap-4 mt-12 lg:absolute lg:top-1/2 lg:-right-12 lg:transform lg:-translate-y-1/2 lg:w-80">
+              <StatCard value="7+" label="Years Experience" icon="fa-calendar-days" />
+              <StatCard value="300+" label="Happy Clients" icon="fa-face-smile" />
+              <StatCard value="400+" label="Success Projects" icon="fa-check-double" />
+              <StatCard value="80+" label="Team Members" icon="fa-users-gear" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const StatCard: React.FC<{ value: string; label: string; icon: string }> = ({ value, label, icon }) => (
+  <div className="bg-white p-6 rounded-2xl shadow-xl shadow-gray-200/50 border border-border flex flex-col items-center text-center hover:-translate-y-1 transition-transform cursor-default">
+    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+      <i className={`fa-solid ${icon} text-primary text-xl`}></i>
+    </div>
+    <h3 className="text-2xl font-bold text-foreground mb-1">{value}</h3>
+    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{label}</p>
+  </div>
+);
+
+export default Hero;
