@@ -8,6 +8,7 @@ import { Download, MapPin, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CONTACT } from '@/data/contact';
 
 export const metadata: Metadata = {
   title: 'About Nirajan Dhungel | Professional Web Developer in Kathmandu, Nepal',
@@ -68,19 +69,19 @@ export default function AboutPage() {
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Mail className="w-5 h-5 text-primary" />
-                  <a href="mailto:nirajandhungel200@gmail.com" className="hover:text-primary transition-colors">
-                    nirajandhungel200@gmail.com
+                  <a href={`mailto:${CONTACT.email}`} className="hover:text-primary transition-colors">
+                    {CONTACT.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+9779825883910" className="hover:text-primary transition-colors">
-                    +977-9825883910
+                  <a href={`tel:${CONTACT.phone.tel}`} className="hover:text-primary transition-colors">
+                    {CONTACT.phone.display}
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 text-primary" />
-                  <span>Kathmandu, Nepal</span>
+                  <span>{CONTACT.location}</span>
                 </div>
               </div>
 

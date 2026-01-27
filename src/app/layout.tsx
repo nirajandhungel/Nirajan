@@ -5,7 +5,6 @@ import { Analytics } from '@vercel/analytics/next'
 import ClientWrapper from './ClientWrapper'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { CursorProvider } from "../providers/CursorProvider";
-import { personSchema, professionalServiceSchema, websiteSchema } from '@/lib/structured-data';
 
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css'
@@ -27,27 +26,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), // Required for proper URL resolution
   
   title: {
-    default: 'Nirajan Dhungel | Web Developer & Full Stack Developer in Nepal',
+    default: 'Nirajan Dhungel | Full Stack Developer in Kathmandu, Nepal',
     template: '%s | Nirajan Dhungel',
   },
   
-  description: 'Nirajan Dhungel is a professional Web Developer and Full Stack Developer in Kathmandu, Nepal. Offering expert website development services using React, Next.js, Node.js & TypeScript. Transform your business with modern web solutions.',
+  description: 'Expert Full Stack Developer specializing in React, Next.js, Node.js & TypeScript. Building high-performance web applications with modern tech stack. Based in Kathmandu, Nepal.',
   
   keywords: [
-    'Nirajan Dhungel',
-    'Web Developer Nirajan Dhungel',
-    'Full Stack Developer Nirajan Dhungel',
-    'Website Development Services',
-    'Website Development Services Nepal',
-    'Web Developer Nepal',
-    'Web Developer Kathmandu',
-    'Full Stack Developer Nepal',
-    'React Developer Nepal',
-    'Next.js Developer Nepal',
-    'Professional Web Developer',
-    'Custom Website Development',
-    'MERN Stack Developer',
-    'Software Engineer Nepal',
+    'Nirajan Dhungel', 'Full Stack Developer Nepal', 'Freelance Developer Kathmandu',
+    'React Developer', 'Next.js Developer', 'Node.js Developer', 'TypeScript Developer',
+    'Web Developer Nepal', 'MERN Stack Developer', 'Kathmandu Developer',
+    'Software Engineer Nepal', 'Portfolio Nirajan Dhungel',
   ],
   
   authors: [{ name: 'Nirajan Dhungel', url: SITE_URL }],
@@ -81,8 +70,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Nirajan Dhungel | Web Developer & Website Development Services',
-    description: 'Professional Web Developer Nirajan Dhungel offers expert website development services in Nepal. Specializing in React, Next.js & TypeScript. View portfolio and get a custom web solution.',
+    title: 'Nirajan Dhungel | Full Stack Developer',
+    description: 'Expert Full Stack Developer building modern, fast, and scalable web applications with React, Next.js & TypeScript. View my portfolio and latest projects.',
     images: [
       {
         url: '/og-image.png',
@@ -91,7 +80,7 @@ export const metadata: Metadata = {
         alt: 'Nirajan Dhungel - Digital Services Portfolio',
       },
     ],
-    emails: ['info@nirajandhungel.com.np'],
+    emails: ['nirajandhungel200@gmail.com'],
     phoneNumbers: ['+977-9825883910'],
     countryName: 'Nepal',
   },
@@ -100,8 +89,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@SubashDhungel18',
     creator: '@SubashDhungel18',
-    title: 'Nirajan Dhungel | Web Developer & Full Stack Developer',
-    description: 'Professional Web Developer offering website development services. Expert in React, Next.js, Node.js & modern web technologies.',
+    title: 'Nirajan Dhungel | Full Stack Developer',
+    description: 'Web developer sharing projects and blogs on React, Next.js, and AI.',
     images: ['/og-image.png'],
   },
   
@@ -145,7 +134,7 @@ export const metadata: Metadata = {
     yahoo: 'your-yahoo-verification-code',
     other: {
       me: [
-        'mailto:info@nirajandhungel.com.np',
+        'mailto:nirajandhungel200@gmail.com',
         SITE_URL,
       ],
     },
@@ -172,13 +161,36 @@ export const viewport: Viewport = {
 }
 
 // ========== SCHEMA.ORG DATA ==========
-// Using centralized structured data from lib
+// Extract to separate file for maintainability
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
-    personSchema,
-    professionalServiceSchema,
-    websiteSchema
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      "name": "Nirajan Dhungel",
+      "description": metadata.description,
+      "url": SITE_URL,
+      "image": `${SITE_URL}/images/profile.jpg`,
+      "email": "nirajandhungel200@gmail.com",
+      "telephone": "+977-9825883910",
+      "jobTitle": "Full Stack Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kathmandu",
+        "addressRegion": "Bagmati",
+        "addressCountry": "NP",
+        "postalCode": "44600"
+      },
+      "sameAs": [
+        "https://github.com/nirajandhungel",
+        "https://www.linkedin.com/in/nirajan-dhungel",
+        "https://x.com/SubashDhungel18",
+        "https://www.instagram.com/nirajan.dhungel19",
+        "https://www.facebook.com/subash.dhungel.712",
+        "https://medium.com/@nirajandhungel"
+      ]
+    }
   ]
 }
 
@@ -217,7 +229,38 @@ export default function RootLayout({
           key="structured-data"
         />
         
-
+        {/* ========== ADDITIONAL SCHEMAS ========== */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Nirajan Dhungel",
+              "description": metadata.description,
+              "url": SITE_URL,
+              "telephone": "+977-9825883910",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kathmandu",
+                "addressRegion": "Bagmati Province",
+                "addressCountry": "NP"
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              "priceRange": "$$",
+              "areaServed": {
+                "@type": "Country",
+                "name": "Nepal"
+              }
+            })
+          }}
+          key="service-schema"
+        />
         
         {/* ========== MOBILE OPTIMIZATION ========== */}
         <meta name="mobile-web-app-capable" content="yes" />
