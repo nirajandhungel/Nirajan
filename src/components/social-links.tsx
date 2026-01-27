@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/data/contact';
 
 interface SocialLink {
   name: string;
@@ -10,32 +11,32 @@ interface SocialLink {
 
 const socialLinks: SocialLink[] = [
   {
-    name: 'GitHub',
-    url: 'https://github.com/nirajandhungel',
+    name: SOCIAL_LINKS.github.name,
+    url: SOCIAL_LINKS.github.url,
     icon: <Github className="w-5 h-5" />,
     color: 'hover:text-gray-900 hover:bg-gray-100'
   },
   {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/nirajan-dhungel',
+    name: SOCIAL_LINKS.linkedin.name,
+    url: SOCIAL_LINKS.linkedin.url,
     icon: <Linkedin className="w-5 h-5" />,
     color: 'hover:text-blue-600 hover:bg-blue-50'
   },
   {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/nirajan.dhungel19',
+    name: SOCIAL_LINKS.instagram.name,
+    url: SOCIAL_LINKS.instagram.url,
     icon: <Instagram className="w-5 h-5" />,
     color: 'hover:text-pink-600 hover:bg-pink-50'
   },
   {
-    name: 'Facebook',
-    url: 'https://www.facebook.com/subash.dhungel.712',
+    name: SOCIAL_LINKS.facebook.name,
+    url: SOCIAL_LINKS.facebook.url,
     icon: <Facebook className="w-5 h-5" />,
     color: 'hover:text-blue-700 hover:bg-blue-50'
   },
   {
-    name: 'Twitter',
-    url: 'https://x.com/SubashDhungel18',
+    name: SOCIAL_LINKS.twitter.name,
+    url: SOCIAL_LINKS.twitter.url,
     icon: <Twitter className="w-5 h-5" />,
     color: 'hover:text-sky-500 hover:bg-sky-50'
   },
