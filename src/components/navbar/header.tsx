@@ -9,6 +9,8 @@ import { MobileServiceSection } from "./MobileServiceSection";
 import { NAV_ITEMS, SERVICE_DATA } from "./navData";
 import { SERVICES } from "../../../constants";
 import { MenuItem, ProductItem, HoveredLink } from "../MenuComponents";
+import { getWhatsAppLink } from "@/lib/smart-links";
+import { WHATSAPP } from "@/data/contact";
 
 interface NavbarProps {
   onOpenEnquiry: () => void;
@@ -99,7 +101,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
           <div className="hidden lg:flex items-center space-x-6">
             <div className="flex items-center space-x-2 text-foreground font-semibold">
               <i className="fa-solid fa-phone text-primary"></i>
-              <a href="tel:+9779825883910">+977-9825883910</a>
+              <a href={getWhatsAppLink(WHATSAPP.fullNumber)}>{WHATSAPP.countryCode} {WHATSAPP.number}</a>
             </div>
             <button
               onClick={onOpenEnquiry}
