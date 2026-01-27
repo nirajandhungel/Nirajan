@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "../components/ui/button"
 import { ArrowRight, Download, Mail, Sparkles } from "lucide-react"
 import Image from "next/image"
+import {CONTACT}  from '@/data/contact';
 
 export function HeroSection() {
   return (
@@ -91,7 +92,7 @@ export function HeroSection() {
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 text-xs sm:text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>nirajandhungel200@gmail.com</span>
+                <span>{CONTACT.email}</span>
               </div>
               <div className="hidden sm:block h-4 w-px bg-border"></div>
               <div>Available for Freelance</div>

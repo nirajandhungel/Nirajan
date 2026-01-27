@@ -7,21 +7,19 @@ import Link from 'next/link';
 import { Github } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Web Development Projects by Nirajan Dhungel | Portfolio',
-  description: 'Explore the web development portfolio of Nirajan Dhungel. View projects including Expense Tracker, Sahara Rentals, Taxi Booking System, and more. Built with React, Next.js, Node.js, and modern technologies showcasing professional website development services.',
+  title: 'Projects | Nirajan Dhungel',
+  description: 'Explore my portfolio of web development projects including Expense Tracker, Sahara Rentals, Taxi Booking System, and more. Built with React, Next.js, Node.js, and modern technologies.',
   keywords: [
     'Nirajan Dhungel Projects',
     'Web Development Portfolio',
-    'Website Development Projects',
-    'React Projects Nepal',
+    'React Projects',
     'Next.js Projects',
     'Full Stack Projects',
     'Nepal Developer Portfolio',
-    'Custom Website Examples',
   ],
   openGraph: {
-    title: 'Web Development Projects | Nirajan Dhungel Portfolio',
-    description: 'View professional web development projects and applications by Nirajan Dhungel, showcasing expertise in website development services.',
+    title: 'Projects | Nirajan Dhungel Portfolio',
+    description: 'View my latest web development projects and applications.',
     url: 'https://nirajandhungel.com.np/projects',
     images: [
       {
@@ -42,13 +40,13 @@ export default function ProjectsPage() {
           <h6 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">
             MY WORK
           </h6>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
             Featured <span className="text-primary">Projects</span>
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            Explore my web development portfolio showcasing professional website development services. 
-            Each project demonstrates expertise in full-stack development, UI/UX design, and problem-solving. 
-            From custom web applications to e-commerce solutions, see how I transform ideas into reality.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+            Here are some of my recent projects showcasing my skills in full-stack development, 
+            UI/UX design, and problem-solving. Each project demonstrates my commitment to 
+            building high-quality, user-friendly applications.
           </p>
           <Button
             size="lg"
@@ -85,9 +83,8 @@ export default function ProjectsPage() {
           <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
             Technologies I Use
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            I work with modern technologies and frameworks to deliver professional website development services 
-            and build scalable, efficient applications.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            I work with modern technologies and frameworks to build scalable and efficient applications.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
