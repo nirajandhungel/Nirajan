@@ -40,15 +40,15 @@ export const WorkBanner = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full lg:w-1/2 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[600px] aspect-[4/3]">
+            <div className="relative w-full max-w-150 aspect-4/3">
               {/* Note: In production, use the actual image path. Using placeholder for now if file doesn't exist */}
                <div className="absolute inset-0 bg-linear-to-tr from-primary/5 to-blue-500/5 rounded-3xl -rotate-3 transform border border-primary/10"></div>
                <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden bg-white/50 backdrop-blur-sm shadow-xl border border-white/20 p-4">
                   <Image
-                    src="/media/work_process_banner.png" 
+                    src="/media/team/telecommunication.png" 
                     alt="Work Process"
                     fill
-                    className="object-contain"
+                    className="object-contain animate-float"
                     priority
                   />
                </div>
