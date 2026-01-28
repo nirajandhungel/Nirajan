@@ -2,8 +2,8 @@ import Link from "next/link"
 
 const services = [
   {
-    title: "Website Development",
-    description: "Highly functional & visually appealing website designed to meet your need.",
+    title: "Website Development Nepal",
+    description: "Highly functional & visually appealing websites designed to rank high and convert in Kathmandu and beyond.",
     icon: (
       <svg viewBox="0 0 80 80" className="w-16 h-16">
         <rect x="10" y="15" width="50" height="40" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
@@ -30,8 +30,8 @@ const services = [
     ),
   },
   {
-    title: "System/Software Development",
-    description: "System/software developed according to your business needs.",
+    title: "Software Development Nepal",
+    description: "Custom software solutions engineered for the specific needs of businesses in Kathmandu and across Nepal.",
     icon: (
       <svg viewBox="0 0 80 80" className="w-16 h-16">
         <rect x="10" y="20" width="45" height="35" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
@@ -59,8 +59,8 @@ const services = [
     ),
   },
   {
-    title: "Search Engine Optimization (SEO)",
-    description: "Custom SEO solutions for enhanced search engine visibility and growth",
+    title: "SEO Services Kathmandu",
+    description: "Expert SEO solutions to rank your business on the first page of Google search in Nepal and internationally.",
     icon: (
       <svg viewBox="0 0 80 80" className="w-16 h-16">
         <circle cx="35" cy="35" r="20" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
