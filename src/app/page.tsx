@@ -4,6 +4,7 @@ import { SolutionsSection } from "../components/solutions-section"
 import { CTASection } from "../components/cta-section"
 import Expertise from "../components/expertise"
 import Testimony from "../components/testimony"
+import FAQ from "../components/FAQ"
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Expertise/>
       <SolutionsSection />
       <Testimony/>
+      <FAQ></FAQ> 
       <CTASection />
     </main>
   )

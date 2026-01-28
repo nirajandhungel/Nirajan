@@ -8,6 +8,7 @@ import { CursorProvider } from "../providers/CursorProvider";
 
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css'
+import { CONTACT } from "@/data/contact"
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -19,24 +20,24 @@ const poppins = Poppins({
 
 // ========== DYNAMIC METADATA IMPROVEMENTS ==========
 // Consider fetching these from CMS or API
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://nirajandhungel.com.np';
+const SITE_URL = 'https://nirajandhungel.com.np';
 const SITE_NAME = 'Nirajan Dhungel';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), // Required for proper URL resolution
   
   title: {
-    default: 'Nirajan Dhungel | Full Stack Developer in Kathmandu, Nepal',
+    default: 'Nirajan Dhungel | Senior Software Engineer & Web Developer in Kathmandu, Nepal',
     template: '%s | Nirajan Dhungel',
   },
   
-  description: 'Expert Full Stack Developer specializing in React, Next.js, Node.js & TypeScript. Building high-performance web applications with modern tech stack. Based in Kathmandu, Nepal.',
+  description: 'Expert Software Engineer and Full Stack Developer in Kathmandu, Nepal. Professional website development, mobile app development, and SEO services for businesses. Ranking top for IT services in Nepal.',
   
   keywords: [
-    'Nirajan Dhungel', 'Full Stack Developer Nepal', 'Freelance Developer Kathmandu',
-    'React Developer', 'Next.js Developer', 'Node.js Developer', 'TypeScript Developer',
-    'Web Developer Nepal', 'MERN Stack Developer', 'Kathmandu Developer',
-    'Software Engineer Nepal', 'Portfolio Nirajan Dhungel',
+    'Nirajan Dhungel', 'Software Developer Kathmandu Nepal', 'Software Engineer Kathmandu',
+    'Freelance App Developer Nepal', 'Website Development Nepal', 'Web & App Development Services Kathmandu',
+    'Best Web Developer in Nepal', 'React Developer Kathmandu', 'Next.js Expert Nepal',
+    'IT Services Kathmandu', 'Software Solutions Nepal',
   ],
   
   authors: [{ name: 'Nirajan Dhungel', url: SITE_URL }],
@@ -74,14 +75,14 @@ export const metadata: Metadata = {
     description: 'Expert Full Stack Developer building modern, fast, and scalable web applications with React, Next.js & TypeScript. View my portfolio and latest projects.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/nirajandhungel3.png',
         width: 1200,
         height: 630,
         alt: 'Nirajan Dhungel - Digital Services Portfolio',
       },
     ],
-    emails: ['nirajandhungel200@gmail.com'],
-    phoneNumbers: ['+977-9825883910'],
+    emails: [CONTACT.email],
+    phoneNumbers: [CONTACT.phone.display],
     countryName: 'Nepal',
   },
   
@@ -91,7 +92,7 @@ export const metadata: Metadata = {
     creator: '@SubashDhungel18',
     title: 'Nirajan Dhungel | Full Stack Developer',
     description: 'Web developer sharing projects and blogs on React, Next.js, and AI.',
-    images: ['/og-image.png'],
+    images: ['/nirajandhungel3.png'],
   },
   
   // ========== MODERN SEO TAGS ==========
@@ -134,7 +135,7 @@ export const metadata: Metadata = {
     yahoo: 'your-yahoo-verification-code',
     other: {
       me: [
-        'mailto:nirajandhungel200@gmail.com',
+        `mailto:${CONTACT.email}`,
         SITE_URL,
       ],
     },
@@ -169,12 +170,16 @@ const structuredData = {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
       "name": "Nirajan Dhungel",
-      "description": metadata.description,
+      "description": "Senior Software Engineer and Web Developer specializing in Website Development, App Development, and SEO Services in Kathmandu, Nepal.",
       "url": SITE_URL,
-      "image": `${SITE_URL}/images/profile.jpg`,
-      "email": "nirajandhungel200@gmail.com",
-      "telephone": "+977-9825883910",
-      "jobTitle": "Full Stack Developer",
+      "image": `${SITE_URL}/nirajandhungel3.png`,
+      "email": CONTACT.email,
+      "telephone": CONTACT.phone.display,
+      "jobTitle": "Senior Software Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": SITE_NAME
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kathmandu",
@@ -182,6 +187,15 @@ const structuredData = {
         "addressCountry": "NP",
         "postalCode": "44600"
       },
+      "knowsAbout": [
+        "Website Development",
+        "Mobile App Development",
+        "Search Engine Optimization",
+        "Software Engineering",
+        "React",
+        "Next.js",
+        "Nepal IT Market"
+      ],
       "sameAs": [
         "https://github.com/nirajandhungel",
         "https://www.linkedin.com/in/nirajan-dhungel",
@@ -190,6 +204,48 @@ const structuredData = {
         "https://www.facebook.com/subash.dhungel.712",
         "https://medium.com/@nirajandhungel"
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      "url": SITE_URL,
+      "name": SITE_NAME,
+      "description": "Professional Software Development Services in Kathmandu, Nepal",
+      "publisher": { "@id": `${SITE_URL}/#person` },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Software Development",
+      "provider": { "@id": `${SITE_URL}/#person` },
+      "areaServed": "Nepal",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Software & Web Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "App Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Optimization"
+            }
+          }
+        ]
+      }
     }
   ]
 }
@@ -214,13 +270,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Preload critical assets */}
-        <link 
-          rel="preload" 
-          as="image" 
-          href="/images/hero-bg.jpg"
-          imageSrcSet="/images/hero-bg-400.jpg 400w, /images/hero-bg-800.jpg 800w, /images/hero-bg-1200.jpg 1200w"
-          imageSizes="(max-width: 768px) 100vw, 1200px"
-        />
+
         
         {/* ========== STRUCTURED DATA ========== */}
         <script
