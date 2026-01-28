@@ -1,25 +1,25 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Hero from '../service-components/components/Hero';
 import InfoCards from '../service-components/components/InfoCards';
 import TechStack from '../service-components/components/TechStack';
 import Roadmap from '../service-components/components/Roadmap';
 import EnquiryForm from '../service-components/components/EnquiryForm';
-import FAQ from '../service-components/components/FAQ';
+import FAQ from '../../../components/FAQ';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Website Development Services in Nepal | Nirajan Dhungel',
-  description: 'Professional website development services in Nepal by Nirajan Dhungel. Expert web developer offering custom website design, e-commerce solutions, and full-stack development using React, Next.js, and Node.js. Get a modern, responsive website for your business.',
+  title: 'Website Development Services in Nepal | Professional Web Developer',
+  description: 'Top-rated website development services in Nepal by Nirajan Dhungel. Expert Software Engineer offering custom web design, e-commerce solutions, and high-performance applications. Get a modern, SEO-friendly website today.',
   keywords: [
-    'Website Development Services',
+    'Website Development Services in Nepal',
     'Website Development Nepal',
     'Web Development Kathmandu',
-    'Custom Website Development',
-    'E-commerce Website Nepal',
-    'React Website Development',
-    'Next.js Development Services',
-    'Professional Web Developer Nepal',
-    'Nirajan Dhungel Services',
+    'Custom Website Development Nepal',
+    'Freelance Web Developer Nepal',
+    'Software Engineer Freelancer in Nepal',
+    'E-commerce Website Development Nepal',
+    'React & Next.js Developer Nepal',
   ],
   openGraph: {
     title: 'Website Development Services in Nepal | Nirajan Dhungel',
@@ -27,9 +27,10 @@ export const metadata: Metadata = {
     url: 'https://nirajandhungel.com.np/services/website-development-in-nepal',
     images: [
       {
-        url: 'https://nirajandhungel.com.np/og-image.png',
+        url: 'https://nirajandhungel.com.np/nirajandhungel3.png',
         width: 1200,
         height: 630,
+        alt: 'Website Development Services in Nepal - Nirajan Dhungel',
       },
     ],
   },
@@ -117,7 +118,14 @@ export default function WebsiteDevelopmentPage() {
                 </div>
               </div>
               <div className="w-full lg:w-1/2">
-                 <img src="https://picsum.photos/800/600?random=11" alt="Our Work" className="rounded-3xl shadow-2xl border-4 border-white/10" />
+                 <Image 
+                   src="/media/website-development-portfolio.png" 
+                   alt="Portfolio of Website Development Projects in Kathmandu, Nepal - Nirajan Dhungel" 
+                   title="Successful Web Development Projects by Nirajan Dhungel"
+                   width={800}
+                   height={600}
+                   className="rounded-3xl shadow-2xl border-4 border-white/10" 
+                 />
               </div>
             </div>
           </div>
