@@ -5,26 +5,28 @@ import { useState } from 'react';
 
 const faqs = [
   { 
-    q: 'What types of website development services do you offer?', 
-    a: 'As a leading website design and development company in Nepal, we offer services for E-Commerce, Travel, E-Learning, and custom informative websites. We develop from scratch to meet your specific business requirements.'
+    q: 'What services do you offer as a Software Engineer Freelancer in Nepal?', 
+    a: 'As a Software Engineer Freelancer in Nepal, I offer comprehensive digital solutions including professional website development, mobile app development, UI/UX design, and SEO services. My team and I focus on building custom, performance-oriented applications that drive business growth.'
   },
   { 
-    q: 'How much does it cost to develop a website?', 
-    a: 'Costs vary based on features, complexity, and type. We provide high-value solutions at competitive rates. Contact us for a detailed proposal based on your specific project needs.'
+    q: 'How much does website development cost in Nepal?', 
+    a: 'Website development costs in Nepal vary based on complexity. We offer packages starting from Rs. 25,000 for basic sites to more advanced custom solutions for e-commerce and enterprises. Contact me for a transparent estimate tailored to your budget.'
   },
   { 
-    q: 'How long does it take to build a website?', 
-    a: 'A basic informative website usually takes 3-4 weeks. More complex applications with advanced features like e-commerce or booking systems can take 8-12 weeks.'
+    q: 'Why should I hire a freelance web developer in Nepal?', 
+    a: 'Hiring a freelance web developer in Nepal like me provides you with direct communication, personalized attention, and cost-effective high-quality solutions. I combine global software engineering standards with local market understanding to deliver the best results.'
   },
   { 
-    q: 'Do you develop SEO-friendly websites?', 
-    a: 'Yes, developing SEO-friendly websites is our standard practice. We integrate optimized content, clean code, and technical SEO strategies into every project.'
+    q: 'What is your process for SEO in Nepal?', 
+    a: 'Our SEO process includes deep keyword research for the Nepal market, on-page optimization, technical SEO fixes, and backlink strategies. We focus on long-term organic growth to ensure your business ranks high for relevant search terms.'
   },
   { 
-    q: 'Do you offer support after development?', 
-    a: 'Absolutely. We provide ongoing assistance, security updates, and performance monitoring to ensure your online presence remains strong and effective.'
+    q: 'Do you provide maintenance for websites?', 
+    a: 'Yes, I provide ongoing maintenance and support for all projects. This ensures your website stays secure, updated, and continues to perform optimally as your business grows.'
   }
 ];
+
+
 
 const FAQ: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
