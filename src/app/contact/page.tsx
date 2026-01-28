@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import CtaSection from "@/components/consultant";
 import { localBusinessSchema } from "@/lib/structured-data";
 import { useEnquiryModal } from "../EnquiryContext";
@@ -10,11 +10,61 @@ import { getWhatsAppLink } from "@/lib/smart-links";
 // Note: Metadata cannot be exported from client components
 // Add metadata in a parent server component or layout if needed
 
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 const ContactPage: React.FC = () => {
   const { openEnquiry } = useEnquiryModal();
-  const handleSubmit = (e: React.FormEvent) => {
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Message sent successfully!");
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus('error');
+      setStatusMessage('Please fill in all required fields.');
+      return;
+    }
+
+    setStatus('submitting');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          formSource: 'Contact Page',
+          honeypot
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        setStatusMessage(result.message || "Your message has been sent successfully. We'll get back to you shortly.");
+        // Reset form
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+        setStatusMessage(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch {
+      setStatus('error');
+      setStatusMessage('An unexpected error occurred. Please try again later.');
+    }
   };
 
   const contactInfo = [
@@ -112,45 +162,97 @@ const ContactPage: React.FC = () => {
                     We are Here For You. Can we Help?
                   </h6>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6 relative">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <input
                         type="text"
                         required
                         placeholder="Full Name *"
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        disabled={status === 'submitting'}
+                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                       <input
                         type="email"
                         required
                         placeholder="Email *"
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        disabled={status === 'submitting'}
+                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                       <input
                         type="tel"
-                        required
                         placeholder="Phone Number"
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        disabled={status === 'submitting'}
+                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                       <input
                         type="text"
-                        required
-                        placeholder="Subject *"
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all"
+                        placeholder="Subject"
+                        value={formData.subject}
+                        onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                        disabled={status === 'submitting'}
+                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                     <textarea
                       required
                       placeholder="Message *"
                       rows={5}
-                      className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all"
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      disabled={status === 'submitting'}
+                      className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     ></textarea>
+
+                    {/* Honeypot field - hidden from users, visible to bots */}
+                    <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
+                      <label htmlFor="contact-website">Website</label>
+                      <input 
+                        type="text" 
+                        id="contact-website"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                      />
+                    </div>
+
+                    {/* Status message */}
+                    {statusMessage && (
+                      <div className={`flex items-center gap-3 p-4 rounded-xl text-sm font-medium ${
+                        status === 'success' 
+                          ? 'bg-green-50 text-green-700 border border-green-200' 
+                          : 'bg-red-50 text-red-700 border border-red-200'
+                      }`}>
+                        <i className={`fa-solid ${status === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'}`}></i>
+                        <span>{statusMessage}</span>
+                      </div>
+                    )}
 
                     <button
                       type="submit"
-                      className="px-10 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-black transition-all"
+                      disabled={status === 'submitting' || status === 'success'}
+                      className="px-10 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary flex items-center gap-3"
                     >
-                      Submit
+                      {status === 'submitting' ? (
+                        <>
+                          <i className="fa-solid fa-spinner animate-spin"></i>
+                          Sending...
+                        </>
+                      ) : status === 'success' ? (
+                        <>
+                          <i className="fa-solid fa-circle-check"></i>
+                          Sent Successfully
+                        </>
+                      ) : (
+                        'Submit'
+                      )}
                     </button>
                   </form>
                 </div>
