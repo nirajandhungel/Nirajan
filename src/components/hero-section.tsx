@@ -27,15 +27,14 @@ export function HeroSection() {
               <span className="bg-[#188025] bg-clip-text text-transparent">
                 Nirajan Dhungel
               </span>
-              {" "}- Web Developer & Full Stack Developer
+              {" "}- Software Engineer & Web Developer in Kathmandu, Nepal
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed">
-              Professional Web Developer specializing in website development services.
-              I build exceptional digital experiences that are fast, accessible,
-              visually appealing, and responsive. Let's transform your ideas into
-              reality with cutting-edge web solutions.
+              Leading Software Developer in Kathmandu, Nepal specializing in professional website development, 
+              app solutions, and SEO services. I build exceptional digital experiences that drive growth 
+              for local and international businesses.
             </p>
 
             {/* Stats */}
@@ -105,12 +104,12 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-[#3bb54a]/20 rounded-full blur-3xl"></div>
               <Image
                 src="/nirajandhungel3.png"
-                alt="Nirajan Dhungel - Full Stack Web Developer Portfolio"
-                title="Nirajan Dhungel - Professional Web Developer in Nepal"
+                alt="Nirajan Dhungel - Software Engineer Freelancer in Nepal and Full Stack Web Developer"
+                title="Nirajan Dhungel - Expert Software Engineer and Web Developer in Kathmandu, Nepal"
                 width={500}
                 height={500}
                 priority
-                className="relative w-full h-auto rounded-3xl shadow-2xl"
+                className="relative w-full h-auto rounded-3xl shadow-2xl animate-float"
               />
             </div>
           </div>
