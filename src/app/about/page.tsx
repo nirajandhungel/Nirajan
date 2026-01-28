@@ -11,16 +11,16 @@ import Image from 'next/image';
 import { CONTACT } from '@/data/contact';
 
 export const metadata: Metadata = {
-  title: 'About Nirajan Dhungel | Professional Web Developer in Kathmandu, Nepal',
-  description: 'Learn about Nirajan Dhungel, a professional Web Developer and Full Stack Developer in Kathmandu, Nepal. Specializing in website development services using React, Next.js, Node.js, and TypeScript. View skills, experience, and education.',
+  title: 'About Nirajan Dhungel | Software Engineer Freelancer in Nepal',
+  description: 'Learn about Nirajan Dhungel, a leading Software Engineer Freelancer in Nepal and professional Web Developer. Specializing in high-performance website development services using React, Next.js, and TypeScript.',
   keywords: [
-    'About Nirajan Dhungel',
-    'Nirajan Dhungel Web Developer',
-    'Full Stack Developer Bio',
-    'Web Developer Nepal',
+    'Software Engineer Freelancer in Nepal',
+    'Nirajan Dhungel',
+    'Full Stack Developer Nepal',
+    'Web Developer Kathmandu',
+    'Freelance Web Developer Nepal',
     'Website Development Services Nepal',
-    'Software Engineer Profile',
-    'React Developer Portfolio',
+    'Professional Software Engineer Nepal',
   ],
   openGraph: {
     title: 'About Nirajan Dhungel | Professional Web Developer & Full Stack Developer',
@@ -50,10 +50,11 @@ export default function AboutPage() {
                 ABOUT ME
               </h6>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight">
-                Hi, I'm <span className="text-primary">Nirajan Dhungel</span>
+                Hi, I'm <span className="text-primary">Nirajan Dhungel</span>,<br />
+                <span className="text-2xl md:text-4xl">Software Engineer Freelancer in Nepal</span>
               </h1>
               <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6">
-                I'm a passionate Web Developer and Full Stack Developer based in Kathmandu, Nepal, 
+                I'm a passionate Software Engineer Freelancer and Web Developer based in Kathmandu, Nepal, 
                 specializing in building exceptional digital experiences. With expertise in modern web 
                 technologies like React, Next.js, Node.js, and TypeScript, I provide professional 
                 website development services to help businesses establish a strong online presence.
