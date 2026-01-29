@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), // Required for proper URL resolution
   
   title: {
-    default: 'Nirajan Dhungel | Senior Software Engineer & Web Developer in Kathmandu, Nepal',
+    default: 'Nirajan Dhungel | Software Engineer & Web Developer in Kathmandu, Nepal',
     template: '%s | Nirajan Dhungel',
   },
   
@@ -170,12 +170,12 @@ const structuredData = {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
       "name": "Nirajan Dhungel",
-      "description": "Senior Software Engineer and Web Developer specializing in Website Development, App Development, and SEO Services in Kathmandu, Nepal.",
+      "description": " Software Engineer and Web Developer specializing in Website Development, App Development, and SEO Services in Kathmandu, Nepal.",
       "url": SITE_URL,
       "image": `${SITE_URL}/nirajandhungel3.png`,
       "email": CONTACT.email,
       "telephone": CONTACT.phone.display,
-      "jobTitle": "Senior Software Engineer",
+      "jobTitle": "Software Engineer, Full Stack Developer",
       "worksFor": {
         "@type": "Organization",
         "name": SITE_NAME
@@ -200,7 +200,7 @@ const structuredData = {
         "https://github.com/nirajandhungel",
         "https://www.linkedin.com/in/nirajan-dhungel",
         "https://x.com/SubashDhungel18",
-        "https://www.instagram.com/nirajan.dhungel19",
+        "https://www.instagram.com/nirajandhungel.exe",
         "https://www.facebook.com/subash.dhungel.712",
         "https://medium.com/@nirajandhungel"
       ]
@@ -298,9 +298,9 @@ export default function RootLayout({
               },
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "18:00"
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "05:00",
+                "closes": "21:00"
               },
               "priceRange": "$$",
               "areaServed": {
