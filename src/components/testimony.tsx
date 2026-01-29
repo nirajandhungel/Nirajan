@@ -18,22 +18,22 @@ const Testimonials: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {[
                 {
-                  name: "Suman Rana",
-                  role: "Sr. Node JS Developer",
+                  name: "Nirush Shrestha",
+                  role: "Node JS Developer",
                   text: "Working here has been transformative. The learning opportunities and collaborative environment push me to grow every day.",
-                  img: "https://picsum.photos/seed/suman/100/100",
+                  img: "/media/team/nirush-man-shrestha.jpeg",
                 },
                 {
-                  name: "Sujan Maharjan",
+                  name: "Rojan Maharjan",
                   role: "Frontend Designer",
                   text: "The creative freedom and support from the team allows me to deliver my best work. It's more than just a job.",
-                  img: "https://picsum.photos/seed/sujan/100/100",
+                  img: "/media/team/rojan-maharjan.jpeg",
                 },
                 {
-                  name: "Nishant Gupta",
-                  role: "SEO Expert",
+                  name: "Utsav Acharya",
+                  role: "Java Developer",
                   text: "Amazing work culture! The team respects work-life balance while maintaining high standards of excellence.",
-                  img: "https://picsum.photos/seed/nishant/100/100",
+                  img: "/media/team/utsav-acharya.jpeg",
                 },
               ].map((testimonial, index) => (
                 <div
