@@ -20,16 +20,7 @@ export function SkillCard({ skill, gradient }: { skill: Skill; gradient: string 
 
         <h4 className="font-bold text-foreground mb-2">{skill.name}</h4>
 
-        <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-          <div
-            className={`bg-gradient-to-r ${gradient} h-2 rounded-full transition-all duration-1000`}
-            style={{ width: `${skill.level}%` }}
-          />
-        </div>
 
-        <span className="text-sm font-semibold text-primary">
-          {skill.level}%
-        </span>
       </div>
     </div>
   );
