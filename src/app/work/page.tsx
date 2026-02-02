@@ -88,7 +88,6 @@ export default function WorkPage() {
       </section>
 
       <CTASection />
-      <WhatsAppButton />
     </main>
   );
 }
