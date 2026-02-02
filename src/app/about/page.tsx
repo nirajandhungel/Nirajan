@@ -179,25 +179,6 @@ export default function AboutPage() {
       {/* Education Section */}
       <EducationTimeline />
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-green-600 text-white">
-        <div className="container mx-auto px-4 md:px-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-            Let's Work Together
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            I'm currently available for freelance work and exciting projects. 
-            Let's create something amazing together!
-          </p>
-          <Button
-            size="lg"
-            className="bg-white text-primary hover:bg-gray-100 rounded-lg px-10 py-6 text-lg font-bold"
-            asChild
-          >
-            <Link href="/contact">Start a Project</Link>
-          </Button>
-        </div>
-      </section>
     </div>
   );
 }
