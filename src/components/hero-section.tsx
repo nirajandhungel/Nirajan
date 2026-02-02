@@ -60,7 +60,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="
-                  bg-[#3bb54a] hover:bg-[#0e9b21] text-white rounded-lg 
+                  bg-primary hover:bg-[#0d831dd6] text-white rounded-lg 
                   px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base group
                 "
                 asChild
@@ -75,7 +75,7 @@ export function HeroSection() {
                 size="lg"
                 variant="outline"
                 className="
-                  border-2 border-[#3bb54a] text-[#3bb54a] hover:bg-[#3bb54a]/10 hover:text-black
+                  border-2 border-[#3bb54a] text-primary hover:bg-[#3bb54a]/10 hover:text-[#3bb54a]
                   rounded-lg px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base group
                 "
                 asChild
