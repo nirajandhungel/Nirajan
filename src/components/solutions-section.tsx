@@ -25,7 +25,7 @@ const features = [
 
 export function SolutionsSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-section-darker overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-black overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0">
         {/* Large Red Circle */}
