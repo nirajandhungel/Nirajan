@@ -42,16 +42,16 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-section-dark overflow-hidden">
+    <section className="relative py-24 lg:py-32  overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Red circle accent */}
-        <div 
+        {/* <div 
           className="absolute -top-40 -left-40 w-[300px] h-[300px] rounded-full opacity-40"
           style={{
             background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
           }}
-        />
+        /> */}
         <div 
           className="absolute bottom-20 right-0 w-[200px] h-[200px] rounded-full opacity-30"
           style={{
