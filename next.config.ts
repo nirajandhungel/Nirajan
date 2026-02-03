@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' data:",
               "connect-src 'self' https://www.google-analytics.com https://vercel.com",
               "frame-src https://vercel.live",
+              "worker-src 'self' blob:", // Allow service workers
             ].join("; "),
           },
           {
