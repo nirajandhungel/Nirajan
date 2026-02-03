@@ -25,20 +25,55 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 100);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Add hysteresis (buffer) to prevent flickering at the threshold
+      if (scrollY > 100 && !isSticky) {
+        setIsSticky(true);
+      } else if (scrollY < 80 && isSticky) {
+        setIsSticky(false);
+      }
+    };
+
+    // Initial check
+    if (window.scrollY > 100) {
+      setIsSticky(true);
+    }
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [isSticky]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isSticky 
-          ? "bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20" 
-          : "bg-transparent py-2"
-      }`}
+      className={isSticky 
+        ? "sticky top-0 z-50 transition-all duration-300 ease-in-out border-b bg-background/95 backdrop-blur-xl border-white/5 shadow-lg shadow-black/20 py-2" 
+        : "sticky top-0 z-50 transition-all duration-300 ease-in-out border-b bg-background/95 border-transparent py-3"
+      } 
+
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -161,20 +196,30 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                 ))}
               </MobileDropdown>
 
-              <MobileDropdown title="Services" isOpen={servicesOpen} onToggle={() => setServicesOpen(!servicesOpen)}>
-                <div className="space-y-4">
-                  <MobileServiceSection
-                    title="Development"
-                    services={SERVICE_DATA.development}
-                    onCloseMenu={closeMobileMenu}
-                  />
-                  <MobileServiceSection
-                    title="Marketing"
-                    services={SERVICE_DATA.marketing}
-                    onCloseMenu={closeMobileMenu}
-                  />
-                </div>
-              </MobileDropdown>
+            <MobileDropdown
+  title="Services"
+  isOpen={servicesOpen}
+  onToggle={() => setServicesOpen(!servicesOpen)}
+>
+  <div className="space-y-6">
+    {["Development", "Marketing"].map((category) => (
+      <MobileServiceSection
+        key={category}
+        title={category}
+        services={SERVICES
+          .filter((s) => s.category === category)
+          .map((s) => ({
+            name: s.title,
+            href: s.link,
+            icon: s.icon,
+          }))}
+        onCloseMenu={closeMobileMenu}
+      />
+    ))}
+  </div>
+</MobileDropdown>
+
+
 
               <MobileDropdown title="Pricing" isOpen={pricingOpen} onToggle={() => setPricingOpen(!pricingOpen)}>
                 {NAV_ITEMS.pricing.map((item) => (
