@@ -20,7 +20,7 @@ interface CustomCursorProps {
 export default function CustomCursor({
   size = 15,
   bgBlurSize = 300,
-  bgColor = "rgba(59, 181, 74, 0.15)",
+  bgColor = "rgba(196, 30, 58, 0.15)",
   hoverScale = 3,
   speed = 0.1,
 }: CustomCursorProps) {
@@ -105,7 +105,7 @@ export default function CustomCursor({
     <AnimatePresence initial={false}>
       {isVisible && (
         <>
-          {/* Layer 3: Cloud/Blur - Largest, slowest, most smooth */}
+          {/* Layer 3: Cloud/Blur - Largest, slowest, most smooth - RED */}
           <motion.div
             className="cursor-cloud"
             style={{
@@ -118,10 +118,9 @@ export default function CustomCursor({
               height:260,
               borderRadius: "50%",
               background:
-                "radial-gradient(circle, rgba(59, 181, 74, 0.25) 0%, rgba(59, 181, 74, 0.08) 50%, transparent 70%)",
+                "radial-gradient(circle, rgba(196, 30, 58, 0.25) 0%, rgba(196, 30, 58, 0.08) 50%, transparent 70%)",
               filter: "blur(60px)",
               pointerEvents: "none",
-              // zIndex: 9998,
               transform: "translate(-50%, -50%)",
             }}
             animate={{
@@ -134,7 +133,7 @@ export default function CustomCursor({
             }}
           />
 
-          {/* Layer 2: Circle - Medium size, smooth chase, green border */}
+          {/* Layer 2: Circle - Medium size, smooth chase, RED border with zoom in/out */}
           <motion.div
             className="cursor-circle"
             style={{
@@ -146,26 +145,36 @@ export default function CustomCursor({
               width: 50,
               height: 50,
               borderRadius: "50%",
-              border: "2px solid #3bb54a",
+              border: "2px solid #c41e3a",
               backgroundColor: "transparent",
               pointerEvents: "none",
               zIndex: 9999,
               transform: "translate(-50%, -50%)",
             }}
             animate={{
-              scale: isHovering ? 1.8 : 1,
-              borderColor: isHovering ? "#22c55e" : "#3bb54a",
+              scale: isHovering ? 0.6 : 1, // Zoom IN (smaller) on hover
+              borderColor: isHovering ? "#8b0000" : "#c41e3a",
               backgroundColor: isHovering
-                ? "rgba(59, 181, 74, 0.1)"
+                ? "rgba(196, 30, 58, 0.15)"
                 : "transparent",
             }}
             transition={{
-              duration: 0.3,
-              ease: "easeOut",
+              scale: {
+                duration: 0.5,
+                ease: [0.4, 0.0, 0.2, 1], // Smooth cubic-bezier
+              },
+              borderColor: {
+                duration: 0.3,
+                ease: "easeOut",
+              },
+              backgroundColor: {
+                duration: 0.3,
+                ease: "easeOut",
+              },
             }}
           />
 
-          {/* Layer 1: Dot - Small, instant, at cursor tip */}
+          {/* Layer 1: Dot - Small, instant, at cursor tip - YELLOW */}
           <motion.div
             className="cursor-dot"
             style={{
@@ -177,16 +186,16 @@ export default function CustomCursor({
               width: 10,
               height: 10,
               borderRadius: "50%",
-              backgroundColor: "#3bb54a",
+              backgroundColor: "#ffd700",
               pointerEvents: "none",
               zIndex: 10000,
               transform: "translate(-50%, -50%)",
               boxShadow:
-                "0 0 10px rgba(59, 181, 74, 0.6), 0 0 20px rgba(59, 181, 74, 0.3)",
+                "0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4)",
             }}
             animate={{
               scale: isHovering ? 1.5 : 1,
-              backgroundColor: isHovering ? "#22c55e" : "#3bb54a",
+              backgroundColor: isHovering ? "#ffed4e" : "#ffd700",
             }}
             transition={{
               duration: 0.2,

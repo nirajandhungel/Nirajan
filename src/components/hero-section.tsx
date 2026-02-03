@@ -1,54 +1,98 @@
 import Link from "next/link"
 import { Button } from "../components/ui/button"
-import { ArrowRight, Download, Mail, Sparkles } from "lucide-react"
+import { ArrowRight, Download, Mail } from "lucide-react"
 import Image from "next/image"
-import {CONTACT}  from '@/data/contact';
+import { CONTACT } from '@/data/contact';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-linear-to-b from-background to-light overflow-hidden">
+    <section className="relative min-h-screen bg-background overflow-hidden flex items-center">
+      {/* Cinematic Background Elements */}
+      <div className="absolute inset-0">
+        {/* Large Red Circle - Top Right */}
+        <div 
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full opacity-90"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 70%, transparent 100%)',
+          }}
+        />
+        
+        {/* Medium Red Circle - Bottom Left */}
+        <div 
+          className="absolute bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-70"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 60%, transparent 100%)',
+          }}
+        />
+        
+        {/* Small Red Accent Circle */}
+        <div 
+          className="absolute top-1/2 right-1/4 w-[120px] h-[120px] rounded-full opacity-50"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+          }}
+        />
+        
+        {/* Decorative Arc Lines */}
+        <div 
+          className="absolute top-10 left-10 w-32 h-32 rounded-full border-2 border-white/10"
+          style={{ borderTopColor: 'transparent', borderRightColor: 'transparent' }}
+        />
+        <div 
+          className="absolute top-16 left-16 w-24 h-24 rounded-full border border-white/5"
+          style={{ borderTopColor: 'transparent', borderRightColor: 'transparent' }}
+        />
+        
+        {/* Red Glow Effects */}
+        <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
+      </div>
 
-      <div className="container relative z-10 mx-auto px-4 lg:px-8 py-5 sm:py-7 lg:py-14">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+      <div className="container relative z-10 mx-auto px-4 lg:px-8 py-10 sm:py-16 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Content */}
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-light px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl mb-5 sm:mb-6">
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#3bb54a]" />
-              <span className="text-xs sm:text-sm font-medium">
-                Software Engineer
+            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-full mb-6">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+              <span className="text-sm font-medium text-white/80">
+                Available for Projects
               </span>
             </div>
 
             {/* Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
-              Hello, I'm{" "}
-              <span className="bg-[#188025] bg-clip-text text-transparent">
-                Nirajan Dhungel
-              </span>
-              {" "}- Software Engineer & Web Developer in Kathmandu, Nepal
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.1] mb-6">
+              <span className="text-white">I'm </span>
+              <span className="text-heading-gold">Nirajan</span>
+              <br />
+              <span className="text-heading-gold">Dhungel</span>
             </h1>
+            
+            {/* Role */}
+            <p className="text-xl sm:text-2xl font-bold text-white/90 mb-4">
+              Software Engineer & Web Developer
+            </p>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed">
-              Leading Software Developer in Kathmandu, Nepal specializing in professional website development, 
-              app solutions, and SEO services. I build exceptional digital experiences that drive growth 
-              for local and international businesses.
+            <p className="text-base sm:text-lg text-white/60 mb-8 leading-relaxed max-w-lg">
+              Building high-performance web solutions for international clients. 
+              I transform ideas into exceptional digital experiences that drive 
+              real business growth.
             </p>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mb-8 sm:mb-10">
+            <div className="flex flex-wrap gap-8 mb-10">
               {[
-                ["10+", "Projects Completed"],
-                ["2+", "Years Experience"],
-                ["100%", "Client Satisfaction"],
+                ["10+", "Projects"],
+                ["2+", "Years Exp"],
+                ["100%", "Satisfaction"],
               ].map(([value, label]) => (
-                <div key={label}>
-                  <div className="text-2xl sm:text-3xl font-bold text-[#288834]">
+                <div key={label} className="text-center">
+                  <div className="text-3xl sm:text-4xl font-black text-heading-gold">
                     {value}
                   </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">
+                  <div className="text-xs sm:text-sm text-white/50 uppercase tracking-wider">
                     {label}
                   </div>
                 </div>
@@ -56,60 +100,70 @@ export function HeroSection() {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-3 sm:gap-4">
+            <div className="flex flex-wrap gap-4">
               <Button
                 size="lg"
-                className="
-                  bg-primary hover:bg-[#0d831dd6] text-white rounded-lg 
-                  px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base group
-                "
+                className="btn-primary-cinematic text-white rounded-xl px-8 py-6 text-base font-bold group"
                 asChild
               >
                 <Link href="/contact">
-                  Hire Me Now
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Work With Me
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
-                className="
-                  border-2 border-[#3bb54a] text-primary hover:bg-[#3bb54a]/10 hover:text-[#3bb54a]
-                  rounded-lg px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base group
-                "
+                className="btn-outline-gold rounded-xl px-8 py-6 text-base font-bold group"
                 asChild
               >
                 <a href="/nirajan_cv.pdf" download>
-                  <Download className="mr-2 w-4 h-4" />
-                  View CV
+                  <Download className="mr-2 w-5 h-5" />
+                  Download CV
                 </a>
               </Button>
             </div>
 
             {/* Contact */}
-            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 text-xs sm:text-sm text-muted-foreground">
+            <div className="mt-10 flex flex-wrap items-center gap-4 text-sm text-white/50">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 text-primary" />
                 <span>{CONTACT.email}</span>
               </div>
-              <div className="hidden sm:block h-4 w-px bg-border"></div>
-              <div>Available for Freelance</div>
+              <div className="hidden sm:block h-4 w-px bg-white/20"></div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Open to Remote Work</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Image - Profile Photo */}
+          {/* Right Image - Profile Photo with Red Circle Behind */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md lg:max-w-lg">
-              <div className="absolute inset-0 bg-[#3bb54a]/20 rounded-full blur-3xl"></div>
+            <div className="relative">
+              {/* Red Circle Behind Portrait */}
+              <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] rounded-full -z-10"
+                style={{
+                  background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 80%)',
+                }}
+              />
+              
+              {/* Glow Effect */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
+              
               <Image
                 src="/nirajandhungel3.png"
-                alt="Nirajan Dhungel - Software Engineer Freelancer in Nepal and Full Stack Web Developer"
-                title="Nirajan Dhungel - Expert Software Engineer and Web Developer in Kathmandu, Nepal"
+                alt="Nirajan Dhungel - Software Engineer & Web Developer"
+                title="Nirajan Dhungel - Professional Web Developer"
                 width={500}
                 height={500}
                 priority
-                className="relative w-full h-auto rounded-3xl shadow-2xl animate-float"
+                className="relative w-full max-w-md h-auto animate-float"
+                style={{
+                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))',
+                }}
               />
             </div>
           </div>

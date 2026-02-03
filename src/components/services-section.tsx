@@ -1,162 +1,131 @@
 import Link from "next/link"
+import { ArrowRight, Code2, Smartphone, Database, Palette, Search, Megaphone } from "lucide-react"
 
 const services = [
   {
-    title: "Website Development Nepal",
-    description: "Highly functional & visually appealing websites designed to rank high and convert in Kathmandu and beyond.",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="10" y="15" width="50" height="40" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <rect x="15" y="20" width="40" height="25" fill="#c8e6c9" />
-        <circle cx="60" cy="35" r="8" fill="#3bb54a" opacity="0.3" />
-        <rect x="12" y="50" width="8" height="3" fill="#3bb54a" />
-        <circle cx="55" cy="60" r="10" fill="#2d3748" />
-        <rect x="50" y="55" width="10" height="12" fill="#4a5568" />
-      </svg>
-    ),
+    title: "Web Development",
+    description: "High-performance websites that rank well and convert visitors into clients. Built with modern technologies.",
+    icon: Code2,
+    color: "#c41e3a",
   },
   {
-    title: "App Development In Nepal",
-    description: "Innovative and user-friendly mobile application designed to engage users.",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="25" y="10" width="30" height="55" rx="4" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <rect x="30" y="18" width="20" height="35" fill="#c8e6c9" />
-        <circle cx="40" cy="58" r="3" fill="#3bb54a" />
-        <circle cx="60" cy="25" r="8" fill="#3bb54a" opacity="0.3" />
-        <rect x="55" y="40" width="15" height="10" rx="2" fill="#2d3748" />
-        <circle cx="15" cy="50" r="6" fill="#4a5568" />
-      </svg>
-    ),
+    title: "App Development",
+    description: "Native and cross-platform mobile applications designed for seamless user experience.",
+    icon: Smartphone,
+    color: "#ffd700",
   },
   {
-    title: "Software Development Nepal",
-    description: "Custom software solutions engineered for the specific needs of businesses in Kathmandu and across Nepal.",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="10" y="20" width="45" height="35" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <rect x="15" y="25" width="35" height="22" fill="#c8e6c9" />
-        <rect x="20" y="55" width="25" height="5" fill="#3bb54a" />
-        <circle cx="55" cy="30" r="12" fill="#3bb54a" opacity="0.3" />
-        <path d="M50 35 L60 25 L70 35" stroke="#2d3748" strokeWidth="2" fill="none" />
-        <rect x="58" y="35" width="12" height="15" fill="#4a5568" />
-      </svg>
-    ),
+    title: "Backend & APIs",
+    description: "Robust server-side solutions, RESTful APIs, and database architecture for scalable applications.",
+    icon: Database,
+    color: "#c41e3a",
   },
   {
-    title: "UI/UX",
-    description: "Design eye-catching UI/UX interfaces for effortless user interaction",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="15" y="15" width="40" height="35" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <rect x="20" y="20" width="30" height="8" fill="#c8e6c9" />
-        <rect x="20" y="32" width="15" height="12" fill="#3bb54a" opacity="0.5" />
-        <rect x="38" y="32" width="12" height="12" fill="#c8e6c9" />
-        <circle cx="58" cy="45" r="10" fill="#2d3748" />
-        <rect x="53" y="55" width="10" height="15" fill="#4a5568" />
-        <circle cx="25" cy="60" r="5" fill="#3bb54a" opacity="0.3" />
-      </svg>
-    ),
+    title: "UI/UX Design",
+    description: "User-centered design that balances aesthetics with functionality for maximum engagement.",
+    icon: Palette,
+    color: "#ffd700",
   },
   {
-    title: "SEO Services Kathmandu",
-    description: "Expert SEO solutions to rank your business on the first page of Google search in Nepal and internationally.",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <circle cx="35" cy="35" r="20" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <line x1="50" y1="50" x2="65" y2="65" stroke="#3bb54a" strokeWidth="4" strokeLinecap="round" />
-        <path d="M25 35 L32 42 L45 28" stroke="#3bb54a" strokeWidth="2" fill="none" />
-        <circle cx="60" cy="20" r="8" fill="#2d3748" />
-        <rect x="55" y="28" width="10" height="15" fill="#4a5568" />
-      </svg>
-    ),
+    title: "SEO Services",
+    description: "Data-driven optimization strategies to improve your search rankings and organic traffic.",
+    icon: Search,
+    color: "#c41e3a",
   },
   {
-    title: "Social Media Marketing (SMM)",
-    description: "Build a strong online presence and engage with your targeted audience",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="20" y="15" width="25" height="45" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <rect x="25" y="22" width="15" height="25" fill="#c8e6c9" />
-        <circle cx="32" cy="53" r="2" fill="#3bb54a" />
-        <circle cx="55" cy="30" r="12" fill="#3bb54a" opacity="0.3" />
-        <circle cx="60" cy="55" r="8" fill="#2d3748" />
-        <rect x="55" y="63" width="10" height="12" fill="#4a5568" />
-      </svg>
-    ),
-  },
-  {
-    title: "Graphic Design",
-    description: "Designs that Speak Your Brand's Narrative and Connect with Your Audience",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="15" y="15" width="35" height="40" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <rect x="20" y="20" width="25" height="15" fill="#c8e6c9" />
-        <rect x="20" y="40" width="10" height="10" fill="#3bb54a" opacity="0.5" />
-        <circle cx="58" cy="35" r="10" fill="#2d3748" />
-        <rect x="53" y="45" width="10" height="15" fill="#4a5568" />
-        <circle cx="40" cy="55" r="5" fill="#3bb54a" opacity="0.3" />
-      </svg>
-    ),
-  },
-  {
-    title: "Content Writing",
-    description: "Engaging and meaningful content to connect with your audience",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-16 h-16">
-        <rect x="20" y="15" width="35" height="45" rx="3" fill="#e8f5e9" stroke="#3bb54a" strokeWidth="2" />
-        <line x1="28" y1="25" x2="48" y2="25" stroke="#3bb54a" strokeWidth="2" />
-        <line x1="28" y1="33" x2="45" y2="33" stroke="#c8e6c9" strokeWidth="2" />
-        <line x1="28" y1="41" x2="48" y2="41" stroke="#c8e6c9" strokeWidth="2" />
-        <line x1="28" y1="49" x2="40" y2="49" stroke="#c8e6c9" strokeWidth="2" />
-        <circle cx="60" cy="45" r="10" fill="#2d3748" />
-        <rect x="55" y="55" width="10" height="12" fill="#4a5568" />
-      </svg>
-    ),
+    title: "Digital Marketing",
+    description: "Strategic marketing solutions to amplify your brand presence and reach your target audience.",
+    icon: Megaphone,
+    color: "#ffd700",
   },
 ]
 
 export function ServicesSection() {
   return (
-    <section className="py-16 lg:py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="relative py-24 lg:py-32 bg-section-dark overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Red circle accent */}
+        <div 
+          className="absolute -top-40 -left-40 w-[300px] h-[300px] rounded-full opacity-40"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+          }}
+        />
+        <div 
+          className="absolute bottom-20 right-0 w-[200px] h-[200px] rounded-full opacity-30"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+          }}
+        />
+      </div>
+      
+      <div className="container relative z-10 mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="w-12 h-[2px] bg-border"></span>
-            <span className="text-sm text-muted-foreground">My Services</span>
-            <span className="w-12 h-[2px] bg-border"></span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="w-12 h-[2px] bg-primary"></span>
+            <span className="text-sm text-primary font-bold uppercase tracking-widest">Services</span>
+            <span className="w-12 h-[2px] bg-primary"></span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-            Exceptional Services For Your <span className="text-[#3bb54a]">Business Growth</span>
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
+            What I <span className="text-heading-gold">Offer</span>
           </h2>
-          <div className="flex items-center justify-center gap-4 mt-4">
-            <p className="text-muted-foreground">
-              Discover our wide range of digital solutions to enhance your online presence.
-            </p>
-            <Link href="#" className="hidden sm:flex items-center gap-2 text-foreground font-medium hover:text-[#3bb54a]">
-              <span className="w-8 h-[2px] bg-border"></span>
-              <span className="w-2 h-2 bg-[#3bb54a] rounded-full"></span>
-              See All
-            </Link>
-          </div>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            Comprehensive digital solutions tailored for international clients and remote collaborations.
+          </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="group">
-              <div className="mb-4">
-                {service.icon}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon
+            return (
+              <div 
+                key={index} 
+                className="group card-cinematic p-8 hover:-translate-y-2 transition-all duration-500"
+              >
+                {/* Icon */}
+                <div 
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                  style={{
+                    background: `linear-gradient(135deg, ${service.color}20 0%, ${service.color}10 100%)`,
+                    border: `1px solid ${service.color}30`,
+                  }}
+                >
+                  <Icon 
+                    className="w-7 h-7"
+                    style={{ color: service.color }}
+                  />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-white/60 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+                
+                {/* Hover Arrow */}
+                <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-2">
+                  <span className="text-sm font-semibold">Learn more</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-[#3bb54a] transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+            )
+          })}
+        </div>
+        
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <Link 
+            href="/services/website-development-in-nepal"
+            className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors font-bold"
+          >
+            View All Services
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </section>

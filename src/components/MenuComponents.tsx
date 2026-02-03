@@ -30,7 +30,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-foreground hover:text-primary hover:opacity-[0.9] px-4 py-3 text-sm font-semibold flex items-center"
+        className="cursor-pointer text-white/80 hover:text-primary px-4 py-3 text-sm font-semibold flex items-center transition-colors"
       >
         {item}
         <ChevronDown className="ml-1 w-4 h-4" />
@@ -45,11 +45,11 @@ export const MenuItem = ({
             <div className="absolute top-full left-0 pt-0 z-50">
               <motion.div
                 transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
-                className="bg-white backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-200 shadow-xl mt-1"
+                layoutId="active"
+                className="bg-card backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mt-1"
               >
                 <motion.div
-                  layout // layout ensures smooth animation
+                  layout
                   className="w-max h-full"
                 >
                   {children}
@@ -63,23 +63,6 @@ export const MenuItem = ({
   );
 };
 
-// export const Menu = ({
-//   setActive,
-//   children,
-// }: {
-//   setActive: (item: string | null) => void;
-//   children: React.ReactNode;
-// }) => {
-//   return (
-//     <nav
-//       onMouseLeave={() => setActive(null)} // resets the state
-//       className="relative rounded-full border border-transparent dark:bg-black dark:border-white/20 bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
-//     >
-//       {children}
-//     </nav>
-//   );
-// };
-
 export const ProductItem = ({
   title,
   description,
@@ -92,19 +75,19 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex items-start p-3 transition-colors hover:bg-gray-50 rounded-xl">
+    <Link href={href} className="flex items-start p-3 transition-colors hover:bg-white/5 rounded-xl group">
       <img src={src} alt={title} className="w-12 h-12 mr-4 shrink-0" />
       <div>
-        <div className="font-semibold text-black text-sm mb-1">{title}</div>
-        <div className="text-xs text-gray-500 leading-relaxed">{description}</div>
+        <div className="font-semibold text-white text-sm mb-1 group-hover:text-primary transition-colors">{title}</div>
+        <div className="text-xs text-white/50 leading-relaxed">{description}</div>
       </div>
     </Link>
   );
 };
 
-export const HoveredLink = ({ children, href, className = "text-base", ...rest }: any) => {
+export const HoveredLink = ({ children, href, className = "text-base", ...rest }: React.ComponentProps<typeof NavLink>) => {
   return (
-    <NavLink href={href} className={`text-black hover:text-primary hover:bg-gray-50 px-4 py-3 rounded-lg transition-all ${className}`} {...rest}>
+    <NavLink href={href} className={`text-white/80 hover:text-primary hover:bg-white/5 px-4 py-3 rounded-lg transition-all ${className}`} {...rest}>
       {children}
     </NavLink>
   );

@@ -17,210 +17,157 @@ const Footer: React.FC = () => {
   const emailLinks = getEmailLink(CONTACT.email, "Inquiry from Website");
 
   return (
-    <footer className="bg-light text-gray-900 pt-24 pb-12">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
-          {/* Development Services */}
+    <footer className="relative bg-background border-t border-white/5 pt-20 pb-10 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute -bottom-40 -right-40 w-[400px] h-[400px] rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+          }}
+        />
+      </div>
+      
+      <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-16">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block mb-6">
+              <div className="flex items-center gap-2">
+                <span className="text-4xl font-black text-heading-gold">N</span>
+                <div>
+                  <span className="text-xl font-bold text-white">Nirajan</span>
+                  <span className="block text-xs text-white/50 tracking-widest">DHUNGEL</span>
+                </div>
+              </div>
+            </Link>
+            <p className="text-white/50 text-sm leading-relaxed mb-6">
+              Software Engineer & Web Developer based in Kathmandu, Nepal. 
+              Building exceptional digital experiences for international clients.
+            </p>
+            
+            {/* Social Links */}
+            <div className="flex gap-3">
+              {[
+                { Icon: Github, href: SOCIAL_LINKS.github.url },
+                { Icon: Linkedin, href: SOCIAL_LINKS.linkedin.url },
+                { Icon: Instagram, href: SOCIAL_LINKS.instagram.url },
+                { Icon: Facebook, href: SOCIAL_LINKS.facebook.url },
+                { Icon: Twitter, href: SOCIAL_LINKS.twitter.url },
+              ].map(({ Icon, href }, idx) => (
+                <a
+                  key={idx}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Services Column */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 border-b border-black/10 pb-2">
-              Development Services
+            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full"></span>
+              Services
             </h3>
-            <ul className="space-y-3 sm:space-y-4 text-gray-600 text-sm">
-              <li>
-                <Link
-                  href="/services/website-development-in-nepal"
-                  className="hover:text-primary transition-colors"
-                >
-                  Website Development
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/mobile-app-development"
-                  className="hover:text-primary transition-colors"
-                >
-                  App Development
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/system-software-development"
-                  className="hover:text-primary transition-colors"
-                >
-                  System/Software Development
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/ui-ux-design"
-                  className="hover:text-primary transition-colors"
-                >
-                  UI/UX Design
-                </Link>
-              </li>
+            <ul className="space-y-3 text-sm">
+              {[
+                { label: "Website Development", href: "/services/website-development-in-nepal" },
+                { label: "App Development", href: "/services/mobile-app-development" },
+                { label: "Backend & APIs", href: "/services/system-software-development" },
+                { label: "UI/UX Design", href: "/services/ui-ux-design" },
+                { label: "SEO Services", href: "/services/seo-in-nepal" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white/50 hover:text-primary transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <span className="w-0 h-[1px] bg-primary group-hover:w-3 transition-all duration-300"></span>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Marketing Services */}
+          {/* Quick Links Column */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 border-b border-black/10 pb-2">
-              Marketing Services
-            </h3>
-            <ul className="space-y-3 sm:space-y-4 text-gray-600 text-sm">
-              <li>
-                <Link
-                  href="/services/seo-in-nepal"
-                  className="hover:text-primary transition-colors"
-                >
-                  SEO Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/social-media-marketing"
-                  className="hover:text-primary transition-colors"
-                >
-                  Social Media Marketing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/graphics-design"
-                  className="hover:text-primary transition-colors"
-                >
-                  Graphic Design
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/content-writing"
-                  className="hover:text-primary transition-colors"
-                >
-                  Content Writing
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 border-b border-black/10 pb-2">
+            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 bg-accent rounded-full"></span>
               Quick Links
             </h3>
-            <ul className="space-y-3 sm:space-y-4 text-gray-600 text-sm">
-              <li>
-                <Link href="/" className="hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-primary transition-colors"
-                >
-                  About Me
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="hover:text-primary transition-colors"
-                >
-                  My Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/work"
-                  className="hover:text-primary transition-colors"
-                >
-                  How We Work
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/team"
-                  className="hover:text-primary transition-colors"
-                >
-                  Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-primary transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
+            <ul className="space-y-3 text-sm">
+              {[
+                { label: "Home", href: "/" },
+                { label: "About Me", href: "/about" },
+                { label: "Projects", href: "/projects" },
+                { label: "How I Work", href: "/work" },
+                { label: "Contact", href: "/contact" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white/50 hover:text-accent transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <span className="w-0 h-[1px] bg-accent group-hover:w-3 transition-all duration-300"></span>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Column */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 border-b border-black/10 pb-2">
+            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full"></span>
               Get In Touch
             </h3>
-            <ul className="space-y-3 sm:space-y-4 text-gray-600 text-sm">
-              <li className="flex items-center">
-                <Phone className="w-5 h-5 text-primary mr-3 shrink-0" />
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
                 <a
                   href={`tel:${CONTACT.phone.tel}`}
-                  className="hover:text-primary transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   {CONTACT.phone.display}
                 </a>
               </li>
-              <li className="flex items-center">
-                <Mail className="w-5 h-5 text-primary mr-3 shrink-0" />
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center">
+                  <Mail className="w-4 h-4 text-primary" />
+                </div>
                 <a
-                  href={
-                    emailLinks.isMobile ? emailLinks.mailto : emailLinks.gmail
-                  }
-                  className="hover:text-primary transition-colors"
+                  href={emailLinks.isMobile ? emailLinks.mailto : emailLinks.gmail}
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   {CONTACT.email}
                 </a>
               </li>
-              <li className="flex items-start">
-                <MapPin className="w-5 h-5 text-primary mr-3 shrink-0" />
-                <span>{CONTACT.location}</span>
+              <li className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-white/50">{CONTACT.location}</span>
               </li>
             </ul>
-
-            {/* Social Media */}
-            <div className="mt-6">
-              <h4 className="font-bold text-foreground mb-3 text-sm">
-                Follow Me:
-              </h4>
-              <div className="flex space-x-3">
-                {[
-                  { Icon: Github, href: SOCIAL_LINKS.github.url },
-                  { Icon: Linkedin, href: SOCIAL_LINKS.linkedin.url },
-                  { Icon: Instagram, href: SOCIAL_LINKS.instagram.url },
-                  { Icon: Facebook, href: SOCIAL_LINKS.facebook.url },
-                  { Icon: Twitter, href: SOCIAL_LINKS.twitter.url },
-                ].map(({ Icon, href }, idx) => (
-                  <a
-                    key={idx}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white border border-border rounded-full flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
-                  >
-                    <Icon size={18} />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
-        <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-gray-600">
-            © {new Date().getFullYear()} Nirajan Dhungel. All Rights Reserved.
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-white/40">
+            © {new Date().getFullYear()} <span className="text-white/60">Nirajan Dhungel</span>. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-gray-600">
+          <div className="flex items-center gap-4 text-sm text-white/40">
             <span>Built with Next.js & Tailwind CSS</span>
           </div>
         </div>

@@ -1,4 +1,4 @@
-'"use client";'
+"use client";
 import { Skill } from "../../../types";
 
 export function SkillCard({ skill, gradient }: { skill: Skill; gradient: string }) {
@@ -6,9 +6,7 @@ export function SkillCard({ skill, gradient }: { skill: Skill; gradient: string 
 
   return (
     <div
-      className="bg-white rounded-2xl p-6 border border-border/40
-                 hover:shadow-xl hover:-translate-y-2
-                 transition-all duration-300 group"
+      className="card-cinematic p-6 group"
     >
       <div className="flex flex-col items-center text-center">
         <div className="w-16 h-16 mb-4 flex items-center justify-center">
@@ -18,9 +16,7 @@ export function SkillCard({ skill, gradient }: { skill: Skill; gradient: string 
           />
         </div>
 
-        <h4 className="font-bold text-foreground mb-2">{skill.name}</h4>
-
-
+        <h4 className="font-bold text-white text-sm">{skill.name}</h4>
       </div>
     </div>
   );

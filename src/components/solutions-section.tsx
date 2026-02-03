@@ -1,86 +1,130 @@
+import { CheckCircle, Rocket, Shield, Clock } from "lucide-react"
+
+const features = [
+  {
+    icon: Rocket,
+    title: "Fast Delivery",
+    description: "Quick turnaround without compromising quality"
+  },
+  {
+    icon: Shield,
+    title: "Secure & Reliable",
+    description: "Enterprise-grade security standards"
+  },
+  {
+    icon: Clock,
+    title: "24/7 Support",
+    description: "Round-the-clock assistance for all clients"
+  },
+  {
+    icon: CheckCircle,
+    title: "100% Satisfaction",
+    description: "Committed to exceeding expectations"
+  }
+]
+
 export function SolutionsSection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#f8fdf8] relative overflow-hidden">
-      {/* Curved background */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-background">
-        <svg viewBox="0 0 1440 120" className="absolute bottom-0 w-full" preserveAspectRatio="none">
-          <path
-            d="M0,120 C480,30 960,30 1440,120 L1440,120 L0,120 Z"
-            fill="#f8fdf8"
-          />
-        </svg>
+    <section className="relative py-24 lg:py-32 bg-section-darker overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0">
+        {/* Large Red Circle */}
+        <div 
+          className="absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full -translate-y-1/2 opacity-30"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+          }}
+        />
+        
+        {/* Decorative Arc */}
+        <div 
+          className="absolute bottom-10 left-10 w-40 h-40 rounded-full border-2 border-white/5"
+          style={{ borderBottomColor: 'transparent', borderLeftColor: 'transparent' }}
+        />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="max-w-lg">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="w-8 h-[2px] bg-border"></span>
-              <span className="text-sm text-muted-foreground">What We Provide</span>
-              <span className="w-8 h-[2px] bg-border"></span>
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="w-8 h-[2px] bg-primary"></span>
+              <span className="text-sm text-primary font-bold uppercase tracking-widest">Why Choose Me</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Strategic <span className="text-[#3bb54a]">Solutions</span> For Your Needs
+            
+            <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
+              Strategic <span className="text-heading-gold">Solutions</span> for Your Business
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Our experienced team is here to utilize valuable resources efficiently that ensures client satisfaction. We guarantee you that our services will set exceptional growth for your business.
+            
+            <p className="text-white/60 leading-relaxed mb-10">
+              With expertise in modern technologies and a client-first approach, I deliver 
+              solutions that not only meet requirements but exceed expectations. My focus is 
+              on creating lasting value for international clients.
             </p>
+            
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              {features.map((feature, index) => {
+                const Icon = feature.icon
+                return (
+                  <div key={index} className="group">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-white mb-1">{feature.title}</h3>
+                        <p className="text-sm text-white/50">{feature.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
 
-          {/* Right Illustration */}
+          {/* Right Illustration - Abstract SVG */}
           <div className="relative flex justify-center lg:justify-end">
-            <svg viewBox="0 0 600 400" className="w-full max-w-[500px] h-auto">
-              {/* Isometric workspace illustration */}
-              <g>
-                {/* Floor/Platform */}
-                <path d="M100 350 L300 250 L500 350 L300 450 Z" fill="#e8f5e9" />
+            <div className="relative">
+              {/* Red Circle Behind */}
+              <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full -z-10"
+                style={{
+                  background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 80%)',
+                }}
+              />
+              
+              {/* Abstract Tech Illustration */}
+              <svg viewBox="0 0 400 400" className="w-full max-w-md h-auto relative z-10">
+                {/* Outer Ring */}
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#ffffff10" strokeWidth="2" strokeDasharray="10 5" />
                 
-                {/* Desk 1 */}
-                <rect x="150" y="280" width="80" height="5" fill="#4a5568" transform="skewX(-30)" />
-                <rect x="155" y="285" width="5" height="40" fill="#2d3748" />
-                <rect x="210" y="285" width="5" height="40" fill="#2d3748" />
+                {/* Inner Elements */}
+                <circle cx="200" cy="200" r="100" fill="#111111" stroke="#c41e3a30" strokeWidth="2" />
                 
-                {/* Computer on desk */}
-                <rect x="160" y="260" width="40" height="25" fill="#1a1a1a" transform="skewX(-10)" />
-                <rect x="165" y="263" width="32" height="18" fill="#3bb54a" opacity="0.5" />
+                {/* Code Bracket */}
+                <text x="170" y="190" fill="#ffd700" fontSize="48" fontFamily="monospace">{"<"}</text>
+                <text x="205" y="190" fill="#ffffff" fontSize="48" fontFamily="monospace">{"/"}</text>
+                <text x="230" y="190" fill="#ffd700" fontSize="48" fontFamily="monospace">{">"}</text>
                 
-                {/* People */}
-                {/* Person 1 - standing */}
-                <circle cx="250" cy="200" r="15" fill="#2d3748" />
-                <rect x="240" y="220" width="20" height="50" rx="5" fill="#3bb54a" />
+                {/* Dots */}
+                <circle cx="200" cy="240" r="4" fill="#c41e3a" />
+                <circle cx="180" cy="240" r="3" fill="#ffffff50" />
+                <circle cx="220" cy="240" r="3" fill="#ffffff50" />
                 
-                {/* Person 2 - at desk */}
-                <circle cx="320" cy="230" r="12" fill="#4a5568" />
-                <rect x="312" y="245" width="16" height="35" rx="4" fill="#2d3748" />
+                {/* Orbiting Elements */}
+                <circle cx="320" cy="200" r="15" fill="#c41e3a" opacity="0.8" />
+                <circle cx="80" cy="200" r="10" fill="#ffd700" opacity="0.6" />
+                <circle cx="200" cy="80" r="12" fill="#c41e3a" opacity="0.6" />
+                <circle cx="200" cy="320" r="8" fill="#ffd700" opacity="0.4" />
                 
-                {/* Person 3 */}
-                <circle cx="400" cy="250" r="14" fill="#2d3748" />
-                <rect x="390" y="268" width="20" height="45" rx="5" fill="#4a5568" />
-                
-                {/* Floating UI elements */}
-                <rect x="350" y="120" width="60" height="40" rx="5" fill="#ffffff" stroke="#3bb54a" strokeWidth="2" />
-                <rect x="360" y="130" width="40" height="4" fill="#3bb54a" />
-                <rect x="360" y="140" width="30" height="4" fill="#c8e6c9" />
-                
-                {/* Code/HTML element */}
-                <rect x="420" y="180" width="70" height="50" rx="5" fill="#1a1a1a" />
-                <text x="430" y="200" fill="#3bb54a" fontSize="8" fontFamily="monospace">{"<HTML>"}</text>
-                <text x="430" y="215" fill="#ffffff" fontSize="8" fontFamily="monospace">{"<JAVA>"}</text>
-                
-                {/* Growth charts */}
-                <rect x="120" y="150" width="50" height="35" rx="3" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-                <path d="M130 175 L140 165 L150 170 L160 155" stroke="#3bb54a" strokeWidth="2" fill="none" />
-                
-                {/* Plant */}
-                <rect x="480" y="300" width="15" height="20" fill="#8b5a2b" />
-                <circle cx="487" cy="290" r="12" fill="#3bb54a" />
-                <circle cx="480" cy="285" r="8" fill="#4ade80" />
-                
-                {/* Connection lines */}
-                <path d="M280 210 Q320 150 380 140" stroke="#c8e6c9" strokeWidth="2" strokeDasharray="5,5" fill="none" />
-              </g>
-            </svg>
+                {/* Connection Lines */}
+                <line x1="200" y1="50" x2="200" y2="100" stroke="#ffffff20" strokeWidth="1" />
+                <line x1="200" y1="300" x2="200" y2="350" stroke="#ffffff20" strokeWidth="1" />
+                <line x1="50" y1="200" x2="100" y2="200" stroke="#ffffff20" strokeWidth="1" />
+                <line x1="300" y1="200" x2="350" y2="200" stroke="#ffffff20" strokeWidth="1" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>

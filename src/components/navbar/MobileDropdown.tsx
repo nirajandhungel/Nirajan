@@ -16,14 +16,14 @@ export const MobileDropdown = ({ title, children, isOpen = false, onToggle }: Mo
   const toggle = onToggle || (() => setInternalOpen(!internalOpen));
 
   return (
-    <div className="border-b border-border px-3">
+    <div className="border-b border-white/5 px-3">
       <button
-        className="flex items-center justify-between w-full py-3 text-xs font-medium text-black"
+        className="flex items-center justify-between w-full py-3 text-sm font-medium text-white/80 hover:text-white transition-colors"
         onClick={toggle}
       >
         {title}
         <ChevronDown
-          className={`w-5 h-5 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`w-5 h-5 transition-transform text-primary ${open ? "rotate-180" : ""}`}
         />
       </button>
       {open && (

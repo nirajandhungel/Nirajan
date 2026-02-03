@@ -9,25 +9,49 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden border border-border/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+    <div className="group card-cinematic overflow-hidden hover:-translate-y-2 transition-all duration-500">
       {/* Project Image */}
-      <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+      <div className="relative h-64 overflow-hidden bg-gradient-to-br from-muted to-card">
         <Image
           src={project.image}
           alt={project.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+        
+        {/* Hover Overlay Links */}
+        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+          {project.githubLink && project.githubLink !== '#' && (
+            <a 
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+          )}
+          {project.demoLink && project.demoLink !== '#' && project.demoLink !== 'https://demo.com' && (
+            <a 
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
+        </div>
       </div>
 
       {/* Content */}
       <div className="p-6 sm:p-8">
-        <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
         
-        <p className="text-muted-foreground mb-4 leading-relaxed">
+        <p className="text-white/60 mb-4 leading-relaxed text-sm">
           {project.description}
         </p>
 
@@ -36,7 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.technologies.map((tech: string) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full"
+              className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs font-semibold rounded-full"
             >
               {tech}
             </span>
@@ -49,7 +73,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-foreground text-white rounded-lg hover:bg-primary transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-primary hover:border-primary transition-all text-sm font-medium"
           >
             <Github className="w-4 h-4" />
             Code
@@ -59,7 +83,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all text-sm font-medium"
+              className="flex items-center gap-2 px-5 py-2.5 border border-primary text-primary rounded-xl hover:bg-primary hover:text-white transition-all text-sm font-medium"
             >
               <ExternalLink className="w-4 h-4" />
               Live Demo

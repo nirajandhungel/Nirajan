@@ -34,7 +34,11 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
   return (
     <header
-      className={`sticky top-0 z-50 ${isSticky ? "bg-white shadow-md" : "bg-background py-1"} transition-all duration-300`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isSticky 
+          ? "bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20" 
+          : "bg-transparent py-2"
+      }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -48,9 +52,9 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             <NavLink href="/">Home</NavLink>
 
             <MenuItem setActive={setActive} active={active} item="About">
-              <div className="flex flex-col space-y-2  px-3 min-w-45">
+              <div className="flex flex-col space-y-2 px-3 min-w-45 bg-card border border-white/5 rounded-xl">
                 {NAV_ITEMS.about.map((item) => (
-                  <HoveredLink key={item.label} href={item.href} className="text-lg px-3 mb-3 mt-1 ">
+                  <HoveredLink key={item.label} href={item.href} className="text-lg px-3 mb-3 mt-1 text-white/80 hover:text-primary">
                     {item.label}
                   </HoveredLink>
                 ))}
@@ -58,10 +62,10 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             </MenuItem>
 
             <MenuItem setActive={setActive} active={active} item="Services">
-              <div className="grid grid-cols-2 gap-6 p-4 min-w-125">
+              <div className="grid grid-cols-2 gap-6 p-4 min-w-125 bg-card border border-white/5 rounded-xl">
                 {["Development", "Marketing"].map((category) => (
                   <div key={category} className="space-y-4">
-                    <h4 className="text-xs font-semibold text-[#3bb54a] uppercase tracking-wider border-b pb-2">
+                    <h4 className="text-xs font-semibold text-primary uppercase tracking-wider border-b border-white/10 pb-2">
                       {category}
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
@@ -81,9 +85,9 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             </MenuItem>
 
             <MenuItem setActive={setActive} active={active} item="Pricing">
-              <div className="flex flex-col space-y-2 p-2 min-w-45">
+              <div className="flex flex-col space-y-2 p-2 min-w-45 bg-card border border-white/5 rounded-xl">
                 {NAV_ITEMS.pricing.map((item) => (
-                  <HoveredLink key={item.label} href={item.href} className="text-xs px-3 py-2 mb-3">
+                  <HoveredLink key={item.label} href={item.href} className="text-xs px-3 py-2 mb-3 text-white/80 hover:text-primary">
                     {item.label}
                   </HoveredLink>
                 ))}
@@ -99,13 +103,15 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-6">
-            <div className="flex items-center space-x-2 text-foreground font-semibold">
+            <div className="flex items-center space-x-2 text-white/70 font-semibold">
               <i className="fa-solid fa-phone text-primary"></i>
-              <a href={getWhatsAppLink(WHATSAPP.fullNumber)}>{WHATSAPP.countryCode} {WHATSAPP.number}</a>
+              <a href={getWhatsAppLink(WHATSAPP.fullNumber)} className="hover:text-white transition-colors">
+                {WHATSAPP.countryCode} {WHATSAPP.number}
+              </a>
             </div>
             <button
               onClick={onOpenEnquiry}
-              className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white px-3 py-2 rounded-lg font-semibold transition-all"
+              className="btn-primary-cinematic text-white px-5 py-2.5 rounded-xl font-bold transition-all"
             >
               Get In Touch
             </button>
@@ -113,7 +119,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-black"
+            className="lg:hidden p-2 text-white"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu className="w-6 h-6" />
@@ -126,30 +132,30 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
         className={`fixed inset-0 z-50 lg:hidden transition-opacity ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <div
-          className="absolute inset-0 bg-black/50"
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
           onClick={closeMobileMenu}
         />
         <div
-          className={`absolute top-0 left-0 h-full w-[320px] max-w-[85vw] bg-background shadow-xl transform transition-transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+          className={`absolute top-0 left-0 h-full w-[320px] max-w-[85vw] bg-card border-r border-white/5 shadow-xl transform transition-transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
           <div className="p-6">
             {/* Mobile Header */}
             <div className="flex items-center justify-between mb-8">
               <Logo onClick={closeMobileMenu} />
-              <button onClick={closeMobileMenu} className="text-black">
+              <button onClick={closeMobileMenu} className="text-white/60 hover:text-white">
                 <X className="w-6 h-6" />
               </button>
             </div>
 
             {/* Mobile Navigation */}
             <nav className="space-y-2">
-              <NavLink href="/" onClick={closeMobileMenu} className="block border-b border-border">
+              <NavLink href="/" onClick={closeMobileMenu} className="block border-b border-white/5 text-white/80 hover:text-white">
                 Home
               </NavLink>
 
               <MobileDropdown title="About" isOpen={aboutOpen} onToggle={() => setAboutOpen(!aboutOpen)}>
                 {NAV_ITEMS.about.map((item) => (
-                  <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block py-2">
+                  <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block py-2 text-white/60 hover:text-primary">
                     {item.label}
                   </NavLink>
                 ))}
@@ -172,14 +178,14 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
               <MobileDropdown title="Pricing" isOpen={pricingOpen} onToggle={() => setPricingOpen(!pricingOpen)}>
                 {NAV_ITEMS.pricing.map((item) => (
-                  <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block py-2">
+                  <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block py-2 text-white/60 hover:text-primary">
                     {item.label}
                   </NavLink>
                 ))}
               </MobileDropdown>
 
               {NAV_ITEMS.regular.map((item) => (
-                <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block border-b border-border">
+                <NavLink key={item.label} href={item.href} onClick={closeMobileMenu} className="block border-b border-white/5 text-white/80 hover:text-white">
                   {item.label}
                 </NavLink>
               ))}
@@ -187,7 +193,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
             {/* Mobile CTA */}
             <div className="mt-8 space-y-4">
-              <div className="flex items-center text-secondary font-semibold">
+              <div className="flex items-center text-white/60 font-semibold">
                 <Phone className="w-4 h-4 mr-2 text-primary" />
                 <a href="tel:+9779825883910">+977-9825883910</a>
               </div>
@@ -196,7 +202,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                   onOpenEnquiry();
                   closeMobileMenu();
                 }}
-                className="w-full bg-primary text-white px-3 py-3 rounded-md font-semibold hover:bg-green-600 transition-colors shadow-lg"
+                className="w-full btn-primary-cinematic text-white px-4 py-3 rounded-xl font-bold"
               >
                 Get In Touch
               </button>
