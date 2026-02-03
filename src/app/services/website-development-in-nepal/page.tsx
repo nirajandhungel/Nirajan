@@ -1,177 +1,193 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Hero from '../service-components/components/Hero';
-import InfoCards from '../service-components/components/InfoCards';
-import TechStack from '../service-components/components/TechStack';
-import Roadmap from '../service-components/components/Roadmap';
-import EnquiryForm from '../service-components/components/EnquiryForm';
-import FAQ from '../../../components/FAQ';
-import { generateBreadcrumbSchema } from '@/lib/structured-data';
+import Link from 'next/link';
+import { ArrowRight, Code, Smartphone, Zap, Shield } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Website Development Services in Nepal | Professional Web Developer',
-  description: 'Top-rated website development services in Nepal by Nirajan Dhungel. Expert Software Engineer offering custom web design, e-commerce solutions, and high-performance applications. Get a modern, SEO-friendly website today.',
-  keywords: [
-    'Website Development Services in Nepal',
-    'Website Development Nepal',
-    'Web Development Kathmandu',
-    'Custom Website Development Nepal',
-    'Freelance Web Developer Nepal',
-    'Software Engineer Freelancer in Nepal',
-    'E-commerce Website Development Nepal',
-    'React & Next.js Developer Nepal',
-  ],
+  title: 'Web Development Services | Professional Web Developer',
+  description: 'Expert web development services by Nirajan Dhungel. Custom web design, e-commerce solutions, and high-performance applications for international clients.',
   openGraph: {
-    title: 'Website Development Services in Nepal | Nirajan Dhungel',
-    description: 'Get professional website development services in Nepal. Custom web solutions for businesses, e-commerce, and startups.',
+    title: 'Web Development Services | Nirajan Dhungel',
+    description: 'Professional web development services. Custom solutions for businesses worldwide.',
     url: 'https://nirajandhungel.com.np/services/website-development-in-nepal',
-    images: [
-      {
-        url: 'https://nirajandhungel.com.np/nirajandhungel3.png',
-        width: 1200,
-        height: 630,
-        alt: 'Website Development Services in Nepal - Nirajan Dhungel',
-      },
-    ],
   },
 };
 
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: '/' },
-  { name: 'Services', url: '/services' },
-  { name: 'Website Development', url: '/services/website-development-in-nepal' }
-]);
+const services = [
+  {
+    icon: Code,
+    title: 'Custom Development',
+    description: 'Tailored web solutions built with modern technologies to meet your specific needs',
+  },
+  {
+    icon: Smartphone,
+    title: 'Responsive Design',
+    description: 'Mobile-first approach ensuring perfect experience across all devices',
+  },
+  {
+    icon: Zap,
+    title: 'Performance Optimized',
+    description: 'Lightning-fast loading speeds and optimal user experience',
+  },
+  {
+    icon: Shield,
+    title: 'Secure & Reliable',
+    description: 'Enterprise-grade security and reliable hosting solutions',
+  },
+];
 
-const IndustryCard: React.FC<{ title: string; icon: string; desc: string }> = ({ title, icon, desc }) => (
-  <div className="p-8 rounded-3xl bg-light border-2 border-transparent hover:border-primary/20 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-xl">
-    <div className="w-14 h-14 bg-white text-primary rounded-2xl flex items-center justify-center mb-6 shadow-md transition-all group-hover:bg-primary group-hover:text-white">
-      <i className={`fa-solid ${icon} text-2xl`}></i>
+const CheckItem = ({ text }: { text: string }) => (
+  <div className="flex items-center gap-3">
+    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center shrink-0">
+      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+      </svg>
     </div>
-    <h3 className="text-xl font-bold text-foreground mb-3">{title}</h3>
-    <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
-  </div>
-);
-
-const CheckItem: React.FC<{ text: string }> = ({ text }) => (
-  <div className="flex items-center space-x-3 text-lg font-bold">
-    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-[10px]">
-      <i className="fa-solid fa-check"></i>
-    </div>
-    <span>{text}</span>
+    <span className="text-white">{text}</span>
   </div>
 );
 
 export default function WebsiteDevelopmentPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <div className="min-h-screen font-sans bg-white selection:bg-primary/30 selection:text-primary">
-      
-      <main>
-        <Hero />
-        <InfoCards />
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <div 
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-30"
+            style={{
+              background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+            }}
+          />
+          <div 
+            className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-20"
+            style={{
+              background: 'radial-gradient(circle, #ffd700 0%, transparent 70%)',
+            }}
+          />
+        </div>
 
-        {/* Industries Served */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h6 className="text-primary font-bold uppercase tracking-widest mb-2">Industries We Serve</h6>
-              <h2 className="text-4xl md:text-5xl font-black text-foreground">Proud to Deliver Excellence <span className="text-primary">Every Time</span></h2>
+        <div className="container relative z-10 mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="w-8 h-[2px] bg-primary"></span>
+              <span className="text-sm text-primary font-bold uppercase tracking-widest">Web Development</span>
+              <span className="w-8 h-[2px] bg-primary"></span>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <IndustryCard title="E-commerce" icon="fa-cart-shopping" desc="Redefining online shopping with innovative solutions and custom features." />
-              <IndustryCard title="Travel & Trekking" icon="fa-mountain-sun" desc="Delivering top-tier experiences for adventure and trekking agencies." />
-              <IndustryCard title="E-Learning" icon="fa-user-graduate" desc="Empowering education with innovative learning management platforms." />
-              <IndustryCard title="Informative" icon="fa-circle-info" desc="Clean, professional custom designs for diverse informative sites." />
-            </div>
+            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+              Professional <span className="text-heading-gold">Web Development</span> Services
+            </h1>
+            <p className="text-lg text-white/60 mb-10 max-w-2xl mx-auto">
+              High-performance web solutions built with modern technologies. 
+              Specializing in custom development for businesses worldwide.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold transition-all group"
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <TechStack />
-        <Roadmap />
-
-        {/* Why Choose Us */}
-        <section className="py-24 bg-foreground text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
-             <div className="grid grid-cols-12 h-full">
-               {[...Array(12)].map((_, i) => <div key={i} className="border-r border-white"></div>)}
-             </div>
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col lg:flex-row gap-16 items-center">
-              <div className="w-full lg:w-1/2">
-                <h6 className="text-primary font-bold uppercase tracking-widest mb-4">Why Choose Us</h6>
-                <h2 className="text-4xl md:text-6xl font-black mb-8">We help you expand <span className="text-primary">your business</span> through tech</h2>
-                <p className="text-xl text-white/60 mb-12 leading-relaxed">
-                  Our team of highly skilled website designers and developers provide exceptional, responsive, and performance-driven solutions tailored for your business choice.
-                </p>
-                <div className="space-y-6">
-                  <CheckItem text="Robust Functionality" />
-                  <CheckItem text="Client-Centric Approach" />
-                  <CheckItem text="Innovative Design Thinking" />
-                  <CheckItem text="Timely Delivery Guarantee" />
+      {/* Services Grid */}
+      <section className="py-20 bg-section-dark">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div key={index} className="card-cinematic p-8 text-center group">
+                  <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3">{service.title}</h3>
+                  <p className="text-white/60 text-sm">{service.description}</p>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div 
+            className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full opacity-20"
+            style={{
+              background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+            }}
+          />
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-3 mb-6">
+                <span className="w-8 h-[2px] bg-primary"></span>
+                <span className="text-sm text-primary font-bold uppercase tracking-widest">Why Choose Me</span>
               </div>
-              <div className="w-full lg:w-1/2">
-                 <Image 
-                   src="/media/website-development-portfolio.png" 
-                   alt="Portfolio of Website Development Projects in Kathmandu, Nepal - Nirajan Dhungel" 
-                   title="Successful Web Development Projects by Nirajan Dhungel"
-                   width={800}
-                   height={600}
-                   className="rounded-3xl shadow-2xl border-4 border-white/10" 
-                 />
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Building Exceptional <span className="text-heading-gold">Web Solutions</span>
+              </h2>
+              <p className="text-white/60 mb-8 leading-relaxed">
+                With expertise in modern web technologies and a focus on delivering results, 
+                I help businesses create powerful online presences that drive growth.
+              </p>
+              <div className="space-y-4">
+                <CheckItem text="Modern Tech Stack" />
+                <CheckItem text="Clean, Maintainable Code" />
+                <CheckItem text="SEO Optimized" />
+                <CheckItem text="Fast & Secure" />
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* <Portfolio /> */}
-
-        <EnquiryForm />
-
-        {/* Partners */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <h6 className="text-muted-foreground font-bold mb-10 opacity-50 uppercase tracking-[0.2em]">Trusted by Top-Rated Companies</h6>
-            <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-60 hover:opacity-100 transition-opacity">
-               {['UNDP', 'Kaya Lab', 'Gini London', 'Ash Inc', 'Oriflame', 'Kumari Job'].map(name => (
-                 <div key={name} className="text-2xl font-black text-foreground/40 text-center flex-1 min-w-[120px]">{name}</div>
-               ))}
+            <div className="relative">
+              <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full -z-10"
+                style={{
+                  background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+                }}
+              />
+              <Image 
+                src="/media/website-development-portfolio.png" 
+                alt="Web Development Portfolio" 
+                width={600}
+                height={450}
+                className="rounded-2xl shadow-2xl"
+                style={{
+                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))',
+                }}
+              />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <FAQ />
-
-        {/* Final CTA */}
-        <section className="py-24 relative overflow-hidden bg-primary/5">
-          <div className="container mx-auto px-4">
-            <div className="bg-white p-12 lg:p-20 rounded-[60px] shadow-xl border border-border flex flex-col lg:flex-row items-center justify-between gap-12">
-              <div className="text-center lg:text-left">
-                <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">Let's Connect and <br/><span className="text-primary">Turn Your Vision into Reality</span></h2>
-                <p className="text-lg text-muted-foreground">Available from 9:00 AM to 6:00 PM, Monday to Friday.</p>
-              </div>
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <a href="tel:9801848492" className="px-10 py-5 bg-foreground text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform flex items-center">
-                  <i className="fa-solid fa-phone mr-3"></i> 9801848492
-                </a>
-                <button className="px-10 py-5 bg-primary text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/20">
-                  Start Conversation
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-    
+      {/* CTA Section */}
+      <section 
+        className="relative py-24 lg:py-32 overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 50%, #0a0a0a 100%)',
+        }}
+      >
+        <div className="container relative z-10 mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Ready to Build Something <span className="text-heading-gold">Amazing?</span>
+          </h2>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            Let's discuss your project and create a web solution that drives results
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-white text-primary hover:bg-accent hover:text-black px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            Start Your Project Today
+          </Link>
+        </div>
+      </section>
     </div>
-    </>
   );
 }
