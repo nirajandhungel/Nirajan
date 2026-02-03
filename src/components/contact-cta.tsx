@@ -10,19 +10,21 @@ export function ContactCTA() {
       <div 
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 50%, #0a0a0a 100%)',
-        }}
+  background: "linear-gradient(135deg,rgb(0 0 0) 0%,rgb(0 0 0) 35%,rgb(140 0 0) 50%,rgb(0 0 0) 65%,rgb(0 0 0) 100%)",
+}}
+
+
       />
       
       {/* Decorative Elements */}
       <div className="absolute inset-0">
         {/* Large Circle */}
-        <div 
+        {/* <div 
           className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-20"
           style={{
             background: 'radial-gradient(circle, #ffffff 0%, transparent 70%)',
           }}
-        />
+        /> */}
         
         {/* Small Circles */}
         <div className="absolute top-20 right-20 w-4 h-4 rounded-full bg-accent/50"></div>
