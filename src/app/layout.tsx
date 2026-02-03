@@ -107,22 +107,17 @@ export const metadata: Metadata = {
   },
   
   // ========== ICONS & PWA ==========
+  // ========== ICONS & PWA ==========
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/nirajandhungel.jpeg', sizes: '192x192', type: 'image/jpeg' },
+      { url: '/nirajandhungel.jpeg', sizes: '512x512', type: 'image/jpeg' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180' },
+      { url: '/nirajandhungel.jpeg', sizes: '180x180' },
     ],
     other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-        color: '#2563eb',
-      },
     ],
   },
   
