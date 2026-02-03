@@ -109,7 +109,8 @@ export default function AboutPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="btn-outline-gold rounded-xl px-8 py-6 font-bold"
+                  className="btn-outline-gold rounded-xl px-8 py-6 text-base font-bold group
+             text-gold hover:text-gold"
                   asChild
                 >
                   <a href="/nirajan_cv.pdf" download>
@@ -132,13 +133,13 @@ export default function AboutPage() {
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
                 <Image
-                  src="/nirajandhungel2.jpeg"
+                  src="/nirajandhungel3.png"
                   alt="Nirajan Dhungel - Software Engineer"
                   title="Nirajan Dhungel - Professional Web Developer"
-                  width={450}
-                  height={450}
+                  width={850}
+                  height={850}
                   priority
-                  className="relative w-full max-w-md rounded-3xl shadow-2xl"
+                  className="relative w-full h-full rounded-3xl shadow-2xl"
                   style={{
                     filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))',
                   }}
