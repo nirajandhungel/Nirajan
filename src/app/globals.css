@@ -10,47 +10,47 @@
   /* Core Dark Theme */
   --background: #0a0a0a;
   --foreground: #ffffff;
-  
+
   /* Card & Surfaces */
   --card: #111111;
   --card-foreground: #ffffff;
   --popover: #151515;
   --popover-foreground: #ffffff;
-  
+
   /* Primary Red */
   --primary: #c41e3a;
   --primary-dark: #8b0000;
   --primary-light: #dc143c;
   --primary-foreground: #ffffff;
-  
+
   /* Secondary */
   --secondary: #1a1a1a;
   --secondary-foreground: #ffffff;
-  
+
   /* Accent Gold/Yellow */
   --accent: #ffd700;
   --accent-muted: #b8860b;
   --accent-foreground: #000000;
-  
+
   /* Muted Tones */
   --muted: #1f1f1f;
   --muted-foreground: #a0a0a0;
-  
+
   /* Borders & Inputs */
   --border: #2a2a2a;
   --input: #1f1f1f;
   --ring: #c41e3a;
-  
+
   /* Destructive */
   --destructive: #ff4444;
   --destructive-foreground: #ffffff;
-  
+
   /* Light variant for contrast */
   --light: #151515;
-  
+
   /* Radius */
   --radius: 0.75rem;
-  
+
   /* Red Glow */
   --glow-red: rgba(196, 30, 58, 0.5);
   --glow-accent: rgba(255, 215, 0, 0.3);
@@ -97,7 +97,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-outfit), 'Outfit', sans-serif;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -119,28 +124,28 @@
   /* ============================================
      CINEMATIC DECORATIVE ELEMENTS
      ============================================ */
-  
+
   /* Red Circle Accent - Like in the reference images */
   .red-circle {
     @apply absolute rounded-full;
     background: radial-gradient(circle, var(--primary) 0%, var(--primary-dark) 100%);
     filter: blur(0px);
   }
-  
+
   .red-circle-glow {
     @apply absolute rounded-full;
     background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
     filter: blur(60px);
     opacity: 0.4;
   }
-  
+
   /* Decorative White Curved Lines */
   .decorative-arc {
     @apply absolute;
     border: 2px solid rgba(255, 255, 255, 0.15);
     border-radius: 50%;
   }
-  
+
   /* Yellow Heading Gradient */
   .text-heading-gold {
     background: linear-gradient(180deg, #ffd700 0%, #ffb700 100%);
@@ -148,7 +153,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Red Text Gradient */
   .text-gradient-red {
     background: linear-gradient(135deg, #c41e3a 0%, #dc143c 100%);
@@ -161,83 +166,84 @@
   .text-shadow-premium {
     text-shadow: 0 4px 30px rgba(196, 30, 58, 0.3);
   }
-  
+
   /* ============================================
      BACKGROUNDS & GRADIENTS
      ============================================ */
-  
+
   .bg-cinematic {
-    background: linear-gradient(180deg, 
-      #0a0a0a 0%, 
-      #0f0f0f 50%, 
-      #0a0a0a 100%
-    );
+    background: linear-gradient(180deg,
+        #0a0a0a 0%,
+        #0f0f0f 50%,
+        #0a0a0a 100%);
   }
-  
+
   .bg-cinematic-red {
-    background: linear-gradient(135deg, 
-      rgba(196, 30, 58, 0.1) 0%, 
-      transparent 50%,
-      rgba(196, 30, 58, 0.05) 100%
-    );
+    background: linear-gradient(135deg,
+        rgba(196, 30, 58, 0.1) 0%,
+        transparent 50%,
+        rgba(196, 30, 58, 0.05) 100%);
   }
-  
+
   .bg-section-dark {
     background: #0d0d0d;
   }
-  
+
   .bg-section-darker {
     background: #080808;
   }
-  
+
   /* Card with subtle red glow on hover */
   .card-cinematic {
-    @apply bg-card border border-border/50 rounded-2xl transition-all duration-500;
+    @apply relative bg-card border border-border/50 rounded-2xl transition-all duration-500;
   }
-  
+
   .card-cinematic:hover {
     border-color: rgba(196, 30, 58, 0.3);
-    box-shadow: 
+    box-shadow:
       0 0 40px -10px rgba(196, 30, 58, 0.3),
       0 20px 60px -20px rgba(0, 0, 0, 0.8);
   }
-  
+
   /* ============================================
      BUTTONS
      ============================================ */
-  
+
   .btn-primary-cinematic {
     @apply relative overflow-hidden;
     background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .btn-primary-cinematic:hover {
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
       0 10px 40px -10px rgba(196, 30, 58, 0.6),
       0 0 20px rgba(196, 30, 58, 0.3);
   }
-  
+
   .btn-outline-gold {
     @apply border-2 border-accent text-accent;
     background: transparent;
     transition: all 0.3s ease;
   }
-  
+
   .btn-outline-gold:hover {
     background: rgba(255, 215, 0, 0.1);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
   }
-  
+
   /* ============================================
      ANIMATIONS
      ============================================ */
-  
+
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-15px);
     }
@@ -246,25 +252,33 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
       opacity: 0.4;
       transform: scale(1);
     }
+
     50% {
       opacity: 0.6;
       transform: scale(1.05);
     }
   }
-  
+
   .animate-pulse-glow {
     animation: pulse-glow 4s ease-in-out infinite;
   }
-  
+
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   .animate-fade-in {
@@ -276,6 +290,7 @@
       transform: translateY(30px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -285,18 +300,19 @@
   .animate-slide-up {
     animation: slideUp 0.6s ease-out;
   }
-  
+
   @keyframes slideInLeft {
     from {
       transform: translateX(-50px);
       opacity: 0;
     }
+
     to {
       transform: translateX(0);
       opacity: 1;
     }
   }
-  
+
   .animate-slide-in-left {
     animation: slideInLeft 0.8s ease-out;
   }
@@ -306,6 +322,7 @@
       transform: scale(0.9);
       opacity: 0;
     }
+
     to {
       transform: scale(1);
       opacity: 1;
@@ -315,23 +332,24 @@
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out forwards;
   }
-  
+
   /* Subtle entrance animation */
   @keyframes revealUp {
     from {
       clip-path: inset(100% 0 0 0);
       opacity: 0;
     }
+
     to {
       clip-path: inset(0 0 0 0);
       opacity: 1;
     }
   }
-  
+
   .animate-reveal-up {
     animation: revealUp 0.8s ease-out forwards;
   }
-  
+
   /* ============================================
      MEGA MENU & NAV
      ============================================ */
@@ -349,7 +367,7 @@
     top: 0;
     z-index: 50;
   }
-  
+
   /* ============================================
      UTILITY CLASSES
      ============================================ */
@@ -359,15 +377,21 @@
   }
 
   @media (min-width: 640px) {
-    .container-mobile { @apply px-6; }
+    .container-mobile {
+      @apply px-6;
+    }
   }
 
   @media (min-width: 768px) {
-    .container-mobile { @apply px-8; }
+    .container-mobile {
+      @apply px-8;
+    }
   }
 
   @media (min-width: 1024px) {
-    .container-mobile { @apply px-10; }
+    .container-mobile {
+      @apply px-10;
+    }
   }
 
   .line-clamp-1 {
@@ -406,7 +430,7 @@
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
   }
-  
+
   /* Glass Effect for Dark Theme */
   .glass-dark {
     background: rgba(17, 17, 17, 0.8);
@@ -456,7 +480,10 @@
    ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
