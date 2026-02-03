@@ -8,9 +8,17 @@ const leadDeveloper = {
   name: "Nirajan Dhungel",
   role: "Lead Developer & Founder",
   img: "/nirajandhungel3.png",
-  bio: "Full-stack developer with expertise in modern web technologies, specializing in building high-performance applications for international clients.",
-  skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Python', 'MongoDB'],
+  bio: "Full-stack developer with strong system design fundamentals, experienced in building, deploying, and scaling modern web applications. Comfortable with load balancing, NGINX reverse proxy, CI/CD pipelines, and cloud-based deployments for production-ready systems.",
+  skills: [
+    "System Design",
+    "Load Balancing",
+    "NGINX & Reverse Proxy",
+    "CI/CD Pipelines",
+    "Cloud Deployment",
+    "Backend Development",
+  ],
 };
+
 
 const teamMembers = [
   {
