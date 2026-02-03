@@ -67,7 +67,7 @@ export default function WorkPage() {
     <main className="min-h-screen">
       <WorkBanner />
       
-      <section className="relative py-20 overflow-hidden bg-white dark:bg-slate-950/50">
+      <section className="relative py-20 overflow-hidden bg-section-dark">
         <div className="container mx-auto px-4">
           <div className="relative">
              {/* Central dashed line for mobile structure if needed, or stick to component's internal handling */}
