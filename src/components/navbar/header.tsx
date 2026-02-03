@@ -25,24 +25,10 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Add hysteresis (buffer) to prevent flickering at the threshold
-      if (scrollY > 100 && !isSticky) {
-        setIsSticky(true);
-      } else if (scrollY < 80 && isSticky) {
-        setIsSticky(false);
-      }
-    };
-
-    // Initial check
-    if (window.scrollY > 100) {
-      setIsSticky(true);
-    }
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const handleScroll = () => setIsSticky(window.scrollY > 100);
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isSticky]);
+  }, []);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -69,11 +55,11 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
   return (
     <header
-      className={isSticky 
-        ? "sticky top-0 z-50 transition-all duration-300 ease-in-out border-b bg-background/95 backdrop-blur-xl border-white/5 shadow-lg shadow-black/20 py-2" 
-        : "sticky top-0 z-50 transition-all duration-300 ease-in-out border-b bg-background/95 border-transparent py-3"
-      } 
-
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isSticky 
+          ? "bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20" 
+          : "bg-transparent py-2"
+      }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">

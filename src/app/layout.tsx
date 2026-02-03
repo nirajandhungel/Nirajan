@@ -110,18 +110,22 @@ export const metadata: Metadata = {
   // ========== ICONS & PWA ==========
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/nirajan.png', sizes: '192x192', type: 'image/jpeg' },
-      { url: '/nirajan.png', sizes: '512x512', type: 'image/jpeg' },
+      { url: '/favicon.png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
     apple: [
-      { url: '/nirajan.png', sizes: '180x180' },
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
     ],
     other: [
+      {
+        rel: 'apple-touch-icon',
+        url: '/apple-touch-icon.png',
+      },
     ],
   },
   
-  manifest: '/manifest.json',
+  manifest: '/site.webmanifest',
   
   // ========== ADDITIONAL SEO ==========
   verification: {
