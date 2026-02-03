@@ -111,11 +111,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/nirajandhungel.jpeg', sizes: '192x192', type: 'image/jpeg' },
-      { url: '/nirajandhungel.jpeg', sizes: '512x512', type: 'image/jpeg' },
+      { url: '/nirajan.png', sizes: '192x192', type: 'image/jpeg' },
+      { url: '/nirajan.png', sizes: '512x512', type: 'image/jpeg' },
     ],
     apple: [
-      { url: '/nirajandhungel.jpeg', sizes: '180x180' },
+      { url: '/nirajan.png', sizes: '180x180' },
     ],
     other: [
     ],
