@@ -6,9 +6,7 @@ import { localBusinessSchema } from "@/lib/structured-data";
 import { useEnquiryModal } from "../EnquiryContext";
 import { CONTACT, SOCIAL_LINKS, WHATSAPP } from "@/data/contact";
 import { getWhatsAppLink } from "@/lib/smart-links";
-
-// Note: Metadata cannot be exported from client components
-// Add metadata in a parent server component or layout if needed
+import { Mail, Phone, MapPin, Briefcase, Github, Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -55,7 +53,6 @@ const ContactPage: React.FC = () => {
       if (result.success) {
         setStatus('success');
         setStatusMessage(result.message || "Your message has been sent successfully. We'll get back to you shortly.");
-        // Reset form
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       } else {
         setStatus('error');
@@ -71,60 +68,35 @@ const ContactPage: React.FC = () => {
     {
       title: "Phone Number",
       value: CONTACT.phone.display,
-      icon: "fa-phone",
+      icon: Phone,
       link: `tel:${CONTACT.phone.tel}`,
     },
     {
       title: "Email Address",
       value: CONTACT.email,
-      icon: "fa-envelope",
+      icon: Mail,
       link: `mailto:${CONTACT.email}?subject=Inquiry from Website`,
     },
     {
       title: "Location",
       value: CONTACT.location,
-      icon: "fa-location-dot",
+      icon: MapPin,
       link: "https://www.google.com/maps/place/Kathmandu,+Nepal",
     },
     {
       title: "Availability",
       value: "Available for Freelance",
-      icon: "fa-briefcase",
+      icon: Briefcase,
       link: getWhatsAppLink(WHATSAPP.fullNumber),
     },
   ];
 
   const socialLinks = [
-    {
-      name: SOCIAL_LINKS.github.name,
-      url: SOCIAL_LINKS.github.url,
-      icon: "fa-brands fa-github",
-    },
-    {
-      name: SOCIAL_LINKS.linkedin.name,
-      url: SOCIAL_LINKS.linkedin.url,
-      icon: "fa-brands fa-linkedin",
-    },
-    {
-      name: SOCIAL_LINKS.instagram.name,
-      url: SOCIAL_LINKS.instagram.url,
-      icon: "fa-brands fa-instagram",
-    },
-    {
-      name: SOCIAL_LINKS.facebook.name,
-      url: SOCIAL_LINKS.facebook.url,
-      icon: "fa-brands fa-facebook",
-    },
-    {
-      name: SOCIAL_LINKS.twitter.name,
-      url: SOCIAL_LINKS.twitter.url,
-      icon: "fa-brands fa-twitter",
-    },
-    {
-      name: SOCIAL_LINKS.medium.name,
-      url: SOCIAL_LINKS.medium.url,
-      icon: "fa-brands fa-medium",
-    },
+    { name: SOCIAL_LINKS.github.name, url: SOCIAL_LINKS.github.url, Icon: Github },
+    { name: SOCIAL_LINKS.linkedin.name, url: SOCIAL_LINKS.linkedin.url, Icon: Linkedin },
+    { name: SOCIAL_LINKS.instagram.name, url: SOCIAL_LINKS.instagram.url, Icon: Instagram },
+    { name: SOCIAL_LINKS.facebook.name, url: SOCIAL_LINKS.facebook.url, Icon: Facebook },
+    { name: SOCIAL_LINKS.twitter.name, url: SOCIAL_LINKS.twitter.url, Icon: Twitter },
   ];
 
   return (
@@ -135,16 +107,30 @@ const ContactPage: React.FC = () => {
           __html: JSON.stringify(localBusinessSchema),
         }}
       />
-      <div className="animate-fade-in">
+      <div className="animate-fade-in bg-background min-h-screen">
         {/* Title Section */}
-        <section className="py-20 ">
-          <div className="container mx-auto px-4 md:px-10 text-center">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground uppercase tracking-tight">
-              Contact <span className="text-primary">Nirajan Dhungel</span>
+        <section className="relative py-24 overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0">
+            <div 
+              className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20"
+              style={{
+                background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+              }}
+            />
+          </div>
+          
+          <div className="container relative z-10 mx-auto px-4 md:px-10 text-center">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="w-8 h-[2px] bg-primary"></span>
+              <span className="text-sm text-primary font-bold uppercase tracking-widest">Contact</span>
+              <span className="w-8 h-[2px] bg-primary"></span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
+              Get In <span className="text-heading-gold">Touch</span>
             </h1>
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Get in touch for professional website development services in
-              Nepal
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              Ready to start your project? I'm here to help bring your vision to life.
             </p>
           </div>
         </section>
@@ -152,15 +138,15 @@ const ContactPage: React.FC = () => {
         {/* Form Section */}
         <section className="pb-24">
           <div className="container mx-auto px-4 md:px-10">
-            <div className="bg-[#f2f6ff] rounded-[2.5rem] p-8 md:p-16 overflow-hidden border border-border/40">
+            <div className="card-cinematic p-8 md:p-16">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div className="lg:col-span-7">
-                  <h2 className="text-3xl font-extrabold text-foreground mb-2">
-                    Get In Touch
+                  <h2 className="text-3xl font-black text-white mb-2">
+                    Send a Message
                   </h2>
-                  <h6 className="text-muted-foreground font-semibold mb-10">
-                    We are Here For You. Can we Help?
-                  </h6>
+                  <p className="text-white/60 mb-10">
+                    Fill out the form and I'll get back to you within 24 hours.
+                  </p>
 
                   <form onSubmit={handleSubmit} className="space-y-6 relative">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -171,7 +157,7 @@ const ContactPage: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         disabled={status === 'submitting'}
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                       <input
                         type="email"
@@ -180,7 +166,7 @@ const ContactPage: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         disabled={status === 'submitting'}
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                       <input
                         type="tel"
@@ -188,7 +174,7 @@ const ContactPage: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         disabled={status === 'submitting'}
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                       <input
                         type="text"
@@ -196,7 +182,7 @@ const ContactPage: React.FC = () => {
                         value={formData.subject}
                         onChange={(e) => setFormData({...formData, subject: e.target.value})}
                         disabled={status === 'submitting'}
-                        className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                     <textarea
@@ -206,10 +192,10 @@ const ContactPage: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       disabled={status === 'submitting'}
-                      className="w-full bg-white border border-transparent focus:border-primary p-4 rounded-xl outline-none shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
                     ></textarea>
 
-                    {/* Honeypot field - hidden from users, visible to bots */}
+                    {/* Honeypot field */}
                     <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
                       <label htmlFor="contact-website">Website</label>
                       <input 
@@ -227,8 +213,8 @@ const ContactPage: React.FC = () => {
                     {statusMessage && (
                       <div className={`flex items-center gap-3 p-4 rounded-xl text-sm font-medium ${
                         status === 'success' 
-                          ? 'bg-green-50 text-green-700 border border-green-200' 
-                          : 'bg-red-50 text-red-700 border border-red-200'
+                          ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                          : 'bg-red-500/10 text-red-400 border border-red-500/20'
                       }`}>
                         <i className={`fa-solid ${status === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'}`}></i>
                         <span>{statusMessage}</span>
@@ -238,7 +224,7 @@ const ContactPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={status === 'submitting' || status === 'success'}
-                      className="px-10 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary flex items-center gap-3"
+                      className="btn-primary-cinematic px-10 py-4 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3"
                     >
                       {status === 'submitting' ? (
                         <>
@@ -251,89 +237,77 @@ const ContactPage: React.FC = () => {
                           Sent Successfully
                         </>
                       ) : (
-                        'Submit'
+                        'Send Message'
                       )}
                     </button>
                   </form>
                 </div>
 
-                <div className="lg:col-span-5 hidden lg:flex justify-end">
-                  <img
-                    src="https://softbenz.com/static/site-assets/images/contact.svg"
-                    alt="Contact Us"
-                    className="w-full max-w-sm animate-float"
-                  />
-                </div>
-              </div>
-
-              {/* Main Info Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-24">
-                {contactInfo.map((info, idx) => (
-                  <div key={idx} className="flex items-center gap-4 group">
-                    <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-xl shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
-                      <i className={`fa-solid ${info.icon}`}></i>
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-bold uppercase text-muted-foreground mb-1 tracking-widest">
-                        {info.title}
-                      </h3>
-                      <a
-                        href={info.link}
-                        target={
-                          info.link.startsWith("http") ? "_blank" : undefined
-                        }
-                        rel={
-                          info.link.startsWith("http")
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        className="text-sm font-bold text-foreground hover:text-primary transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    </div>
+                {/* Contact Info Side */}
+                <div className="lg:col-span-5">
+                  <div className="space-y-6">
+                    {contactInfo.map((info, idx) => {
+                      const Icon = info.icon;
+                      return (
+                        <div key={idx} className="flex items-center gap-4 group">
+                          <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 transition-all">
+                            <Icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <div>
+                            <h3 className="text-xs font-bold uppercase text-white/40 mb-1 tracking-widest">
+                              {info.title}
+                            </h3>
+                            <a
+                              href={info.link}
+                              target={info.link.startsWith("http") ? "_blank" : undefined}
+                              rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                              className="text-sm font-bold text-white hover:text-primary transition-colors"
+                            >
+                              {info.value}
+                            </a>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Social Media Links Section */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-section-dark">
           <div className="container mx-auto px-4 md:px-10">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
-                Connect on <span className="text-primary">Social Media</span>
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
+                Connect on <span className="text-heading-gold">Social Media</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-white/60 text-lg">
                 Follow me on social platforms to stay updated
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-              {socialLinks.map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-light p-8 rounded-3xl text-center hover:shadow-xl hover:-translate-y-1 transition-all group border border-transparent hover:border-primary/20"
-                >
-                  <i
-                    className={`${social.icon} text-4xl text-foreground group-hover:text-primary transition-colors mb-3`}
-                  ></i>
-                  <h3 className="text-sm font-bold text-foreground">
-                    {social.name}
-                  </h3>
-                </a>
-              ))}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
+              {socialLinks.map((social, idx) => {
+                const Icon = social.Icon;
+                return (
+                  <a
+                    key={idx}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-cinematic p-8 text-center group"
+                  >
+                    <Icon className="w-8 h-8 mx-auto text-white/60 group-hover:text-primary transition-colors mb-3" />
+                    <h3 className="text-sm font-bold text-white">
+                      {social.name}
+                    </h3>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>
-
-
-
-        <CtaSection onOpenEnquiry={openEnquiry} />
       </div>
     </>
   );
