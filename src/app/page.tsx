@@ -1,23 +1,22 @@
 import { HeroSection } from "../components/hero-section"
 import { ServicesSection } from "../components/services-section"
 import { SolutionsSection } from "../components/solutions-section"
-import { CTASection } from "../components/cta-section"
 import Expertise from "../components/expertise"
-import Testimony from "../components/testimony"
-import FAQ from "../components/FAQ"
+import { ProcessSection } from "../components/process-section"
+import { SelectedWorkSection } from "../components/selected-work-section"
+import { ContactCTA } from "../components/contact-cta"
 
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-
+    <main className="min-h-screen bg-background">
       <HeroSection />
       <ServicesSection />
-      <Expertise/>
+      <SelectedWorkSection />
+      <ProcessSection />
+      <Expertise />
       <SolutionsSection />
-      <Testimony/>
-      <FAQ></FAQ> 
-      <CTASection />
+      <ContactCTA />
     </main>
   )
 }
