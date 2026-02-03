@@ -4,7 +4,7 @@ import { projects } from '@/data/projects';
 import { ProjectCard } from '@/components/project-card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Github } from 'lucide-react';
+import { Github, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Projects | Nirajan Dhungel',
@@ -33,17 +33,35 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-green-50">
-        <div className="container mx-auto px-4 md:px-10 text-center">
-          <h6 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">
-            MY WORK
-          </h6>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
-            Featured <span className="text-primary">Projects</span>
+      <section className="relative py-24 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20"
+            style={{
+              background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+            }}
+          />
+          <div 
+            className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full opacity-15"
+            style={{
+              background: 'radial-gradient(circle, #ffd700 0%, transparent 70%)',
+            }}
+          />
+        </div>
+        
+        <div className="container relative z-10 mx-auto px-4 md:px-10 text-center">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="w-8 h-[2px] bg-primary"></span>
+            <span className="text-sm text-primary font-bold uppercase tracking-widest">Portfolio</span>
+            <span className="w-8 h-[2px] bg-primary"></span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+            Featured <span className="text-heading-gold">Projects</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg text-white/60 max-w-3xl mx-auto leading-relaxed mb-10">
             Here are some of my recent projects showcasing my skills in full-stack development, 
             UI/UX design, and problem-solving. Each project demonstrates my commitment to 
             building high-quality, user-friendly applications.
@@ -51,7 +69,7 @@ export default function ProjectsPage() {
           <Button
             size="lg"
             variant="outline"
-            className="border-2 border-primary text-primary hover:bg-primary/10 rounded-lg px-8 py-4"
+            className="btn-outline-gold rounded-xl px-8 py-4"
             asChild
           >
             <a
@@ -67,7 +85,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-section-dark">
         <div className="container mx-auto px-4 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((project, index) => (
@@ -78,12 +96,12 @@ export default function ProjectsPage() {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-20 bg-[#fafafa]">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
-            Technologies I Use
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+            Technologies I <span className="text-heading-gold">Use</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-white/60 max-w-2xl mx-auto mb-12">
             I work with modern technologies and frameworks to build scalable and efficient applications.
           </p>
           
@@ -95,7 +113,7 @@ export default function ProjectsPage() {
             ].map((tech) => (
               <span
                 key={tech}
-                className="px-6 py-3 bg-white border-2 border-primary/20 text-foreground font-semibold rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300"
+                className="px-6 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:border-primary hover:bg-primary/10 transition-all duration-300"
               >
                 {tech}
               </span>
@@ -105,26 +123,34 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-green-600 text-white">
-        <div className="container mx-auto px-4 md:px-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-            Have a Project in Mind?
+      <section 
+        className="relative py-24 overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 50%, #0a0a0a 100%)',
+        }}
+      >
+        <div className="container relative z-10 mx-auto px-4 md:px-10 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Have a Project in <span className="text-heading-gold">Mind</span>?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-gray-100 rounded-lg px-10 py-6 text-lg font-bold"
+              className="bg-white text-primary hover:bg-accent hover:text-black rounded-xl px-10 py-6 text-lg font-bold"
               asChild
             >
-              <Link href="/contact">Let's Talk</Link>
+              <Link href="/contact">
+                Let's Talk
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white/10 rounded-lg px-10 py-6 text-lg font-bold"
+              className="border-2 border-white/30 text-white hover:bg-white/10 rounded-xl px-10 py-6 text-lg font-bold"
               asChild
             >
               <Link href="/about">Learn More About Me</Link>
