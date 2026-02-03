@@ -1,48 +1,56 @@
-import Link from "next/link"
-import { Button } from "../components/ui/button"
-import { ArrowRight, Download, Mail } from "lucide-react"
-import Image from "next/image"
-import { CONTACT } from '@/data/contact';
+import Link from "next/link";
+import { Button } from "../components/ui/button";
+import { ArrowRight, Download, Mail } from "lucide-react";
+import Image from "next/image";
+import { CONTACT } from "@/data/contact";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden flex items-center">
+    <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
       {/* Cinematic Background Elements */}
       <div className="absolute inset-0">
         {/* Large Red Circle - Top Right */}
-        <div 
+        <div
           className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full opacity-90"
           style={{
-            background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 70%, transparent 100%)',
+            background:
+              "radial-gradient(circle, #c41e3a 0%, #8b0000 70%, transparent 100%)",
           }}
         />
-        
+
         {/* Medium Red Circle - Bottom Left */}
-        <div 
+        <div
           className="absolute bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-70"
           style={{
-            background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 60%, transparent 100%)',
+            background:
+              "radial-gradient(circle, #c41e3a 0%, #8b0000 60%, transparent 100%)",
           }}
         />
-        
+
         {/* Small Red Accent Circle */}
-        <div 
+        <div
           className="absolute top-1/2 right-1/4 w-[120px] h-[120px] rounded-full opacity-50"
           style={{
-            background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
+            background: "radial-gradient(circle, #c41e3a 0%, transparent 70%)",
           }}
         />
-        
+
         {/* Decorative Arc Lines */}
-        <div 
+        <div
           className="absolute top-10 left-10 w-32 h-32 rounded-full border-2 border-white/10"
-          style={{ borderTopColor: 'transparent', borderRightColor: 'transparent' }}
+          style={{
+            borderTopColor: "transparent",
+            borderRightColor: "transparent",
+          }}
         />
-        <div 
+        <div
           className="absolute top-16 left-16 w-24 h-24 rounded-full border border-white/5"
-          style={{ borderTopColor: 'transparent', borderRightColor: 'transparent' }}
+          style={{
+            borderTopColor: "transparent",
+            borderRightColor: "transparent",
+          }}
         />
-        
+
         {/* Red Glow Effects */}
         <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px]" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
@@ -50,7 +58,6 @@ export function HeroSection() {
 
       <div className="container relative z-10 mx-auto px-4 lg:px-8 py-10 sm:py-16 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
           {/* Left Content */}
           <div className="max-w-2xl">
             {/* Badge */}
@@ -68,7 +75,7 @@ export function HeroSection() {
               <br />
               <span className="text-heading-gold">Dhungel</span>
             </h1>
-            
+
             {/* Role */}
             <p className="text-xl sm:text-2xl font-bold text-white/90 mb-4">
               Software Engineer & Web Developer
@@ -76,8 +83,8 @@ export function HeroSection() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-white/60 mb-8 leading-relaxed max-w-lg">
-              Building high-performance web solutions for international clients. 
-              I transform ideas into exceptional digital experiences that drive 
+              Building high-performance web solutions for international clients.
+              I transform ideas into exceptional digital experiences that drive
               real business growth.
             </p>
 
@@ -115,7 +122,8 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-outline-gold rounded-xl px-8 py-6 text-base font-bold group"
+                className="btn-outline-gold rounded-xl px-8 py-6 text-base font-bold group
+             text-gold hover:text-gold"
                 asChild
               >
                 <a href="/nirajan_cv.pdf" download>
@@ -143,33 +151,44 @@ export function HeroSection() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Red Circle Behind Portrait */}
-              <div 
+              <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] rounded-full -z-10"
                 style={{
-                  background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 80%)',
+                  background:
+                    "radial-gradient(circle, #c41e3a 0%, #8b0000 80%)",
                 }}
               />
-              
+
               {/* Glow Effect */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
-              
+
               <Image
-                src="/nirajandhungel3.png"
+                src="/nirajan-sketch-v22.png"
                 alt="Nirajan Dhungel - Software Engineer & Web Developer"
                 title="Nirajan Dhungel - Professional Web Developer"
-                width={500}
-                height={500}
+                width={800}
+                height={800}
                 priority
-                className="relative w-full max-w-md h-auto animate-float"
+                className="relative w-full max-w-lg lg:max-w-xl h-auto animate-float"
                 style={{
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))',
+                  filter: "drop-shadow(20px 20px 40px rgba(0, 0, 0, 0.5))",
+
+                  maskImage: `
+      linear-gradient(to left, black 90%, transparent 100%),
+      linear-gradient(to bottom, black 90%, transparent 100%)
+    `,
+                  WebkitMaskImage: `
+      linear-gradient(to left, black 90%, transparent 100%),
+      linear-gradient(to bottom, black 90%, transparent 100%)
+    `,
+                  maskComposite: "intersect",
+                  WebkitMaskComposite: "destination-in",
                 }}
               />
             </div>
           </div>
-
         </div>
       </div>
     </section>
-  )
+  );
 }
