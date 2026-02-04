@@ -19,6 +19,28 @@ module.exports = {
         changefreq: 'daily',
         priority: 1.0,
         lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+        images: [
+          {
+            loc: '/nirajandhungel.jpeg',
+            caption: 'Nirajan Dhungel - Best Software Engineer and Web Developer in Kathmandu, Nepal',
+            title: 'Nirajan Dhungel',
+          },
+          {
+            loc: '/nirajandhungel2.jpeg',
+            caption: 'Nirajan Dhungel - Full Stack Developer and SEO Expert Portfolio',
+            title: 'Nirajan Dhungel Portfolio',
+          },
+          {
+            loc: '/nirajandhungel3.png',
+            caption: 'Nirajan Dhungel - Expert in Next.js, React, and Modern Web Technologies',
+            title: 'Nirajan Dhungel Developer Profile',
+          },
+          {
+            loc: '/kathmandu-youth-conclave.jpeg',
+            caption: 'Nirajan Dhungel participating in Kathmandu Youth Conclave',
+            title: 'Nirajan Dhungel - Kathmandu Youth Conclave',
+          },
+        ],
       }
     }
     
