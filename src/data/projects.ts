@@ -2,6 +2,14 @@ import { Project } from "../../types";
 
 export const projects: Project[] = [
     {
+    title: 'Futsmandu ',
+    description: 'A mobile app for Futsal enthusiasts with a Flutter frontend and a TypeScript Node.js backend, serving players, court owners, and admins.',
+    technologies: ['Flutter', 'Dart', 'Provider','TypeScript', 'Node.js', 'Express'],
+    githubLink: 'https://github.com/nirajandhungel/futsmandu-app',
+    demoLink: '', // Add demo link if available
+    image: '/projects/futsmandu_logo.png',
+},
+    {
         title: 'Expense Tracker',
         description: 'A full-stack expense tracker web app built with React.js, Node.js, and Tailwind CSS.',
         technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
@@ -11,7 +19,7 @@ export const projects: Project[] = [
     },
     {
         title: 'Sahara Rentals',
-        description: 'JavaFX-based application for managing vehicle rentals having features like vehicle rentals, returns, and customer management.',
+        description: 'Java-based application for managing vehicle rentals having features like vehicle rentals, returns, and customer management.',
         technologies: ['Java', 'JavaFX', 'MySQL'],
         githubLink: 'https://github.com/nirajandhungel/Sahara-Rentals',
         demoLink: 'https://demo.com',
@@ -25,12 +33,6 @@ export const projects: Project[] = [
         demoLink: 'https://demo.com',
         image: '/projects/taxi-booking.png',
     },
-    {
-        title: 'Portfolio Website',
-        description: 'My personal portfolio website showcasing my projects and skills.',
-        technologies: ['Next.js', 'Tailwind CSS', 'TypeScript'],
-        githubLink: 'https://github.com/nirajandhungel/portfolio',
-        demoLink: 'https://nirajandhungel.com.np',
-        image: '/projects/portfolio.png',
-    },
+    
+
 ];

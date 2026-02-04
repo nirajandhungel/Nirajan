@@ -1,183 +1,113 @@
-# Nirajan Dhungel - Kali Linux Themed Portfolio
+# Nirajan Dhungel | Professional Digital Services Portfolio
 
-[![Website](https://img.shields.io/badge/Visit-nirajandhungel.com.np-blue?style=flat-square)](https://www.nirajandhungel.com.np)
-[![Tech Stack](https://img.shields.io/badge/Next.js-15.5-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+<div align="center">
+  <img src="public/favicon.png" width="100" height="100" alt="Nirajan Dhungel Logo" />
+  <h3>Cinematic. Minimalist. Professional.</h3>
+  <p>A premium portfolio and agency website for international software development services.</p>
 
-Welcome to my Kali Linux-themed portfolio website - an interactive terminal-style showcase of my projects, skills, and professional journey as a Full Stack Developer and Ethical Hacking enthusiast.
+  [![Website](https://img.shields.io/badge/Visit-nirajandhungel.com.np-c41e3a?style=for-the-badge)](https://www.nirajandhungel.com.np)
+  [![Next.js](https://img.shields.io/badge/Next.js-15.5-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind--CSS-4.0-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+</div>
 
-![Portfolio Screenshot](public/og-image.png)
+---
 
-## Features ✨
+## 📽️ About the Project
 
-- **Kali Linux Theme**: Immersive terminal-style interface with authentic Linux terminal aesthetics
-- **Interactive Terminal**: Real-time command execution with typing animations
-- **Modern Stack**: Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion
-- **Performance Optimized**: Lighthouse score optimized for fast loading
-- **Responsive Design**: Perfectly adapted for all devices
-- **Terminal Animations**: Typing effects, blinking cursors, and command execution animations
-- **SEO Optimized**: Comprehensive metadata, structured data, and OpenGraph tags
-- **Portfolio Showcase**: Projects displayed in `ls -la` format
-- **Skills Terminal**: Interactive skills display with man page-style documentation
-- **Contact Form**: Vim/mutt-style contact interface
+This project is a high-performance, SEO-optimized professional portfolio for **Nirajan Dhungel**, a Software Engineer and Full Stack Developer based in Kathmandu, Nepal. 
 
-## Tech Stack 🛠️
+The website is designed with a **Cinematic Red & Black theme**, featuring subtle gold accents and premium animations to deliver a "WOW" factor for international clients. It showcases a range of digital services, including custom software development, mobile apps, and strategic SEO.
 
-- **Framework**: [Next.js](https://nextjs.org/) 15 (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with custom Kali Linux color scheme
-- **Fonts**: Fira Code, JetBrains Mono (Monospace terminal fonts)
+## ✨ Core Services
+
+- 🌐 **Web Development**: High-performance, scalable web applications using Next.js and React.
+- 📱 **Mobile App Development**: Cross-platform mobile solutions with a focus on UX.
+- 🚀 **SEO Optimization**: Strategic SEO services to rank businesses at the top of search results.
+- 🎨 **UI/UX Design**: Modern, minimalist, and cinematic user interfaces.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4.0](https://tailwindcss.com/) (Cinematic Design System)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Language**: TypeScript
-- **Deployment**: Vercel
-- **SEO**: Next Sitemap, Structured Data (JSON-LD)
+- **Components**: [Radix UI](https://www.radix-ui.com/) & custom hand-crafted components
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **SEO**: JSON-LD Structured Data, Dynamic Metadata, Next-Sitemap
+- **Analytics**: Vercel Analytics
 
-## Color Scheme 🎨
+## 🎯 Key Features
 
-### Primary Colors
-- **Background**: `#1a1a2e` (Kali Dark)
-- **Card**: `#16213e` (Kali Card)
-- **Accent**: `#0f3460` (Kali Accent)
+- 🏎️ **Optimized Performance**: Targeted 90+ Lighthouse scores across all metrics.
+- 📱 **Ultra Responsive**: Seamless experience from mobile devices to ultra-wide displays.
+- 🔍 **Advanced SEO**: Comprehensive schema markup for local SEO and image search.
+- 🌑 **Cinematic UI**: Dark-mode first design with premium glow effects and smooth transitions.
+- ⚡ **Dynamic Routing**: Professional routing for services, team, and work pages.
+- 📧 **Interactive Forms**: Custom inquiry forms integrated with modern feedback systems.
 
-### Secondary Colors
-- **Kali Blue**: `#557CF2`
-- **Terminal Green**: `#00a8a8`
-- **Error/Warning**: `#ff6b6b`
+## 🚀 Getting Started
 
-### Text Colors
-- **Default**: `#E4E4E4`
-- **Commands**: `#00ff00`
-- **Warnings**: `#FFA500`
+### Prerequisites
 
-## Components 🧩
+- Node.js 18.x or later
+- npm / yarn / pnpm
 
-- **TerminalNavbar**: Terminal-style navigation with command prompts
-- **TerminalHero**: Interactive hero section with typing animations
-- **TerminalSkills**: Skills showcase with interactive terminal
-- **TerminalContact**: Vim/mutt-style contact form
-- **TerminalFooter**: System status bar with uptime and stats
-- **TerminalLoading**: Terminal-style loading screen
-- **404 Page**: Terminal-style error page
-
-## Pages 📄
-
-- **Homepage** (`/`): Main portfolio landing page with hero, skills, and contact
-- **Projects** (`/projects`): Projects displayed in `ls -la` format
-- **404**: Terminal-style error page with helpful commands
-
-## Terminal Commands 💻
-
-The portfolio includes several interactive terminal commands:
-
-- `whoami` - Display name
-- `cat about_me.txt` - View bio
-- `ls projects/` - List projects
-- `skills --list` - Display skills
-- `man [skill]` - Detailed skill information
-- `cat contact.txt` - Contact information
-- `cd ~` - Navigate to homepage
-
-## Getting Started 🚀
+### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/nirajandhungel/portfolio.git
-   cd portfolio
+   git clone https://github.com/nirajandhungel/Nirajan.git
+   cd Nirajan
    ```
 
 2. **Install dependencies**
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **Run the development server**
+3. **Set up Environment Variables**
+   Create a `.env` file based on `.env.example`.
+
+4. **Run the development server**
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-## Build for Production 🏗️
-
-```bash
-npm run build
-npm start
-```
-
-## Deployment 🌐
-
-The site is optimized for deployment on Vercel:
-
-```bash
-vercel
-```
-
-## Project Structure 📁
+## 📁 Project Structure
 
 ```
 src/
-├── app/
-│   ├── components/
-│   │   └── terminal/        # Terminal-themed components
-│   ├── lib/
-│   │   └── data/            # Projects data
-│   ├── page.tsx             # Homepage
-│   ├── projects/
-│   │   └── page.tsx         # Projects page
-│   └── not-found.tsx        # 404 page
+├── app/              # Next.js App Router (Pages & Layouts)
+│   ├── about/        # About page
+│   ├── services/     # Service-specific pages
+│   ├── pricing/      # Pricing models
+│   ├── team/         # Team members
+│   └── globals.css   # Main design system & Tailwind layers
+├── components/       # Reusable UI components
+│   ├── ui/           # Primitive components (Radix/Shadcn)
+│   └── sections/     # Page-specific sections (Hero, Process, etc.)
+├── data/             # Static content & configuration
+├── hooks/            # Custom React hooks
+└── providers/        # Context providers (Cursor, Theme, etc.)
 ```
 
-## Features in Detail 🎯
+## 📬 Contact & Connect
 
-### Terminal UI/UX
-- Authentic terminal window styling
-- Command prompt animations
-- Blinking cursor effects
-- Command execution animations
-- Terminal-style scrollbars
-- Monospace font styling
-
-### SEO & Performance
-- Comprehensive metadata
-- JSON-LD structured data
-- Open Graph tags
-- Twitter Card support
-- Sitemap generation
-- Optimized images
-- Fast page loads
-
-### Responsive Design
-- Mobile-first approach
-- Tablet optimization
-- Desktop enhancement
-- Terminal layout adapts to screen size
-
-## Contributing 🤝
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License 📝
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact 📧
-
-- **Website**: [nirajandhungel.com.np](https://nirajandhungel.com.np)
-- **Email**: contact@nirajandhungel.com.np
-- **GitHub**: [@nirajandhungel](https://github.com/nirajandhungel)
+- **Official Website**: [nirajandhungel.com.np](https://www.nirajandhungel.com.np)
+- **Email**: [contact@nirajandhungel.com.np](mailto:contact@nirajandhungel.com.np)
 - **LinkedIn**: [Nirajan Dhungel](https://www.linkedin.com/in/nirajan-dhungel)
-- **Twitter**: [@SubashDhungel18](https://x.com/SubashDhungel18)
-
-## Acknowledgments 🙏
-
-- Inspired by Kali Linux terminal interface
-- Built with modern web technologies
-- Designed for optimal user experience
+- **Twitter/X**: [@SubashDhungel18](https://x.com/SubashDhungel18)
+- **Location**: Kathmandu, Nepal
 
 ---
 
-**Note**: This is a portfolio website showcasing my work. The Kali Linux theme is for aesthetic purposes only.
+<p align="center">
+  Built with ❤️ by <a href="https://github.com/nirajandhungel">Nirajan Dhungel</a>
+</p>
+
