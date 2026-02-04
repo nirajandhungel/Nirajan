@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Service, Testimonial, Partner, Blog } from './types';
+import { Service } from './types';
 
 export const SERVICES: Service[] = [
     {
@@ -69,23 +69,4 @@ export const SERVICES: Service[] = [
     }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-    {
-        id: '1',
-        name: 'Client Name',
-        role: 'CEO / Founder',
-        content: 'Nirajan delivered an exceptional website that exceeded our expectations. His technical expertise and attention to detail are outstanding.',
-        image: 'https://softbenz.com/media/misc-testimonials/testimonial-1623385122.jpg'
-    },
-    {
-        id: '2',
-        name: 'Another Client',
-        role: 'Business Owner',
-        content: 'Professional, reliable, and highly skilled. Nirajan transformed our digital presence with a modern, responsive website.',
-        image: 'https://softbenz.com/media/misc-testimonials/misc-testimonials/50955.webp'
-    }
-];
 
-export const PARTNERS: Partner[] = [];
-
-export const BLOGS: Blog[] = [];

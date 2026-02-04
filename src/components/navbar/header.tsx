@@ -6,7 +6,7 @@ import { Logo } from "../../assets/Logo";
 import { NavLink } from "./NavLink";
 import { MobileDropdown } from "./MobileDropdown";
 import { MobileServiceSection } from "./MobileServiceSection";
-import { NAV_ITEMS, SERVICE_DATA } from "./navData";
+import { NAV_ITEMS } from "./navData";
 import { SERVICES } from "../../../constants";
 import { MenuItem, ProductItem, HoveredLink } from "../MenuComponents";
 import { getWhatsAppLink } from "@/lib/smart-links";

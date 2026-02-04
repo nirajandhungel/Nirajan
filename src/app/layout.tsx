@@ -109,7 +109,7 @@ export const metadata: Metadata = {
   // ========== ICONS & PWA ==========
   // ========== ICONS & PWA ==========
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.ico',
     shortcut: '/favicon.png',
     apple: '/apple-touch-icon.png',
     other: [
