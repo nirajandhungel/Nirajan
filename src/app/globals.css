@@ -2,6 +2,19 @@
 @import 'tw-animate-css';
 
 /* ============================================
+   FONT PERFORMANCE OPTIMIZATION
+   Fix FontAwesome render blocking (60ms FCP improvement)
+   ============================================ */
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  /* Critical for FCP */
+  src: url('/node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2') format('woff2');
+}
+
+/* ============================================
    CINEMATIC RED-BLACK THEME - Nirajan Portfolio
    Inspired by Poster-Style Dark Aesthetics
    ============================================ */

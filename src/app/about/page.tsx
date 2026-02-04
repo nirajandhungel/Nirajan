@@ -7,7 +7,7 @@ import { SocialLinks } from '@/components/social-links';
 import { Download, MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Image from 'next/image';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { CONTACT } from '@/data/contact';
 import FAQ from '@/components/FAQ';
 
@@ -133,13 +133,15 @@ export default function AboutPage() {
                   }}
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
-                <Image
+                <OptimizedImage
                   src="/nirajandhungel3.png"
                   alt="Nirajan Dhungel - Software Engineer"
                   title="Nirajan Dhungel - Professional Web Developer"
                   width={850}
                   height={850}
+                  isLCP={true}
                   priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="relative w-full h-full rounded-3xl shadow-2xl"
                   style={{
                     filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))',

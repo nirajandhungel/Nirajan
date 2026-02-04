@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
+    qualities: [75, 80, 85, 90], // Fixes the quality="90" error
   },
 
   // =====================
@@ -40,20 +41,19 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
             key: "Permissions-Policy",
-            value:
-              "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+            value: "camera=(), microphone=(), geolocation=()", // Removed interest-cohort
           },
           {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://vercel.live",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://vercel.live https://va.vercel-scripts.com", // Added Vercel Analytics
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://www.google-analytics.com https://vercel.com",
+              "connect-src 'self' https://www.google-analytics.com https://vercel.com https://vitals.vercel-insights.com", // Added Vitals
               "frame-src https://vercel.live",
-              "worker-src 'self' blob:", // Allow service workers
+              "worker-src 'self' blob:",
             ].join("; "),
           },
           {

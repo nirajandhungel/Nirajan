@@ -11,10 +11,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { CONTACT, SOCIAL_LINKS } from "@/data/contact";
-import { getEmailLink } from "@/lib/smart-links";
-
 const Footer: React.FC = () => {
-  const emailLinks = getEmailLink(CONTACT.email, "Inquiry from Website");
 
   return (
     <footer className="relative bg-background border-t border-white/5 pt-20 pb-10 overflow-hidden">
@@ -146,7 +143,7 @@ const Footer: React.FC = () => {
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
                 <a
-                  href={emailLinks.isMobile ? emailLinks.mailto : emailLinks.gmail}
+                  href={`mailto:${CONTACT.email}?subject=Inquiry from Website`}
                   className="text-white/70 hover:text-white transition-colors"
                 >
                   {CONTACT.email}

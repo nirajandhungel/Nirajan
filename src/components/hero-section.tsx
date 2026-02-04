@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "../components/ui/button";
 import { ArrowRight, Download, Mail } from "lucide-react";
-import Image from "next/image";
+import { OptimizedImage } from "./ui/optimized-image";
 import { CONTACT } from "@/data/contact";
 
 export function HeroSection() {
@@ -162,13 +162,15 @@ export function HeroSection() {
               {/* Glow Effect */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
 
-              <Image
+              <OptimizedImage
                 src="/nirajan-sketch-v22.png"
                 alt="Nirajan Dhungel - Software Engineer & Web Developer"
                 title="Nirajan Dhungel - Professional Web Developer"
                 width={800}
                 height={800}
+                isLCP={true}
                 priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                 className="relative w-full max-w-lg lg:max-w-xl h-auto animate-float"
                 style={{
                   filter: "drop-shadow(20px 20px 40px rgba(0, 0, 0, 0.5))",

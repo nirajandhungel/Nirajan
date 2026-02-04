@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import CtaSection from "@/components/consultant";
 import { localBusinessSchema } from "@/lib/structured-data";
 import { useEnquiryModal } from "../EnquiryContext";
 import { CONTACT, SOCIAL_LINKS, WHATSAPP } from "@/data/contact";
