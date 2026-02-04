@@ -281,6 +281,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPW4V2HWFE"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-QPW4V2HWFE');
+            `,
+          }}
+        />
         {/* ========== PERFORMANCE OPTIMIZATION ========== */}
         {/* Preconnect critical third-party origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
