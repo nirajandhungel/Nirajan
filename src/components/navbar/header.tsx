@@ -160,9 +160,9 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
           onClick={closeMobileMenu}
         />
         <div
-          className={`absolute top-0 left-0 h-full w-[320px] max-w-[85vw] bg-card border-r border-white/5 shadow-xl transform transition-transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+          className={`absolute top-0 left-0 h-full w-[320px] max-w-[85vw] bg-card border-r border-white/5 shadow-xl transform transition-transform overflow-y-auto scrollbar-hide ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
-          <div className="p-6">
+          <div className="p-6 min-h-full flex flex-col">
             {/* Mobile Header */}
             <div className="flex items-center justify-between mb-8">
               <Logo onClick={closeMobileMenu} />

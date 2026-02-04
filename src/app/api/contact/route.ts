@@ -19,7 +19,7 @@ const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const MAX_REQUESTS = 3; // Max 3 requests per minute per IP
 
 // Recipient email
-const RECIPIENT_EMAIL = "info@nirajandhungel.com.np";
+const RECIPIENT_EMAIL = "subashdhungel555@gmail.com";
 
 interface ContactFormData {
     name: string;
