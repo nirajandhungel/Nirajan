@@ -3,6 +3,7 @@ import { WorkBanner } from "../../components/work-banner";
 import { ProcessStep } from "../../components/process-step";
 import { CTASection } from "../../components/cta-section";
 import WhatsAppButton from "../../components/whatsapp-button";
+import FAQ from "../../components/FAQ";
 
 export const metadata: Metadata = {
   title: "Work Process of IT Company in Nepal | Nirajan Dhungel",
@@ -87,6 +88,7 @@ export default function WorkPage() {
         </div>
       </section>
 
+      <FAQ />
       <CTASection />
     </main>
   );

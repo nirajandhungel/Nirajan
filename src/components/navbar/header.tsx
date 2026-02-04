@@ -84,7 +84,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             </MenuItem>
 
             <MenuItem setActive={setActive} active={active} item="Services">
-              <div className="grid grid-cols-2 gap-6 p-4 min-w-125 bg-card border border-white/5 rounded-xl">
+              <div className="grid grid-cols-2 gap-4 p-4 min-w-[550px] max-w-[90vw] bg-card border border-white/5 rounded-2xl">
                 {["Development", "Marketing"].map((category) => (
                   <div key={category} className="space-y-4">
                     <h4 className="text-xs font-semibold text-primary uppercase tracking-wider border-b border-white/10 pb-2">

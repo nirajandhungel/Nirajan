@@ -98,6 +98,45 @@ export default function CustomCursor({
     return null;
   }
 
+  // Handle global hover detection for interactive elements
+  useEffect(() => {
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const isInteractive = 
+        target.closest('a') || 
+        target.closest('button') || 
+        target.closest('.cursor-pointer') ||
+        window.getComputedStyle(target).cursor === 'pointer';
+
+      if (isInteractive && cursorContext) {
+        cursorContext.setCursorType('hover');
+      }
+    };
+
+    const handleMouseOut = (e: MouseEvent) => {
+      const target = e.relatedTarget as HTMLElement;
+      const isInteractive = 
+        target && (
+          target.closest('a') || 
+          target.closest('button') || 
+          target.closest('.cursor-pointer') ||
+          window.getComputedStyle(target).cursor === 'pointer'
+        );
+
+      if (!isInteractive && cursorContext) {
+        cursorContext.setCursorType('default');
+      }
+    };
+
+    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mouseout', handleMouseOut);
+
+    return () => {
+      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mouseout', handleMouseOut);
+    };
+  }, [cursorContext]);
+
   // Determine if we're hovering based on cursorType
   const isHovering = cursorType === "hover" || cursorType === "text";
 

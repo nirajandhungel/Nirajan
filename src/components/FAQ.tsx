@@ -1,7 +1,8 @@
-
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Plus, Minus } from 'lucide-react';
 
 const faqs = [
   { 
@@ -26,50 +27,130 @@ const faqs = [
   }
 ];
 
-
-
 const FAQ: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-light">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-16">
-          <div className="w-full lg:w-5/12">
-            <h6 className="text-primary font-bold uppercase tracking-widest mb-2">FAQs</h6>
-            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-6">Frequently <span className="text-primary">Asked</span> Questions</h2>
-            <p className="text-lg text-muted-foreground mb-12">
-              Welcome to our FAQ section! Here you'll find quick answers to the most common questions about our development products and services.
-            </p>
-            <img 
-              src="https://picsum.photos/600/500?random=10" 
-              alt="FAQ Illustration" 
-              className="w-full rounded-3xl shadow-xl hidden lg:block"
-            />
+    <section className="py-16 md:py-20 bg-background relative overflow-hidden">
+      {/* Organic Decorative Elements */}
+      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
+      
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+          
+          <div className="w-full lg:w-2/5 lg:sticky lg:top-24">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h6 className="text-accent font-bold uppercase tracking-[0.3em] text-xs mb-3">Support & FAQ</h6>
+              <h2 className="text-3xl md:text-5xl font-black text-heading-gold font-outfit leading-[1.1] mb-5">
+                HAVE <span className="text-white">QUESTIONS?</span><br />
+                FIND ANSWERS.
+              </h2>
+              <p className="text-base text-muted-foreground mb-10 max-w-md leading-relaxed">
+                Everything you need to know about starting your digital journey in Nepal. If your question isn&apos;t here, feel free to reach out.
+              </p>
+              
+              <div className="relative border border-white/10 rounded-3xl overflow-hidden aspect-[4/3] bg-card">
+  
+  {/* Actual image */}
+  <img
+    src="/tlr.png"   // put your image in public/images/
+    alt="Product preview"
+    className="absolute inset-0 w-full h-full object-cover object-center"
+  />
+
+  {/* Soft gradient overlay (keeps your aesthetic) */}
+  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
+
+  {/* Bottom label (your existing content) */}
+  <div className="absolute bottom-6 left-6 right-6">
+    <div className="h-1 w-20 bg-accent rounded-full mb-3" />
+    <p className="text-xs font-bold text-white uppercase tracking-widest opacity-70">
+      Handcrafted solutions
+    </p>
+  </div>
+
+</div>
+
+            </motion.div>
           </div>
 
-          <div className="w-full lg:w-7/12">
-            <div className="space-y-4">
+          <div className="w-full lg:w-3/5">
+            <div className="space-y-3">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white rounded-2xl border border-border overflow-hidden">
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`group rounded-2xl border transition-all duration-500 overflow-hidden ${
+                    openIdx === idx 
+                      ? 'bg-card border-primary/30 shadow-[0_0_40px_rgba(196,30,58,0.1)]' 
+                      : 'bg-[#0f0f0f] border-white/5 hover:border-white/10'
+                  }`}
+                >
                   <button 
                     onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between group"
+                    className="w-full p-5 md:p-6 text-left flex items-start justify-between gap-4"
                   >
-                    <span className={`text-lg font-bold transition-colors ${openIdx === idx ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
+                    <span className={`text-base md:text-lg font-bold font-outfit transition-colors duration-300 leading-snug ${
+                      openIdx === idx ? 'text-white' : 'text-white/70 group-hover:text-white'
+                    }`}>
                       {faq.q}
                     </span>
-                    <i className={`fa-solid fa-chevron-down transition-transform duration-300 text-primary ${openIdx === idx ? 'rotate-180' : ''}`}></i>
-                  </button>
-                  <div className={`transition-all duration-300 ease-in-out ${openIdx === idx ? 'max-h-[300px] opacity-100 border-t' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-                    <div className="p-6 text-muted-foreground leading-relaxed">
-                      {faq.a}
+                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 mt-0.5 ${
+                      openIdx === idx 
+                        ? 'bg-primary text-white rotate-180' 
+                        : 'bg-white/5 text-white/40 group-hover:bg-white/10'
+                    }`}>
+                      <ChevronDown size={18} />
                     </div>
-                  </div>
-                </div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {openIdx === idx && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                      >
+                        <div className="px-5 md:px-6 pb-6">
+                          <div className="h-px w-full bg-gradient-to-r from-primary/30 to-transparent mb-4" />
+                          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                            {faq.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               ))}
             </div>
+
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="mt-8 p-6 rounded-2xl border border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
+            >
+               <div>
+                  <h4 className="text-lg font-bold text-white mb-1.5">Still have questions?</h4>
+                  <p className="text-muted-foreground text-sm">Can&apos;t find what you&apos;re looking for? Let&apos;s talk directly.</p>
+               </div>
+               <button className="btn-primary-cinematic text-white px-7 py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs whitespace-nowrap">
+                  Contact Support
+               </button>
+            </motion.div>
           </div>
+
         </div>
       </div>
     </section>

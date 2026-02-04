@@ -42,11 +42,11 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="absolute top-full left-0 pt-0 z-50">
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="bg-card backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mt-1"
+                className="bg-card backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mt-1 max-w-[calc(100vw-2rem)]"
               >
                 <motion.div
                   layout

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CONTACT } from '@/data/contact';
+import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
   title: 'About Nirajan Dhungel | Software Engineer Freelancer in Nepal',
@@ -159,6 +160,7 @@ export default function AboutPage() {
       {/* Education Section */}
       <EducationTimeline />
 
+      <FAQ />
     </div>
   );
 }
