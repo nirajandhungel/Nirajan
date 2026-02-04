@@ -365,7 +365,7 @@ export default function RootLayout({
               </p>
               <a 
                 href="https://www.enable-javascript.com/" 
-                className="text-blue-600 hover:underline"
+                className="text-primary hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

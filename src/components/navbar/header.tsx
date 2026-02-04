@@ -54,6 +54,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isSticky 
@@ -148,9 +149,11 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
         </div>
       </div>
 
+    </header>
+
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-opacity ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 z-[100] lg:hidden transition-opacity ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <div
           className="absolute inset-0 bg-black/80 backdrop-blur-sm"
@@ -241,7 +244,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 

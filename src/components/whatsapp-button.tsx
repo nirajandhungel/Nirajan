@@ -9,9 +9,9 @@ const WhatsAppButton: React.FC = () => {
         href={getWhatsAppLink(WHATSAPP.fullNumber)} 
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all group"
+        className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#b8860b] text-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all group"
         style={{
-          boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3), 0 0 20px rgba(37, 211, 102, 0.4)'
+          boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3), 0 0 20px rgba(211, 37, 37, 0.4)'
         }}
       >
         <i className="fa-brands fa-whatsapp text-3xl"></i>
