@@ -1,9 +1,38 @@
-'use client'
-
 import React from 'react';
+import { Metadata } from 'next';
 import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Web Design & Development Pricing | Nirajan Dhungel',
+  description: 'Custom website development packages for every business size. From landing pages to enterprise solutions, find the perfect plan for you.',
+  keywords: [
+    'Web Design Pricing Nepal',
+    'Website Development Cost Kathmandu',
+    'E-commerce Website Price',
+    'Custom Web Design Rates',
+    'Affordable Web Designer Nepal'
+  ],
+  openGraph: {
+    title: 'Professional Web Design Packages',
+    description: 'Get a stunning, high-performance website tailored to your brand. Check our transparent pricing plans.',
+    url: 'https://nirajandhungel.com.np/pricing/web-design',
+    siteName: 'Nirajan Dhungel',
+    images: [
+      {
+        url: '/nirajandhungel3.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nirajan Dhungel Web Design',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+  },
+};
 
 const webPackages = [
   {

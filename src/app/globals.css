@@ -224,7 +224,7 @@
 
   .btn-primary-cinematic {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+    background: linear-gradient(135deg, #8b0000 0%, #8b0000 100%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 

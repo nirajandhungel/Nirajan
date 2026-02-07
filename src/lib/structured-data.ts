@@ -16,7 +16,7 @@ export const personSchema: WithContext<Person> = {
         `${SITE_URL}/nirajandhungel3.png`,
         `${SITE_URL}/nirajandhungel.png`
     ],
-    "email": "nirajandhungel200@gmail.com",
+    "email": "info@nirajandhungel.com.np",
     "telephone": "+977-9825883910",
     "jobTitle": "Full Stack Web Developer",
     "worksFor": {
@@ -63,7 +63,7 @@ export const professionalServiceSchema: WithContext<ProfessionalService> & { ser
     "image": `${SITE_URL}/nirajandhungel2.jpeg`,
     "priceRange": "$$",
     "telephone": "+977-9825883910",
-    "email": "nirajandhungel200@gmail.com",
+    "email": "info@nirajandhungel.com.np",
     "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kathmandu",

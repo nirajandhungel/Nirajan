@@ -31,10 +31,8 @@ const FAQ: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-16 md:py-20 bg-background relative overflow-hidden">
-      {/* Organic Decorative Elements */}
-      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
+    <section className="py-16 md:py-20 bg-transparent relative overflow-hidden">
+      {/* Organic Decorative Elements - Removed to use global background */}
       
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">

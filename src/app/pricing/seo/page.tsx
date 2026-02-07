@@ -1,9 +1,38 @@
-'use client'
-
 import React from 'react';
+import { Metadata } from 'next';
 import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'SEO Packages & Pricing | Nirajan Dhungel',
+  description: 'Affordable and results-driven SEO packages in Nepal. Choose from Standard, Professional, or Enterprise plans to boost your search engine rankings.',
+  keywords: [
+    'SEO Pricing Nepal',
+    'SEO Packages Kathmandu',
+    'Search Engine Optimization Cost',
+    'Digital Marketing Rates Nepal',
+    'Local SEO Services Pricing'
+  ],
+  openGraph: {
+    title: 'Boost Your Rankings - SEO Packages',
+    description: 'Transparent pricing for professional SEO services in Nepal. Start growing your organic traffic today.',
+    url: 'https://nirajandhungel.com.np/pricing/seo',
+    siteName: 'Nirajan Dhungel',
+    images: [
+      {
+        url: '/nirajandhungel3.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nirajan Dhungel SEO Services',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+  },
+};
 
 const seoPackages = [
   {

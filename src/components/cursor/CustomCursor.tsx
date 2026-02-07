@@ -233,7 +233,7 @@ export default function CustomCursor({
                 "0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4)",
             }}
             animate={{
-              scale: isHovering ? 1.5 : 1,
+              scale: isHovering ? 1 : 1.5,
               backgroundColor: isHovering ? "#ffed4e" : "#ffd700",
             }}
             transition={{

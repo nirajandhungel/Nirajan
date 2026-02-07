@@ -6,21 +6,34 @@ import WhatsAppButton from "../../components/whatsapp-button";
 import FAQ from "../../components/FAQ";
 
 export const metadata: Metadata = {
-  title: "Work Process of IT Company in Nepal | Nirajan Dhungel",
-  description: "Ever wondered how an IT company works? We create an IT strategy that works efficiently together with your business model. Learn More about our working steps!",
+  title: "Work Process | Nirajan Dhungel - Software Engineer",
+  description: "Discover the agile development process of Nirajan Dhungel, a leading Software Engineer in Nepal. From requirement gathering to deployment, we ensure high-quality software solutions.",
+  keywords: [
+    'Software Development Process', 
+    'Agile Methodology Nepal', 
+    'Web Development Workflow', 
+    'Nirajan Dhungel Work Process', 
+    'IT Consulting Process',
+    'Software Engineering Steps'
+  ],
   openGraph: {
-    title: "Work Process of IT Company in Nepal | Nirajan Dhungel",
-    description: "Ever wondered how an IT company works? We create an IT strategy that works efficiently together with your business model. Learn More about our working steps!",
+    title: "Proven Work Process | Nirajan Dhungel - Software Engineer",
+    description: "See how we turn ideas into reality. Our structured software development lifecycle ensures transparency, quality, and timely delivery for your projects.",
     url: "https://nirajandhungel.com.np/work",
     type: "website",
+    siteName: "Nirajan Dhungel",
     images: [
       {
         url: "/media/work/planning.svg",
         width: 1200,
         height: 630,
-        alt: "Work Process of Nirajan Dhungel",
+        alt: "Nirajan Dhungel Software Development Workflow",
       },
     ],
+  },
+  icons: {
+    icon: '/favicon.png', // Explicitly setting per page if needed, though layout covers it
+    shortcut: '/favicon.png',
   },
 };
 
@@ -65,31 +78,40 @@ const workSteps = [
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen">
-      <WorkBanner />
-      
-      <section className="relative py-20 overflow-hidden bg-section-dark">
-        <div className="container mx-auto px-4">
-          <div className="relative">
-             {/* Central dashed line for mobile structure if needed, or stick to component's internal handling */}
-            <div className="space-y-0">
-               {workSteps.map((step, index) => (
-                 <ProcessStep
-                   key={step.stepNumber}
-                   stepNumber={step.stepNumber}
-                   title={step.title}
-                   description={step.description}
-                   imageSrc={step.imageSrc}
-                   isEven={index % 2 !== 0}
-                 />
-               ))}
+    <main className="min-h-screen bg-black relative overflow-hidden">
+       {/* Global Organic Background - Blending Solutions Section Style */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[120px] animate-float opacity-40 mix-blend-screen" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] animate-float-delayed opacity-30 mix-blend-screen" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-primary/5 rounded-full blur-[150px] animate-pulse-slow opacity-20" />
+      </div>
+
+      <div className="relative z-10">
+        <WorkBanner />
+        
+        <section className="relative py-20 overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="relative">
+               {/* Central dashed line for mobile structure if needed, or stick to component's internal handling */}
+              <div className="space-y-0">
+                 {workSteps.map((step, index) => (
+                   <ProcessStep
+                     key={step.stepNumber}
+                     stepNumber={step.stepNumber}
+                     title={step.title}
+                     description={step.description}
+                     imageSrc={step.imageSrc}
+                     isEven={index % 2 !== 0}
+                   />
+                 ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <FAQ />
-      <CTASection />
+        </section>
+  
+        <FAQ />
+        <CTASection />
+      </div>
     </main>
   );
 }

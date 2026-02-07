@@ -9,6 +9,11 @@ export function HeroSection() {
     <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
       {/* Cinematic Background Elements */}
       <div className="absolute inset-0">
+
+           <div className="absolute top-20 left-20 w-4 h-4 rounded-full bg-accent/50"></div>
+        <div className="absolute top-40 left-200 w-6 h-6 rounded-full bg-white/10"></div>
+        <div className="absolute top-20 left-300 w-3 h-3 rounded-full bg-accent/30"></div>
+        
         {/* Large Red Circle - Top Right */}
         <div
           className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full opacity-90"
@@ -61,10 +66,10 @@ export function HeroSection() {
           {/* Left Content */}
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-sm mb-6">
+              {/* <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span> */}
               <span className="text-sm font-medium text-white/80">
-                Available for Projects
+                Software Engineer
               </span>
             </div>
 

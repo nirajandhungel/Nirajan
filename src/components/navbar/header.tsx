@@ -133,7 +133,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             </div>
             <button
               onClick={onOpenEnquiry}
-              className="btn-primary-cinematic text-white px-5 py-2.5 rounded-xl font-bold transition-all"
+              className="btn-primary-cinematic text-white px-5 py-2.5 rounded-sm font-bold transition-all"
             >
               Get In Touch
             </button>
@@ -236,7 +236,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                   onOpenEnquiry();
                   closeMobileMenu();
                 }}
-                className="w-full btn-primary-cinematic text-white px-4 py-3 rounded-xl font-bold"
+                className="w-full btn-primary-cinematic text-white px-4 py-3 rounded-sm font-bold"
               >
                 Get In Touch
               </button>

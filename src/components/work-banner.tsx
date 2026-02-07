@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export const WorkBanner = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-background">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-transparent">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Large Red Circle */}

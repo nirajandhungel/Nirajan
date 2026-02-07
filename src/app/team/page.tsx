@@ -1,4 +1,4 @@
-"use client";
+
 
 import React from "react";
 import Image from 'next/image';
@@ -71,7 +71,41 @@ const teamMembers = [
   },
 ];
 
-const TeamPage: React.FC = () => {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Meet the Team | Nirajan Dhungel - Software Engineers & Developers",
+  description: "Get to know the expert team behind Nirajan Dhungel. A collective of skilled Software Engineers, Full Stack Developers, and Designers in Kathmandu dedicated to your success.",
+  keywords: [
+    'Nirajan Dhungel Team',
+    'Software Engineers Kathmandu',
+    'Web Developers Nepal',
+    'Hire Developers Nepal',
+    'IT Team Kathmandu',
+    'React Developers Nepal'
+  ],
+  openGraph: {
+    title: "Expert Software Engineering Team | Nirajan Dhungel",
+    description: "Meet the talented professionals driving digital innovation in Nepal. Lead by Nirajan Dhungel, our team delivers world-class software solutions.",
+    url: "https://nirajandhungel.com.np/team",
+    type: "website",
+    siteName: "Nirajan Dhungel",
+    images: [
+      {
+        url: "/media/team/nirajan-dhungel-team.jpg", // Assuming a generic team image or reuse main one
+        width: 1200,
+        height: 630,
+        alt: "Nirajan Dhungel Engineering Team",
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+  },
+};
+
+const TeamPage = () => {
   return (
     <div className="animate-fade-in bg-background min-h-screen">
       {/* Hero Section */}

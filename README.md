@@ -100,7 +100,7 @@ src/
 ## 📬 Contact & Connect
 
 - **Official Website**: [nirajandhungel.com.np](https://www.nirajandhungel.com.np)
-- **Email**: [contact@nirajandhungel.com.np](mailto:contact@nirajandhungel.com.np)
+- **Email**: [info@nirajandhungel.com.np](mailto:info@nirajandhungel.com.np)
 - **LinkedIn**: [Nirajan Dhungel](https://www.linkedin.com/in/nirajan-dhungel)
 - **Twitter/X**: [@SubashDhungel18](https://x.com/SubashDhungel18)
 - **Location**: Kathmandu, Nepal

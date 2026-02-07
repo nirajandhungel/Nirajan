@@ -8,7 +8,7 @@ export function SelectedWorkSection() {
   const featuredProjects = projects.slice(0, 4)
   
   return (
-    <section className="relative py-24 lg:py-32 bg-background overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg- overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div 

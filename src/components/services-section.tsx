@@ -42,7 +42,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="relative py-24 lg:py-32  overflow-hidden">
+    <section className="relative py-24 lg:py-32  overflow-hidden bg-black">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Red circle accent */}

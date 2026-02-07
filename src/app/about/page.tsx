@@ -12,14 +12,35 @@ import { CONTACT } from '@/data/contact';
 import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
-  title: 'About Nirajan Dhungel | Software Engineer Freelancer in Nepal',
-  description: 'Learn about Nirajan Dhungel, a leading Software Engineer Freelancer in Nepal and professional Web Developer.',
+  title: 'About Nirajan Dhungel | Dedicated Software Engineer & Web Developer',
+  description: 'Get to know Nirajan Dhungel, a professional Software Engineer based in Kathmandu. With a BSc (Hons) in Software Engineering, I specialize in building robust, scalable web applications.',
   keywords: [
-    'Software Engineer Freelancer in Nepal',
-    'Nirajan Dhungel',
+    'Nirajan Dhungel Biography',
+    'Software Engineer Kathmandu',
     'Full Stack Developer Nepal',
-    'Web Developer Kathmandu',
+    'IT Professional Profile',
+    'React Expert Nepal',
+    'Web Development Career',
+    'BSc Software Engineering Graduate'
   ],
+  openGraph: {
+    title: 'About Me | Nirajan Dhungel - Software Engineer',
+    description: 'Combining academic excellence with practical expertise. Learn about my journey, skills, and passion for technology.',
+    url: 'https://nirajandhungel.com.np/about',
+    siteName: 'Nirajan Dhungel',
+    images: [
+      {
+        url: '/nirajandhungel3.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nirajan Dhungel Profile',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+  },
 };
 
 export default function AboutPage() {

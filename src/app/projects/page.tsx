@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { Github, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Projects | Nirajan Dhungel',
-  description: 'Explore my portfolio of web development projects including Expense Tracker, Sahara Rentals, Taxi Booking System, and more. Built with React, Next.js, Node.js, and modern technologies.',
+  title: 'Projects | Nirajan Dhungel - Featured Web & App Portfolio',
+  description: 'Explore the portfolio of Nirajan Dhungel, showcasing high-performance web applications, custom software solutions, and mobile apps built with React, Next.js, and Node.js.',
   keywords: [
     'Nirajan Dhungel Projects',
     'Web Development Portfolio',
@@ -16,18 +16,27 @@ export const metadata: Metadata = {
     'Next.js Projects',
     'Full Stack Projects',
     'Nepal Developer Portfolio',
+    'Software Engineering Case Studies',
+    'Real Estate App Development',
+    'E-commerce Solutions Nepal'
   ],
   openGraph: {
-    title: 'Projects | Nirajan Dhungel Portfolio',
-    description: 'View my latest web development projects and applications.',
+    title: 'Featured Projects | Nirajan Dhungel Portfolio',
+    description: 'Discover how I solve complex business problems through code. View my latest work in web and mobile application development.',
     url: 'https://nirajandhungel.com.np/projects',
+    siteName: 'Nirajan Dhungel',
     images: [
       {
-        url: 'https://nirajandhungel.com.np/og-image.png',
+        url: '/nirajandhungel3.png', // Use consistent branding image
         width: 1200,
         height: 630,
+        alt: 'Nirajan Dhungel Projects Portfolio',
       },
     ],
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
   },
 };
 

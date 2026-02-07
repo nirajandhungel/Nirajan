@@ -165,7 +165,7 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} <span className="text-white/60">Nirajan Dhungel</span>. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4 text-sm text-white/40">
-            <span>Built with Next.js & Tailwind CSS</span>
+            <span>Free Bird</span>
           </div>
         </div>
       </div>

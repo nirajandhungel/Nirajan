@@ -19,7 +19,6 @@ const poppins = Poppins({
 });
 
 // ========== DYNAMIC METADATA IMPROVEMENTS ==========
-// Consider fetching these from CMS or API
 const SITE_URL = 'https://nirajandhungel.com.np';
 const SITE_NAME = 'Nirajan Dhungel';
 
@@ -28,16 +27,26 @@ export const metadata: Metadata = {
   
   title: {
     default: 'Nirajan Dhungel | Software Engineer & Web Developer in Kathmandu, Nepal',
-    template: '%s | Nirajan Dhungel',
+    template: '%s | Nirajan Dhungel - Software Engineer & IT Specialist',
   },
   
-  description: 'Expert Software Engineer and Full Stack Developer in Kathmandu, Nepal. Professional website development, mobile app development, and SEO services for businesses. Ranking top for IT services in Nepal.',
+  description: 'Nirajan Dhungel is a top-tier Software Engineer and Full Stack Developer in Kathmandu, Nepal, offering expert website development, custom mobile apps, and organic SEO services to boost your business growth.',
   
   keywords: [
-    'Nirajan Dhungel', 'Software Developer Kathmandu Nepal', 'Software Engineer Kathmandu',
-    'Freelance App Developer Nepal', 'Website Development Nepal', 'Web & App Development Services Kathmandu',
-    'Best Web Developer in Nepal', 'React Developer Kathmandu', 'Next.js Expert Nepal',
-    'IT Services Kathmandu', 'Software Solutions Nepal',
+    'Nirajan Dhungel', 
+    'Software Engineer Nepal', 
+    'Software Developer Kathmandu', 
+    'Best Web Developer in Nepal', 
+    'Freelance App Developer Nepal', 
+    'IT Service Provider in Kathmandu',
+    'Custom Website Development Nepal',
+    'SEO Expert Nepal',
+    'React & Next.js Developer Nepal',
+    'Full Stack Engineer Kathmandu',
+    'Mobile Application Development Nepal',
+    'Organic SEO Services',
+    'Nirajan Dhungel Portfolio',
+    'Top IT Consultant Nepal'
   ],
   
   authors: [{ name: 'Nirajan Dhungel', url: SITE_URL }],
@@ -71,14 +80,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Nirajan Dhungel | Full Stack Developer',
-    description: 'Expert Full Stack Developer building modern, fast, and scalable web applications with React, Next.js & TypeScript. View my portfolio and latest projects.',
+    title: 'Nirajan Dhungel | Expert Software Engineer & Web Developer in Nepal',
+    description: 'Looking for the best software engineer in Nepal? Nirajan Dhungel delivers high-performance websites, mobile apps, and SEO solutions tailored to your business needs.',
     images: [
       {
         url: '/nirajandhungel3.png',
         width: 1200,
         height: 630,
-        alt: 'Nirajan Dhungel - Digital Services Portfolio',
+        alt: 'Nirajan Dhungel - Professional Software Engineer in Nepal',
       },
     ],
     emails: [CONTACT.email],
@@ -90,14 +99,14 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@SubashDhungel18',
     creator: '@SubashDhungel18',
-    title: 'Nirajan Dhungel | Full Stack Developer',
-    description: 'Web developer sharing projects and blogs on React, Next.js, and AI.',
+    title: 'Nirajan Dhungel | Software Engineer & Tech Consultant',
+    description: 'Expert web and mobile app development services in Nepal by Nirajan Dhungel. Transforming ideas into digital reality.',
     images: ['/nirajandhungel3.png'],
   },
   
   // ========== MODERN SEO TAGS ==========
   category: 'Technology & Computing',
-  classification: 'Web Development, Digital Marketing, SEO Services',
+  classification: 'Software Development, Web Design, SEO Services, IT Consulting',
   
   // ========== APP INTEGRATION ==========
   appleWebApp: {
@@ -107,9 +116,11 @@ export const metadata: Metadata = {
   },
   
   // ========== ICONS & PWA ==========
-  // ========== ICONS & PWA ==========
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
     shortcut: '/favicon.png',
     apple: '/apple-touch-icon.png',
     other: [
