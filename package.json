@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-project-",
+ "name": "nirajandhungel-portfolio",
   "version": "1.4.2",
   "private": true,
   "type": "module",
@@ -13,7 +13,8 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next node_modules",
-    "postbuild": "next-sitemap --config next-sitemap.config.cjs"
+    "postbuild": "next-sitemap --config next-sitemap.config.js && node scripts/generate-image-sitemap.js",
+    "generate-sitemaps": "next-sitemap --config next-sitemap.config.js && node scripts/generate-image-sitemap.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
@@ -74,13 +75,14 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
-    "@types/node": "^22",
+    "@types/node": "^22.19.9",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.5",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.1.9",
+    "tsx": "^4.21.0",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"
   }

@@ -8,13 +8,21 @@ Disallow: /_next/
 # Googlebot
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 # Googlebot-Image
 User-agent: Googlebot-Image
 Allow: /
+Crawl-delay: 2
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 # Host
 Host: https://nirajandhungel.com.np
 
 # Sitemaps
 Sitemap: https://nirajandhungel.com.np/sitemap.xml
+Sitemap: https://nirajandhungel.com.np/sitemap-images.xml

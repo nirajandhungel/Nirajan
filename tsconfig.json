@@ -33,8 +33,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-  ],
+    ".next/dev/types/**/*.ts",
+      "scripts/**/*.js",  // Add this line
+    "scripts/**/*.ts"   // Add this line if you use TypeScript in scripts
+, "next-sitemap.config.js", "scripts/generate-image-sitemap.js"  ],
   "exclude": [
     "node_modules"
   ]
