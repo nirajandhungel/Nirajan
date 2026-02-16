@@ -7,17 +7,38 @@ import { CONTACT } from "@/data/contact";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen lg:h-screen bg-black overflow-hidden flex items-center ">
-      {/* Background Image with Object-Fit Cover */}
+      {/* Optimized Background Image with Modern Formats - CRITICAL FOR LCP */}
       <div className="absolute inset-0 z-0">
-        <OptimizedImage
-          src="/hero-bg-image.jpg"
-          alt="Hero Background"
-          fill
-          className="object-cover"
-          priority
-          isLCP={true}
-          sizes="100vw"
-        />
+        <picture>
+          {/* AVIF format - best compression (if supported) */}
+          <source
+            type="image/avif"
+            srcSet="/optimized/hero-bg-image.avif"
+          />
+          {/* WebP format - good compression, wide support */}
+          <source
+            type="image/webp"
+            srcSet="
+              /optimized/hero-bg-image-640w.webp 640w,
+              /optimized/hero-bg-image-750w.webp 750w,
+              /optimized/hero-bg-image-828w.webp 828w,
+              /optimized/hero-bg-image-1080w.webp 1080w,
+              /optimized/hero-bg-image-1200w.webp 1200w,
+              /optimized/hero-bg-image-1920w.webp 1920w,
+              /optimized/hero-bg-image.webp 2400w
+            "
+            sizes="100vw"
+          />
+          {/* Fallback to original JPG */}
+          <img
+            src="/hero-bg-image.jpg"
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
         {/* Dark overlay for better text contrast - darker on mobile */}
         <div className="absolute inset-0 bg-black/70 lg:bg-black/60" />
       </div>

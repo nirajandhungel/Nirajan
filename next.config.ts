@@ -122,12 +122,96 @@ const nextConfig: NextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  
+
   // =====================
   // Production Optimization
   // =====================
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  // =====================
+  // Webpack Optimization (Production only)
+  // =====================
+  webpack: (config, { isServer, dev }) => {
+    // Only apply custom webpack config in production builds
+    if (dev) return config;
+
+    // Optimize bundle splitting
+    if (!isServer) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Vendor chunk for node_modules
+            vendor: {
+              name: 'vendor',
+              chunks: 'all',
+              test: /node_modules/,
+              priority: 20,
+            },
+            // Common chunk for shared code
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              priority: 10,
+              reuseExistingChunk: true,
+              enforce: true,
+            },
+            // Separate chunk for React
+            react: {
+              name: 'react',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              priority: 30,
+            },
+            // Separate chunk for UI libraries
+            ui: {
+              name: 'ui',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](@radix-ui|framer-motion|lucide-react)[\\/]/,
+              priority: 25,
+            },
+          },
+        },
+      };
+    }
+
+    // Analyze bundle size (when ANALYZE=true)
+    if (process.env.ANALYZE === 'true') {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: isServer
+            ? '../analyze/server.html'
+            : './analyze/client.html',
+          openAnalyzer: true,
+        })
+      );
+    }
+
+    return config;
+  },
+
+  // =====================
+  // Turbopack Configuration (Next.js 16+)
+  // =====================
+  turbopack: {
+    // Empty config to silence the warning
+    // Turbopack handles optimization automatically
+  },
+
+  // =====================
+  // Performance Budgets
+  // =====================
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
   },
 }
 

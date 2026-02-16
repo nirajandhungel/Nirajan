@@ -135,7 +135,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               onClick={onOpenEnquiry}
               className="btn-primary-cinematic text-white px-5 py-2.5 rounded-sm font-bold transition-all"
             >
-              Get In Touch
+              Let's Talk
             </button>
           </div>
 
