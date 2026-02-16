@@ -6,40 +6,28 @@ import { CONTACT } from "@/data/contact";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
-      {/* Cinematic Background Elements */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen lg:h-screen bg-black overflow-hidden flex items-center ">
+      {/* Background Image with Object-Fit Cover */}
+      <div className="absolute inset-0 z-0">
+        <OptimizedImage
+          src="/hero-bg-image.jpg"
+          alt="Hero Background"
+          fill
+          className="object-cover"
+          priority
+          isLCP={true}
+          sizes="100vw"
+        />
+        {/* Dark overlay for better text contrast - darker on mobile */}
+        <div className="absolute inset-0 bg-black/70 lg:bg-black/60" />
+      </div>
 
-           <div className="absolute top-20 left-20 w-4 h-4 rounded-full bg-accent/50"></div>
+      {/* Cinematic Background Elements (hidden on mobile for performance) */}
+      <div className="absolute inset-0 z-[1] pointer-events-none hidden lg:block">
+        <div className="absolute top-20 left-20 w-4 h-4 rounded-full bg-accent/50"></div>
         <div className="absolute top-40 left-200 w-6 h-6 rounded-full bg-white/10"></div>
         <div className="absolute top-20 left-300 w-3 h-3 rounded-full bg-accent/30"></div>
         
-        {/* Large Red Circle - Top Right */}
-        <div
-          className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full opacity-90"
-          style={{
-            background:
-              "radial-gradient(circle, #c41e3a 0%, #8b0000 70%, transparent 100%)",
-          }}
-        />
-
-        {/* Medium Red Circle - Bottom Left */}
-        <div
-          className="absolute bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-70"
-          style={{
-            background:
-              "radial-gradient(circle, #c41e3a 0%, #8b0000 60%, transparent 100%)",
-          }}
-        />
-
-        {/* Small Red Accent Circle */}
-        <div
-          className="absolute top-1/2 right-1/4 w-[120px] h-[120px] rounded-full opacity-50"
-          style={{
-            background: "radial-gradient(circle, #c41e3a 0%, transparent 70%)",
-          }}
-        />
-
         {/* Decorative Arc Lines */}
         <div
           className="absolute top-10 left-10 w-32 h-32 rounded-full border-2 border-white/10"
@@ -55,143 +43,129 @@ export function HeroSection() {
             borderRightColor: "transparent",
           }}
         />
-
-        {/* Red Glow Effects */}
-        <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px]" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 lg:px-8 py-10 sm:py-16 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="max-w-2xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-sm mb-6">
-              {/* <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span> */}
-              <span className="text-sm font-medium text-white/80">
-                Software Engineer
-              </span>
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left Content - Order changes on mobile */}
+          <div className="order-2 lg:order-1 max-w-2xl">
+
+
+            {/* Main Hero Text with Stroke Effect - BIGGER NOW */}
+            <div className="relative mb-2 sm:mb-4 font-montserrat">
+              <h1 className="text-6xl sm:text-7xl lg:text-9xl font-black leading-[1.1]">
+                <span className="relative inline-block text-white">
+                  NIRAJAN
+                  <span 
+                    className="absolute top-0 left-0 text-transparent -translate-x-[4px] -translate-y-[4px] z-[-1]" 
+                    style={{
+                      WebkitTextStroke: "3px #FF0000",
+                      color: "transparent"
+                    }}
+                  >
+                    NIRAJAN
+                  </span>
+                </span>
+                <br />
+                <span className="relative inline-block text-white">
+                  DHUNGEL
+                  <span 
+                    className="absolute top-0 left-0 text-transparent -translate-x-[4px] -translate-y-[4px] z-[-1]"
+                    style={{
+                      WebkitTextStroke: "3px #FF0000",
+                      color: "transparent"
+                    }}
+                  >
+                    DHUNGEL
+                  </span>
+                </span>
+              </h1>
             </div>
 
-            {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.1] mb-6">
-              <span className="text-white">I'm </span>
-              <span className="text-heading-gold">Nirajan</span>
-              <br />
-              <span className="text-heading-gold">Dhungel</span>
-            </h1>
-
-            {/* Role */}
-            <p className="text-xl sm:text-2xl font-bold text-white/90 mb-4">
+            {/* Role - Now positioned right after the big name */}
+            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-heading-gold mb-3 sm:mb-4">
               Software Engineer & Web Developer
             </p>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-white/60 mb-8 leading-relaxed max-w-lg">
+            {/* Subtitle - Smaller on mobile */}
+            <p className="text-sm sm:text-base lg:text-lg text-white/60 mb-6 sm:mb-8 leading-relaxed max-w-lg">
               Building high-performance web solutions for international clients.
               I transform ideas into exceptional digital experiences that drive
               real business growth.
             </p>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8 mb-10">
+            {/* Stats - Centered on mobile */}
+            <div className="flex flex-wrap justify-center sm:justify-start gap-6 sm:gap-8 mb-8 sm:mb-10">
               {[
                 ["10+", "Projects"],
                 ["2+", "Years Exp"],
                 ["100%", "Satisfaction"],
               ].map(([value, label]) => (
                 <div key={label} className="text-center">
-                  <div className="text-3xl sm:text-4xl font-black text-heading-gold">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-heading-gold">
                     {value}
                   </div>
-                  <div className="text-xs sm:text-sm text-white/50 uppercase tracking-wider">
+                  <div className="text-[10px] sm:text-xs lg:text-sm text-white/50 uppercase tracking-wider">
                     {label}
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-4">
+            {/* Buttons - Stack on mobile */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button
                 size="lg"
-                className="btn-primary-cinematic text-white rounded-xl px-8 py-6 text-base font-bold group"
+                className="btn-primary-cinematic text-white rounded-sm px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-bold group w-full sm:w-auto"
                 asChild
               >
                 <Link href="/contact">
                   Work With Me
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-outline-gold rounded-xl px-8 py-6 text-base font-bold group
-             text-gold hover:text-gold"
+                className="btn-outline-gold rounded-sm px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-bold group
+             text-gold hover:text-gold w-full sm:w-auto"
                 asChild
               >
                 <a href="/nirajan_cv.pdf" download>
-                  <Download className="mr-2 w-5 h-5" />
+                  <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5 " />
                   Download CV
                 </a>
               </Button>
             </div>
 
-            {/* Contact */}
-            <div className="mt-10 flex flex-wrap items-center gap-4 text-sm text-white/50">
+            {/* Contact - Stack on mobile */}
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-xs sm:text-sm text-white/50">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <span>{CONTACT.email}</span>
+                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                <span className="break-all sm:break-normal">{CONTACT.email}</span>
               </div>
               <div className="hidden sm:block h-4 w-px bg-white/20"></div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full flex-shrink-0"></span>
                 <span>Open to Remote Work</span>
               </div>
             </div>
           </div>
 
-          {/* Right Image - Profile Photo with Red Circle Behind */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Red Circle Behind Portrait */}
-              <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] rounded-full -z-10"
-                style={{
-                  background:
-                    "radial-gradient(circle, #c41e3a 0%, #8b0000 80%)",
-                }}
-              />
-
-              {/* Glow Effect */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
-
+          {/* Right Image - Profile Photo */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end mb-6 lg:mb-0">
+            <div className="relative w-[200px] sm:w-[300px] lg:w-[600px]">
               <OptimizedImage
-                src="/nirajan-sketch-v22.png"
+                src="/mickeylit-ai-generated-8227903.svg"
                 alt="Nirajan Dhungel - Software Engineer & Web Developer"
                 title="Nirajan Dhungel - Professional Web Developer"
-                width={800}
-                height={800}
+                width={500}
+                height={500}
                 isLCP={true}
                 priority
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
-                className="relative w-full max-w-lg lg:max-w-xl h-auto animate-float"
-                style={{
-                  filter: "drop-shadow(20px 20px 40px rgba(0, 0, 0, 0.5))",
-
-                  maskImage: `
-      linear-gradient(to left, black 90%, transparent 100%),
-      linear-gradient(to bottom, black 90%, transparent 100%)
-    `,
-                  WebkitMaskImage: `
-      linear-gradient(to left, black 90%, transparent 100%),
-      linear-gradient(to bottom, black 90%, transparent 100%)
-    `,
-                  maskComposite: "intersect",
-                  WebkitMaskComposite: "destination-in",
-                }}
-              />
+                className="relative w-full h-auto"
+              /> 
             </div>
           </div>
         </div>

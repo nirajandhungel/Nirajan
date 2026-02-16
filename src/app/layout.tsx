@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Poppins } from 'next/font/google'
+import { Poppins,Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import ClientWrapper from './ClientWrapper'
@@ -17,6 +17,14 @@ const poppins = Poppins({
   display: 'swap', // Better for CLS
   preload: true,
 });
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  variable: "--font-montserrat",
+  display: "swap",
+  preload: true,
+})
 
 // ========== DYNAMIC METADATA IMPROVEMENTS ==========
 const SITE_URL = 'https://nirajandhungel.com.np';
@@ -288,7 +296,7 @@ export default function RootLayout({
   return (
     <html 
       lang="en" 
-      className={`${poppins.variable} scroll-smooth`}
+      className={`${poppins.variable} ${montserrat.variable}  scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

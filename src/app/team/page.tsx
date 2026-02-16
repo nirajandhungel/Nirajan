@@ -3,6 +3,7 @@
 import React from "react";
 import Image from 'next/image';
 import Link from 'next/link';
+import { ContactCTA } from "@/components/contact-cta";
 
 const leadDeveloper = {
   name: "Nirajan Dhungel",
@@ -276,27 +277,7 @@ const TeamPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section 
-        className="relative py-24 lg:py-32 overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 50%, #0a0a0a 100%)',
-        }}
-      >
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Ready to <span className="text-heading-gold">Work Together?</span>
-          </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-            Let's discuss your project and create something exceptional.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-primary hover:bg-accent hover:text-black px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Get In Touch
-          </Link>
-        </div>
-      </section>
+      <ContactCTA />
     </div>
   );
 };

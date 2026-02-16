@@ -118,7 +118,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof webPackages[0]; index: number
     </ul>
 
     <Button
-      className="w-full btn-primary-cinematic text-white rounded-xl py-6 font-bold"
+      className="w-full btn-primary-cinematic text-white rounded-sm py-6 font-bold"
       asChild
     >
       <Link href="/contact">
@@ -184,7 +184,7 @@ export default function WebPricingPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-primary hover:bg-accent hover:text-black px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-block bg-accent text-black transform transition-transform hover:-translate-y-0.5 px-10 py-4 rounded-sm font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Start Your Project
           </Link>

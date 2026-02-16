@@ -56,7 +56,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
   return (
     <>
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isSticky 
           ? "bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20" 
           : "bg-transparent py-2"

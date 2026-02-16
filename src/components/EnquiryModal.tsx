@@ -74,7 +74,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 ">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -95,11 +95,11 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                             duration: 0.4 
                         }}
                         onClick={(e) => e.stopPropagation()}
-                        className="relative z-10 w-full max-w-lg bg-[#111111] border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(196,30,58,0.15)] overflow-hidden cursor-default"
+                        className="relative z-10 w-full max-w-lg bg-[#111111] border border-white/10 rounded-sm shadow-[0_0_50px_rgba(196,30,58,0.15)] overflow-hidden cursor-default"
                     >
                         {/* Decorative Background Elements */}
-                        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/10 rounded-full blur-[80px] animate-pulse-glow" />
-                        <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-accent/5 rounded-full blur-[80px]" />
+                        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/10 rounded-sm blur-[80px] animate-pulse-glow" />
+                        <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-accent/5 rounded-sm blur-[80px]" />
                         
                         {/* Organic Decorative Arcs */}
                         <div className="absolute top-10 left-10 w-32 h-32 border-l border-t border-white/10 rounded-tl-full pointer-events-none" />
@@ -108,7 +108,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                         <button 
                             onClick={handleClose}
                             disabled={status === 'submitting'}
-                            className="absolute top-6 right-6 p-2 text-muted-foreground hover:text-white rounded-full hover:bg-white/5 transition-all disabled:opacity-50 z-20"
+                            className="absolute top-6 right-6 p-2 text-muted-foreground hover:text-white rounded-sm hover:bg-white/5 transition-all disabled:opacity-50 z-20"
                         >
                             <X size={20} />
                         </button>
@@ -119,7 +119,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.1 }}
-                                    className="text-3xl font-black text-heading-gold font-outfit uppercase tracking-tight"
+                                    className="text-3xl font-black text-heading-gold  uppercase tracking-tight"
                                 >
                                     Quick Enquiry
                                 </motion.h2>
@@ -144,7 +144,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                             placeholder="Your name"
                                             value={formData.name}
                                             onChange={(e) => setFormData({...formData, name: e.target.value})}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all text-sm text-white placeholder:text-muted-foreground/50 hover:bg-white/[0.08]"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all text-sm text-white placeholder:text-muted-foreground/50 hover:bg-white/[0.08]"
                                         />
                                     </div>
                                     <div className="space-y-1.5">
@@ -156,7 +156,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                             placeholder="hello@example.com"
                                             value={formData.email}
                                             onChange={(e) => setFormData({...formData, email: e.target.value})}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all text-sm text-white placeholder:text-muted-foreground/50 hover:bg-white/[0.08]"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all text-sm text-white placeholder:text-muted-foreground/50 hover:bg-white/[0.08]"
                                         />
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                             placeholder="+977 98..."
                                             value={formData.phone}
                                             onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all text-sm text-white placeholder:text-muted-foreground/50 hover:bg-white/[0.08]"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all text-sm text-white placeholder:text-muted-foreground/50 hover:bg-white/[0.08]"
                                         />
                                     </div>
                                     <div className="space-y-1.5">
@@ -181,7 +181,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                         <select 
                                             value={formData.service}
                                             onChange={(e) => setFormData({...formData, service: e.target.value})}
-                                            className="w-full px-4 py-3 bg-[#1a1a1a] border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none text-sm text-white transition-all appearance-none cursor-pointer hover:bg-[#222]"
+                                            className="w-full px-4 py-3 bg-[#1a1a1a] border border-white/10 rounded-sm focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none text-sm text-white transition-all appearance-none cursor-pointer hover:bg-[#222]"
                                         >
                                             <option value="" disabled className="bg-[#1a1a1a]">Select Service</option>
                                             <option value="web" className="bg-[#1a1a1a]">Website Development</option>
@@ -203,7 +203,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                                         rows={4}
                                         disabled={status === 'submitting'}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none resize-none transition-all text-sm text-white placeholder:text-muted-foreground/50 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/[0.08]"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none resize-none transition-all text-sm text-white placeholder:text-muted-foreground/50 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/[0.08]"
                                     ></textarea>
                                 </div>
 
@@ -228,7 +228,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                             initial={{ opacity: 0, height: 0 }}
                                             animate={{ opacity: 1, height: 'auto' }}
                                             exit={{ opacity: 0, height: 0 }}
-                                            className={`flex items-center gap-3 p-4 rounded-xl text-sm border ${
+                                            className={`flex items-center gap-3 p-4 rounded-sm text-sm border ${
                                                 status === 'success' 
                                                     ? 'bg-green-500/10 text-green-400 border-green-500/20' 
                                                     : 'bg-primary/10 text-primary-light border-primary/20'
@@ -247,7 +247,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                 <button
                                     onClick={handleSubmit}
                                     disabled={status === 'submitting' || status === 'success'}
-                                    className="w-full btn-primary-cinematic text-white py-4 px-6 rounded-xl font-bold uppercase tracking-widest flex items-center justify-center gap-3 text-sm mt-4 disabled:opacity-50 disabled:cursor-not-allowed group transition-all"
+                                    className="w-full btn-primary-cinematic text-white py-4 px-6 rounded-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3 text-sm mt-4 disabled:opacity-50 disabled:cursor-not-allowed group transition-all"
                                 >
                                     {status === 'submitting' ? (
                                         <>
@@ -269,15 +269,12 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                             </div>
 
                             <div className="mt-8 pt-6 border-t border-white/5">
-                                <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                                <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
                                     <div className="flex items-center gap-4">
                                         <span className="hover:text-accent transition-colors cursor-default">+977 9825883910</span>
-                                        <span className="w-1 h-1 bg-white/20 rounded-full hidden md:block" />
                                         <span className="hover:text-accent transition-colors lowercase cursor-default">info@nirajandhungel.com.np</span>
                                     </div>
-                                    <div className="text-white/30 italic font-mono lowercase tracking-normal">
-                                        nirajandhungel.com.np
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

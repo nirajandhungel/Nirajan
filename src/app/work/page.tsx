@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { WorkBanner } from "../../components/work-banner";
 import { ProcessStep } from "../../components/process-step";
-import { CTASection } from "../../components/cta-section";
-import WhatsAppButton from "../../components/whatsapp-button";
 import FAQ from "../../components/FAQ";
+import { ContactCTA } from '@/components/contact-cta';
 
 export const metadata: Metadata = {
   title: "Work Process | Nirajan Dhungel - Software Engineer",
@@ -110,7 +109,7 @@ export default function WorkPage() {
         </section>
   
         <FAQ />
-        <CTASection />
+        <ContactCTA />
       </div>
     </main>
   );

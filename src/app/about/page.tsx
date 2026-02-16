@@ -71,6 +71,7 @@ export default function AboutPage() {
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="w-8 h-[2px] bg-primary"></span>
                 <span className="text-sm text-primary font-bold uppercase tracking-widest">About Me</span>
+                
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
                 Hi, I'm <span className="text-heading-gold">Nirajan</span>
@@ -120,7 +121,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4">
                 <Button
                   size="lg"
-                  className="btn-primary-cinematic text-white rounded-xl px-8 py-6 font-bold group"
+                  className="btn-primary-cinematic text-white rounded-sm px-8 py-6 font-bold group"
                   asChild
                 >
                   <Link href="/contact">
@@ -131,7 +132,7 @@ export default function AboutPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="btn-outline-gold rounded-xl px-8 py-6 text-base font-bold group
+                  className="btn-outline-gold rounded-sm px-8 py-6 text-base font-bold group
              text-gold hover:text-gold"
                   asChild
                 >

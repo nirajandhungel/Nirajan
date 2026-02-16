@@ -17,7 +17,7 @@ const FAQ = dynamic(() => import("../components/FAQ"));
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="relative min-h-screen bg-background">
       <HeroSection />
       <ServicesSection />
       <SelectedWorkSection />

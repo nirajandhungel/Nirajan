@@ -1,6 +1,6 @@
-import React from 'react';
 import { education } from '@/data/education';
 import { GraduationCap, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
 export function EducationTimeline() {
   return (
@@ -24,9 +24,15 @@ export function EducationTimeline() {
               className="relative card-cinematic p-8 md:p-10"
             >
               {/* Icon Badge */}
-              <div className="absolute -left-4 top-8 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl flex items-center justify-center text-2xl shadow-xl">
-                {edu.icon}
-              </div>
+              <div className="absolute -left-4 top-8 w-12 h-12  rounded-sm flex items-center justify-center shadow-xl">
+                              <Image
+                                src={edu.icon}
+                                alt={`${edu.institution} logo`}
+                                width={50}
+                                height={50}
+                                className="object-cover rounded-sm"
+                              />
+                            </div>
 
               <div className="ml-8">
                 {/* Header */}
@@ -35,7 +41,7 @@ export function EducationTimeline() {
                     <h3 className="text-2xl md:text-3xl font-bold text-white">
                       {edu.degree}
                     </h3>
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full border ${
+                    <span className={`px-3 py-1 text-xs font-bold rounded-sm border ${
                       edu.status === 'In Progress' 
                         ? 'bg-accent/10 text-accent border-accent/20' 
                         : 'bg-green-500/10 text-green-400 border-green-500/20'
@@ -61,7 +67,7 @@ export function EducationTimeline() {
                   </div>
 
                   {/* GPA Badge */}
-                  <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-xl">
+                  <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-sm">
                     <span className="text-sm font-bold text-primary">{edu.gpa}</span>
                   </div>
                 </div>

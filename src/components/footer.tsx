@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
           {/* Services Column */}
           <div>
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 bg-primary rounded-full"></span>
+              {/* <span className="w-2 h-2 bg-primary rounded-full"></span> */}
               Services
             </h3>
             <ul className="space-y-3 text-sm">
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
           {/* Quick Links Column */}
           <div>
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 bg-accent rounded-full"></span>
+              {/* <span className="w-2 h-2 bg-accent rounded-full"></span> */}
               Quick Links
             </h3>
             <ul className="space-y-3 text-sm">
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
           {/* Contact Column */}
           <div>
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 bg-primary rounded-full"></span>
+              {/* <span className="w-2 h-2 bg-primary rounded-full"></span> */}
               Get In Touch
             </h3>
             <ul className="space-y-4 text-sm">

@@ -56,13 +56,7 @@ const Expertise: React.FC = () => {
                     
                     {/* Left Content - Takes 2/3 on large screens */}
                     <div className="lg:col-span-2">
-                        {/* Badge */}
-                        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full mb-6">
-                            <div className="w-2 h-2 bg-primary rounded-full" />
-                            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-primary">
-                                Tech Stack
-                            </span>
-                        </div>
+
 
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4 text-white">
                             Technologies I{' '}
@@ -80,10 +74,10 @@ const Expertise: React.FC = () => {
                                     key={tab}
                                     onClick={() => setActiveTab(tab as keyof typeof TECH_DATA)}
                                     className={`
-                                        px-5 py-3 rounded-xl font-bold text-sm
+                                        px-5 py-3 rounded-sm font-bold text-sm
                                         transition-all duration-300
                                         ${activeTab === tab 
-                                            ? 'bg-primary text-white shadow-lg shadow-primary/30' 
+                                            ? 'bg-red-600 text-white shadow-lg shadow-primary/30' 
                                             : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                                         }
                                     `}

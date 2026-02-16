@@ -101,15 +101,7 @@ export const ContactForm = () => {
     <div className="animate-fade-in bg-background min-h-screen">
       {/* Title Section */}
       <section className="relative py-24 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div 
-            className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20"
-            style={{
-              background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
-            }}
-          />
-        </div>
+
         
         <div className="container relative z-10 mx-auto px-4 md:px-10 text-center">
           <div className="inline-flex items-center gap-3 mb-6">
@@ -148,7 +140,7 @@ export const ContactForm = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       disabled={status === 'submitting'}
-                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-sm outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                     <input
                       type="email"
@@ -157,7 +149,7 @@ export const ContactForm = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       disabled={status === 'submitting'}
-                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-sm outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                     <input
                       type="tel"
@@ -165,7 +157,7 @@ export const ContactForm = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       disabled={status === 'submitting'}
-                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-sm outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                     <input
                       type="text"
@@ -173,7 +165,7 @@ export const ContactForm = () => {
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
                       disabled={status === 'submitting'}
-                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-sm outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
                   <textarea
@@ -183,7 +175,7 @@ export const ContactForm = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     disabled={status === 'submitting'}
-                    className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-xl outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+                    className="w-full bg-white/5 border border-white/10 focus:border-primary text-white placeholder:text-white/40 p-4 rounded-sm outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
                   ></textarea>
 
                   {/* Honeypot field */}
@@ -202,7 +194,7 @@ export const ContactForm = () => {
 
                   {/* Status message */}
                   {statusMessage && (
-                    <div className={`flex items-center gap-3 p-4 rounded-xl text-sm font-medium ${
+                    <div className={`flex items-center gap-3 p-4 rounded-sm text-sm font-medium ${
                       status === 'success' 
                         ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
                         : 'bg-red-500/10 text-red-400 border border-red-500/20'
@@ -215,7 +207,7 @@ export const ContactForm = () => {
                   <button
                     type="submit"
                     disabled={status === 'submitting' || status === 'success'}
-                    className="btn-primary-cinematic px-10 py-4 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3"
+                    className="btn-primary-cinematic px-10 py-4 text-white font-bold rounded-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3"
                   >
                     {status === 'submitting' ? (
                       <>
@@ -241,7 +233,7 @@ export const ContactForm = () => {
                     const Icon = info.icon;
                     return (
                       <div key={idx} className="flex items-center gap-4 group">
-                        <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 transition-all">
+                        <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-sm  flex items-center justify-center group-hover:bg-primary/20 transition-all">
                           <Icon className="w-5 h-5 text-primary" />
                         </div>
                         <div>

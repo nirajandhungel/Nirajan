@@ -182,7 +182,7 @@ export default function WebsiteDevelopmentPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-primary hover:bg-accent hover:text-black px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-block bg-white text-primary hover:bg-accent hover:text-black px-10 py-4 rounded-sm font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Start Your Project Today
           </Link>

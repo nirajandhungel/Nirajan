@@ -143,7 +143,7 @@ const FAQ: React.FC = () => {
                   <h4 className="text-lg font-bold text-white mb-1.5">Still have questions?</h4>
                   <p className="text-muted-foreground text-sm">Can&apos;t find what you&apos;re looking for? Let&apos;s talk directly.</p>
                </div>
-               <button className="btn-primary-cinematic text-white px-7 py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs whitespace-nowrap">
+               <button className="btn-primary-cinematic text-white px-7 py-3.5 rounded-sm font-bold uppercase tracking-widest text-xs whitespace-nowrap">
                   Contact Support
                </button>
             </motion.div>

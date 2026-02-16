@@ -28,11 +28,7 @@ const features = [
 export function SolutionsSection() {
   return (
     <section className="relative py-16 md:py-24 overflow-hidden bg-background">
-      {/* Organic Background Elements - CSS only, no complex SVG */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-float opacity-30" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-[80px] animate-float-delayed opacity-20" />
-      </div>
+
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -40,9 +36,7 @@ export function SolutionsSection() {
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-sm border border-primary/20">
-                Why Choose Me
-              </span>
+
               
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight font-outfit">
                 Strategic Solutions for{" "}
@@ -143,9 +137,9 @@ export function SolutionsSection() {
               </div>
 
               {/* Connecting dots */}
-              <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-ping-slow" />
+              {/* <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-ping-slow" />
               <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-accent rounded-full animate-ping-slow" 
-                   style={{ animationDelay: '0.5s' }} />
+                   style={{ animationDelay: '0.5s' }} /> */}
             </div>
           </div>
 
