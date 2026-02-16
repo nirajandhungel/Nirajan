@@ -385,6 +385,8 @@ export default function RootLayout({
         {/* ========== MOBILE OPTIMIZATION ========== */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Nirajan Dhungel" />
+
+        <meta name="yandex-verification" content="172b32e8df31e24a" />
         
         {/* ========== SECURITY HEADERS (via next.config.js) ========== */}
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
