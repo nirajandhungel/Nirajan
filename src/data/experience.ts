@@ -7,7 +7,7 @@ export const experiences: Experience[] = [
         period: "2025",
         location: "Kathmandu, Nepal",
         type: "Internship",
-        icon: "/media/ntb.jpg",
+        icon: "/optimized/media/ntb.webp",
         achievements: [
             "Led development of multiple web applications using React and Node.js",
             "Implemented CI/CD pipelines reducing deployment time by 50%",

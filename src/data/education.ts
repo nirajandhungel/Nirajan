@@ -10,7 +10,7 @@ export const education: Education[] = [
         description:
             "Pursuing with honors. Focused on software engineering and AI/ML.",
         status: "In Progress",
-        icon: "/media/uob.jpg",
+        icon: "/optimized/media/uob.webp",
         gpa: "First Class Honours Track"
     },
     {
@@ -22,7 +22,7 @@ export const education: Education[] = [
         description:
             "Completed 10+2 (Science Stream) under NEB, Nepal, with a GPA of 3.71.",
         status: "Completed",
-        icon: "/media/neb.png",
+        icon: "/optimized/media/neb.webp",
         gpa: "3.71 GPA"
     },
 ];

@@ -7,7 +7,7 @@ export const projects: Project[] = [
     technologies: ['Flutter', 'Dart', 'Provider','TypeScript', 'Node.js', 'Express'],
     githubLink: 'https://github.com/nirajandhungel/futsmandu-app',
     demoLink: '', // Add demo link if available
-    image: '/projects/futsmandu_logo.png',
+    image: '/optimized/projects/futsmandu_logo.webp',
 },
     {
         title: 'Expense Tracker',
@@ -15,7 +15,7 @@ export const projects: Project[] = [
         technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
         githubLink: 'https://github.com/nirajandhungel/Expense-Tracker',
         demoLink: 'https://nirajan-exp-tracker.vercel.app/login',
-        image: '/projects/exp-track.png',
+        image: '/optimized/projects/exp-track.webp',
     },
     {
         title: 'Sahara Rentals',
@@ -23,7 +23,7 @@ export const projects: Project[] = [
         technologies: ['Java', 'JavaFX', 'MySQL'],
         githubLink: 'https://github.com/nirajandhungel/Sahara-Rentals',
         demoLink: 'https://demo.com',
-        image: '/projects/vrs.jpeg',
+        image: '/optimized/projects/vrs.webp',
     },
     {
         title: 'Taxi Booking System',
@@ -31,7 +31,7 @@ export const projects: Project[] = [
         technologies: ['Python', 'Tkinter', 'CSS', 'Custom Tkinter'],
         githubLink: 'https://github.com/nirajandhungel/Taxi-Booking-System',
         demoLink: 'https://demo.com',
-        image: '/projects/taxi-booking.png',
+        image: '/optimized/projects/taxi-booking.webp',
     },
     
 
