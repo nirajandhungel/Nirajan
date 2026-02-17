@@ -105,6 +105,7 @@ const Footer: React.FC = () => {
                 { label: "About Me", href: "/about" },
                 { label: "Projects", href: "/projects" },
                 { label: "How I Work", href: "/work" },
+                { label: "Blog", href: "/blogs" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
@@ -153,7 +154,7 @@ const Footer: React.FC = () => {
                 <div className="w-10 h-10 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                <span className="text-white/50">{CONTACT.location}</span>
+                <span className="text-white/50 pt-2">{CONTACT.location}</span>
               </li>
             </ul>
           </div>

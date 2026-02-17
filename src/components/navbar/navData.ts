@@ -2,6 +2,7 @@ export const NAV_ITEMS = {
   regular: [
     // { href: "/", label: "Home" },
     { href: "/work", label: "How We Work" },
+    { href: "/blogs", label: "Blogs" },
     { href: "/team", label: "Team" },
     { href: "/contact", label: "Contact" },
   ],

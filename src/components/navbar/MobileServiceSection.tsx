@@ -18,8 +18,8 @@ export const MobileServiceSection = ({ title, services, onCloseMenu }: MobileSer
   return (
     <div>
       <div className="flex items-center gap-2 py-2">
-        <span className="w-2 h-2 bg-primary rounded-sm"></span>
-        <span className="font-semibold text-white text-sm">{title}</span>
+        {/* <span className="w-2 h-2 bg-primary rounded-sm"></span> */}
+        <span className="font-semibold text-primary text-sm">{title}</span>
       </div>
       <div className="pl-6 space-y-3">
         {services.map((service) => (
