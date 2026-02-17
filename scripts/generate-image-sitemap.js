@@ -32,15 +32,15 @@ const images = [
   },
   // Add favicons and other important images
   {
-    loc: `${SITE_URL}/favicon.png`,
+    loc: `${SITE_URL}/optimized/favicon.webp`,
     title: 'Nirajan Dhungel Favicon',
   },
   {
-    loc: `${SITE_URL}/android-chrome-192x192.png`,
+    loc: `${SITE_URL}/optimized/android-chrome-192x192.webp`,
     title: 'Nirajan Dhungel PWA Icon 192x192',
   },
   {
-    loc: `${SITE_URL}/android-chrome-512x512.png`,
+    loc: `${SITE_URL}/optimized/android-chrome-512x512.webp`,
     title: 'Nirajan Dhungel PWA Icon 512x512',
   },
 ]
