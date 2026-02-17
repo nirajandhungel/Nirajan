@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://nirajandhungel.com.np</loc>
-    <lastmod>2026-02-17T17:24:50.127Z</lastmod>
+    <lastmod>2026-02-17T19:19:08.195Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -28,15 +28,15 @@
       <image:title>Nirajan Dhungel - Kathmandu Youth Conclave</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://nirajandhungel.com.np/favicon.png</image:loc>
+      <image:loc>https://nirajandhungel.com.np/optimized/favicon.webp</image:loc>
       <image:title>Nirajan Dhungel Favicon</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://nirajandhungel.com.np/android-chrome-192x192.png</image:loc>
+      <image:loc>https://nirajandhungel.com.np/optimized/android-chrome-192x192.webp</image:loc>
       <image:title>Nirajan Dhungel PWA Icon 192x192</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://nirajandhungel.com.np/android-chrome-512x512.png</image:loc>
+      <image:loc>https://nirajandhungel.com.np/optimized/android-chrome-512x512.webp</image:loc>
       <image:title>Nirajan Dhungel PWA Icon 512x512</image:title>
     </image:image>
   </url>

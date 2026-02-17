@@ -29,7 +29,7 @@ export function BlogSection() {
             <span className="w-12 h-[2px] bg-primary"></span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            From The <span className="text-heading-gold">Blog</span>
+            From The <span className="text-heading-gold">Blogs</span>
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Thoughts on web development, SEO strategies, and building digital products.
@@ -41,7 +41,7 @@ export function BlogSection() {
           {posts.map((post) => (
             <Link 
               key={post.slug} 
-              href={`/blog/${post.slug}`}
+              href={`/blogs/${post.slug}`}
               className="group bg-neutral-900/50 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10"
             >
               {/* Image */}
@@ -106,7 +106,7 @@ export function BlogSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <Link 
-            href="/blog"
+            href="/blogs"
             className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all hover:scale-105"
           >
             See All Articles
