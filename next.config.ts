@@ -1,8 +1,14 @@
 import type { NextConfig } from "next"
+import createMDX from "@next/mdx"
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+
+  // =====================
+  // MDX Support
+  // =====================
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 
   // =====================
   // TypeScript Safety
@@ -19,6 +25,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
+    qualities: [75, 90],
     // quality: 80,
     // ADD THIS to handle www redirects
     remotePatterns: [
@@ -63,7 +70,7 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://vercel.live https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https:",
-              "font-src 'self' data:",
+              "font-src 'self' data: https://fonts.gstatic.com",
               "connect-src 'self' https://www.google-analytics.com https://vercel.com https://vitals.vercel-insights.com",
               "frame-src https://vercel.live",
               "worker-src 'self' blob:",
@@ -215,4 +222,38 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [
+      // Adds support for GitHub Flavored Markdown (tables, task lists, etc.)
+      ['remark-gfm', {}],
+      // Adds support for frontmatter (YAML)
+      ['remark-frontmatter', ['yaml']],
+      // Removes frontmatter from the MDX output
+      ['remark-mdx-frontmatter', { name: 'frontmatter' }],
+    ],
+    rehypePlugins: [
+      // Adds IDs to headings
+      ['rehype-slug', {}],
+      // Adds syntax highlighting
+      [
+        'rehype-pretty-code',
+        {
+          theme: 'github-dark',
+          keepBackground: true,
+        },
+      ],
+      // Adds links to headings
+      [
+        'rehype-autolink-headings',
+        {
+          properties: {
+            className: ['anchor'],
+          },
+        },
+      ],
+    ],
+  },
+})
+
+export default withMDX(nextConfig)
