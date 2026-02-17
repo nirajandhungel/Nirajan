@@ -18,7 +18,7 @@ export default function NotFound() {
         {/* 404 SVG Illustration */}
         <div className="relative w-full max-w-md aspect-square mb-8 animate-float">
           <Image
-            src="/media/work/404.svg"
+            src="/optimized/media/work/404.svg"
             alt="Page Not Found Illustration"
             fill
             className="object-contain drop-shadow-[0_0_30px_rgba(196,30,58,0.3)]"

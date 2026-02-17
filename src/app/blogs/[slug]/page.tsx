@@ -134,7 +134,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <article className="min-h-screen bg-background text-foreground">
         {/* Hero Section */}
-        <div className="relative w-full h-[60vh] min-h-[500px] flex items-end justify-center pb-12 sm:pb-20">
+        <div className="relative w-full h-[50vh] sm:h-[55vh] md:h-[60vh] min-h-[400px] sm:min-h-[450px] md:min-h-[500px] flex items-end justify-center pb-8 sm:pb-12 md:pb-16 lg:pb-20">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -152,39 +152,46 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center">
                 <Link 
                     href="/blogs" 
-                    className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors text-sm font-medium tracking-wide uppercase"
+                    className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 sm:mb-6 md:mb-8 transition-colors text-xs sm:text-sm font-medium tracking-wide uppercase"
                 >
-                    <ArrowLeft className="w-4 h-4" />
+                    <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
                     Back to Knowledge Base
                 </Link>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight tracking-tight px-2">
                     {frontmatter.title}
                 </h1>
                 
-                <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto mb-8 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8 leading-relaxed px-4">
                     {frontmatter.description}
                 </p>
 
                 {/* Meta Data */}
-                <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-300 font-medium">
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white">
-                            <User className="w-4 h-4" />
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm text-gray-300 font-medium">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-red-600 flex items-center justify-center text-white">
+                            <User className="w-3 h-3 sm:w-4 sm:h-4" />
                         </div>
                         <span className="text-white">{frontmatter.author}</span>
                     </div>
                     <div className="w-1 h-1 rounded-full bg-gray-500" />
-                    <time dateTime={frontmatter.date}>
+                    <time dateTime={frontmatter.date} className="hidden sm:inline">
                         {new Date(frontmatter.date).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric',
                         })}
                     </time>
+                    <time dateTime={frontmatter.date} className="sm:hidden">
+                        {new Date(frontmatter.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                        })}
+                    </time>
                     <div className="w-1 h-1 rounded-full bg-gray-500" />
-                    <div className="flex items-center gap-1.5">
-                        <Clock className="w-4 h-4" />
+                    <div className="flex items-center gap-1 sm:gap-1.5">
+                        <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span>{readingTime}</span>
                     </div>
                 </div>
@@ -192,31 +199,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Main Content Area */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20">
+            <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 lg:gap-16 max-w-7xl mx-auto">
                 
                 {/* Article Content */}
                 <div className="w-full lg:w-3/4">
-                    <div className="prose prose-lg dark:prose-invert max-w-none 
-                        prose-headings:font-bold prose-headings:tracking-tight 
-                        prose-p:leading-8 prose-p:text-gray-700 dark:prose-p:text-gray-300
+                    <div className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none 
+                        prose-headings:font-bold prose-headings:tracking-tight prose-headings:leading-tight
+                        prose-h1:text-2xl sm:prose-h1:text-3xl lg:prose-h1:text-4xl
+                        prose-h2:text-xl sm:prose-h2:text-2xl lg:prose-h2:text-3xl
+                        prose-h3:text-lg sm:prose-h3:text-xl lg:prose-h3:text-2xl
+                        prose-p:leading-7 sm:prose-p:leading-8 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:text-sm sm:prose-p:text-base
                         prose-a:text-red-600 dark:prose-a:text-red-400 prose-a:no-underline hover:prose-a:underline
-                        prose-img:rounded-xl prose-img:shadow-lg
-                        prose-code:text-red-600 dark:prose-code:text-red-400 prose-code:bg-transparent prose-code:before:content-none prose-code:after:content-none
+                        prose-img:rounded-lg sm:prose-img:rounded-xl prose-img:shadow-lg
+                        prose-code:text-red-600 dark:prose-code:text-red-400 prose-code:bg-transparent prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+                        prose-pre:text-sm sm:prose-pre:text-base
+                        prose-li:text-sm sm:prose-li:text-base prose-li:leading-relaxed
+                        prose-blockquote:text-sm sm:prose-blockquote:text-base
                         ">
                         <MDXContent components={mdxComponents} />
                     </div>
 
                     {/* Article Footer (Tags & Share) */}
-                    <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-                        <div className="flex flex-wrap items-center justify-between gap-6">
+                    <div className="mt-8 sm:mt-12 md:mt-16 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-800">
+                        <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-between gap-4 sm:gap-6">
                             {frontmatter.tags && (
                                 <div className="flex flex-wrap gap-2">
                                     {frontmatter.tags.map((tag) => (
                                         <Link 
                                             key={tag} 
-                                            href={`/blogs/tag/${tag}`}
-                                            className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400 rounded-full text-sm font-medium transition-colors"
+                                            href={`/blogs/tag/${encodeURIComponent(tag)}`}
+                                            className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400 rounded-full text-xs sm:text-sm font-medium transition-colors"
                                         >
                                             #{tag}
                                         </Link>
@@ -224,8 +237,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 </div>
                             )}
                             
-                            <div className="flex items-center gap-4">
-                                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">Share:</span>
+                            <div className="flex items-center gap-3 sm:gap-4">
+                                <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400">Share:</span>
                                 <div className="flex gap-2">
                                     <a
                                         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(frontmatter.title)}`}
@@ -234,7 +247,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                         className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-[#1DA1F2] hover:text-white transition-all text-gray-600 dark:text-gray-400"
                                         aria-label="Share on Twitter"
                                     >
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                                     </a>
                                     <a
                                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`}
@@ -243,7 +256,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                         className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-[#0A66C2] hover:text-white transition-all text-gray-600 dark:text-gray-400"
                                         aria-label="Share on LinkedIn"
                                     >
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                     </a>
                                     <a
                                         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`}
@@ -252,7 +265,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                         className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-[#1877F2] hover:text-white transition-all text-gray-600 dark:text-gray-400"
                                         aria-label="Share on Facebook"
                                     >
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                                     </a>
                                 </div>
                             </div>
@@ -269,21 +282,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-            <section className="py-20 bg-gray-50 dark:bg-gray-900/50">
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-900/50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                    <div className="flex items-center gap-4 mb-10">
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                             More from {frontmatter.author}
                         </h2>
                         <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                         {relatedPosts.map((relatedPost) => (
                             <Link
                                 key={relatedPost.slug}
                                 href={`/blogs/${relatedPost.slug}`}
-                                className="group flex flex-col h-full bg-background border border-gray-100 dark:border-white/5 rounded-2xl overflow-hidden hover:shadow-xl hover:border-red-500/20 transition-all duration-300"
+                                className="group flex flex-col h-full bg-background border border-gray-100 dark:border-white/5 rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-xl hover:border-red-500/20 transition-all duration-300"
                             >
                                 <div className="relative aspect-video overflow-hidden">
                                     <Image
@@ -291,26 +304,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                         alt={relatedPost.frontmatter.title}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />
                                     <div className="absolute top-2 right-2 px-2 py-1 bg-black/50 backdrop-blur-sm text-xs text-white rounded-md font-medium">
                                         {relatedPost.readingTime}
                                     </div>
                                 </div>
-                                <div className="p-6 flex flex-col flex-1">
+                                <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-1">
                                     <div className="text-xs text-red-600 dark:text-red-400 font-semibold mb-2 uppercase tracking-wider">
                                         {relatedPost.frontmatter.tags?.[0] || 'Article'}
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
+                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
                                         {relatedPost.frontmatter.title}
                                     </h3>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-4 flex-1">
+                                    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-4 flex-1">
                                         {relatedPost.frontmatter.description}
                                     </p>
                                     <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 mt-auto">
-                                        <time dateTime={relatedPost.frontmatter.date}>
+                                        <time dateTime={relatedPost.frontmatter.date} className="hidden sm:inline">
                                             {new Date(relatedPost.frontmatter.date).toLocaleDateString('en-US', {
                                                 month: 'long',
+                                                year: 'numeric'
+                                            })}
+                                        </time>
+                                        <time dateTime={relatedPost.frontmatter.date} className="sm:hidden">
+                                            {new Date(relatedPost.frontmatter.date).toLocaleDateString('en-US', {
+                                                month: 'short',
                                                 year: 'numeric'
                                             })}
                                         </time>
