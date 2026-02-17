@@ -31,7 +31,7 @@ export function HeroSection() {
           />
           {/* Fallback to original JPG */}
           <img
-            src="/hero-bg-image.jpg"
+            src="/optimized/hero-bg-image.webp"
             alt="Hero Background"
             className="w-full h-full object-cover"
             fetchPriority="high"

@@ -15,6 +15,8 @@ const ContactCTA = dynamic(() => import("../components/contact-cta").then(mod =>
 
 const FAQ = dynamic(() => import("../components/FAQ"));
 
+const BlogSection = dynamic(() => import("../components/blog-section").then(mod => ({ default: mod.BlogSection })));
+
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background">
@@ -24,6 +26,7 @@ export default function Home() {
       <ProcessSection />
       <Expertise />
       <SolutionsSection />
+      <BlogSection />
       <FAQ />
       <ContactCTA />
     </main>

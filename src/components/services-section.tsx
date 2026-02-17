@@ -6,37 +6,37 @@ const services = [
   {
     title: "Web Development",
     description: "High-performance websites that rank well and convert visitors into clients. Built with modern technologies.",
-    icon: "/media/services/website-development.svg",
+    icon: "/optimized/media/services/website-development.svg",
     color: "#c41e3a",
   },
   {
     title: "App Development",
     description: "Native and cross-platform mobile applications designed for seamless user experience.",
-    icon: '/media/services/mobile-app.svg',
+    icon: '/optimized/media/services/mobile-app.svg',
     color: "#ffd700",
   },
   {
     title: "Backend & APIs",
     description: "Robust server-side solutions, RESTful APIs, and database architecture for scalable applications.",
-    icon: '/media/services/backend.svg',
+    icon: '/optimized/media/services/backend.svg',
     color: "#c41e3a",
   },
   {
     title: "UI/UX Design",
     description: "User-centered design that balances aesthetics with functionality for maximum engagement.",
-    icon: '/media/services/ui-ux-design.svg',
+    icon: '/optimized/media/services/ui-ux-design.svg',
     color: "#ffd700",
   },
   {
     title: "SEO Services",
     description: "Data-driven optimization strategies to improve your search rankings and organic traffic.",
-    icon: '/media/services/seo-services.svg',
+    icon: '/optimized/media/services/seo-services.svg',
     color: "#c41e3a",
   },
   {
     title: "Digital Marketing",
     description: "Strategic marketing solutions to amplify your brand presence and reach your target audience.",
-    icon: '/media/services/marketing.svg',
+    icon: '/optimized/media/services/marketing.svg',
     color: "#ffd700",
   },
 ]

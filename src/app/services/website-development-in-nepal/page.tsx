@@ -152,7 +152,7 @@ export default function WebsiteDevelopmentPage() {
                 }}
               />
               <Image 
-                src="/media/website-development-portfolio.png" 
+                src="/optimized/media/website-development-portfolio.avif" 
                 alt="Web Development Portfolio" 
                 width={600}
                 height={450}

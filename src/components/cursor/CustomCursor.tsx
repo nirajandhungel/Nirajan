@@ -185,7 +185,7 @@ export default function CustomCursor({
               height: 50,
               borderRadius: "50%",
               border: "2px solid #c41e3a",
-              backgroundColor: "transparent",
+              backgroundColor: "rgba(196, 30, 58, 0)",
               pointerEvents: "none",
               zIndex: 9999,
               transform: "translate(-50%, -50%)",
@@ -195,7 +195,7 @@ export default function CustomCursor({
               borderColor: isHovering ? "#8b0000" : "#c41e3a",
               backgroundColor: isHovering
                 ? "rgba(196, 30, 58, 0.15)"
-                : "transparent",
+                : "rgba(196, 30, 58, 0)",
             }}
             transition={{
               scale: {

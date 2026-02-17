@@ -68,7 +68,7 @@ export const WorkBanner = () => {
               />
               <div className="relative z-10 w-full h-full flex items-center justify-center">
                 <Image
-                  src="/media/team/telecommunication.png" 
+                  src="/optimized/media/team/telecommunication.webp"
                   alt="Work Process Visualization"
                   width={500}
                   height={400}

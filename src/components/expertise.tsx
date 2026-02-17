@@ -5,28 +5,28 @@ import Image from 'next/image';
 
 const TECH_DATA = {
     'Web Development': [
-        { name: 'JavaScript', icon: '/media/tech/javascript.png' },
-        { name: 'Node JS', icon: '/media/tech/nodejs.png' },
-        { name: 'Python', icon: '/media/tech/python.png' },
-        { name: 'Django', icon: '/media/tech/django.png' },
-        { name: 'HTML5', icon: '/media/tech/html5.png' },
-        { name: 'Next JS', icon: '/media/tech/nextjs.png' },
+        { name: 'JavaScript', icon: '/optimized/media/tech/javascript.avif' },
+        { name: 'Node JS', icon: '/optimized/media/tech/nodejs.avif' },
+        { name: 'Python', icon: '/optimized/media/tech/python.avif' },
+        { name: 'Django', icon: '/optimized/media/tech/django.avif' },
+        { name: 'HTML5', icon: '/optimized/media/tech/html5.avif' },
+        { name: 'Next JS', icon: '/optimized/media/tech/nextjs.avif' },
     ],
     'App Development': [
-        { name: 'Flutter', icon: '/media/tech/flutter.png' },
-        { name: 'iOS', icon: '/media/tech/ios.png' },
-        { name: 'Kotlin', icon: '/media/tech/kotlin.png' },
-        { name: 'React Native', icon: '/media/tech/react-native.png' },
+        { name: 'Flutter', icon: '/optimized/media/tech/flutter.avif' },
+        { name: 'iOS', icon: '/optimized/media/tech/ios.avif' },
+        { name: 'Kotlin', icon: '/optimized/media/tech/kotlin.avif' },
+        { name: 'React Native', icon: '/optimized/media/tech/react-native.avif' },
     ],
     'Database': [
-        { name: 'MongoDB', icon: '/media/tech/mongodb.png' },
-        { name: 'MySQL', icon: '/media/tech/mysql.png' },
-        { name: 'PostgreSQL', icon: '/media/tech/postgresql.png' },
+        { name: 'MongoDB', icon: '/optimized/media/tech/mongodb.avif' },
+        { name: 'MySQL', icon: '/optimized/media/tech/mysql.avif' },
+        { name: 'PostgreSQL', icon: '/optimized/media/tech/postgresql.avif' },
     ],
     'Cloud Platform': [
-        { name: 'AWS', icon: '/media/tech/aws.png' },
-        { name: 'GCP', icon: '/media/tech/gcp.png' },
-        { name: 'Docker', icon: '/media/tech/docker.png' },
+        { name: 'AWS', icon: '/optimized/media/tech/aws.avif' },
+        { name: 'GCP', icon: '/optimized/media/tech/gcp.avif' },
+        { name: 'Docker', icon: '/optimized/media/tech/docker.avif' },
     ]
 };
 
@@ -129,7 +129,7 @@ const Expertise: React.FC = () => {
                                 }}
                             />
                             <Image 
-                                src="/media/expertise-visualization.svg" 
+                                src="/optimized/media/expertise-visualization.svg" 
                                 width={400}
                                 height={400}
                                 className="w-full max-w-sm mx-auto relative z-10" 

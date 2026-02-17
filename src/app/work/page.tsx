@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Nirajan Dhungel",
     images: [
       {
-        url: "/media/work/planning.svg",
+        url: "/optimized/media/work/planning.svg",
         width: 1200,
         height: 630,
         alt: "Nirajan Dhungel Software Development Workflow",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/favicon.png', // Explicitly setting per page if needed, though layout covers it
-    shortcut: '/favicon.png',
+    icon: '/optimized/favicon.webp', // Explicitly setting per page if needed, though layout covers it
+    shortcut: '/optimized/favicon.webp',
   },
 };
 
@@ -41,37 +41,37 @@ const workSteps = [
     stepNumber: "01",
     title: "Requirement Gathering",
     description: "In this step, we generate a list of requirements from our clients. The requirement could be functional or technical. It acts as a basis on what the project is and generates information on how it could be tackled. Requirement gathering is the most important step in our workflow. Here, clients must co-ordinate with our team members on time with clear and effective information.",
-    imageSrc: "/media/work/requirements-gathering.svg",
+    imageSrc: "/optimized/media/work/requirements-gathering.svg",
   },
   {
     stepNumber: "02",
     title: "Plan & Resources",
     description: "A plan and resources describe the strategic roadmap and assets allocated to achieve specific objectives. It entails outlining goals, timelines, budgets, and identifying the necessary tools, personnel, and materials to execute tasks effectively.",
-    imageSrc: "/media/work/planning.svg",
+    imageSrc: "/optimized/media/work/planning.svg",
   },
   {
     stepNumber: "03",
     title: "Design & Develop",
     description: "Design and develop refers to the comprehensive process of conceptualizing and creating digital products or solutions, encompassing both the visual aesthetics and underlying functionality, often involving collaboration between designers and developers.",
-    imageSrc: "/media/work/design-and-development.svg",
+    imageSrc: "/optimized/media/work/design-and-development.svg",
   },
   {
     stepNumber: "04",
     title: "Quality Assurance",
     description: "This is the step in which mistakes and defects are identified and corrected to ensure better quality. For quality assurance, we ask feedback from our clients. If our work doesn't meet the specific quality as per the requirement, we construct a plan with our project team to fulfill the desired process. In general, our professional teams are here to develop, detect and inspect the output to deliver satisfactory outcomes to our clients.",
-    imageSrc: "/media/work/quality-assurance.svg", // Reusing image for now as we have limited generations and it fits contextually (reviewing)
+    imageSrc: "/optimized/media/work/quality-assurance.svg", // Reusing image for now as we have limited generations and it fits contextually (reviewing)
   },
   {
     stepNumber: "05",
     title: "Deployment",
     description: "Deployment is the process of releasing and installing software applications or updates onto servers, devices, or networks for end-user access, ensuring functionality, security, and performance in a live environment.",
-    imageSrc: "/media/work/software-deployment.svg", // Reusing image (tech/server context)
+    imageSrc: "/optimized/media/work/software-deployment.svg", // Reusing image (tech/server context)
   },
   {
     stepNumber: "06",
     title: "Support & Maintenance",
     description: "Support and maintenance encompass ongoing assistance and upkeep provided to ensure the smooth functioning, security, and reliability of systems, software, or services, including troubleshooting, updates, and user assistance as needed.",
-    imageSrc: "/media/work/sodtware-maintainance.svg", // 
+    imageSrc: "/optimized/media/work/sodtware-maintainance.svg", // 
   },
 ];
 

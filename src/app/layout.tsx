@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     description: 'Looking for the best software engineer in Nepal? Nirajan Dhungel delivers high-performance websites, mobile apps, and SEO solutions tailored to your business needs.',
     images: [
       {
-        url: '/nirajandhungel3.png',
+        url: '/optimized/nirajandhungel3.webp',
         width: 1200,
         height: 630,
         alt: 'Nirajan Dhungel - Professional Software Engineer in Nepal',
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     creator: '@SubashDhungel18',
     title: 'Nirajan Dhungel | Software Engineer & Tech Consultant',
     description: 'Expert web and mobile app development services in Nepal by Nirajan Dhungel. Transforming ideas into digital reality.',
-    images: ['/nirajandhungel3.png'],
+    images: ['/optimized/nirajandhungel3.webp'],
   },
   
   // ========== MODERN SEO TAGS ==========
@@ -129,34 +129,22 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png' },
+      { url: '/optimized/favicon.webp', type: 'image/webp' },
     ],
-    shortcut: '/favicon.png',
-    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/optimized/favicon.webp',
     other: [
       {
         rel: 'icon',
-        type: 'image/png',
+        type: 'image/webp',
         sizes: '192x192',
-        url: '/android-chrome-192x192.png',
+        url: '/optimized/android-chrome-192x192.webp',
       },
       {
         rel: 'icon',
-        type: 'image/png',
+        type: 'image/webp',
         sizes: '512x512',
-        url: '/android-chrome-512x512.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        url: '/favicon-32x32.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        url: '/favicon-16x16.png',
+        url: '/optimized/android-chrome-512x512.webp',
       },
     ],
   },
@@ -311,31 +299,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://vercel.com" />
-
-        {/* Preload LCP image - CRITICAL for Speed Index improvement */}
-        <link 
-          rel="preload" 
-          as="image" 
-          href="/optimized/hero-bg-image.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
-
-        {/* Preload critical fonts - Reduces FCP by ~300ms */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
 
         {/* Prefetch likely next pages */}
         <link rel="prefetch" href="/about" />

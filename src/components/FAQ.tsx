@@ -57,8 +57,8 @@ const FAQ: React.FC = () => {
   
   {/* Actual image */}
   <img
-    src="/tlr.png"   // put your image in public/images/
-    alt="Product preview"
+    src="/optimized/tlr.webp"   // put your image in public/images/
+    alt="Product preview showing TLR design work"
     className="absolute inset-0 w-full h-full object-cover object-center"
   />
 

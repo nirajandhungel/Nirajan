@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Nirajan Dhungel',
     images: [
       {
-        url: '/nirajandhungel3.png',
+        url: '/optimized/nirajandhungel3.webp',
         width: 1200,
         height: 630,
         alt: 'Nirajan Dhungel Profile',
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
+    icon: '/optimized/favicon.webp',
+    shortcut: '/optimized/favicon.webp',
   },
 };
 
@@ -156,7 +156,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl -z-20" />
                 <OptimizedImage
-                  src="/nirajandhungel3.png"
+                  src="/optimized/nirajandhungel3.webp"
                   alt="Nirajan Dhungel - Software Engineer"
                   title="Nirajan Dhungel - Professional Web Developer"
                   width={850}

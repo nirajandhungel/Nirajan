@@ -8,7 +8,7 @@ import { ContactCTA } from "@/components/contact-cta";
 const leadDeveloper = {
   name: "Nirajan Dhungel",
   role: "Lead Developer & Founder",
-  img: "/nirajandhungel3.png",
+  img: "/optimized/nirajandhungel3.webp",
   bio: "Full-stack developer with strong system design fundamentals, experienced in building, deploying, and scaling modern web applications. Comfortable with load balancing, NGINX reverse proxy, CI/CD pipelines, and cloud-based deployments for production-ready systems.",
   skills: [
     "System Design",
@@ -25,49 +25,49 @@ const teamMembers = [
   {
     name: "Shishab Shrestha",
     role: "Senior Developer",
-    img: "/media/team/shishab-shrestha.jpeg",
+    img: "/optimized/media/team/shishab-shrestha.webp",
     bio: "Expert developer with 5+ years of experience in modern web technologies",
   },
   {
     name: "Dev Bhusan Bhatta",
     role: "Python Developer",
-    img: "/media/team/dev-bhusan-bhatta.jpeg",
+    img: "/optimized/media/team/dev-bhusan-bhatta.webp",
     bio: "Backend specialist focusing on scalable Python applications",
   },
   {
     name: "Nirush Man Shrestha",
     role: "Go Developer",
-    img: "/media/team/nirush-man-shrestha.jpeg",
+    img: "/optimized/media/team/nirush-man-shrestha.webp",
     bio: "Performance-driven developer specializing in Go applications",
   },
   {
     name: "Utsav Acharya",
     role: "Java Developer",
-    img: "/media/team/utsav-acharya.jpeg",
+    img: "/optimized/media/team/utsav-acharya.webp",
     bio: "Enterprise Java developer with strong architecture skills",
   },
   {
     name: "Rohit Tandukar",
     role: "Flutter Developer",
-    img: "/media/team/rohit-tandukar.png",
+    img: "/optimized/media/team/rohit-tandukar.webp",
     bio: "Mobile app developer creating cross-platform solutions",
   },
   {
     name: "Rojan Maharjan",
     role: "MERN Developer",
-    img: "/media/team/rojan-maharjan.jpeg",
+    img: "/optimized/media/team/rojan-maharjan.webp",
     bio: "Full-stack developer specializing in MERN stack",
   },
   {
     name: "Utsab Acharya",
     role: "Django Developer",
-    img: "/media/team/utsab-acharya.jpg",
+    img: "/optimized/media/team/utsab-acharya.webp",
     bio: "Django specialist building robust web applications",
   },
   {
     name: "Rijan Shrestha",
     role: "Frontend Developer",
-    img: "/media/team/rijan-shrestha.jpeg",
+    img: "/optimized/media/team/rijan-shrestha.webp",
     bio: "UI/UX focused developer creating beautiful interfaces",
   },
 ];
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     siteName: "Nirajan Dhungel",
     images: [
       {
-        url: "/media/team/nirajan-dhungel-team.jpg", // Assuming a generic team image or reuse main one
+        url: "/optimized/nirajan-dhungel-team.webp", // Assuming a generic team image or reuse main one
         width: 1200,
         height: 630,
         alt: "Nirajan Dhungel Engineering Team",
@@ -101,8 +101,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
+    icon: '/optimized/favicon.webp',
+    shortcut: '/optimized/favicon.webp',
   },
 };
 

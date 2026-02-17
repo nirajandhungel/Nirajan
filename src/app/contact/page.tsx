@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'Nirajan Dhungel',
     images: [
       {
-        url: '/nirajandhungel3.png',
+        url: '/optimized/nirajandhungel3.webp',
         width: 1200,
         height: 630,
         alt: 'Contact Nirajan Dhungel',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
+    icon: '/optimized/favicon.webp',
+    shortcut: '/optimized/favicon.webp',
   },
 };
 
