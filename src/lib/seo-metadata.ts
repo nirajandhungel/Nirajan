@@ -41,7 +41,7 @@ export const SEOMetadata = {
             siteName: SITE_NAME,
             images: [
                 {
-                    url: '/nirajandhungel3.png',
+                    url: '/optimized/nirajandhungel3.webp',
                     width: 1200,
                     height: 630,
                     alt: 'Nirajan Dhungel - Professional Software Engineer in Nepal',
@@ -70,7 +70,7 @@ export const SEOMetadata = {
             title: 'About Nirajan Dhungel | Full Stack Developer Nepal',
             description: 'Experienced software engineer specializing in full-stack development, delivering high-quality web solutions to clients worldwide.',
             url: `${SITE_URL}/about`,
-            images: ['/nirajandhungel.jpeg'],
+            images: ['/optimized/nirajandhungel.webp'],
         },
     }),
 
@@ -92,7 +92,7 @@ export const SEOMetadata = {
             title: 'Portfolio: Web Developer Nepal | Nirajan Dhungel',
             description: 'View successful web development projects and applications built by Nirajan Dhungel.',
             url: `${SITE_URL}/work`,
-            images: ['/media/website-development-portfolio.png'],
+            images: ['/optimized/media/website-development-portfolio.webp'],
         },
     }),
 
