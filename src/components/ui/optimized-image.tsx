@@ -24,7 +24,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'src'> {
  * @example
  * // LCP Hero Image
  * <OptimizedImage
- *   src="/nirajan-sketch-v22.png"
+ *   src="/optimized/nirajan-sketch-v22.webp"
  *   alt="Hero"
  *   width={800}
  *   height={800}
@@ -34,7 +34,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'src'> {
  * 
  * // Regular Image
  * <OptimizedImage
- *   src="/project.png"
+ *   src="/optimized/project.webp"
  *   alt="Project"
  *   width={600}
  *   height={400}
