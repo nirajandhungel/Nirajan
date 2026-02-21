@@ -1,6 +1,10 @@
 "use client"
 import { CheckCircle, Rocket, Shield, Clock } from "lucide-react"
-import { Logo } from "../assets/Logo"
+// import { Logo } from "../assets/Logo"
+import Image from "next/image";
+
+import { motion } from "framer-motion";
+
 
 const features = [
   {
@@ -86,62 +90,33 @@ export function SolutionsSection() {
           </div>
 
           {/* Right Illustration - Simplified Organic Design */}
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-square">
-              
-              {/* Animated rings - pure CSS using global animations */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="absolute w-full h-full border-2 border-white/5 rounded-full animate-pulse-slow" />
-                <div className="absolute w-4/5 h-4/5 border-2 border-white/10 rounded-full animate-pulse-slower" 
-                     style={{ animationDelay: '0.5s' }} />
-                <div className="absolute w-3/5 h-3/5 border-2 border-primary/20 rounded-full animate-pulse-slow" 
-                     style={{ animationDelay: '1s' }} />
-              </div>
-
-              {/* Center glow */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-glow" />
-              </div>
-
-              {/* Logo container */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="relative">
-                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-float"></div>
-                    <div className="w-38 h-18 rounded-sm bg-black border border-white/10 flex items-center justify-center transform hover:scale-105 transition-transform duration-500 relative z-10 shadow-2xl shadow-primary/20 animate-float">
-                      <Logo className="w-16 h-16 pr-25 text-white" />
-                    </div>
-                 </div>
-              </div>
-
-              {/* Floating feature badges */}
-              <div className="absolute top-8 right-10 bg-[#1a1a1a] border border-white/10 px-4 py-2 rounded-sm shadow-xl flex items-center gap-2 animate-float">
-                <Rocket className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-white/90">Fast</span>
-              </div>
-
-              <div className="absolute bottom-30 -right-4 bg-[#1a1a1a] border border-white/10 px-4 py-2 rounded-sm shadow-xl flex items-center gap-2 animate-float">
-                <Shield className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-white/90">Secure</span>
-              </div>
-
-              <div className="absolute bottom-5 right-48 bg-[#1a1a1a] border border-white/10 px-4 py-2 rounded-sm shadow-xl flex items-center gap-2 animate-float"
-                   style={{ animationDelay: '0.3s' }}>
-                <Clock className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-white/90">24/7</span>
-              </div>
-
-              <div className="absolute top-1/3 -left-4 bg-[#1a1a1a] border border-white/10 px-4 py-2 rounded-sm shadow-xl flex items-center gap-2 animate-float"
-                   style={{ animationDelay: '0.6s' }}>
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-white/90">Quality</span>
-              </div>
-
-              {/* Connecting dots */}
-              {/* <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-ping-slow" />
-              <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-accent rounded-full animate-ping-slow" 
-                   style={{ animationDelay: '0.5s' }} /> */}
-            </div>
-          </div>
+<div className="flex items-center justify-center lg:justify-end h-full">
+  <motion.div 
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    className="w-full h-full flex justify-center lg:justify-end"
+  >
+    <div className="relative  w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[4/3] lg:aspect-[4/3]">
+      {/* Red Circle Behind */}
+      <div 
+  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 aspect-square rounded-full -z-10"
+  style={{
+    background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 80%)',
+  }}
+/>
+      <div className="relative w-full h-full flex items-center justify-center">
+        <Image
+          src="/optimized/media/work/telecommunication.svg"
+          alt="Work Process Visualization"
+          fill
+          className="object-cover animate-float drop-shadow-2xl"
+          priority
+        />
+      </div>
+    </div>
+  </motion.div>
+</div>
 
         </div>
       </div>

@@ -87,7 +87,7 @@ const FAQ: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`group rounded-2xl border transition-all duration-500 overflow-hidden ${
+                  className={`group rounded-xl border transition-all duration-500 overflow-hidden ${
                     openIdx === idx 
                       ? 'bg-card border-primary/30 shadow-[0_0_40px_rgba(196,30,58,0.1)]' 
                       : 'bg-[#0f0f0f] border-white/5 hover:border-white/10'
@@ -95,7 +95,7 @@ const FAQ: React.FC = () => {
                 >
                   <button 
                     onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                    className="w-full p-5 md:p-6 text-left flex items-start justify-between gap-4"
+                    className="w-full p-3 md:p-6 text-left flex items-start justify-between gap-6"
                   >
                     <span className={`text-base md:text-lg font-bold font-outfit transition-colors duration-300 leading-snug ${
                       openIdx === idx ? 'text-white' : 'text-white/70 group-hover:text-white'

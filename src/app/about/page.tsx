@@ -12,36 +12,45 @@ import { CONTACT } from '@/data/contact';
 import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
-  title: 'About Nirajan Dhungel | Dedicated Software Engineer & Web Developer',
-  description: 'Get to know Nirajan Dhungel, a professional Software Engineer based in Kathmandu. With a BSc (Hons) in Software Engineering, I specialize in building robust, scalable web applications.',
+  title: 'About Nirajan Dhungel',
+  description: 'Learn about Nirajan Dhungel, Full Stack Developer and Co-founder of Lingo Tech Solutions. Professional journey, skills, and technical expertise.',
   keywords: [
     'Nirajan Dhungel Biography',
     'Software Engineer Kathmandu',
     'Full Stack Developer Nepal',
+    'Co-founder Lingo Tech Solutions',
+    'CTO Lingo Tech Solutions',
     'IT Professional Profile',
     'React Expert Nepal',
     'Web Development Career',
     'BSc Software Engineering Graduate'
   ],
+
+  alternates: {
+    canonical: 'https://nirajandhungel.com.np/about',
+  },
+
   openGraph: {
-    title: 'About Me | Nirajan Dhungel - Software Engineer',
-    description: 'Combining academic excellence with practical expertise. Learn about my journey, skills, and passion for technology.',
+    title: 'Contact | Nirajan Dhungel',
+    description: 'Get in touch with Nirajan Dhungel for full-stack development, SEO, and technical consultation.',
     url: 'https://nirajandhungel.com.np/about',
     siteName: 'Nirajan Dhungel',
     images: [
       {
-        url: '/optimized/nirajandhungel3.webp',
+        url: 'https://nirajandhungel.com.np/optimized/nirajandhungel3.webp',
         width: 1200,
         height: 630,
         alt: 'Nirajan Dhungel Profile',
       },
     ],
   },
+
   icons: {
     icon: '/optimized/favicon.webp',
     shortcut: '/optimized/favicon.webp',
   },
 };
+
 
 export default function AboutPage() {
   return (
@@ -80,10 +89,8 @@ export default function AboutPage() {
                 Software Engineer & Web Developer
               </p>
               <p className="text-white/60 leading-relaxed mb-6">
-                I'm a passionate Software Engineer based in Kathmandu, Nepal, specializing in 
-                building exceptional digital experiences. With expertise in modern web technologies 
-                like React, Next.js, Node.js, and TypeScript, I help businesses establish a 
-                strong online presence.
+                Co-founder at Lingo Tech Solutions, building scalable web platforms and digital solutions for growing businesses. 
+                I build Next.js SEO optimized websites for global startups — brands, websites & apps that rank on Google and AI search and generate leads.
               </p>
               <p className="text-white/60 leading-relaxed mb-8">
                 Currently pursuing BSc. (Hons) in Software Engineering, I combine academic 

@@ -12,6 +12,15 @@ const config: Config = {
         background: 'var(--background)',
         light: 'var(--light)',
         foreground: 'var(--foreground)',
+        blog: {
+          bg: 'var(--blog-bg)',
+          'bg-card': 'var(--blog-bg-card)',
+          border: 'var(--blog-border)',
+          text: 'var(--blog-text)',
+          'text-muted': 'var(--blog-text-muted)',
+          'text-soft': 'var(--blog-text-soft)',
+          accent: 'var(--blog-accent)',
+        },
         primary: 'var(--primary)',
         'primary-foreground': 'var(--primary-foreground)',
         secondary: '#000000',
@@ -25,11 +34,25 @@ const config: Config = {
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
+        // ===== Planet of Metal reference design tokens =====
+        'pom-accent': 'var(--pom-accent)',
+        'pom-accent-alt1': 'var(--pom-accent-alt1)',
+        'pom-accent-alt2': 'var(--pom-accent-alt2)',
+        'pom-accent-alt3': 'var(--pom-accent-alt3)',
+        'pom-accent-alt4': 'var(--pom-accent-alt4)',
+        'pom-accent-alt5': 'var(--pom-accent-alt5)',
+        'pom-surface': 'var(--pom-surface)',
+        'pom-footer': 'var(--pom-footer)',
       },
       fontFamily: {
         outfit: ['Outfit', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
+        // Reference site (planetofmetal.com) font system
+        'big-shoulders': ['var(--font-big-shoulders)', '"Big Shoulders Display"', 'sans-serif'],
+        'noto-sans': ['var(--font-noto-sans-jp)', '"Noto Sans JP"', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        // Alias: 'display' maps to the bold display font system
+        display: ['var(--font-big-shoulders)', '"Big Shoulders Display"', 'var(--font-outfit)', 'Outfit', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

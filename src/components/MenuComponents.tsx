@@ -30,7 +30,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-white/80 hover:text-primary px-4 py-3 text-sm font-semibold flex items-center transition-colors"
+        className="cursor-pointer text-white hover:text-primary px-4 py-1 text-sm font-semibold flex items-center transition-colors"
       >
         {item}
         <ChevronDown className="ml-1 w-4 h-4" />
@@ -42,11 +42,11 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-0 z-50">
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="bg-card backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mt-1 max-w-[calc(100vw-2rem)]"
+                className="bg-card backdrop-blur-xl rounded-sm overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mt-0 max-w-[calc(100vw-2rem)]"
               >
                 <motion.div
                   layout
@@ -79,7 +79,7 @@ export const ProductItem = ({
       <img src={src} alt={title} className="w-12 h-12 mr-4 shrink-0" />
       <div>
         <div className="font-semibold text-white text-sm mb-1 group-hover:text-primary transition-colors">{title}</div>
-        <div className="text-xs text-white/50 leading-relaxed">{description}</div>
+        <div className="text-xs text-white leading-relaxed">{description}</div>
       </div>
     </Link>
   );
@@ -87,7 +87,7 @@ export const ProductItem = ({
 
 export const HoveredLink = ({ children, href, className = "text-base", ...rest }: React.ComponentProps<typeof NavLink>) => {
   return (
-    <NavLink href={href} className={`text-white/80 hover:text-primary hover:bg-white/5 px-4 py-3 rounded-lg transition-all ${className}`} {...rest}>
+    <NavLink href={href} className={`text-white hover:text-primary hover:bg-white/5 px-4 py-3 rounded-lg transition-all ${className}`} {...rest}>
       {children}
     </NavLink>
   );

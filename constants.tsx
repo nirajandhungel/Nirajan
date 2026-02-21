@@ -26,16 +26,25 @@ export const SERVICES: Service[] = [
         link: '/services/system-software-development',
         category: 'Development'
     },
-    {
+
+     {
         id: '4',
-        title: 'UI/UX Design',
-        description: 'User-centered design that creates intuitive and engaging digital experiences.',
-        icon: 'https://softbenz.com/media/services/UI_UX.svg',
-        link: '/services/ui-ux-design',
+        title: 'Graphic Design',
+        description: 'Professional graphic design services for branding, marketing materials, and digital assets.',
+        icon: 'https://softbenz.com/media/design/Website_Creator-pana.svg',
+        link: '/services/graphics-design',
         category: 'Development'
     },
     {
         id: '5',
+        title: 'GSO AI (SEO Services)',
+        description: 'Advanced AI-powered SEO and digital marketing optimization to boost your website visibility and ranking.',
+        icon: 'https://softbenz.com/media/services/SEO_analytics_team-amico.svg',
+        link: '/services/gso-ai',
+        category: 'Marketing'
+    },
+    {
+        id: '6',
         title: 'Search Engine Optimization (SEO)',
         description: 'Improve your website visibility and ranking on search engines with proven SEO strategies.',
         icon: 'https://softbenz.com/media/services/SEO_analytics_team-amico.svg',
@@ -43,19 +52,11 @@ export const SERVICES: Service[] = [
         category: 'Marketing'
     },
     {
-        id: '6',
+        id: '7',
         title: 'Social Media Marketing (SMM)',
         description: 'Build your brand presence and engage with your audience across social platforms.',
         icon: 'https://softbenz.com/media/services/Mobile_Marketing-pana.svg',
         link: '/services/social-media-marketing',
-        category: 'Marketing'
-    },
-    {
-        id: '7',
-        title: 'Graphic Design',
-        description: 'Professional graphic design services for branding, marketing materials, and digital assets.',
-        icon: 'https://softbenz.com/media/design/Website_Creator-pana.svg',
-        link: '/services/graphics-design',
         category: 'Marketing'
     },
     {

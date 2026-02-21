@@ -18,7 +18,7 @@ export const MobileDropdown = ({ title, children, isOpen = false, onToggle }: Mo
   return (
     <div className="border-b border-white/5 px-3">
       <button
-        className="flex items-center justify-between w-full py-3 text-sm font-medium text-white/80 hover:text-white transition-colors"
+        className="flex items-center justify-between w-full py-3 text-sm font-medium text-white hover:text-white transition-colors"
         onClick={toggle}
       >
         {title}

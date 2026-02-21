@@ -100,7 +100,7 @@ export const ContactForm = () => {
   return (
     <div className="animate-fade-in bg-background min-h-screen">
       {/* Title Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section id="strategy-call" className="relative py-24 overflow-hidden scroll-mt-24">
 
         
         <div className="container relative z-10 mx-auto px-4 md:px-10 text-center">
@@ -115,6 +115,33 @@ export const ContactForm = () => {
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Ready to start your project? I'm here to help bring your vision to life.
           </p>
+        </div>
+      </section>
+
+      {/* Audit CTA Section */}
+      <section id="audit" className="py-12 scroll-mt-24">
+        <div className="container mx-auto px-4 md:px-10">
+          <div
+            className="rounded-2xl p-8 md:p-12 text-center border"
+            style={{
+              background: 'linear-gradient(135deg, rgba(196,30,58,0.1) 0%, rgba(0,0,0,0.3) 100%)',
+              borderColor: 'rgba(196,30,58,0.3)',
+            }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Get a <span className="text-heading-gold">Free Website / SEO Audit</span>
+            </h3>
+            <p className="text-white/70 max-w-xl mx-auto mb-6">
+              Tell me about your site and I&apos;ll send you a personalised audit with actionable fixes — no strings attached.
+            </p>
+            <button
+              type="button"
+              onClick={openEnquiry}
+              className="btn-primary-cinematic px-8 py-3 text-white font-bold rounded-sm"
+            >
+              Request Free Audit
+            </button>
+          </div>
         </div>
       </section>
 

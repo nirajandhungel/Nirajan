@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function ExperienceTimeline() {
   return (
-    <section className="py-24 lg:py-32 bg-background">
+    <section id="experience" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
@@ -23,7 +23,7 @@ export function ExperienceTimeline() {
           {experiences.map((exp, idx) => (
             <div key={idx} className="relative card-cinematic p-8 md:p-10">
               {/* Icon Badge */}
-              <div className="absolute -left-4 top-8 w-12 h-12  rounded-sm flex items-center justify-center shadow-xl">
+              <div className="absolute left-2 top-8 w-12 h-12  rounded-sm flex items-center justify-center shadow-xl">
                 <Image
                   src={exp.icon}
                   alt={`${exp.company} logo`}
@@ -47,7 +47,13 @@ export function ExperienceTimeline() {
 
                   <div className="flex items-center gap-2 text-lg font-semibold text-primary mb-3">
                     <Briefcase className="w-5 h-5" />
-                    {exp.company}
+                    {exp.companyLink ? (
+                      <a href={exp.companyLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {exp.company}
+                      </a>
+                    ) : (
+                      exp.company
+                    )}
                   </div>
 
                   <div className="flex flex-wrap gap-4 text-sm text-white/50">

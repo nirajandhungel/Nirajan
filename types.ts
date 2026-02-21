@@ -18,14 +18,15 @@ export interface Skill {
 }
 
 export interface SkillCategory {
-  title: string;
-  gradient: string;
-  skills: Skill[];
+    title: string;
+    gradient: string;
+    skills: Skill[];
 }
 
 export interface Experience {
     title: string;
     company: string;
+    companyLink?: string;
     period: string;
     location: string;
     type: string;

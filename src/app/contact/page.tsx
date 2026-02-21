@@ -4,8 +4,8 @@ import { localBusinessSchema } from "@/lib/structured-data";
 import { ContactForm } from './ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact Nirajan Dhungel | Software Engineer & Web Developer',
-  description: 'Get in touch with Nirajan Dhungel for web development, mobile app projects, or software engineering consultation in Kathmandu, Nepal.',
+  title: 'Contact | Nirajan Dhungel',
+  description: 'Get in touch with Nirajan Dhungel for full-stack development, SEO, and technical consultation.',
   keywords: [
     'Contact Nirajan Dhungel',
     'Hire Software Engineer Nepal',
@@ -13,8 +13,11 @@ export const metadata: Metadata = {
     'Freelance Developer Kathmandu',
     'IT Consultation Nepal'
   ],
+   alternates: {
+    canonical: 'https://nirajandhungel.com.np/contact',
+  },
   openGraph: {
-    title: 'Let\'s Start Your Project | Nirajan Dhungel',
+    title: 'Contact | Nirajan Dhungel',
     description: 'Ready to build something amazing? Contact me today for a free consultation.',
     url: 'https://nirajandhungel.com.np/contact',
     siteName: 'Nirajan Dhungel',

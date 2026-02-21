@@ -48,7 +48,8 @@ export const personSchema: WithContext<Person> = {
         "JavaScript",
         "Website Development",
         "SEO",
-        "UI/UX Design"
+        "Digital Marketing",
+        "GSO AI SEO Services"
     ]
 };
 
@@ -81,8 +82,9 @@ export const professionalServiceSchema: WithContext<ProfessionalService> & { ser
         "React Development",
         "Next.js Development",
         "E-commerce Development",
-        "UI/UX Design",
-        "SEO Services"
+        "SEO Services",
+        "GSO AI (SEO Services)",
+        "Digital Marketing Strategy"
     ],
     "provider": {
         "@type": "Person",

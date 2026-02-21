@@ -2,8 +2,9 @@
 @import 'tw-animate-css';
 
 
-.font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+/* Premium Typography — Big Shoulders Display for headings, Poppins for UI, Lora for blog */
+.font-outfit {
+  font-family: var(--font-big-shoulders), 'Big Shoulders Display', var(--font-outfit), 'Outfit', sans-serif;
 }
 
 /* ============================================
@@ -25,59 +26,89 @@
    ============================================ */
 
 :root {
-  /* Core Dark Theme */
-  /* --background: #0a0a0a; */
-  --background: #090505;
+  /* ===============================================
+     RAW MODERN DESIGN SYSTEM
+     Inspired by Planet of Metal - No Gradients
+     =============================================== */
+  
+  /* Core Dark Theme - Pure Black */
+  --background: #000000;
   --foreground: #ffffff;
 
   /* Card & Surfaces */
-  --card: #111111;
+  --card: #0a0a0a;
   --card-foreground: #ffffff;
-  --popover: #151515;
+  --popover: #0f0f0f;
   --popover-foreground: #ffffff;
 
-  /* Primary Red */
-  --primary: #c41e3a;
-  --primary-dark: #8b0000;
-  --primary-light: #dc143c;
+  /* Primary Accent - Vibrant Solid Colors */
+  --primary: #990000;
+  --primary-dark: #cc0000;
+  --primary-light: #ff0000;
   --primary-foreground: #ffffff;
 
   /* Secondary */
   --secondary: #1a1a1a;
   --secondary-foreground: #ffffff;
 
-  /* Accent Gold/Yellow */
-  --accent: #ffd700;
+  /* Accent Colors - Solid, Hard Colors */
+  --accent: #ffca28;
+  --accent-alt: #ffd700;
   --accent-muted: #b8860b;
   --accent-foreground: #000000;
 
+  /* Additional Vibrant Colors */
+  --color-cyan: #3bfbed;
+  --color-purple: #8421f9;
+  --color-pink: #de26f3;
+
   /* Muted Tones */
-  --muted: #1f1f1f;
-  --muted-foreground: #a0a0a0;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
 
   /* Borders & Inputs */
-  --border: #2a2a2a;
-  --input: #1f1f1f;
-  --ring: #c41e3a;
+  --border: #333333;
+  --input: #0f0f0f;
+  --ring: #ff1d1d;
 
   /* Destructive */
-  --destructive: #ff4444;
+  --destructive: #ff1d1d;
   --destructive-foreground: #ffffff;
 
-  /* Light variant for contrast */
-  --light: #151515;
+  /* Light variant */
+  --light: #0f0f0f;
 
-  /* Radius */
-  --radius: 0.75rem;
+  /* Radius - Sharp, No Radius for Raw Look */
+  --radius: 0px;
 
-  /* Red Glow */
-  --glow-red: rgba(196, 30, 58, 0.5);
-  --glow-accent: rgba(255, 215, 0, 0.3);
+  /* ===============================================
+     PLANET OF METAL Design Tokens
+     =============================================== */
+  --pom-accent: #ff1d1d;
+  --pom-accent-alt1: #ff1d1d;
+  --pom-accent-alt2: #de26f3;
+  --pom-accent-alt3: #3bfbed;
+  --pom-accent-alt4: #ffca28;
+  --pom-accent-alt5: #8421f9;
+  --pom-surface: #000000;
+  --pom-footer: #0a0a0a;
+  --pom-font-nav: 30px;
+  --pom-font-nav-sp: 25px;
+  --pom-font-body: 16px;
+  --pom-font-body-sp: 13px;
+  --pom-letter-spacing-wide: 0.1rem;
+  --pom-letter-spacing-base: 0.05rem;
+  --pom-letter-spacing-tight: normal;
+  --pom-line-height: 1.2;
+  --pom-radius-btn: 0px;
+  --pom-radius-card: 0px;
 }
 
 @theme inline {
+  --font-display: var(--font-big-shoulders), 'Big Shoulders Display', sans-serif;
   --font-sans: var(--font-poppins), 'Poppins', sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-serif: var(--font-lora), 'Lora', Georgia, serif;
+  --font-mono: var(--font-geist-mono), 'JetBrains Mono', ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -122,10 +153,14 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-outfit), 'Outfit', sans-serif;
+    font-family: var(--font-big-shoulders), 'Big Shoulders Display', sans-serif;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.2;
   }
+
+  /* Blog headings use Lora (set via .prose-blog in blog page) */
 
   html {
     scroll-behavior: smooth;
@@ -186,41 +221,52 @@
     text-shadow: 0 4px 30px rgba(196, 30, 58, 0.3);
   }
 
+  /* Logo / Brand Name — Outfit, Bold, Uppercase */
+  /* .logo-text {
+    font-family: var(--font-outfit), 'Outfit', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  } */
+
   /* ============================================
-     BACKGROUNDS & GRADIENTS
+     BACKGROUNDS - SOLID COLORS ONLY
      ============================================ */
 
   .bg-cinematic {
-    background: linear-gradient(180deg,
-        #0a0a0a 0%,
-        #0f0f0f 50%,
-        #0a0a0a 100%);
-  }
-
-  .bg-cinematic-red {
-    background: linear-gradient(135deg,
-        rgba(196, 30, 58, 0.1) 0%,
-        transparent 50%,
-        rgba(196, 30, 58, 0.05) 100%);
+    background: #000000;
   }
 
   .bg-section-dark {
-    background: #0d0d0d;
+    background: #0a0a0a;
   }
 
   .bg-section-darker {
-    background: #080808;
+    background: #000000;
+  }
+
+  .bg-accent-red {
+    background: #ff1d1d;
+  }
+
+  .bg-accent-yellow {
+    background: #ffca28;
+  }
+
+  .bg-accent-cyan {
+    background: #3bfbed;
   }
 
   /* Card with subtle red glow on hover */
   .card-cinematic {
-    @apply relative bg-card border border-border/50 rounded-2xl transition-all duration-500;
+    @apply relative bg-card border border-border/50 rounded-2xl transition-all duration-500 overflow-hidden;
   }
 
   .card-cinematic:hover {
-    border-color: rgba(196, 30, 58, 0.3);
+    border-color: rgba(196, 30, 58, 0.4);
+    border-bottom-width: 2px;
+    border-bottom-color: var(--primary);
     box-shadow:
-      0 0 40px -10px rgba(196, 30, 58, 0.3),
+      0 0 40px -10px rgba(196, 30, 58, 0.4),
       0 20px 60px -20px rgba(0, 0, 0, 0.8);
   }
 
@@ -230,28 +276,43 @@
 
   .btn-primary-cinematic {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #8b0000 0%, #8b0000 100%);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #880000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-primary-cinematic:hover {
+    background: #cc0000;
+    border-color: #cc0000;
     transform: translateY(-2px);
-    box-shadow:
-      0 10px 40px -10px rgba(196, 30, 58, 0.6),
-      0 0 20px rgba(196, 30, 58, 0.3);
   }
 
   .btn-outline-gold {
-    @apply border-2 border-accent text-accent;
+    @apply border-2;
+    border-color: #ffca28;
+    color: #ffca28;
     background: transparent;
     transition: all 0.3s ease;
   }
 
   .btn-outline-gold:hover {
+    background: #ffca28;
+    color: #000000;
     transform: translateY(-2px);
+  }
 
-    background: rgba(255, 215, 0, 0.1);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+  .btn-outline-white {
+    @apply border-2;
+    border-color: #ffffff;
+    color: #ffffff;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-white:hover {
+    background: #ffffff;
+    color: #000000;
   }
 
   /* ============================================
@@ -390,6 +451,27 @@
   }
 
   /* ============================================
+     SPACING RHYTHM
+     ============================================ */
+
+  /* Mobile sticky CTA — footer needs bottom padding so it's not hidden */
+  @media (max-width: 1023px) {
+    footer {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .section-spacing {
+    margin-bottom: 4rem;
+    /* mb-16 */
+  }
+
+  .prose-spacing p {
+    margin-bottom: 2rem;
+    /* mb-8 */
+  }
+
+  /* ============================================
      UTILITY CLASSES
      ============================================ */
 
@@ -487,12 +569,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c41e3a, #8b0000);
-  border-radius: 4px;
+  background: #ff1d1d;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #dc143c, #c41e3a);
+  background: #cc0000;
 }
 
 /* ============================================
@@ -537,4 +619,133 @@
     background: white;
     color: black;
   }
+}
+
+/* ============================================
+   BLOG LAYOUT — Organic, clean editorial theme
+   Serif headings, sans-serif body. No gradients.
+   ============================================ */
+
+:root {
+  /* Blog design tokens — organic, natural palette */
+  --blog-bg: #f8f6f3;
+  --blog-bg-card: #ffffff;
+  --blog-border: #e5e1db;
+  --blog-border-subtle: #ebe8e3;
+  --blog-text: #2c2925;
+  --blog-text-muted: #5c5650;
+  --blog-text-soft: #8a847c;
+  --blog-text-faint: #a8a298;
+  --blog-accent: #c41e3a;
+  --blog-accent-hover: #9b1530;
+  --blog-accent-soft: #fdf0f2;
+  --blog-code-bg: #1e1e1e;
+  --blog-code-text: #d4d4d4;
+  --blog-code-keyword: #569cd6;
+  --blog-code-string: #ce9178;
+  --blog-code-comment: #6a9955;
+  --blog-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.blog-layout {
+  overflow-x: hidden;
+  background: var(--blog-bg);
+}
+
+.blog-layout ::-webkit-scrollbar-track {
+  background: #f0ede8;
+}
+
+.blog-layout ::-webkit-scrollbar-thumb {
+  background: var(--blog-accent);
+  border-radius: 4px;
+}
+
+.font-lora {
+  font-family: var(--font-lora), 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+.blog-layout img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Code block — light text on dark bg for visibility */
+.blog-layout pre {
+  color: #d4d4d4;
+}
+
+.blog-layout pre code {
+  color: #d4d4d4;
+}
+
+/* ============================================
+   PLANET OF METAL DESIGN SYSTEM UTILITIES
+   ============================================ */
+.font-big-shoulders {
+  font-family: var(--font-big-shoulders), 'Big Shoulders Display', sans-serif;
+}
+
+.font-noto-sans {
+  font-family: var(--font-noto-sans-jp), sans-serif;
+}
+
+.pom-nav-link {
+  position: relative;
+  display: block;
+  font-family: var(--font-big-shoulders), 'Big Shoulders Display', sans-serif;
+  font-size: var(--pom-font-nav);
+  font-weight: 800;
+  letter-spacing: var(--pom-letter-spacing-wide);
+  line-height: var(--pom-line-height);
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.19, 0.92, 0.3, 1);
+}
+
+.pom-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--pom-accent);
+  transform: scaleX(0);
+  transform-origin: center right;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.pom-nav-link:hover::after {
+  transform-origin: center left;
+  transform: scaleX(1);
+}
+
+.pom-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11.5px 24px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-big-shoulders), 'Big Shoulders Display', sans-serif;
+  font-size: var(--pom-font-body);
+  font-weight: 800;
+  letter-spacing: var(--pom-letter-spacing-wide);
+  border-radius: 0;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pom-btn:hover {
+  border-color: var(--pom-accent);
+  background: var(--pom-accent);
+  color: #fff;
+}
+
+.logo-text {
+  font-family: var(--font-big-shoulders), 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }

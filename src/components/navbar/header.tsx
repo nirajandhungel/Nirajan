@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, X, Menu } from "lucide-react";
 import { Logo } from "../../assets/Logo";
 import { NavLink } from "./NavLink";
@@ -17,6 +18,8 @@ interface NavbarProps {
 }
 
 export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
+  const pathname = usePathname();
+  const isBlogPage = pathname.startsWith("/blog");
   const [isSticky, setIsSticky] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -57,7 +60,9 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isSticky
+          isBlogPage
+            ? "bg-black border-b border-white/5"
+            : isSticky
             ? "bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
             : "bg-transparent py-2"
         }`}
@@ -79,7 +84,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                     <HoveredLink
                       key={item.label}
                       href={item.href}
-                      className="text-lg px-3 mb-3 mt-1 text-white/80 hover:text-primary"
+                      className="text-lg px-3 mb-3 mt-1 text-white hover:text-primary"
                     >
                       {item.label}
                     </HoveredLink>
@@ -118,7 +123,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                     <HoveredLink
                       key={item.label}
                       href={item.href}
-                      className="text-xs px-3 py-2 mb-3 text-white/80 hover:text-primary"
+                      className="text-xs px-3 py-2 mb-3 text-white hover:text-primary"
                     >
                       {item.label}
                     </HoveredLink>
@@ -180,7 +185,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               <Logo onClick={closeMobileMenu} />
               <button
                 onClick={closeMobileMenu}
-                className="text-white/60 hover:text-white"
+                className="text-white hover:text-white"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -191,7 +196,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               <NavLink
                 href="/"
                 onClick={closeMobileMenu}
-                className="block border-b border-white/5 text-white/80 hover:text-white"
+                className="block border-b border-white/5 text-white hover:text-white"
               >
                 Home
               </NavLink>
@@ -206,7 +211,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className="block py-2 text-white/60 hover:text-primary"
+                    className="block py-2 text-white hover:text-primary"
                   >
                     {item.label}
                   </NavLink>
@@ -246,7 +251,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className="block py-2 text-white/60 hover:text-primary"
+                    className="block py-2 text-white hover:text-primary"
                   >
                     {item.label}
                   </NavLink>
@@ -258,7 +263,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                   key={item.label}
                   href={item.href}
                   onClick={closeMobileMenu}
-                  className="block border-b border-white/5 text-white/80 hover:text-white"
+                  className="block border-b border-white/5 text-white hover:text-white"
                 >
                   {item.label}
                 </NavLink>
@@ -267,7 +272,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
             {/* Mobile CTA */}
             <div className="mt-8 space-y-4">
-              <div className="flex items-center text-white/60 font-semibold">
+              <div className="flex items-center text-white font-semibold">
                 <Phone className="w-4 h-4 mr-2 text-primary" />
                 <a href="tel:+9779825883910">+977-9825883910</a>
               </div>

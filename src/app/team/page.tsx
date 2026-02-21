@@ -85,6 +85,10 @@ export const metadata: Metadata = {
     'IT Team Kathmandu',
     'React Developers Nepal'
   ],
+    alternates: {
+    canonical: 'https://nirajandhungel.com.np/team',
+  },
+
   openGraph: {
     title: "Expert Software Engineering Team | Nirajan Dhungel",
     description: "Meet the talented professionals driving digital innovation in Nepal. Lead by Nirajan Dhungel, our team delivers world-class software solutions.",

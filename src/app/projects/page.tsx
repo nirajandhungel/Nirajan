@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { Github, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Projects | Nirajan Dhungel - Featured Web & App Portfolio',
-  description: 'Explore the portfolio of Nirajan Dhungel, showcasing high-performance web applications, custom software solutions, and mobile apps built with React, Next.js, and Node.js.',
+  title: 'Projects | Nirajan Dhungel',
+  description: 'Explore the portfolio of Nirajan Dhungel, featuring web applications, mobile apps, and high-performance software systems.',
   keywords: [
     'Nirajan Dhungel Projects',
     'Web Development Portfolio',

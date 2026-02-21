@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     'Custom Web Design Rates',
     'Affordable Web Designer Nepal'
   ],
+    alternates: {
+    canonical: 'https://nirajandhungel.com.np/pricing/web-design',
+  },
+  
   openGraph: {
     title: 'Professional Web Design Packages',
     description: 'Get a stunning, high-performance website tailored to your brand. Check our transparent pricing plans.',

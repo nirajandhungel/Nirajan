@@ -1,0 +1,297 @@
+---
+title: "Flutter App: Complete Guide to Running on a Mobile Phone"
+description: "Step-by-step guide to running your Flutter app on a real Android or iOS device — covering USB debugging, wireless debugging, hot reload, and troubleshooting tips."
+date: "2026-02-18"
+author: "Flutter Dev Guide"
+tags: ["Flutter", "Mobile Development", "Android", "iOS", "ADB"]
+coverImage: "/originals/blog/flutter.png"
+ogImage: "/originals/blog/flutter.png"
+draft: false
+---
+
+Running your Flutter app on a real mobile device gives you the most accurate picture of performance, touch behavior, and hardware interactions. In this guide, you'll learn exactly how to get your Flutter app running on an Android or iOS phone — from enabling developer options to launching your first build.
+
+## 1. Prerequisites
+
+Before you start, make sure the following are in place:
+
+- Flutter SDK installed (`flutter --version` to verify)
+- Android Studio or Xcode installed
+- A USB cable (for initial setup)
+- Both your PC and phone on the same Wi-Fi network (for wireless debugging)
+
+Run the Flutter doctor command to confirm your environment is ready:
+
+```bash
+flutter doctor
+```
+
+Fix any issues flagged before proceeding.
+
+---
+
+## Android Setup
+
+### 1. Enable Developer Options
+
+1. Open `Settings` → `About Phone`
+2. Tap `Build Number` **7 times** until you see _"You are now a developer!"_
+3. Go back to `Settings` → `System` → `Developer Options`
+4. Toggle **Developer Options** ON
+
+> **Note:** On MIUI (Xiaomi) devices, tap `MIUI Version` instead of `Build Number`. On Samsung, it's under `Software Information`.
+
+---
+
+### 2. Enable USB Debugging
+
+Inside `Developer Options`:
+
+1. Turn on **USB Debugging**
+2. (Optional for Android 11+) Turn on **Wireless Debugging**
+3. (Optional) Turn on **Install via USB**
+
+---
+
+### 3. Connect via USB
+
+Plug your phone into your PC via USB. When prompted on your phone, tap **"Allow USB Debugging"** and check _"Always allow from this computer"_.
+
+Then verify the connection:
+
+```bash
+adb devices
+```
+
+Expected output:
+
+```
+List of devices attached
+ABC123XYZ    device
+```
+
+Now run your Flutter app:
+
+```bash
+flutter run
+```
+
+If you have multiple devices, specify the device ID:
+
+```bash
+flutter run -d <DEVICE_ID>
+```
+
+To get a list of connected devices and their IDs:
+
+```bash
+flutter devices
+```
+
+---
+
+### 4. Connect Wirelessly (Android 11+)
+
+Once your device is connected via USB, you can switch to wireless mode so you no longer need the cable.
+
+```bash
+# Switch ADB to TCP/IP mode on port 5555
+adb tcpip 5555
+
+# Find your phone's IP address
+adb shell ip route
+
+# Connect wirelessly
+adb connect <PHONE_IP_ADDRESS>:5555
+
+# Example:
+adb connect 192.168.1.105:5555
+
+# Verify
+adb devices
+```
+
+You can now unplug the USB cable and run:
+
+```bash
+flutter run -d <PHONE_IP_ADDRESS>:5555
+```
+
+#### Android 11+ Wireless Debugging (Built-in Method)
+
+1. Go to `Developer Options` → `Wireless Debugging` → Turn it ON
+2. Tap **"Pair device with pairing code"**
+3. Note the **IP address**, **pairing port**, and **6-digit pairing code**
+
+```bash
+# Pair first
+adb pair <IP_ADDRESS>:<PAIRING_PORT>
+# Example: adb pair 192.168.1.105:43127
+# Enter the 6-digit code when prompted
+
+# Then connect
+adb connect <IP_ADDRESS>:<DEBUG_PORT>
+```
+
+---
+
+## iOS Setup
+
+### 1. Requirements
+
+- A Mac running macOS
+- Xcode installed from the App Store
+- An Apple ID (free account works for testing)
+- Physical iPhone or iPad with iOS 12+
+
+### 2. Trust Your Mac
+
+1. Open Xcode
+2. Connect your iPhone via USB
+3. On your phone, tap **"Trust This Computer"** and enter your passcode
+
+### 3. Register Your Device
+
+In Xcode, open `Window` → `Devices and Simulators`. Your device should appear. If prompted, click **"Add Account"** to sign in with your Apple ID.
+
+### 4. Open the iOS Project
+
+```bash
+cd ios
+open Runner.xcworkspace
+```
+
+In Xcode:
+
+1. Select your device from the top device dropdown
+2. Go to `Signing & Capabilities`
+3. Select your **Team** (your Apple ID)
+4. Ensure **Bundle Identifier** is unique (e.g., `com.yourname.myapp`)
+
+### 5. Run from Terminal
+
+```bash
+flutter run
+```
+
+Or select your iPhone in Xcode and hit the ** Run** button.
+
+> **Note:** Free Apple accounts can only sideload apps that are valid for **7 days**. You'll need to reinstall after that.
+
+---
+
+## Hot Reload & Hot Restart
+
+One of Flutter's best features is instant code updates without restarting the app.
+
+| Shortcut | Action |
+|----------|--------|
+| `r` | Hot reload — applies code changes instantly |
+| `R` | Hot restart — restarts the app, preserving state |
+| `q` | Quit the running app |
+
+These keyboard shortcuts work directly in the terminal while `flutter run` is active.
+
+---
+
+## Build Modes
+
+Flutter supports three build modes, each serving a different purpose:
+
+```bash
+# Debug mode (default) — hot reload enabled, slower performance
+flutter run
+
+# Profile mode — for performance analysis
+flutter run --profile
+
+# Release mode — optimized, no debug tools
+flutter run --release
+```
+
+Always test your final app in **release mode** before publishing to make sure performance is representative.
+
+---
+
+## Troubleshooting
+
+<DataTable 
+  headers={["Problem", "Solution"]}
+  rows={[
+    ["Device not showing in `flutter devices`", "Re-enable USB debugging, try a different cable, restart ADB: `adb kill-server && adb start-server`"],
+    ["`adb: device unauthorized`", "Revoke USB debugging authorizations in Developer Options, reconnect and re-accept the prompt"],
+    ["Wireless connection drops", "Re-run `adb connect <IP>:5555`; set a static IP on your router"],
+    ["iOS: \"Untrusted Developer\" error", "Go to `Settings` → `General` → `VPN & Device Management` → trust your developer profile"],
+    ["`flutter doctor` shows Xcode issues", "Run `sudo xcode-select --switch /Applications/Xcode.app`"],
+    ["App installs but crashes immediately", "Check logs with `flutter logs` or `adb logcat`"]
+  ]}
+/>
+
+---
+
+## Pro Tips
+
+- **Save your device ID** in a shell alias to avoid retyping it every session:
+  ```bash
+  alias frun="flutter run -d 192.168.1.105:5555"
+  ```
+
+- **Use `flutter logs`** in a separate terminal window to stream device logs in real time.
+
+- **Enable "Stay Awake"** in Developer Options so your phone screen doesn't lock while developing.
+
+- **Set a static IP** on your router for your phone so the wireless ADB address never changes.
+
+- Run `flutter analyze` before testing to catch any code issues early.
+
+---
+
+## Quick Reference
+
+```bash
+# Check Flutter environment
+flutter doctor
+
+# List connected devices
+flutter devices
+
+# Run on connected device (auto-selects if only one)
+flutter run
+
+# Run on a specific device
+flutter run -d <DEVICE_ID>
+
+# Run in release mode
+flutter run --release
+
+# Stream device logs
+flutter logs
+
+# Build APK for Android
+flutter build apk
+
+# Build IPA for iOS
+flutter build ipa
+
+# Disconnect ADB wireless
+adb disconnect <IP>:5555
+```
+
+---
+
+## Conclusion
+
+Running Flutter on a real device is essential for catching real-world performance issues and hardware-specific bugs that emulators miss. Whether you're on Android or iOS, the process is straightforward once Developer Options and trust settings are configured. Use hot reload to iterate quickly, profile mode to spot bottlenecks, and release mode to validate final performance before shipping.
+
+---
+
+**Related Topics:**
+- [Flutter Android Phone Setup Guide](/blog/flutter-android-setup)
+- [Flutter Performance Optimization Tips](/blog/flutter-performance)
+- [Deploying Flutter Apps to the Play Store](/blog/flutter-play-store)
+
+**External Resources:**
+- [Flutter Official Documentation](https://docs.flutter.dev) — Complete Flutter SDK reference
+- [Android Developer Options Guide](https://developer.android.com/studio/debug/dev-options) — Official Android debugging guide
+- [Apple Developer — Running Your App on a Device](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device) — Official iOS device setup
+- [ADB Documentation](https://developer.android.com/tools/adb) — Full ADB command reference

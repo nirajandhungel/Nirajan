@@ -50,3 +50,9 @@ export const WHATSAPP = {
   number: '9825883910',
   fullNumber: '9779825883910',
 } as const;
+
+// Calendly scheduling link — replace with your actual Calendly URL
+export const CALENDLY = {
+  url: 'https://calendly.com/nirajandhungel', // Placeholder: update with real link
+  label: 'Book Free Strategy Call',
+} as const;

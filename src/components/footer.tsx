@@ -76,9 +76,9 @@ const Footer: React.FC = () => {
               {[
                 { label: "Website Development", href: "/services/website-development-in-nepal" },
                 { label: "App Development", href: "/services/mobile-app-development" },
-                { label: "Backend & APIs", href: "/services/system-software-development" },
-                { label: "UI/UX Design", href: "/services/ui-ux-design" },
+                { label: "System/Software Development", href: "/services/system-software-development" },
                 { label: "SEO Services", href: "/services/seo-in-nepal" },
+                { label: "GSO AI (SEO Services)", href: "/services/gso-ai" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -104,8 +104,8 @@ const Footer: React.FC = () => {
                 { label: "Home", href: "/" },
                 { label: "About Me", href: "/about" },
                 { label: "Projects", href: "/projects" },
-                { label: "How I Work", href: "/work" },
-                { label: "Blog", href: "/blogs" },
+                { label: "Experience", href: "/about#experience" },
+                { label: "Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>

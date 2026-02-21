@@ -35,11 +35,11 @@ export const ProcessStep = ({
       <div className={`flex flex-col ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 lg:gap-24`}>
         
         {/* Content Side */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+        <div 
+          // initial={{ opacity: 0, y: 20 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ once: true, margin: "-100px" }}
+          // transition={{ duration: 0.5 }}
           className="w-full lg:w-1/2 flex flex-col gap-4 text-center lg:text-left"
         >
           <div className={`flex flex-col gap-4 ${isEven ? 'lg:items-start' : 'lg:items-end lg:text-right'}`}>
@@ -61,19 +61,19 @@ export const ProcessStep = ({
                {description}
              </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Image Side */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <div 
+          // initial={{ opacity: 0, scale: 0.95 }}
+          // whileInView={{ opacity: 1, scale: 1 }}
+          // viewport={{ once: true, margin: "-100px" }}
+          // transition={{ duration: 0.5, delay: 0.2 }}
           className="w-full lg:w-1/2"
         >
-           <div className="relative aspect-[4/3] w-full max-w-[500px] mx-auto overflow-hidden rounded-2xl shadow-xl bg-white/5 border border-white/10 group">
+           <div className="relative aspect-[4/3] w-full max-w-[500px] mx-auto overflow-hidden rounded-2xl shadow-xl bg-white/5  group">
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+              <div className="absolute inset-0 bg-transparent"></div>
               <Image
                 src={imageSrc}
                 alt={title}
@@ -81,7 +81,7 @@ export const ProcessStep = ({
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
            </div>
-        </motion.div>
+        </div>
 
       </div>
     </div>

@@ -4,8 +4,8 @@ description: "Discover advanced techniques for building blazing-fast web applica
 date: "2026-02-10"
 author: "Nirajan Dhungel"
 tags: ["Next.js", "React", "Performance", "Web Development"]
-coverImage: "/optimized/blog/nextjs-performance-cover.webp"
-ogImage: "/optimized/blog/nextjs-performance-og.webp"
+coverImage: "/originals/blog/high-performance-website.png"
+ogImage: "/originals/blog/high-performance-website.png"
 draft: false
 ---
 
@@ -235,12 +235,15 @@ lhci autorun --collect.url=https://yoursite.com
 
 Here are the results I achieved for a client's e-commerce site:
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| LCP | 4.2s | 1.3s | 69% faster |
-| FID | 180ms | 45ms | 75% faster |
-| CLS | 0.25 | 0.05 | 80% better |
-| Lighthouse Score | 62 | 98 | +58% |
+<DataTable 
+  headers={["Metric", "Before", "After", "Improvement"]}
+  rows={[
+    ["LCP", "4.2s", "1.3s", "69% faster"],
+    ["FID", "180ms", "45ms", "75% faster"],
+    ["CLS", "0.25", "0.05", "80% better"],
+    ["Lighthouse Score", "62", "98", "+58%"]
+  ]}
+/>
 
 ## Conclusion
 
@@ -263,8 +266,8 @@ Ready to optimize your web application? [Contact me](/contact) for a free perfor
 ---
 
 **Related Articles:**
-- [10 Essential SEO Tips for Next.js Websites](/blogs/seo-tips-nextjs)
-- [The Future of Web Development](/blogs/future-of-web-dev)
+- [10 Essential SEO Tips for Next.js Websites](/blog/seo-tips-nextjs)
+- [The Future of Web Development](/blog/future-of-web-dev)
 
 **External Resources:**
 - [Next.js Performance Documentation](https://nextjs.org/docs/app/building-your-application/optimizing) - Official performance optimization guide

@@ -2,10 +2,21 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Code, Smartphone, Zap, Shield } from 'lucide-react';
+import { buildPersonJsonLd, buildServiceJsonLd } from '@/utils/seo';
 
 export const metadata: Metadata = {
   title: 'Web Development Services | Professional Web Developer',
   description: 'Expert web development services by Nirajan Dhungel. Custom web design, e-commerce solutions, and high-performance applications for international clients.',
+  keywords: [
+    'Web Development Services Nepal',
+    'Custom Web Design Kathmandu',
+    'E-commerce Development Nepal',
+    'Professional Web Developer',
+    'Full Stack Development Services'
+  ],
+   alternates: {
+    canonical: 'https://nirajandhungel.com.np/services/website-development-in-nepal',
+  },
   openGraph: {
     title: 'Web Development Services | Nirajan Dhungel',
     description: 'Professional web development services. Custom solutions for businesses worldwide.',
@@ -16,23 +27,23 @@ export const metadata: Metadata = {
 const services = [
   {
     icon: Code,
-    title: 'Custom Development',
-    description: 'Tailored web solutions built with modern technologies to meet your specific needs',
+    title: 'Websites That Rank',
+    description: 'SEO-optimized sites that rank on Google and AI search — built to generate leads',
   },
   {
     icon: Smartphone,
-    title: 'Responsive Design',
-    description: 'Mobile-first approach ensuring perfect experience across all devices',
+    title: 'Mobile-First & Fast',
+    description: 'Sites that load instantly and convert on every device',
   },
   {
     icon: Zap,
-    title: 'Performance Optimized',
-    description: 'Lightning-fast loading speeds and optimal user experience',
+    title: 'Performance That Converts',
+    description: '95+ Lighthouse scores — speed that turns visitors into customers',
   },
   {
     icon: Shield,
-    title: 'Secure & Reliable',
-    description: 'Enterprise-grade security and reliable hosting solutions',
+    title: 'Scalable & Secure',
+    description: 'Enterprise-grade reliability so your business grows without limits',
   },
 ];
 
@@ -48,9 +59,18 @@ const CheckItem = ({ text }: { text: string }) => (
 );
 
 export default function WebsiteDevelopmentPage() {
+  const personSchema = buildPersonJsonLd();
+  const serviceSchema = buildServiceJsonLd({
+    name: 'Website Development',
+    description: 'Next.js SEO optimized websites for global startups. Sites that rank on Google and AI search and generate leads.',
+    url: '/services/website-development-in-nepal',
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      {/* Hero / Introduction */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <div 
@@ -75,11 +95,11 @@ export default function WebsiteDevelopmentPage() {
               <span className="w-8 h-[2px] bg-primary"></span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-              Professional <span className="text-heading-gold">Web Development</span> Services
+              Websites That <span className="text-heading-gold">Rank &amp; Convert</span>
             </h1>
             <p className="text-lg text-white/60 mb-10 max-w-2xl mx-auto">
-              High-performance web solutions built with modern technologies. 
-              Specializing in custom development for businesses worldwide.
+              Next.js SEO optimized websites for global startups. We build sites that rank on Google 
+              and AI search — and generate leads.
             </p>
             <Link
               href="/contact"
@@ -90,9 +110,79 @@ export default function WebsiteDevelopmentPage() {
             </Link>
           </div>
         </div>
+
+        {/* SVG Visual Strip */}
+        <div className="container relative z-10 mx-auto px-4 mt-12">
+          <div className="grid gap-6 md:grid-cols-3">
+            {[1, 2, 3].map((item) => (
+              <div
+                key={item}
+                className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#111] via-[#050505] to-black p-6"
+              >
+                <div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+                  Website Visual {item}
+                </div>
+                <div className="relative flex h-32 items-center justify-center">
+                  <svg
+                    viewBox="0 0 200 120"
+                    className="h-full w-full text-white/8"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="10"
+                      y="10"
+                      width="180"
+                      height="100"
+                      rx="18"
+                      className="fill-current"
+                    />
+                    <rect
+                      x="26"
+                      y="26"
+                      width="92"
+                      height="18"
+                      rx="9"
+                      className="fill-none stroke-current"
+                      strokeWidth="2"
+                    />
+                    <rect
+                      x="26"
+                      y="56"
+                      width="148"
+                      height="8"
+                      rx="4"
+                      className="fill-none stroke-current"
+                      strokeWidth="2"
+                    />
+                    <rect
+                      x="26"
+                      y="74"
+                      width="118"
+                      height="8"
+                      rx="4"
+                      className="fill-none stroke-current"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      cx="164"
+                      cy="36"
+                      r="10"
+                      className="fill-none stroke-current"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-heading-gold/20 mix-blend-screen" />
+                </div>
+                <p className="mt-4 text-xs text-white/50">
+                  Placeholder SVG for future website development illustration. Replace with your own SVG when ready.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Features */}
       <section className="py-20 bg-section-dark">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -112,7 +202,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
       </section>
 
-      {/* Why Choose Section */}
+      {/* Benefits / Why Choose Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <div 
@@ -151,16 +241,15 @@ export default function WebsiteDevelopmentPage() {
                   background: 'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
                 }}
               />
-              <Image 
-                src="/optimized/media/website-development-portfolio.avif" 
-                alt="Web Development Portfolio" 
-                width={600}
-                height={450}
-                className="rounded-2xl shadow-2xl"
-                style={{
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))',
-                }}
-              />
+              <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-white/10 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-80" />
+                <div className="absolute inset-6 rounded-2xl border border-dashed border-white/10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="text-white/40 font-semibold text-sm tracking-[0.2em] uppercase">
+                    SVG Visual Placeholder
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

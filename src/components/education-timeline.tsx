@@ -24,7 +24,7 @@ export function EducationTimeline() {
               className="relative card-cinematic p-8 md:p-10"
             >
               {/* Icon Badge */}
-              <div className="absolute -left-4 top-8 w-12 h-12  rounded-sm flex items-center justify-center shadow-xl">
+              <div className="absolute left-2 top-8 w-12 h-12  rounded-sm flex items-center justify-center shadow-xl">
                               <Image
                                 src={edu.icon}
                                 alt={`${edu.institution} logo`}

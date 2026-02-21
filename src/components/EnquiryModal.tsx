@@ -186,8 +186,9 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) => {
                                             <option value="" disabled className="bg-[#1a1a1a]">Select Service</option>
                                             <option value="web" className="bg-[#1a1a1a]">Website Development</option>
                                             <option value="app" className="bg-[#1a1a1a]">App Development</option>
-                                            <option value="seo" className="bg-[#1a1a1a]">SEO & Digital Marketing</option>
-                                            <option value="design" className="bg-[#1a1a1a]">UI/UX Design</option>
+                                            <option value="seo" className="bg-[#1a1a1a]">SEO Services</option>
+                                            <option value="gso-ai" className="bg-[#1a1a1a]">GSO AI (SEO Services)</option>
+                                            <option value="smm" className="bg-[#1a1a1a]">Social Media Marketing (SMM)</option>
                                             <option value="consulting" className="bg-[#1a1a1a]">Others</option>
                                         </select>
                                     </div>

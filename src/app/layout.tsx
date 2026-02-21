@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Poppins,Montserrat } from 'next/font/google'
+import { Poppins, Outfit, Lora, JetBrains_Mono, Big_Shoulders, Noto_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import ClientWrapper from './ClientWrapper'
@@ -20,12 +20,51 @@ const poppins = Poppins({
   preload: true,
 });
 
-const montserrat = Montserrat({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "900"],
-  variable: "--font-montserrat",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-outfit",
   display: "swap",
   preload: true,
+})
+
+// JetBrains Mono — high-contrast for code blocks
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+  preload: false,
+})
+
+// Lora — editorial serif for blog content
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-lora",
+  display: "swap",
+  preload: false, // Only needed on blog pages
+})
+
+// Big Shoulders — reference site primary display font (planetofmetal.com uses Big Shoulders Display)
+const bigShoulders = Big_Shoulders({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800", "900"],
+  variable: "--font-big-shoulders",
+  display: "swap",
+  preload: true,
+  adjustFontFallback: false,
+
+  // feat: Implement a comprehensive blog section with new pages, components, and content.
+})
+
+// Noto Sans — reference site secondary/body font (Latin equivalent of Noto Sans JP)
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-noto-sans-jp",
+  display: "swap",
+  preload: false,
 })
 
 // ========== DYNAMIC METADATA IMPROVEMENTS ==========
@@ -36,27 +75,23 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), // Required for proper URL resolution
   
   title: {
-    default: 'Nirajan Dhungel | Software Engineer & Web Developer in Kathmandu, Nepal',
-    template: '%s | Nirajan Dhungel - Software Engineer & IT Specialist',
+    default: 'Nirajan Dhungel | Full Stack Developer & Co-founder at Lingo Tech Solutions',
+    template: '%s | Nirajan Dhungel - Expert Software Engineer',
   },
   
-  description: 'Nirajan Dhungel is a top-tier Software Engineer and Full Stack Developer in Kathmandu, Nepal, offering expert website development, custom mobile apps, and organic SEO services to boost your business growth.',
+  description: 'Portfolio of Nirajan Dhungel, Full Stack Developer and Co-founder of Lingo Tech Solutions. Expert in building SEO-optimised web applications and digital products.',
   
   keywords: [
     'Nirajan Dhungel', 
-    'Software Engineer Nepal', 
-    'Software Developer Kathmandu', 
-    'Best Web Developer in Nepal', 
-    'Freelance App Developer Nepal', 
-    'IT Service Provider in Kathmandu',
-    'Custom Website Development Nepal',
-    'SEO Expert Nepal',
-    'React & Next.js Developer Nepal',
-    'Full Stack Engineer Kathmandu',
-    'Mobile Application Development Nepal',
-    'Organic SEO Services',
-    'Nirajan Dhungel Portfolio',
-    'Top IT Consultant Nepal'
+    'Full Stack Developer Nepal',
+    'Lingo Tech Solutions Co-founder',
+    'CTO Kathmandu',
+    'Next.js SEO Expert',
+    'React Developer Kathmandu',
+    'Custom Software Development Nepal',
+    'SEO Optimization Services',
+    'Best Software Engineer in Nepal',
+    'IT Consultant Kathmandu'
   ],
   
   authors: [{ name: 'Nirajan Dhungel', url: SITE_URL }],
@@ -193,60 +228,66 @@ const structuredData = {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
       "name": "Nirajan Dhungel",
-      "description": " Software Engineer and Web Developer specializing in Website Development, App Development, and SEO Services in Kathmandu, Nepal.",
+      "description": "Full Stack Developer and Co-founder of Lingo Tech Solutions, specializing in building robust, scalable web applications and SEO-optimized digital platforms.",
       "url": SITE_URL,
       "image": [
         `${SITE_URL}/nirajandhungel.jpeg`,
-        `${SITE_URL}/nirajandhungel2.jpeg`,
         `${SITE_URL}/nirajandhungel3.png`,
-        `${SITE_URL}/kathmandu-youth-conclave.jpeg`
       ],
       "email": CONTACT.email,
       "telephone": CONTACT.phone.display,
-      "jobTitle": "Software Engineer, Full Stack Developer",
+      "jobTitle": "Full Stack Developer & CTO",
       "worksFor": {
         "@type": "Organization",
-        "name": SITE_NAME
+        "name": "Lingo Tech Solutions",
+        "url": "https://lingotechsolutions.com/"
       },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kathmandu",
         "addressRegion": "Bagmati",
-        "addressCountry": "NP",
-        "postalCode": "44600"
+        "addressCountry": "NP"
       },
+      "areaServed": { "@type": "Place", "name": "Global" },
       "knowsAbout": [
-        "Website Development",
-        "Mobile App Development",
-        "Search Engine Optimization",
-        "Software Engineering",
-        "React",
+        "Full Stack Development",
         "Next.js",
-        "Nepal IT Market"
+        "React",
+        "Node.js",
+        "SEO Optimization",
+        "Software Engineering"
       ],
       "sameAs": [
+        "https://linkedin.com/in/nirajan-dhungel",
         "https://github.com/nirajandhungel",
-        "https://www.linkedin.com/in/nirajan-dhungel",
-        "https://x.com/SubashDhungel18",
-        "https://www.instagram.com/nirajandhungel.exe",
-        "https://www.facebook.com/subash.dhungel.712",
-        "https://medium.com/@nirajandhungel"
+        "https://nirajandhungel.com.np",
+        "https://lingotechsolutions.com"
       ]
     },
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       "url": SITE_URL,
-      "name": SITE_NAME,
-      "description": "Professional Software Development Services in Kathmandu, Nepal",
+      "name": "Nirajan Dhungel",
+      "description": "Expert Software Engineering, UI/UX Design & SEO Optimization",
       "publisher": { "@id": `${SITE_URL}/#person` },
-      "inLanguage": "en-US"
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${SITE_URL}/blog?query={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ]
     },
+
     {
       "@type": "Service",
       "serviceType": "Software Development",
       "provider": { "@id": `${SITE_URL}/#person` },
-      "areaServed": "Nepal",
+      "areaServed": "Global",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Software & Web Services",
@@ -286,7 +327,7 @@ export default function RootLayout({
   return (
     <html 
       lang="en" 
-      className={`${poppins.variable} ${montserrat.variable}  scroll-smooth`}
+      className={`${poppins.variable} ${outfit.variable} ${lora.variable} ${jetbrainsMono.variable} ${bigShoulders.variable} ${notoSans.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
@@ -357,8 +398,8 @@ export default function RootLayout({
       
       <body className={`
         font-sans antialiased 
-        bg-background 
-        text-foreground
+        bg-black 
+        text-white
         min-h-screen
       `}>
         {/* ========== ACCESSIBILITY SKIP LINK ========== */}

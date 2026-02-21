@@ -1,146 +1,181 @@
+// ─── MDX Library ─────────────────────────────────────────────────────────────
+// Drop-in replacement for your existing lib/mdx.ts with enhanced capabilities
+
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import type { BlogPost, BlogFrontmatter, PaginatedPosts } from '@/types/blog';
 
 const BLOG_DIR = path.join(process.cwd(), 'src/content/blogs');
 
-export interface BlogFrontmatter {
-    title: string;
-    description: string;
-    date: string;
-    author: string;
-    tags: string[];
-    coverImage: string;
-    ogImage?: string;
-    draft?: boolean;
-    canonical?: string;
-}
+// ─── Directory helpers ────────────────────────────────────────────────────────
 
-export interface BlogPost {
-    slug: string;
-    frontmatter: BlogFrontmatter;
-    content: string;
-    readingTime: string;
-}
-
-// Ensure blog directory exists
 function ensureBlogDir() {
-    if (!fs.existsSync(BLOG_DIR)) {
-        fs.mkdirSync(BLOG_DIR, { recursive: true });
-    }
+  if (!fs.existsSync(BLOG_DIR)) {
+    fs.mkdirSync(BLOG_DIR, { recursive: true });
+  }
 }
 
-// Get all blog post slugs
+// ─── Core fetchers ────────────────────────────────────────────────────────────
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function getPostFromFile(filename: string): BlogPost | null {
+  ensureBlogDir();
+  const filePath = path.join(BLOG_DIR, filename);
+  if (!fs.existsSync(filePath)) return null;
+
+  const raw = fs.readFileSync(filePath, 'utf8');
+  const { data, content } = matter(raw);
+  const frontmatter = data as BlogFrontmatter;
+  const stats = readingTime(content);
+
+  const fileSlug = filename.replace(/\.mdx$/, '');
+  const slug = frontmatter.slug ? slugify(frontmatter.slug) : fileSlug;
+
+  return {
+    slug,
+    frontmatter,
+    content,
+    readingTime: stats.text,
+    excerpt: generateExcerpt(content),
+  };
+}
+
 export function getAllBlogSlugs(): string[] {
-    ensureBlogDir();
-
-    try {
-        const files = fs.readdirSync(BLOG_DIR);
-        return files
-            .filter((file) => file.endsWith('.mdx'))
-            .map((file) => file.replace(/\.mdx$/, ''));
-    } catch (error) {
-        console.error('Error reading blogs directory:', error);
-        return [];
-    }
+  const posts = getAllBlogPosts();
+  return posts.map((p) => p.slug);
 }
 
-// Get blog post by slug (metadata only)
 export function getBlogPost(slug: string): BlogPost | null {
-    ensureBlogDir();
-
-    const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-
-    if (!fs.existsSync(filePath)) {
-        return null;
-    }
-
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContent);
-    const stats = readingTime(content);
-
-    return {
-        slug,
-        frontmatter: data as BlogFrontmatter,
-        content,
-        readingTime: stats.text,
-    };
+  const posts = getAllBlogPosts();
+  return posts.find((p) => p.slug === slug) ?? null;
 }
 
-// Get all blog posts (sorted by date)
 export function getAllBlogPosts(): BlogPost[] {
-    const slugs = getAllBlogSlugs();
-    const posts = slugs
-        .map((slug) => getBlogPost(slug))
-        .filter((post): post is BlogPost => post !== null)
-        .filter((post) => !post.frontmatter.draft); // Filter out drafts
-
-    // Sort by date (newest first)
-    return posts.sort((a, b) => {
-        const dateA = new Date(a.frontmatter.date);
-        const dateB = new Date(b.frontmatter.date);
-        return dateB.getTime() - dateA.getTime();
-    });
+  ensureBlogDir();
+  try {
+    const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith('.mdx'));
+    return files
+      .map((f) => getPostFromFile(f))
+      .filter((p): p is BlogPost => p !== null)
+      .filter((p) => !p.frontmatter.draft)
+      .sort(
+        (a, b) =>
+          new Date(b.frontmatter.date).getTime() -
+          new Date(a.frontmatter.date).getTime()
+      );
+  } catch {
+    return [];
+  }
 }
 
-// Get related posts by tags
-export function getRelatedPosts(currentSlug: string, limit = 3): BlogPost[] {
-    const currentPost = getBlogPost(currentSlug);
-    if (!currentPost) return [];
+// ─── Pagination ───────────────────────────────────────────────────────────────
 
-    const allPosts = getAllBlogPosts();
-    const currentTags = currentPost.frontmatter.tags || [];
+export function getPaginatedPosts(
+  page = 1,
+  perPage = 9,
+  posts?: BlogPost[]
+): PaginatedPosts {
+  const allPosts = posts ?? getAllBlogPosts();
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
 
-    // Calculate relevance score based on shared tags
-    const postsWithScore = allPosts
-        .filter((post) => post.slug !== currentSlug)
-        .map((post) => {
-            const sharedTags = post.frontmatter.tags?.filter((tag) =>
-                currentTags.includes(tag)
-            ) || [];
-            return {
-                post,
-                score: sharedTags.length,
-            };
-        })
-        .filter((item) => item.score > 0)
-        .sort((a, b) => b.score - a.score);
-
-    return postsWithScore.slice(0, limit).map((item) => item.post);
+  return {
+    posts: allPosts.slice(start, end),
+    currentPage: page,
+    totalPages: Math.ceil(allPosts.length / perPage),
+    totalPosts: allPosts.length,
+    hasNextPage: end < allPosts.length,
+    hasPrevPage: page > 1,
+  };
 }
 
-// Get posts by tag
-export function getPostsByTag(tag: string): BlogPost[] {
-    const allPosts = getAllBlogPosts();
-    return allPosts.filter((post) =>
-        post.frontmatter.tags?.includes(tag)
-    );
-}
+// ─── Tags ─────────────────────────────────────────────────────────────────────
 
-// Get all unique tags
 export function getAllTags(): string[] {
-    const allPosts = getAllBlogPosts();
-    const tags = new Set<string>();
-
-    allPosts.forEach((post) => {
-        post.frontmatter.tags?.forEach((tag) => tags.add(tag));
-    });
-
-    return Array.from(tags).sort();
+  const tags = new Set<string>();
+  getAllBlogPosts().forEach((p) =>
+    p.frontmatter.tags?.forEach((t) => tags.add(t))
+  );
+  return Array.from(tags).sort();
 }
 
-// Pagination helper
-export function paginatePosts(posts: BlogPost[], page = 1, perPage = 10) {
-    const start = (page - 1) * perPage;
-    const end = start + perPage;
+export function getTagsWithCount(): Record<string, number> {
+  const counts: Record<string, number> = {};
+  getAllBlogPosts().forEach((p) =>
+    p.frontmatter.tags?.forEach((t) => {
+      counts[t] = (counts[t] ?? 0) + 1;
+    })
+  );
+  return counts;
+}
 
-    return {
-        posts: posts.slice(start, end),
-        currentPage: page,
-        totalPages: Math.ceil(posts.length / perPage),
-        totalPosts: posts.length,
-        hasNextPage: end < posts.length,
-        hasPrevPage: page > 1,
-    };
+export function getPostsByTag(tag: string): BlogPost[] {
+  return getAllBlogPosts().filter((p) =>
+    p.frontmatter.tags?.includes(tag)
+  );
+}
+
+// ─── Related posts ────────────────────────────────────────────────────────────
+
+export function getRelatedPosts(
+  currentSlug: string,
+  limit = 3
+): BlogPost[] {
+  const current = getBlogPost(currentSlug);
+  if (!current) return [];
+
+  const currentTags = current.frontmatter.tags ?? [];
+
+  return getAllBlogPosts()
+    .filter((p) => p.slug !== currentSlug)
+    .map((p) => ({
+      post: p,
+      score: (p.frontmatter.tags ?? []).filter((t) =>
+        currentTags.includes(t)
+      ).length,
+    }))
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((x) => x.post);
+}
+
+// ─── Search ───────────────────────────────────────────────────────────────────
+
+export function searchPosts(query: string): BlogPost[] {
+  if (!query.trim()) return getAllBlogPosts();
+
+  const q = query.toLowerCase();
+  return getAllBlogPosts().filter(
+    (p) =>
+      p.frontmatter.title.toLowerCase().includes(q) ||
+      p.frontmatter.description.toLowerCase().includes(q) ||
+      p.frontmatter.tags?.some((t) => t.toLowerCase().includes(q)) ||
+      p.content.toLowerCase().includes(q)
+  );
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function generateExcerpt(content: string, maxLength = 160): string {
+  const stripped = content
+    .replace(/#{1,6}\s+/g, '')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/`{1,3}[\s\S]*?`{1,3}/g, '')
+    .replace(/\[(.+?)\]\(.+?\)/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+
+  if (stripped.length <= maxLength) return stripped;
+  return stripped.slice(0, maxLength).replace(/\s+\S*$/, '') + '…';
 }
