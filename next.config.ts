@@ -128,10 +128,12 @@ const nextConfig: NextConfig = {
   // =====================
   experimental: {
     scrollRestoration: true,
+    inlineCss: true,
     optimizePackageImports: [
       'react-icons/fa',
       'react-icons/fa6',
       'react-icons/si',
+      'lucide-react',
     ],
   },
 

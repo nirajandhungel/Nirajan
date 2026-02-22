@@ -5,8 +5,7 @@ import Script from 'next/script'
 import ClientWrapper from './ClientWrapper'
 
 import { CursorProvider } from "../providers/CursorProvider";
-import { ServiceWorkerRegistration } from "../components/ServiceWorkerRegistration";
-import { WebVitalsMonitor } from "../components/WebVitalsMonitor";
+import { DeferredScripts } from "./DeferredScripts";
 
 import './globals.css'
 import { CONTACT } from "@/data/contact"
@@ -55,13 +54,14 @@ const bigShoulders = Big_Shoulders({
   adjustFontFallback: true,
 })
 
-// Noto Sans — reference site secondary/body font (Latin equivalent of Noto Sans JP)
+// Noto Sans — LCP element uses this (hero subtitle); preload to reduce element render delay
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-noto-sans-jp",
   display: "swap",
-  preload: false,
+  preload: true,
+  adjustFontFallback: true,
 })
 
 // ========== DYNAMIC METADATA IMPROVEMENTS ==========
@@ -329,8 +329,10 @@ export default function RootLayout({
     >
       <head>
         {/* ========== CRITICAL PERFORMANCE OPTIMIZATION ========== */}
-        {/* ========== CRITICAL PERFORMANCE OPTIMIZATION ========== */}
-
+        {/* Preconnect to self for CSS/JS/fonts — reduces connection start on first subresource */}
+        <link rel="preconnect" href="https://www.nirajandhungel.com.np" crossOrigin="anonymous" />
+        {/* Preload LCP hero image (above-the-fold on home) for faster LCP */}
+        <link rel="preload" href="/mickeylit-ai-generated-8227903.svg" as="image" />
         {/* Prefetch after load - use low priority to avoid competing with LCP */}
         <link rel="prefetch" href="/about" />
         <link rel="prefetch" href="/contact" />
@@ -417,8 +419,7 @@ export default function RootLayout({
         </main>
         
         {/* ========== PERFORMANCE & ANALYTICS ========== */}
-        <ServiceWorkerRegistration />
-        <WebVitalsMonitor />
+        <DeferredScripts />
         <Analytics />
         {/* <SpeedInsights /> */}
         
