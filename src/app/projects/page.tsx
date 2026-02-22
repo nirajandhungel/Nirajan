@@ -62,11 +62,7 @@ export default function ProjectsPage() {
         </div>
         
         <div className="container relative z-10 mx-auto px-4 md:px-10 text-center">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <span className="w-8 h-[2px] bg-primary"></span>
-            <span className="text-sm text-primary font-bold uppercase tracking-widest">Portfolio</span>
-            <span className="w-8 h-[2px] bg-primary"></span>
-          </div>
+
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
             Featured <span className="text-heading-gold">Projects</span>
           </h1>

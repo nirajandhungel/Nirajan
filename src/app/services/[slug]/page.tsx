@@ -29,9 +29,9 @@ export function generateStaticParams() {
 function CheckItem({ text }: { text: string }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center shrink-0">
+      <div className="w-7 h-7 sm:w-6 sm:h-6 bg-primary rounded-full flex items-center justify-center shrink-0">
         <svg
-          className="w-3 h-3 text-white"
+          className="w-4 h-4 sm:w-3 sm:h-3 text-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -45,7 +45,7 @@ function CheckItem({ text }: { text: string }) {
           />
         </svg>
       </div>
-      <span className="text-white">{text}</span>
+      <span className="text-white text-sm sm:text-base">{text}</span>
     </div>
   );
 }
@@ -91,17 +91,11 @@ export default async function ServicePage({ params }: Props) {
 
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="w-8 h-[2px] bg-primary" />
-              <span className="text-sm text-primary font-bold uppercase tracking-widest">
-                Our Services
-              </span>
-              <span className="w-8 h-[2px] bg-primary" />
-            </div>
+
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
               <span className="text-heading-gold">{title}</span>
             </h1>
-            <p className="text-lg text-white/60 mb-10 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
               {description}
             </p>
           </div>
@@ -109,7 +103,7 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Steps */}
         <div className="container relative z-10 mx-auto px-4 mt-20">
-          <div className="space-y-32">
+          <div className="space-y-12 lg:space-y-24 ">
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -125,7 +119,7 @@ export default async function ServicePage({ params }: Props) {
                     <h3 className="text-3xl md:text-4xl font-black text-accent leading-tight">
                       {step.title}
                     </h3>
-                    <p className="text-white text-lg leading-relaxed">
+                    <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed">
                       {step.description}
                     </p>
                     <div
@@ -145,7 +139,7 @@ export default async function ServicePage({ params }: Props) {
                 <div className="w-full lg:w-7/12">
                   <div className="relative group">
                     <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-transparent to-heading-gold/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    <div className="relative aspect-[16/10] w-full overflow-hidden p-8 lg:p-12 shadow-2xl">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden  lg:p-12 shadow-2xl">
                       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
                       <div className="relative h-full w-full flex items-center justify-center">
                         <Image
@@ -176,15 +170,15 @@ export default async function ServicePage({ params }: Props) {
               return (
                 <div
                   key={index}
-                  className="card-cinematic p-8 text-center group hover:border-primary/30 transition-colors"
+                  className="card-cinematic p-6 sm:p-8 text-center group hover:border-primary/30 transition-colors"
                 >
-                  <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
-                    <Icon className="w-8 h-8 text-primary" aria-hidden />
+                  <div className="w-[4.5rem] h-[4.5rem] sm:w-16 sm:h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                    <Icon className="w-10 h-10 sm:w-8 sm:h-8 text-primary" aria-hidden />
                   </div>
-                  <h3 className="text-xl font-black text-accent mb-3">
+                  <h3 className="text-lg sm:text-xl font-black text-accent mb-2 sm:mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-white/60 text-sm">{feature.description}</p>
+                  <p className="text-white/60 text-xs sm:text-sm">{feature.description}</p>
                 </div>
               );
             })}
@@ -216,7 +210,7 @@ export default async function ServicePage({ params }: Props) {
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                 <span className="text-heading-gold">{content.heading}</span>
               </h2>
-              <p className="text-white/60 mb-8 leading-relaxed">
+              <p className="text-white/60 text-sm sm:text-base md:text-lg mb-8 leading-relaxed">
                 {content.text}
               </p>
               <div className="space-y-4">
@@ -227,22 +221,16 @@ export default async function ServicePage({ params }: Props) {
             </div>
 
             <div className="relative group">
-              <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full -z-10"
-                style={{
-                  background:
-                    'radial-gradient(circle, #c41e3a 0%, transparent 70%)',
-                }}
-              />
-              <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-white/10 flex items-center justify-center group-hover:border-primary/30 transition-colors">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-80" />
+
+              <div className="w-full aspect-[4/3] relative rounded-sm overflow-hidden shadow-2xl bg-primary/10  border-primary/30 flex items-center justify-center group-hover:border-primary transition-colors">
+                {/* <div className="w-full h-full absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-80" /> */}
                 <Image
                   src={iconPath}
                   alt={`${title} service - ${content.heading}`}
                   width={256}
                   height={256}
                   loading="lazy"
-                  className="w-64 h-64 relative z-10 object-contain drop-shadow-2xl opacity-90"
+                  className=" h-full w-full relative z-10 object-contain drop-shadow-2xl opacity-90"
                 />
               </div>
             </div>
@@ -268,16 +256,16 @@ export default async function ServicePage({ params }: Props) {
             {content.benefits.slice(0, 3).map((benefit, index) => (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-black/60 p-6 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
+                className="relative overflow-hidden rounded-sm border border-primary/10 bg-gradient-to-b from-white/[0.04] to-black/60 p-6 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
               >
                 <div className="mb-4 flex items-center justify-between gap-4">
-                  <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+                  <div className="text-xs font-bold uppercase text-accent sm:text-sm ">
                     Highlight 0{index + 1}
                   </div>
-                  <div className="h-8 w-8 rounded-full bg-primary/20 ring-1 ring-primary/40 flex items-center justify-center">
+                  <div className="h-9 w-9 sm:h-8 sm:w-8 rounded-sm bg-primary/20 ring-1 ring-primary/40 flex items-center justify-center">
                     <svg
                       viewBox="0 0 24 24"
-                      className="h-4 w-4 text-primary"
+                      className="h-5 w-5 sm:h-4 sm:w-4 text-primary"
                       aria-hidden
                     >
                       <path
@@ -292,16 +280,16 @@ export default async function ServicePage({ params }: Props) {
                   </div>
                 </div>
 
-                <p className="mb-5 text-sm text-white/80">{benefit}</p>
+                <p className="mb-5 text-xs sm:text-sm text-white/80">{benefit}</p>
 
-                <div className="relative h-20 w-full overflow-hidden rounded-xl border border-dashed border-white/10 bg-gradient-to-tr from-primary/10 via-transparent to-heading-gold/10 flex items-center justify-center p-2">
+                <div className="relative h-20 w-full overflow-hidden rounded-sm border border-dashed border-white/10 bg-gradient-to-tr from-primary/10 via-transparent to-heading-gold/10 flex items-center justify-center p-2">
                   <Image
                     src={steps[index % steps.length].visual}
                     alt={`${title} highlight ${index + 1}`}
                     width={80}
                     height={80}
                     loading="lazy"
-                    className="h-full w-auto object-contain opacity-20 contrast-125 grayscale"
+                    className="h-full w-auto object-contain  contrast-125 grayscale"
                   />
                 </div>
               </div>
@@ -316,7 +304,7 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase leading-tight">
             Ready to <span className="text-accent">Get Started?</span>
           </h2>
-          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto">
             Let&apos;s discuss how we can help you achieve your goals with our
             professional {title} services.
           </p>
