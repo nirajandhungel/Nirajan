@@ -1,17 +1,32 @@
 // Service Worker for Performance Optimization
 // Version 1.0.0
 
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.0.1';
 const CACHE_NAME = `nirajan-portfolio-${CACHE_VERSION}`;
 
-// Assets to cache immediately on install
+// Assets to cache immediately on install (only routes that exist — no /pricing index)
 const PRECACHE_ASSETS = [
   '/',
   '/about',
   '/work',
-  '/pricing',
   '/contact',
-  '/favicon.png',
+  '/blog',
+  '/projects',
+  '/team',
+  // Pricing sub-pages (no /pricing index page)
+  '/pricing/web-design',
+  '/pricing/seo',
+  // Key service pages
+  '/services/website-development-in-nepal',
+  '/services/mobile-app-development',
+  '/services/system-software-development',
+  '/services/graphics-design',
+  '/services/gso-ai',
+  '/services/seo-in-nepal',
+  '/services/social-media-marketing',
+  '/services/content-writing',
+  // Static assets
+  '/optimized/favicon.webp',
   '/manifest.json',
 ];
 
