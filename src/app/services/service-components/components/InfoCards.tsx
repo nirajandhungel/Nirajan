@@ -24,15 +24,20 @@ const InfoCards: React.FC = () => {
   );
 };
 
-const InfoCard: React.FC<{ Icon: React.ComponentType<{ className?: string }>; title: string; description: string }> = ({ Icon, title, description }) => (
+const InfoCard: React.FC<{
+  Icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}> = ({ Icon, title, description }) => (
   <div className="bg-white p-8 rounded-2xl shadow-xl border border-border group hover:bg-primary transition-all duration-500">
     <div className="w-16 h-16 bg-primary group-hover:bg-white rounded-2xl flex items-center justify-center mb-6 transition-colors shadow-lg shadow-primary/20">
       <Icon className="w-8 h-8 text-white group-hover:text-primary" />
+    </div> {/* Close the icon container div */}
     <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">{title}</h3>
     <p className="text-muted-foreground group-hover:text-white/80 transition-colors leading-relaxed">
       {description}
     </p>
-  </div>
+  </div> /* Close the outer card div */
 );
 
 export default InfoCards;
