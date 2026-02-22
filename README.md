@@ -107,7 +107,5 @@ src/
 
 ---
 
-<p align="center">
-  Built with ❤️ by <a href="https://github.com/nirajandhungel">Nirajan Dhungel</a>
-</p>
+
 
