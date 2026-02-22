@@ -1,4 +1,3 @@
-
 import { Service } from './types';
 
 export const SERVICES: Service[] = [
@@ -6,7 +5,7 @@ export const SERVICES: Service[] = [
         id: '1',
         title: 'Website Development',
         description: 'Custom, responsive websites built with modern technologies like React, Next.js, and Tailwind CSS.',
-        icon: 'https://softbenz.com/media/services/Website_developlent.svg',
+        icon: '/originals/media/services/website-service.svg',
         link: '/services/website-development-in-nepal',
         category: 'Development'
     },
@@ -14,7 +13,7 @@ export const SERVICES: Service[] = [
         id: '2',
         title: 'App Development',
         description: 'Cross-platform mobile applications using React Native and modern frameworks.',
-        icon: 'https://softbenz.com/media/services/App_Development.svg',
+        icon: '/originals/media/services/mobile-app-service.svg',
         link: '/services/mobile-app-development',
         category: 'Development'
     },
@@ -22,16 +21,15 @@ export const SERVICES: Service[] = [
         id: '3',
         title: 'System/Software Development',
         description: 'Custom software solutions tailored to your business needs using Java, Python, and Node.js.',
-        icon: 'https://softbenz.com/media/services/Programmer-amico.svg',
+        icon: '/originals/media/services/backend-service.svg',
         link: '/services/system-software-development',
         category: 'Development'
     },
-
-     {
+    {
         id: '4',
         title: 'Graphic Design',
         description: 'Professional graphic design services for branding, marketing materials, and digital assets.',
-        icon: 'https://softbenz.com/media/design/Website_Creator-pana.svg',
+        icon: '/originals/media/services/ui-ux-service.svg',
         link: '/services/graphics-design',
         category: 'Development'
     },
@@ -39,7 +37,7 @@ export const SERVICES: Service[] = [
         id: '5',
         title: 'GSO AI (SEO Services)',
         description: 'Advanced AI-powered SEO and digital marketing optimization to boost your website visibility and ranking.',
-        icon: 'https://softbenz.com/media/services/SEO_analytics_team-amico.svg',
+        icon: '/originals/media/services/seo-main.svg',
         link: '/services/gso-ai',
         category: 'Marketing'
     },
@@ -47,7 +45,7 @@ export const SERVICES: Service[] = [
         id: '6',
         title: 'Search Engine Optimization (SEO)',
         description: 'Improve your website visibility and ranking on search engines with proven SEO strategies.',
-        icon: 'https://softbenz.com/media/services/SEO_analytics_team-amico.svg',
+        icon: '/originals/media/services/seo-service.svg',
         link: '/services/seo-in-nepal',
         category: 'Marketing'
     },
@@ -55,7 +53,7 @@ export const SERVICES: Service[] = [
         id: '7',
         title: 'Social Media Marketing (SMM)',
         description: 'Build your brand presence and engage with your audience across social platforms.',
-        icon: 'https://softbenz.com/media/services/Mobile_Marketing-pana.svg',
+        icon: '/originals/media/services/marketing-service.svg',
         link: '/services/social-media-marketing',
         category: 'Marketing'
     },
@@ -63,10 +61,8 @@ export const SERVICES: Service[] = [
         id: '8',
         title: 'Content Writing',
         description: 'High-quality, SEO-optimized content that engages your audience and drives results.',
-        icon: 'https://softbenz.com/media/content-marketing/Blog_post-bro.svg',
+        icon: '/originals/media/services/grow.svg',
         link: '/services/content-writing',
         category: 'Marketing'
     }
 ];
-
-
