@@ -73,7 +73,7 @@ export const WorkBanner = () => {
                   width={500}
                   height={400}
                   className="object-contain animate-float drop-shadow-2xl"
-                  priority
+                  loading="lazy"
                 />
               </div>
             </div>

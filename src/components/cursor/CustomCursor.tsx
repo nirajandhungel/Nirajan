@@ -26,6 +26,7 @@ export default function CustomCursor({
 }: CustomCursorProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // Get cursor type from context
   const cursorContext = useContext(CursorContext);
@@ -93,13 +94,16 @@ export default function CustomCursor({
     };
   }, [handleMouseMove]);
 
-  // Don't render on touch devices
-  if (typeof window !== "undefined" && "ontouchstart" in window) {
-    return null;
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined" && "ontouchstart" in window) {
+      setIsTouchDevice(true);
+    }
+  }, []);
 
   // Handle global hover detection for interactive elements
   useEffect(() => {
+    if (isTouchDevice) return;
+
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const isInteractive = 
@@ -135,7 +139,12 @@ export default function CustomCursor({
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };
-  }, [cursorContext]);
+  }, [cursorContext, isTouchDevice]);
+
+  // Don't render on touch devices
+  if (isTouchDevice) {
+    return null;
+  }
 
   // Determine if we're hovering based on cursorType
   const isHovering = cursorType === "hover" || cursorType === "text";

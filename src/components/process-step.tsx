@@ -54,7 +54,7 @@ export const ProcessStep = ({
                 {stepNumber}
              </div>
 
-             <h2 className="text-2xl md:text-3xl font-black text-white">
+             <h2 className="text-2xl md:text-3xl font-black text-accent">
                {title}
              </h2>
              <p className="text-white/60 leading-relaxed">

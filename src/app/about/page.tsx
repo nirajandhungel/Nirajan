@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { SkillsShowcase } from '@/components/skills/skills-showcase';
+import dynamic from 'next/dynamic';
 import { ExperienceTimeline } from '@/components/experience-timeline';
 import { EducationTimeline } from '@/components/education-timeline';
 import { SocialLinks } from '@/components/social-links';
@@ -10,6 +10,11 @@ import Link from 'next/link';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import { CONTACT } from '@/data/contact';
 import FAQ from '@/components/FAQ';
+
+const SkillsShowcase = dynamic(
+  () => import('@/components/skills/skills-showcase').then((m) => ({ default: m.SkillsShowcase })),
+  { ssr: true, loading: () => <section className="py-24 lg:py-32 bg-section-dark min-h-[200px]" aria-busy="true" /> }
+);
 
 export const metadata: Metadata = {
   title: 'About Nirajan Dhungel',

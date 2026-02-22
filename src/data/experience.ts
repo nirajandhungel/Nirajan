@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
         period: "2025 – Present",
         location: "Remote / Kathmandu, Nepal",
         type: "Software Development & IT Consulting",
-        icon: "/optimized/media/lingotech_logo.webp",
+        icon: "/originals/media/LT.jpeg",
         achievements: [
             "Co-founded a software development and IT consulting company delivering web, mobile, and SEO solutions.",
             "Led architecture and full-stack development using modern technologies (React, Next.js, Node.js).",

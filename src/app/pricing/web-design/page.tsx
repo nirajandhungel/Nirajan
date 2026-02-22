@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const webPackages = [
   {
     name: 'Starter',
-    price: '$500',
+    price: '$200',
     period: 'one-time',
     description: 'Perfect for Landing Pages',
     features: [
@@ -55,7 +55,7 @@ const webPackages = [
   },
   {
     name: 'Professional',
-    price: '$1,200',
+    price: '$700',
     period: 'one-time',
     description: 'Ideal for Business Websites',
     badge: 'Popular',
@@ -92,7 +92,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof webPackages[0]; index: number
     style={{ animationDelay: `${index * 100}ms` }}
   >
     {pkg.badge && (
-      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+      <div className="z-1000 absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
         ✨ {pkg.badge}
       </div>
     )}
@@ -173,25 +173,23 @@ export default function WebPricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section 
-        className="relative py-24 lg:py-32 overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 50%, #0a0a0a 100%)',
-        }}
-      >
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Ready to Build Your <span className="text-heading-gold">Website?</span>
-          </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-            Let's discuss your project and create something exceptional
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent text-black transform transition-transform hover:-translate-y-0.5 px-10 py-4 rounded-sm font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Start Your Project
-          </Link>
+      <section className="relative py-24 lg:py-32 overflow-hidden bg-primary/10 border-t-2 border-white/10">
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 uppercase leading-tight font-big-shoulders">
+              READY TO BUILD YOUR
+              <span className="block text-accent mt-2">WEBSITE?</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-white/70 mb-10 max-w-2xl mx-auto font-noto-sans">
+              Let's discuss your project and create something exceptional
+            </p>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-accent text-black px-8 py-5 font-bold text-base uppercase  font-big-shoulders btn-primary-cinematic"
+            >
+              Start Your Project
+            </Link>
+          </div>
         </div>
       </section>
     </div>

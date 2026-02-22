@@ -7,7 +7,7 @@ import { ArrowLeft, Tag as TagIcon } from 'lucide-react';
 import { getAllTags, getPostsByTag, getTagsWithCount } from '@/lib/mdx';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { TagCloud } from '@/components/blog/TagCloud';
-import { BASE_URL } from '@/utils/seo';
+import { buildBlogTagMetadata, buildBlogTagItemListJsonLd } from '@/lib/blog-seo';
 
 interface TagPageProps {
   params: Promise<{ tag: string }>;
@@ -20,20 +20,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
   const { tag } = await params;
   const decoded = decodeURIComponent(tag);
-  return {
-    title: `#${decoded} – Blog – Nirajan Dhungel`,
-    description: `All articles tagged with "${decoded}" — web development, SEO, and digital marketing insights.`,
-    keywords: [decoded, 'web development', 'SEO', 'Next.js', 'Nirajan Dhungel'],
-    openGraph: {
-      title: `#${decoded} articles – Nirajan Dhungel`,
-      description: `Browse all articles tagged with "${decoded}".`,
-      url: `${BASE_URL}/blog/tag/${tag}`,
-      type: 'website',
-    },
-    alternates: {
-      canonical: `${BASE_URL}/blog/tag/${tag}`,
-    },
-  };
+  const posts = getPostsByTag(decoded);
+  return buildBlogTagMetadata(decoded, tag, posts.length);
 }
 
 export default async function TagPage({ params }: TagPageProps) {
@@ -41,9 +29,14 @@ export default async function TagPage({ params }: TagPageProps) {
   const decoded = decodeURIComponent(tag);
   const posts = getPostsByTag(decoded);
   const allTags = getTagsWithCount();
+  const tagListJsonLd = buildBlogTagItemListJsonLd(decoded, tag, posts);
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--blog-bg)' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tagListJsonLd) }}
+      />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <header
         style={{

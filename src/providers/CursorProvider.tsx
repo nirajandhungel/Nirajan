@@ -1,7 +1,11 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
-import CustomCursor from '../components/cursor/CustomCursor';
+import dynamic from 'next/dynamic';
+
+const CustomCursor = dynamic(() => import('../components/cursor/CustomCursor'), { 
+  ssr: false,
+});
 
 interface CursorContextType {
   cursorType: 'default' | 'hover' | 'text' | 'hidden';

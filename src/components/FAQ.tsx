@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Plus, Minus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 const faqs = [
   { 
@@ -31,54 +32,40 @@ const FAQ: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-16 md:py-20 bg-transparent relative overflow-hidden">
-      {/* Organic Decorative Elements - Removed to use global background */}
-      
-      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+    <section className="relative py-16 md:py-24 bg-transparent relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           
-          <div className="w-full lg:w-2/5 lg:sticky lg:top-24">
+          <div className="w-full lg:w-1/2">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h6 className="text-accent font-bold uppercase tracking-[0.3em] text-xs mb-3">Support & FAQ</h6>
-              <h2 className="text-3xl md:text-5xl font-black text-heading-gold font-outfit leading-[1.1] mb-5">
+              <h2 className="text-accent font-bold uppercase tracking-[0.3em] text-xs mb-3">Support & FAQ</h2>
+              <h3 className="text-3xl md:text-5xl font-black text-heading-gold font-big-shoulders leading-[1.1] mb-5 tracking-tight">
                 HAVE <span className="text-white">QUESTIONS?</span><br />
                 FIND ANSWERS.
-              </h2>
-              <p className="text-base text-muted-foreground mb-10 max-w-md leading-relaxed">
+              </h3>
+              <p className="text-base text-white/60 mb-10 max-w-md leading-relaxed font-noto-sans">
                 Everything you need to know about starting your digital journey in Nepal. If your question isn&apos;t here, feel free to reach out.
               </p>
               
-              <div className="relative border border-white/10 rounded-3xl overflow-hidden aspect-[4/3] bg-card">
-  
-  {/* Actual image */}
-  <img
-    src="/optimized/tlr.webp"   // put your image in public/images/
-    alt="Product preview showing TLR design work"
-    className="absolute inset-0 w-full h-full object-cover object-center"
-  />
-
-  {/* Soft gradient overlay (keeps your aesthetic) */}
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-
-  {/* Bottom label (your existing content) */}
-  <div className="absolute bottom-6 left-6 right-6">
-    <div className="h-1 w-20 bg-accent rounded-full mb-3" />
-    <p className="text-xs font-bold text-white uppercase tracking-widest opacity-70">
-      Handcrafted solutions
-    </p>
-  </div>
-
-</div>
-
+              <div className="relative group">
+                <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full opacity-50 group-hover:opacity-70 transition-opacity" />
+                <Image
+                  src="/originals/media/faq.svg"
+                  alt="FAQ Illustration"
+                  width={600}
+                  height={600}
+                  className="relative z-10 w-full h-auto drop-shadow-2xl"
+                />
+              </div>
             </motion.div>
           </div>
 
-          <div className="w-full lg:w-3/5">
+          <div className="w-full lg:w-1/2">
             <div className="space-y-3">
               {faqs.map((faq, idx) => (
                 <motion.div 

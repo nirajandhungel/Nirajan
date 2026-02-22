@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Calendar, Smile, CheckSquare, Users, ChevronRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -20,7 +21,7 @@ const Hero: React.FC = () => {
             </p>
             <button className="group relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center space-x-3 transition-all hover:shadow-lg hover:shadow-primary/30 active:scale-95">
               <span>Let's Start Your Project</span>
-              <i className="fa-solid fa-chevron-right text-sm group-hover:translate-x-1 transition-transform"></i>
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
@@ -39,10 +40,10 @@ const Hero: React.FC = () => {
             
             {/* Stats Grid Overlay */}
             <div className="grid grid-cols-2 gap-4 mt-12 lg:absolute lg:top-1/2 lg:-right-12 lg:transform lg:-translate-y-1/2 lg:w-80">
-              <StatCard value="7+" label="Years Experience" icon="fa-calendar-days" />
-              <StatCard value="300+" label="Happy Clients" icon="fa-face-smile" />
-              <StatCard value="400+" label="Success Projects" icon="fa-check-double" />
-              <StatCard value="80+" label="Team Members" icon="fa-users-gear" />
+              <StatCard value="7+" label="Years Experience" icon={Calendar} />
+              <StatCard value="300+" label="Happy Clients" icon={Smile} />
+              <StatCard value="400+" label="Success Projects" icon={CheckSquare} />
+              <StatCard value="80+" label="Team Members" icon={Users} />
             </div>
           </div>
         </div>
@@ -51,10 +52,10 @@ const Hero: React.FC = () => {
   );
 };
 
-const StatCard: React.FC<{ value: string; label: string; icon: string }> = ({ value, label, icon }) => (
+const StatCard: React.FC<{ value: string; label: string; icon: React.ElementType }> = ({ value, label, icon: Icon }) => (
   <div className="bg-white p-6 rounded-2xl shadow-xl shadow-gray-200/50 border border-border flex flex-col items-center text-center hover:-translate-y-1 transition-transform cursor-default">
     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
-      <i className={`fa-solid ${icon} text-primary text-xl`}></i>
+      <Icon className="text-primary w-6 h-6" />
     </div>
     <h3 className="text-2xl font-bold text-foreground mb-1">{value}</h3>
     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{label}</p>

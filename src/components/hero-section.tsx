@@ -4,14 +4,14 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { OptimizedImage } from "./ui/optimized-image";
-import { CONTACT } from "@/data/contact";
+import { CONTACT, CALENDLY } from "@/data/contact";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen lg:h-screen bg-black overflow-hidden flex items-center">
       {/* Background - Pure Black with Subtle Texture */}
       <div
-  className="absolute inset-0 opacity-40"
+  className="absolute inset-0 opacity-10"
   style={{
     backgroundImage: `url("/optimized/hero-bg-image.avif")`,
     backgroundSize: "cover",
@@ -69,10 +69,10 @@ export function HeroSection() {
                 className="btn-primary-cinematic text-white px-8 py-6 text-base font-bold uppercase tracking-wide w-full sm:w-auto font-big-shoulders"
                 asChild
               >
-                <Link href="/contact#strategy-call">
+                <a href={CALENDLY.url} target="_blank" rel="noopener noreferrer">
                   BOOK STRATEGY CALL
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                </a>
               </Button>
 
               <Button

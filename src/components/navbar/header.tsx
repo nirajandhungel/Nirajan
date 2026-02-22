@@ -141,7 +141,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-white/70 font-semibold">
-                <i className="fa-solid fa-phone text-primary"></i>
+                <Phone className="w-4 h-4 text-primary" />
                 <a
                   href={getWhatsAppLink(WHATSAPP.fullNumber)}
                   className="hover:text-white transition-colors"
@@ -161,6 +161,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             <button
               className="lg:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open Mobile Menu"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -186,6 +187,7 @@ export const Header: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               <button
                 onClick={closeMobileMenu}
                 className="text-white hover:text-white"
+                aria-label="Close Mobile Menu"
               >
                 <X className="w-6 h-6" />
               </button>

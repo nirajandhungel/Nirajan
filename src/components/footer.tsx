@@ -47,17 +47,18 @@ const Footer: React.FC = () => {
             {/* Social Links */}
             <div className="flex gap-3">
               {[
-                { Icon: Github, href: SOCIAL_LINKS.github.url },
-                { Icon: Linkedin, href: SOCIAL_LINKS.linkedin.url },
-                { Icon: Instagram, href: SOCIAL_LINKS.instagram.url },
-                { Icon: Facebook, href: SOCIAL_LINKS.facebook.url },
-                { Icon: Twitter, href: SOCIAL_LINKS.twitter.url },
-              ].map(({ Icon, href }, idx) => (
+                { Icon: Github, href: SOCIAL_LINKS.github.url, name: "Github" },
+                { Icon: Linkedin, href: SOCIAL_LINKS.linkedin.url, name: "LinkedIn" },
+                { Icon: Instagram, href: SOCIAL_LINKS.instagram.url, name: "Instagram" },
+                { Icon: Facebook, href: SOCIAL_LINKS.facebook.url, name: "Facebook" },
+                { Icon: Twitter, href: SOCIAL_LINKS.twitter.url, name: "Twitter" },
+              ].map(({ Icon, href, name }, idx) => (
                 <a
                   key={idx}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={name}
                   className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
                 >
                   <Icon size={18} />

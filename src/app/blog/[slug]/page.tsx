@@ -18,6 +18,7 @@ import { BlogProgress } from '@/components/blog/BlogProgress';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { LeadCaptureModal } from '@/components/LeadCaptureModal';
 import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildPersonJsonLd, BASE_URL } from '@/utils/seo';
+import { buildBlogPostMetadata } from '@/lib/blog-seo';
 
 // ─── Static generation ────────────────────────────────────────────────────────
 
@@ -33,38 +34,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-
-  const { frontmatter } = post;
-  const ogImage = frontmatter.ogImage || frontmatter.coverImage;
-  const imageUrl = ogImage.startsWith('http')
-    ? ogImage
-    : `${BASE_URL}${ogImage}`;
-
-  return {
-    title: `${frontmatter.title} – Nirajan Dhungel`,
-    description: frontmatter.description,
-    keywords: frontmatter.tags,
-    authors: [{ name: frontmatter.author ?? 'Nirajan Dhungel' }],
-    openGraph: {
-      title: frontmatter.title,
-      description: frontmatter.description,
-      url: `${BASE_URL}/blog/${slug}`,
-      type: 'article',
-      publishedTime: frontmatter.date,
-      authors: [frontmatter.author ?? 'Nirajan Dhungel'],
-      tags: frontmatter.tags,
-      images: [{ url: imageUrl, width: 1200, height: 630, alt: frontmatter.title }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: frontmatter.title,
-      description: frontmatter.description,
-      images: [imageUrl],
-    },
-    alternates: {
-      canonical: frontmatter.canonical ?? `${BASE_URL}/blog/${slug}`,
-    },
-  };
+  return buildBlogPostMetadata(post.frontmatter, slug);
 }
 
 // ─── Page ────────────────────────────────────────────────────────────────────
@@ -80,11 +50,13 @@ export default async function BlogPostPage({
 
   const { frontmatter, content, readingTime } = post;
   const related = getRelatedPosts(slug, 3);
+  const coverImageForSchema =
+    frontmatter.ogImage || frontmatter.coverImage || '/optimized/og-blog.webp';
 
   const jsonLd = buildArticleJsonLd({
     title: frontmatter.title,
     description: frontmatter.description,
-    coverImage: frontmatter.coverImage,
+    coverImage: coverImageForSchema,
     date: frontmatter.date,
     slug,
     tags: frontmatter.tags,
@@ -215,7 +187,7 @@ export default async function BlogPostPage({
                     }}
                   >
                     <Image
-                      src={frontmatter.coverImage}
+                      src={frontmatter.coverImage || '/optimized/og-blog.webp'}
                       alt={`Cover image for: ${frontmatter.title}`}
                       fill
                       priority

@@ -7,18 +7,6 @@
   font-family: var(--font-big-shoulders), 'Big Shoulders Display', var(--font-outfit), 'Outfit', sans-serif;
 }
 
-/* ============================================
-   FONT PERFORMANCE OPTIMIZATION
-   Fix FontAwesome render blocking (60ms FCP improvement)
-   ============================================ */
-@font-face {
-  font-family: 'Font Awesome 6 Brands';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  /* Critical for FCP */
-  src: url('/node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2') format('woff2');
-}
 
 /* ============================================
    CINEMATIC RED-BLACK THEME - Nirajan Portfolio
@@ -30,7 +18,7 @@
      RAW MODERN DESIGN SYSTEM
      Inspired by Planet of Metal - No Gradients
      =============================================== */
-  
+
   /* Core Dark Theme - Pure Black */
   --background: #000000;
   --foreground: #ffffff;
@@ -258,7 +246,7 @@
 
   /* Card with subtle red glow on hover */
   .card-cinematic {
-    @apply relative bg-card border border-border/50 rounded-2xl transition-all duration-500 overflow-hidden;
+    @apply relative bg-card border border-border/50 rounded-xl transition-all duration-500 overflow-hidden;
   }
 
   .card-cinematic:hover {
@@ -281,6 +269,12 @@
     border: 1px solid #ffffff;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+   .bg-primary-cinematic{
+     @apply relative overflow-hidden;
+    background: #880000;
+    color: #ffffff;
+
+   }
 
   .btn-primary-cinematic:hover {
     background: #cc0000;

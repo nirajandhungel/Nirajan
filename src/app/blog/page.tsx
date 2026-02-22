@@ -11,34 +11,13 @@ import { Pagination } from '@/components/blog/Pagination';
 import { TagCloud } from '@/components/blog/TagCloud';
 import { BlogSearch } from '@/components/blog/BlogSearch';
 import { buildBlogListJsonLd } from '@/utils/seo';
+import { buildBlogListingMetadata } from '@/lib/blog-seo';
 import { Rss } from 'lucide-react';
+import { CALENDLY } from '@/data/contact';
 
-const BASE_URL = 'https://nirajandhungel.com.np';
 const PER_PAGE = 9;
 
-export const metadata: Metadata = {
-  title: 'Blog – Nirajan Dhungel',
-  description:
-    'Practical insights on web development, SEO strategies, Next.js, and digital marketing from real-world projects.',
-  keywords: ['web development blog', 'SEO tips', 'Next.js tutorials', 'digital marketing', 'Nirajan Dhungel'],
-  openGraph: {
-    title: 'Blog – Nirajan Dhungel',
-    description: 'Practical insights on web development, SEO, Next.js, and digital marketing.',
-    url: `${BASE_URL}/blog`,
-    type: 'website',
-    images: [{ url: `${BASE_URL}/optimized/og-blog.webp`, width: 1200, height: 630, alt: 'Nirajan Dhungel Blog' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blog – Nirajan Dhungel',
-    description: 'Practical insights on web development, SEO, and digital marketing.',
-    images: [`${BASE_URL}/optimized/og-blog.webp`],
-  },
-  alternates: {
-    canonical: `${BASE_URL}/blog`,
-    types: { 'application/rss+xml': `${BASE_URL}/rss.xml` },
-  },
-};
+export const metadata: Metadata = buildBlogListingMetadata();
 
 interface BlogPageProps {
   searchParams: Promise<{ page?: string; q?: string }>;
@@ -168,13 +147,15 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   >
                     New articles on web dev, SEO, and digital craft — straight to your inbox.
                   </p>
-                  <Link
-                    href="/contact#strategy-call"
+                  <a
+                    href={CALENDLY.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block text-center px-4 py-2.5 text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:opacity-90"
                     style={{ background: 'var(--blog-accent)' }}
                   >
                     Book Free Strategy Call
-                  </Link>
+                  </a>
                 </div>
               </div>
             </aside>

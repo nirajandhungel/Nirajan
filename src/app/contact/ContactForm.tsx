@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import { useEnquiryModal } from "../EnquiryContext";
 import { CONTACT, SOCIAL_LINKS, WHATSAPP } from "@/data/contact";
 import { getWhatsAppLink } from "@/lib/smart-links";
-import { Mail, Phone, MapPin, Briefcase, Github, Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Briefcase, Github, Linkedin, Instagram, Facebook, Twitter, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export const ContactForm = () => {
-  const { openEnquiry } = useEnquiryModal();
+  const { openAudit } = useEnquiryModal();
   
   // Form state
   const [formData, setFormData] = useState({
@@ -122,7 +122,7 @@ export const ContactForm = () => {
       <section id="audit" className="py-12 scroll-mt-24">
         <div className="container mx-auto px-4 md:px-10">
           <div
-            className="rounded-2xl p-8 md:p-12 text-center border"
+            className="rounded-sm p-8 md:p-12 text-center border"
             style={{
               background: 'linear-gradient(135deg, rgba(196,30,58,0.1) 0%, rgba(0,0,0,0.3) 100%)',
               borderColor: 'rgba(196,30,58,0.3)',
@@ -136,7 +136,7 @@ export const ContactForm = () => {
             </p>
             <button
               type="button"
-              onClick={openEnquiry}
+              onClick={openAudit}
               className="btn-primary-cinematic px-8 py-3 text-white font-bold rounded-sm"
             >
               Request Free Audit
@@ -148,7 +148,7 @@ export const ContactForm = () => {
       {/* Form Section */}
       <section className="pb-24">
         <div className="container mx-auto px-4 md:px-10">
-          <div className="card-cinematic p-8 md:p-16">
+          <div className="card-cinematic rounded-sm p-8 md:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               <div className="lg:col-span-7">
                 <h2 className="text-3xl font-black text-white mb-2">
@@ -226,7 +226,7 @@ export const ContactForm = () => {
                         ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
                         : 'bg-red-500/10 text-red-400 border border-red-500/20'
                     }`}>
-                      <i className={`fa-solid ${status === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'}`}></i>
+                      {status === 'success' ? <CheckCircle className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
                       <span>{statusMessage}</span>
                     </div>
                   )}
@@ -238,12 +238,12 @@ export const ContactForm = () => {
                   >
                     {status === 'submitting' ? (
                       <>
-                        <i className="fa-solid fa-spinner animate-spin"></i>
+                        <Loader2 className="animate-spin w-5 h-5" />
                         Sending...
                       </>
                     ) : status === 'success' ? (
                       <>
-                        <i className="fa-solid fa-circle-check"></i>
+                        <CheckCircle className="w-5 h-5" />
                         Sent Successfully
                       </>
                     ) : (

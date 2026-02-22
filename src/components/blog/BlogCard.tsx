@@ -18,11 +18,9 @@ export function BlogCard({ post, featured = false, activeTag, theme = 'light' }:
   
   const isDark = theme === 'dark';
   const cardStyle = {
-    background: isDark ? '#0a0a0a' : 'var(--blog-bg-card)',
-    borderColor: isDark ? 'rgba(255, 255, 255, 0.05)' : 'var(--blog-border)',
-    borderWidth: '1px',
-    borderRadius: '12px',
+    background: isDark ? '#000000' : 'var(--blog-bg-card)',
     boxShadow: isDark ? 'none' : 'var(--blog-shadow)',
+    borderRadius: '0px',
   };
   const textColor = isDark ? '#ffffff' : 'var(--blog-text)';
   const textMuted = isDark ? 'rgba(255, 255, 255, 0.6)' : 'var(--blog-text-muted)';
@@ -34,9 +32,18 @@ export function BlogCard({ post, featured = false, activeTag, theme = 'light' }:
   if (featured) {
     return (
       <article
-        className="flex flex-col overflow-hidden sm:flex-row transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:border-[var(--blog-accent)]/30 group"
+        className={`flex flex-col overflow-hidden sm:flex-row group relative transition-all duration-300 border-2 ${
+          isDark 
+            ? 'border-white/10 hover:border-primary' 
+            : 'border-[var(--blog-border)] hover:border-[var(--blog-accent)]'
+        }`}
         style={cardStyle}
       >
+        <div
+          className={`absolute top-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity z-10 ${
+            isDark ? 'bg-primary' : 'bg-[var(--blog-accent)]'
+          }`}
+        />
         <Link
           href={`/blog/${slug}`}
           aria-label={`Read: ${frontmatter.title}`}
@@ -86,9 +93,18 @@ export function BlogCard({ post, featured = false, activeTag, theme = 'light' }:
 
   return (
     <article
-      className="flex h-full flex-col overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:border-[var(--blog-accent)]/30 group"
+      className={`flex h-full flex-col overflow-hidden group relative transition-all duration-300 border-2 ${
+        isDark 
+          ? 'border-white/10 hover:border-primary' 
+          : 'border-[var(--blog-border)] hover:border-[var(--blog-accent)]'
+      }`}
       style={cardStyle}
     >
+      <div
+        className={`absolute top-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity z-10 ${
+          isDark ? 'bg-primary' : 'bg-[var(--blog-accent)]'
+        }`}
+      />
       <Link
         href={`/blog/${slug}`}
         aria-label={`Read: ${frontmatter.title}`}

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
+import { useEnquiryModal } from '@/app/EnquiryContext';
 
 const STORAGE_KEY = 'lead-capture-dismissed';
 const SCROLL_THRESHOLD = 0.5; // 50% scroll
@@ -12,8 +12,10 @@ interface LeadCaptureModalProps {
 }
 
 export function LeadCaptureModal({ isBlogPost = false }: LeadCaptureModalProps) {
+  const { openAudit } = useEnquiryModal();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const dismiss = useCallback(() => {
     setIsOpen(false);
@@ -92,45 +94,78 @@ export function LeadCaptureModal({ isBlogPost = false }: LeadCaptureModalProps) 
           Actionable steps to improve your site&apos;s search rankings. No spam.
         </p>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement)?.value;
-            if (email) {
-              window.location.href = `/contact?utm_source=lead_magnet&prefill=${encodeURIComponent(email)}`;
-            }
-            dismiss();
-          }}
-          className="space-y-3"
-        >
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
-            required
-            className="w-full px-4 py-3 rounded-lg border text-sm"
-            style={{
-              borderColor: 'var(--blog-border)',
-              background: 'var(--blog-bg)',
-              color: 'var(--blog-text)',
+        {submitStatus === 'success' ? (
+          <div className="text-center py-4 text-green-600 font-medium">
+            ✅ Check your inbox for the checklist!
+          </div>
+        ) : (
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setSubmitStatus('loading');
+              const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement)?.value;
+              if (email) {
+                try {
+                  const res = await fetch('/api/checklist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email }),
+                  });
+                  if (res.ok) {
+                    setSubmitStatus('success');
+                    setTimeout(() => dismiss(), 3000); // give time to read success message
+                  } else {
+                    setSubmitStatus('error');
+                    alert('Error sending email. Please try again.');
+                  }
+                } catch (err) {
+                  setSubmitStatus('error');
+                  alert('Error sending email. Please try again.');
+                }
+              }
             }}
-          />
-          <Link
-            href="/contact#audit"
-            onClick={dismiss}
-            className="block w-full text-center py-3 px-4 rounded-lg font-bold text-white text-sm"
-            style={{ background: 'var(--blog-accent, #c41e3a)' }}
+            className="space-y-3"
           >
-            Or Book Free SEO Audit →
-          </Link>
-          <button
-            type="submit"
-            className="block w-full py-3 px-4 rounded-lg font-bold text-white text-sm"
-            style={{ background: 'var(--blog-accent, #c41e3a)' }}
-          >
-            Get Free Checklist
-          </button>
-        </form>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              className="w-full px-4 py-3 rounded-lg border text-sm"
+              style={{
+                borderColor: 'var(--blog-border)',
+                background: 'var(--blog-bg)',
+                color: 'var(--blog-text)',
+              }}
+            />
+            <button
+              type="submit"
+              disabled={submitStatus === 'loading'}
+              className="block w-full py-3 px-4 rounded-lg font-bold text-white text-sm disabled:opacity-50"
+              style={{ background: 'var(--blog-accent, #c41e3a)' }}
+            >
+              {submitStatus === 'loading' ? 'Sending...' : 'Get Free Checklist'}
+            </button>
+            <p className="text-center text-xs" style={{ color: 'var(--blog-text-muted, #5c5650)' }}>
+              or
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                dismiss();
+                openAudit();
+              }}
+              className="block w-full text-center py-3 px-4 rounded-lg font-medium text-sm border-2"
+              style={{
+                borderColor: 'var(--blog-accent, #c41e3a)',
+                color: 'var(--blog-accent, #c41e3a)',
+                background: 'transparent',
+              }}
+            >
+              Get a personalised SEO audit for my site →
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

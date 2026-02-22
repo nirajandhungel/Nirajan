@@ -2,33 +2,35 @@
 'use client';
 
 import { useState } from 'react';
+import { Code2, Paintbrush, Box, LayoutTemplate, Braces, Server, Cpu, Database, Blocks, Cloud, Container, Globe, ServerCog, CheckCircle } from 'lucide-react';
+
 
 interface TechItem {
   name: string;
-  icon: string;
+  icon: React.ElementType;
   desc: string;
 }
 
 const frontend: TechItem[] = [
-  { name: 'HTML5', icon: 'fa-html5', desc: 'The fundamental markup language for web structure.' },
-  { name: 'CSS3', icon: 'fa-css3-alt', desc: 'Styling language for layout, animation, and responsive design.' },
-  { name: 'React JS', icon: 'fa-react', desc: 'Powerful library for building dynamic components and single-page apps.' },
-  { name: 'Next JS', icon: 'fa-n', desc: 'The React framework for production-grade web applications.' },
-  { name: 'TypeScript', icon: 'fa-t', desc: 'Typed superset of JavaScript that scales efficiently.' }
+  { name: 'HTML5', icon: LayoutTemplate, desc: 'The fundamental markup language for web structure.' },
+  { name: 'CSS3', icon: Paintbrush, desc: 'Styling language for layout, animation, and responsive design.' },
+  { name: 'React JS', icon: Box, desc: 'Powerful library for building dynamic components and single-page apps.' },
+  { name: 'Next JS', icon: Blocks, desc: 'The React framework for production-grade web applications.' },
+  { name: 'TypeScript', icon: Braces, desc: 'Typed superset of JavaScript that scales efficiently.' }
 ];
 
 const backend: TechItem[] = [
-  { name: 'Node JS', icon: 'fa-node-js', desc: 'JavaScript runtime built on Chrome V8 engine for server-side code.' },
-  { name: 'Python', icon: 'fa-python', desc: 'Versatile language for backend logic, AI, and complex processing.' },
-  { name: 'PHP', icon: 'fa-php', desc: 'Popular server-side scripting language powering WordPress and Laravel.' },
-  { name: 'Laravel', icon: 'fa-laravel', desc: 'Elegant PHP framework for modern web development.' }
+  { name: 'Node JS', icon: Server, desc: 'JavaScript runtime built on Chrome V8 engine for server-side code.' },
+  { name: 'Python', icon: Cpu, desc: 'Versatile language for backend logic, AI, and complex processing.' },
+  { name: 'PHP', icon: Code2, desc: 'Popular server-side scripting language powering WordPress and Laravel.' },
+  { name: 'Laravel', icon: Database, desc: 'Elegant PHP framework for modern web development.' }
 ];
 
 const infrastructure: TechItem[] = [
-  { name: 'AWS', icon: 'fa-aws', desc: 'Amazon Web Services for scalable cloud hosting and infrastructure.' },
-  { name: 'Docker', icon: 'fa-docker', desc: 'Containerization for consistent deployment across environments.' },
-  { name: 'Google Cloud', icon: 'fa-google', desc: 'Robust cloud platform for high-performance computing.' },
-  { name: 'Digital Ocean', icon: 'fa-droplet', desc: 'Simple cloud computing for developers and startups.' }
+  { name: 'AWS', icon: Cloud, desc: 'Amazon Web Services for scalable cloud hosting and infrastructure.' },
+  { name: 'Docker', icon: Container, desc: 'Containerization for consistent deployment across environments.' },
+  { name: 'Google Cloud', icon: Globe, desc: 'Robust cloud platform for high-performance computing.' },
+  { name: 'Digital Ocean', icon: ServerCog, desc: 'Simple cloud computing for developers and startups.' }
 ];
 
 const TechStack: React.FC = () => {
@@ -55,7 +57,7 @@ const TechStack: React.FC = () => {
             <div className="bg-light p-10 rounded-3xl border-2 border-primary/10 min-h-[300px] flex flex-col justify-center animate-fade-in">
               <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mb-6">
                  {/* This would be an icon from the tech item */}
-                 <i className={`fa-brands ${activeTech.icon.includes('fa-') ? activeTech.icon : 'fa-code'} text-primary text-4xl`}></i>
+                 <activeTech.icon className="text-primary w-10 h-10" />
               </div>
               <h3 className="text-3xl font-bold text-foreground mb-4">{activeTech.name}</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -63,7 +65,7 @@ const TechStack: React.FC = () => {
               </p>
               <div className="mt-8 pt-8 border-t border-primary/10 flex items-center text-primary font-bold">
                 <span>Expertly Implemented</span>
-                <i className="fa-solid fa-circle-check ml-2"></i>
+                <CheckCircle className="ml-2 w-5 h-5" />
               </div>
             </div>
           </div>

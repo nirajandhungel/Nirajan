@@ -111,7 +111,8 @@ export function SolutionsSection() {
           alt="Work Process Visualization"
           fill
           className="object-cover animate-float drop-shadow-2xl"
-          priority
+          loading="lazy"
+          sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </div>
     </div>

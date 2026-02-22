@@ -1,4 +1,4 @@
-
+import { ChevronRight } from "lucide-react";
 
 const steps = [
   { n: '01', title: 'Requirement Analysis', desc: 'We conduct a thorough analysis of your requirements to establish a solid foundation.' },
@@ -37,7 +37,7 @@ const Roadmap: React.FC = () => {
               {/* Connector dots for desktop */}
               {idx % 4 !== 3 && idx < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-0">
-                   <i className="fa-solid fa-chevron-right text-primary/20"></i>
+                   <ChevronRight className="text-primary/20 w-6 h-6" />
                 </div>
               )}
             </div>

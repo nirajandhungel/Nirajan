@@ -2,6 +2,8 @@
 'use client';
 
 import { useState } from 'react';
+import { Rocket, ShieldHalf, Smartphone, Eye, Search, ChevronRight } from 'lucide-react';
+
 
 const EnquiryForm: React.FC = () => {
   const [formData, setFormData] = useState({ url: '', email: '', phone: '' });
@@ -26,11 +28,11 @@ const EnquiryForm: React.FC = () => {
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              <QualityBenefit icon="fa-rocket" text="Speed Check" />
-              <QualityBenefit icon="fa-shield-halved" text="Security Audit" />
-              <QualityBenefit icon="fa-mobile-screen" text="Mobile Friendly" />
-              <QualityBenefit icon="fa-eye" text="UX Analysis" />
-              <QualityBenefit icon="fa-magnifying-glass" text="SEO Score" />
+              <QualityBenefit icon={Rocket} text="Speed Check" />
+              <QualityBenefit icon={ShieldHalf} text="Security Audit" />
+              <QualityBenefit icon={Smartphone} text="Mobile Friendly" />
+              <QualityBenefit icon={Eye} text="UX Analysis" />
+              <QualityBenefit icon={Search} text="SEO Score" />
             </div>
           </div>
 
@@ -75,7 +77,7 @@ const EnquiryForm: React.FC = () => {
                   />
                 </div>
                 <button className="w-full bg-primary text-white py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center">
-                  Get Free Audit <i className="fa-solid fa-chevron-right ml-2 text-sm"></i>
+                  Get Free Audit <ChevronRight className="ml-2 w-5 h-5" />
                 </button>
               </form>
             </div>
@@ -86,9 +88,9 @@ const EnquiryForm: React.FC = () => {
   );
 };
 
-const QualityBenefit: React.FC<{ icon: string; text: string }> = ({ icon, text }) => (
+const QualityBenefit: React.FC<{ icon: React.ElementType; text: string }> = ({ icon: Icon, text }) => (
   <div className="flex flex-col items-center text-center space-y-3 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-    <i className={`fa-solid ${icon} text-2xl`}></i>
+    <Icon className="w-8 h-8" />
     <span className="text-sm font-bold">{text}</span>
   </div>
 );

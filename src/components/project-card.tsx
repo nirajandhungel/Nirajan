@@ -27,6 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="View Source Code"
               className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
             >
               <Github className="w-4 h-4" />
@@ -37,6 +38,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="View Live Demo"
               className="w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
             >
               <ExternalLink className="w-4 h-4" />

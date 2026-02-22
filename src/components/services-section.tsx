@@ -7,66 +7,45 @@ const services = [
     title: "Website Development",
     description:
       "Custom, responsive websites built with modern technologies like React, Next.js, and Tailwind CSS.",
-    icon: "/optimized/media/services/website-development.svg",
-    color: "#ff1d1d",
+    icon: "/originals/media/services/website-service.svg",
     href: "/services/website-development-in-nepal",
   },
   {
     title: "App Development",
     description:
       "Cross-platform mobile applications using React Native and modern frameworks.",
-    icon: "/optimized/media/services/mobile-app.svg",
-    color: "#ffca28",
+    icon: "/originals/media/services/mobile-app-service.svg",
     href: "/services/mobile-app-development",
   },
   {
     title: "System/Software Development",
     description:
       "Custom software solutions tailored to your business needs using Java, Python, and Node.js.",
-    icon: "/optimized/media/services/backend.svg",
-    color: "#3bfbed",
+    icon: "/originals/media/services/backend-service.svg",
     href: "/services/system-software-development",
   },
   {
     title: "SEO Services",
     description:
       "Improve your website visibility and ranking on search engines with proven SEO strategies.",
-    icon: "/optimized/media/services/seo-services.svg",
-    color: "#ff884d",
+    icon: "/originals/media/services/seo-service.svg",
     href: "/services/seo-in-nepal",
   },
   {
     title: "GSO AI (SEO Services)",
     description:
       "Advanced AI-powered SEO and digital marketing optimization to boost your website visibility and ranking.",
-    icon: "/optimized/media/services/seo-services.svg",
-    color: "#ff1d1d",
+    icon: "/originals/media/services/seo-main.svg",
     href: "/services/gso-ai",
   },
   {
     title: "Social Media Marketing (SMM)",
     description:
       "Build your brand presence and engage with your audience across social platforms.",
-    icon: "/optimized/media/services/marketing.svg",
-    color: "#ffca28",
+    icon: "/originals/media/services/marketing-service.svg",
     href: "/services/social-media-marketing",
   },
-  {
-    title: "Graphic Design",
-    description:
-      "Professional graphic design services for branding, marketing materials, and digital assets.",
-    icon: "/optimized/media/services/marketing.svg",
-    color: "#8421f9",
-    href: "/services/graphics-design",
-  },
-  {
-    title: "Content Writing",
-    description:
-      "High-quality, SEO-optimized content that engages your audience and drives results.",
-    icon: "/optimized/media/services/seo-services.svg",
-    color: "#3bfbed",
-    href: "/services/content-writing",
-  },
+
 ]
 
 export function ServicesSection() {
@@ -97,12 +76,11 @@ export function ServicesSection() {
             <Link
               key={index}
               href={service.href}
-              className="group relative bg-black border-2 border-white/10 p-6 hover:border-accent transition-all duration-300"
+              className="group relative bg-black border-2 border-white/10 p-6 hover:border-primary transition-all duration-300"
             >
               {/* Color Accent Bar */}
               <div
-                className="absolute top-0 left-0 w-full h-1"
-                style={{ backgroundColor: service.color }}
+                className="absolute top-0 left-0 w-full h-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity"
               />
 
               {/* Icon */}
@@ -119,10 +97,7 @@ export function ServicesSection() {
               </div>
 
               {/* Content */}
-              <h3
-                className="text-xl font-bold text-white mb-3 font-big-shoulders group-hover:text-accent transition-colors"
-                style={{ color: service.color }}
-              >
+              <h3 className="text-xl font-bold text-accent mb-3 uppercase font-big-shoulders group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
               <p className="text-white/60 leading-relaxed text-sm font-noto-sans mb-6">
@@ -130,7 +105,7 @@ export function ServicesSection() {
               </p>
 
               {/* Hover Arrow */}
-              <div className="flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <span className="text-sm font-bold uppercase tracking-wide font-big-shoulders">LEARN MORE</span>
                 <ArrowRight className="w-4 h-4" />
               </div>

@@ -63,6 +63,7 @@ export function SelectedWorkSection() {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.title} source code on GitHub`}
                       className="w-10 h-10 bg-black/80 border-2 border-white/20 flex items-center justify-center text-white hover:border-accent hover:bg-accent transition-all"
                     >
                       <Github className="w-4 h-4" />
@@ -73,6 +74,7 @@ export function SelectedWorkSection() {
                       href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.title} live demo`}
                       className="w-10 h-10 bg-black/80 border-2 border-white/20 flex items-center justify-center text-white hover:border-accent hover:bg-accent transition-all"
                     >
                       <ExternalLink className="w-4 h-4" />

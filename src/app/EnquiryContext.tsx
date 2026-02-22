@@ -6,12 +6,16 @@ interface EnquiryContextType {
   isEnquiryOpen: boolean
   openEnquiry: () => void
   closeEnquiry: () => void
+  isAuditOpen: boolean
+  openAudit: () => void
+  closeAudit: () => void
 }
 
 const EnquiryContext = createContext<EnquiryContextType | undefined>(undefined)
 
 export function EnquiryProvider({ children }: { children: React.ReactNode }) {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false)
+  const [isAuditOpen, setIsAuditOpen] = useState(false)
 
   return (
     <EnquiryContext.Provider
@@ -19,6 +23,9 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
         isEnquiryOpen,
         openEnquiry: () => setIsEnquiryOpen(true),
         closeEnquiry: () => setIsEnquiryOpen(false),
+        isAuditOpen,
+        openAudit: () => setIsAuditOpen(true),
+        closeAudit: () => setIsAuditOpen(false),
       }}
     >
       {children}

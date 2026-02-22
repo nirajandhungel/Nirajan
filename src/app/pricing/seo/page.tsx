@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const seoPackages = [
   {
     name: 'Standard',
-    price: '$400',
+    price: '$100',
     period: '/month',
     description: 'Ideal for Small Businesses',
     features: [
@@ -54,7 +54,7 @@ const seoPackages = [
   },
   {
     name: 'Professional',
-    price: '$700',
+    price: '$300',
     period: '/month',
     description: 'Perfect for Growing Businesses',
     badge: 'Best Value',
@@ -172,25 +172,23 @@ export default function SEOPricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section 
-        className="relative py-24 lg:py-32 overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 50%, #0a0a0a 100%)',
-        }}
-      >
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Ready to <span className="text-heading-gold">Boost Rankings?</span>
-          </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-            Let's discuss which SEO package is right for your business
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent transform transition-transform hover:-translate-y-0.5  text-black px-10 py-4 rounded-sm font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Get Free Consultation
-          </Link>
+      <section className="relative py-24 lg:py-32 overflow-hidden bg-primary/10 border-t-2 border-white/10">
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 uppercase leading-tight font-big-shoulders">
+              READY TO
+              <span className="block text-accent mt-2">BOOST RANKINGS?</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-white/70 mb-10 max-w-2xl mx-auto font-noto-sans">
+              Let's discuss which SEO package is right for your business
+            </p>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-accent text-black px-8 py-5 font-bold text-base uppercase  font-big-shoulders btn-primary-cinematic"
+            >
+              Get Free Consultation
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -1,11 +1,16 @@
-import Link from "next/link"
-import { ArrowRight, Mail, MessageCircle } from "lucide-react"
-import { CONTACT, WHATSAPP } from "@/data/contact"
-import { getWhatsAppLink } from "@/lib/smart-links"
+'use client';
+
+import { useState } from 'react';
+import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
+import { CONTACT, WHATSAPP, CALENDLY } from '@/data/contact';
+import { getWhatsAppLink } from '@/lib/smart-links';
+import AuditModal from '@/components/AuditModal';
 
 export function ContactCTA() {
+  const [isAuditOpen, setIsAuditOpen] = useState(false);
+
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-black border-t-2 border-white/10">
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-primary/10 border-t-2 border-white/10">
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           
@@ -21,23 +26,25 @@ export function ContactCTA() {
             Working with global founders and startups — remote-first.
           </p>
           
-          {/* CTA Buttons - Raw, Hard */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link
-              href="/contact#strategy-call"
+            <a
+              href={CALENDLY.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 bg-accent text-black px-8 py-5 font-bold text-base uppercase tracking-wide hover:bg-white transition-all duration-300 font-big-shoulders"
             >
               <Mail className="w-5 h-5" />
               BOOK STRATEGY CALL
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/contact#audit"
+            </a>
+            <button
+              type="button"
+              onClick={() => setIsAuditOpen(true)}
               className="group inline-flex items-center gap-2 border-2 border-white text-white px-8 py-5 font-bold text-base uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300 font-big-shoulders"
             >
               FREE AUDIT
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </div>
           
           {/* Quick Contact Info */}
@@ -69,6 +76,8 @@ export function ContactCTA() {
           </div>
         </div>
       </div>
+
+      <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} />
     </section>
-  )
+  );
 }

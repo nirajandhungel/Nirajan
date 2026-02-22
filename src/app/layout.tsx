@@ -3,12 +3,11 @@ import { Poppins, Outfit, Lora, JetBrains_Mono, Big_Shoulders, Noto_Sans } from 
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import ClientWrapper from './ClientWrapper'
-import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import { CursorProvider } from "../providers/CursorProvider";
 import { ServiceWorkerRegistration } from "../components/ServiceWorkerRegistration";
 import { WebVitalsMonitor } from "../components/WebVitalsMonitor";
 
-// import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css'
 import { CONTACT } from "@/data/contact"
 
@@ -16,8 +15,8 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-poppins",
-  display: 'swap', // Better for CLS
-  preload: true,
+  display: 'swap',
+  preload: false,
 });
 
 const outfit = Outfit({
@@ -25,7 +24,7 @@ const outfit = Outfit({
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-outfit",
   display: "swap",
-  preload: true,
+  preload: false,
 })
 
 // JetBrains Mono — high-contrast for code blocks
@@ -53,9 +52,7 @@ const bigShoulders = Big_Shoulders({
   variable: "--font-big-shoulders",
   display: "swap",
   preload: true,
-  adjustFontFallback: false,
-
-  // feat: Implement a comprehensive blog section with new pages, components, and content.
+  adjustFontFallback: true,
 })
 
 // Noto Sans — reference site secondary/body font (Latin equivalent of Noto Sans JP)
@@ -332,18 +329,10 @@ export default function RootLayout({
     >
       <head>
         {/* ========== CRITICAL PERFORMANCE OPTIMIZATION ========== */}
-        {/* Preconnect to critical origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* DNS prefetch for analytics */}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://vercel.com" />
+        {/* ========== CRITICAL PERFORMANCE OPTIMIZATION ========== */}
 
-        {/* Prefetch likely next pages */}
+        {/* Prefetch after load - use low priority to avoid competing with LCP */}
         <link rel="prefetch" href="/about" />
-        <link rel="prefetch" href="/work" />
         <link rel="prefetch" href="/contact" />
         
         {/* ========== STRUCTURED DATA ========== */}
@@ -436,9 +425,9 @@ export default function RootLayout({
         {/* Google Analytics - Deferred for performance */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QPW4V2HWFE"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
