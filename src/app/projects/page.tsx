@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Featured Projects | Nirajan Dhungel Portfolio',
     description: 'Discover how I solve complex business problems through code. View my latest work in web and mobile application development.',
-    url: 'https://nirajandhungel.com.np/projects',
+    url: 'https://www.nirajandhungel.com.np/projects',
     siteName: 'Nirajan Dhungel',
     images: [
       {

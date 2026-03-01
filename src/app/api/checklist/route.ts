@@ -22,7 +22,7 @@ const CHECKLIST_MAX_REQUESTS = 5;
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 
 // Public URL for the SEO checklist PDF (ready-to-download)
-const SEO_CHECKLIST_PDF_URL = "https://nirajandhungel.com.np/downloads/seo-checklist.pdf";
+const SEO_CHECKLIST_PDF_URL = "https://www.nirajandhungel.com.np/downloads/seo-checklist.pdf";
 
 interface ChecklistBody {
     email?: string;

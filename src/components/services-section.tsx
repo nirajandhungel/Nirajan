@@ -97,7 +97,7 @@ export function ServicesSection() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-accent mb-3 uppercase font-big-shoulders group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-3 uppercase font-big-shoulders group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
               <p className="text-white/60 leading-relaxed text-sm font-noto-sans mb-6">

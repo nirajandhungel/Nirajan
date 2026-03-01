@@ -1,4 +1,3 @@
-"use client";
 import { Skill } from "../../../types";
 
 export function SkillCard({ skill, gradient }: { skill: Skill; gradient: string }) {

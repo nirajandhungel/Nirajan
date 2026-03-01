@@ -1,9 +1,9 @@
-"use client"
+
 import { CheckCircle, Rocket, Shield, Clock } from "lucide-react"
 // import { Logo } from "../assets/Logo"
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import { SolutionsImageAnimation } from "./SolutionsImageAnimation";
 
 
 const features = [
@@ -90,33 +90,29 @@ export function SolutionsSection() {
           </div>
 
           {/* Right Illustration - Simplified Organic Design */}
-<div className="flex items-center justify-center lg:justify-end h-full">
-  <motion.div 
-    initial={{ opacity: 0, scale: 0.9 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.6, delay: 0.2 }}
-    className="w-full h-full flex justify-center lg:justify-end"
-  >
-    <div className="relative  w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[4/3] lg:aspect-[4/3]">
-      {/* Red Circle Behind */}
-      <div 
-  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 aspect-square rounded-full -z-10"
-  style={{
-    background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 80%)',
-  }}
-/>
+        <div className="flex items-center justify-center lg:justify-end h-full">
+          <SolutionsImageAnimation>
+            <div className="relative  w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[4/3] lg:aspect-[4/3]">
+              {/* Red Circle Behind */}
+              <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 aspect-square rounded-full -z-10"
+          style={{
+            background: 'radial-gradient(circle, #c41e3a 0%, #8b0000 80%)',
+          }}
+        />
+        
       <div className="relative w-full h-full flex items-center justify-center">
         <Image
           src="/optimized/media/work/telecommunication.svg"
           alt="Work Process Visualization"
           fill
-          className="object-cover animate-float drop-shadow-2xl"
+          className="object-cover animate-float drop-shadow-2xl "
           loading="lazy"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </div>
     </div>
-  </motion.div>
+  </SolutionsImageAnimation>
 </div>
 
         </div>

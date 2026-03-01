@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const SITE_URL = 'https://nirajandhungel.com.np';
+const SITE_URL = 'https://www.nirajandhungel.com.np';
 const SITE_NAME = 'Nirajan Dhungel';
 
 interface PageSEOConfig {

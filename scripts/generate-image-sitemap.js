@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = join(__filename, '..')
 
-const SITE_URL = 'https://nirajandhungel.com.np'
+const SITE_URL = 'https://www.nirajandhungel.com.np'
 
 const images = [
   {

@@ -32,17 +32,17 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: 'https://nirajandhungel.com.np/about',
+    canonical: 'https://www.nirajandhungel.com.np/about',
   },
 
   openGraph: {
     title: 'Contact | Nirajan Dhungel',
     description: 'Get in touch with Nirajan Dhungel for full-stack development, SEO, and technical consultation.',
-    url: 'https://nirajandhungel.com.np/about',
+    url: 'https://www.nirajandhungel.com.np/about',
     siteName: 'Nirajan Dhungel',
     images: [
       {
-        url: 'https://nirajandhungel.com.np/optimized/nirajandhungel3.webp',
+        url: 'https://www.nirajandhungel.com.np/optimized/nirajandhungel3.webp',
         width: 1200,
         height: 630,
         alt: 'Nirajan Dhungel Profile',
@@ -173,8 +173,7 @@ export default function AboutPage() {
                   title="Nirajan Dhungel - Professional Web Developer"
                   width={850}
                   height={850}
-                  isLCP={true}
-                  priority
+                  fetchPriority="high"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="relative w-full h-full rounded-3xl shadow-2xl"
                   style={{

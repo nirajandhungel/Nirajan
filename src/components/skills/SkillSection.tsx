@@ -1,4 +1,3 @@
-"use client";
 import { SkillCategory } from "../../../types";
 import { SkillCard } from "./SkillCard";
 

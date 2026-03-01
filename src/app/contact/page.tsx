@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     'Freelance Developer Kathmandu',
     'IT Consultation Nepal'
   ],
-   alternates: {
-    canonical: 'https://nirajandhungel.com.np/contact',
+  alternates: {
+    canonical: 'https://www.nirajandhungel.com.np/contact',
   },
   openGraph: {
     title: 'Contact | Nirajan Dhungel',
     description: 'Ready to build something amazing? Contact me today for a free consultation.',
-    url: 'https://nirajandhungel.com.np/contact',
+    url: 'https://www.nirajandhungel.com.np/contact',
     siteName: 'Nirajan Dhungel',
     images: [
       {

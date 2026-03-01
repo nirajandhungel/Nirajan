@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ServiceData } from './servicesData';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://nirajandhungel.com.np';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nirajandhungel.com.np';
 const SITE_NAME = 'Nirajan Dhungel';
 
 /**

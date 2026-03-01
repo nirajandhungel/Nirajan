@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: 'https://nirajandhungel.com.np',
+  siteUrl: 'https://www.nirajandhungel.com.np',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   autoLastmod: true,
@@ -91,7 +91,7 @@ const config = {
       },
     ],
     additionalSitemaps: [
-      'https://nirajandhungel.com.np/sitemap-images.xml',
+      'https://www.nirajandhungel.com.np/sitemap-images.xml',
     ],
   },
 }

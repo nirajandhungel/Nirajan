@@ -1,6 +1,6 @@
 import { WithContext, Person, ProfessionalService, WebSite, LocalBusiness, BreadcrumbList } from 'schema-dts';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://nirajandhungel.com.np';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nirajandhungel.com.np';
 
 // Person Schema - Nirajan Dhungel
 export const personSchema: WithContext<Person> = {

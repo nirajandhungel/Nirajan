@@ -6,7 +6,7 @@ import { BlogSectionAnimated } from './blog-section-animated';
 export function BlogSection() {
   const posts = getAllBlogPosts().slice(0, 3);
   return (
-    <section className="relative py-24 lg:py-32 bg-black overflow-hidden border-t border-white/5">
+    <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 bg-black overflow-hidden border-t border-white/5">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div 

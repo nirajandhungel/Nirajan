@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     'Digital Marketing Rates Nepal',
     'Local SEO Services Pricing'
   ],
-   alternates: {
-    canonical: 'https://nirajandhungel.com.np/pricing/seo',
+  alternates: {
+    canonical: 'https://www.nirajandhungel.com.np/pricing/seo',
   },
   openGraph: {
     title: 'Boost Your Rankings - SEO Packages',
     description: 'Transparent pricing for professional SEO services in Nepal. Start growing your organic traffic today.',
-    url: 'https://nirajandhungel.com.np/pricing/seo',
+    url: 'https://www.nirajandhungel.com.np/pricing/seo',
     siteName: 'Nirajan Dhungel',
     images: [
       {

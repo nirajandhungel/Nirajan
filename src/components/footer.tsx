@@ -163,10 +163,10 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/40" suppressHydrationWarning>
-            © {new Date().getFullYear()} <span className="text-white/60">Nirajan Dhungel</span>. All Rights Reserved.
+          <p className="text-sm text-white/70">
+            © {new Date().getFullYear()} <span className="text-white/80">Nirajan Dhungel</span>. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-white/40">
+          <div className="flex items-center gap-4 text-sm text-white/70">
             <span>Free Bird</span>
           </div>
         </div>

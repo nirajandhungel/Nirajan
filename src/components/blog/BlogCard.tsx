@@ -128,10 +128,10 @@ export function BlogCard({ post, featured = false, activeTag, theme = 'light' }:
             className="font-sans normal-case tracking-normal text-lg font-semibold leading-snug sm:text-xl line-clamp-2 transition-colors"
             style={{ color: textColor }}
           >
-            <span className="hover:text-[var(--blog-accent)] transition-colors">{frontmatter.title}</span>
+            <span className="hover:text-[var(--blog-accent)] transition-colors text-sm">{frontmatter.title}</span>
           </h2>
           <p
-            className="mt-2 line-clamp-2 text-sm leading-relaxed"
+            className="text-sm mt-2 line-clamp-2 text-sm leading-relaxed"
             style={{ color: textMuted }}
           >
             {frontmatter.description}

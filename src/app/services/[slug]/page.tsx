@@ -172,7 +172,7 @@ export default async function ServicePage({ params }: Props) {
                   key={index}
                   className="card-cinematic p-6 sm:p-8 text-center group hover:border-primary/30 transition-colors"
                 >
-                  <div className="w-[4.5rem] h-[4.5rem] sm:w-16 sm:h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                  <div className="w-[4.5rem] h-[4.5rem] sm:w-16 sm:h-16 bg-white/90 border border-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
                     <Icon className="w-10 h-10 sm:w-8 sm:h-8 text-primary" aria-hidden />
                   </div>
                   <h3 className="text-lg sm:text-xl font-black text-accent mb-2 sm:mb-3">
@@ -242,9 +242,6 @@ export default async function ServicePage({ params }: Props) {
       <section className="py-20 bg-[#050505] border-y border-white/5">
         <div className="container mx-auto px-4">
           <div className="mb-10 text-center">
-            <span className="inline-flex items-center justify-center rounded-full border border-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
-              Key Highlights
-            </span>
             <h2 className="mt-5 text-3xl md:text-4xl font-black text-white">
               What Makes This{' '}
               <span className="text-heading-gold">{title}</span> Service Stand
@@ -310,9 +307,9 @@ export default async function ServicePage({ params }: Props) {
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 bg-accent text-black px-10 py-4 rounded-sm font-bold text-lg uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="group inline-flex items-center gap-2 bg-accent text-black px-10 py-4 rounded-sm font-bold  uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Start Your Project Today
+            Start Your Project
             <ArrowRight
               className="w-5 h-5 group-hover:translate-x-1 transition-transform"
               aria-hidden

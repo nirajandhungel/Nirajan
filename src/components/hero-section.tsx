@@ -9,7 +9,7 @@ export function HeroSection() {
     <section className="relative min-h-screen lg:h-screen bg-black overflow-hidden flex items-center">
       {/* Background - Pure Black with Subtle Texture */}
       <div
-  className="absolute inset-0 opacity-10"
+  className="absolute inset-0 opacity-5"
   style={{
     backgroundImage: `url("/optimized/hero-bg-image.avif")`,
     backgroundSize: "cover",
@@ -99,7 +99,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Image - Profile Photo */}
+          {/* Right Image - Profile Photo (LCP) */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[500px] lg:max-w-[600px]">
               <div className="relative border-2 border-accent p-2">
@@ -109,8 +109,9 @@ export function HeroSection() {
                   title="Nirajan Dhungel - Professional Web Developer"
                   width={600}
                   height={600}
-                  isLCP={true}
+                  isLCP
                   priority
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 60vw, 600px"
                   className="relative w-full h-auto"
                 />
               </div>

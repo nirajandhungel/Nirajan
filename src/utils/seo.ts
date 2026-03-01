@@ -1,6 +1,6 @@
 // ─── SEO Utilities ───────────────────────────────────────────────────────────
 
-const BASE_URL = 'https://nirajandhungel.com.np';
+const BASE_URL = 'https://www.nirajandhungel.com.np';
 const SITE_NAME = 'Nirajan Dhungel';
 
 export interface SEOProps {

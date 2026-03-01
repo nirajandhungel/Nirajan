@@ -1,5 +1,3 @@
-"use client";
-
 import { SkillCategory } from "../../types";
 import {
   FaReact,
@@ -94,7 +92,7 @@ export const skillCategories: SkillCategory[] = [
     gradient: "from-sky-500 to-indigo-500",
     skills: [
       { name: "Flutter", icon: SiFlutter, color: "#02569B" },
-       { name: "React Native", icon: FaReact, color: "#61DAFB" },
+      { name: "React Native", icon: FaReact, color: "#61DAFB" },
     ],
   },
 

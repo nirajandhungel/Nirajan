@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllBlogPosts } from '@/lib/mdx';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://nirajandhungel.com.np';
+    const baseUrl = 'https://www.nirajandhungel.com.np';
     const posts = getAllBlogPosts();
 
     // Static pages

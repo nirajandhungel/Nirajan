@@ -9,7 +9,7 @@ export const CONTACT = {
   },
   email: 'info@nirajandhungel.com.np',
   location: 'Kathmandu, Nepal',
-  website: 'https://nirajandhungel.com.np',
+  website: 'https://www.nirajandhungel.com.np',
 } as const;
 
 export const SOCIAL_LINKS = {

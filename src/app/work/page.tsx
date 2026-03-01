@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     'IT Consulting Process',
     'Software Engineering Steps'
   ],
-    alternates: {
-    canonical: 'https://nirajandhungel.com.np/work',
+  alternates: {
+    canonical: 'https://www.nirajandhungel.com.np/work',
   },
 
   openGraph: {
     title: "Proven Work Process | Nirajan Dhungel - Software Engineer",
     description: "See how we turn ideas into reality. Our structured software development lifecycle ensures transparency, quality, and timely delivery for your projects.",
-    url: "https://nirajandhungel.com.np/work",
+    url: "https://www.nirajandhungel.com.np/work",
     type: "website",
     siteName: "Nirajan Dhungel",
     images: [

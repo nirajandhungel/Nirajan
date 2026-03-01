@@ -10,7 +10,7 @@ export function ContactCTA() {
   const [isAuditOpen, setIsAuditOpen] = useState(false);
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-primary/10 border-t-2 border-white/10">
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-white/1 border-t-2 border-white/10">
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           

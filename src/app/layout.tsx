@@ -10,9 +10,9 @@ import { DeferredScripts } from "./DeferredScripts";
 import './globals.css'
 import { CONTACT } from "@/data/contact"
 
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "700"],
   variable: "--font-poppins",
   display: 'swap',
   preload: false,
@@ -20,7 +20,7 @@ const poppins = Poppins({
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "700"],
   variable: "--font-outfit",
   display: "swap",
   preload: false,
@@ -37,7 +37,7 @@ const jetbrainsMono = JetBrains_Mono({
 // Lora — editorial serif for blog content
 const lora = Lora({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-lora",
   display: "swap",
@@ -47,7 +47,7 @@ const lora = Lora({
 // Big Shoulders — reference site primary display font (planetofmetal.com uses Big Shoulders Display)
 const bigShoulders = Big_Shoulders({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800", "900"],
+  weight: ["400", "700"],
   variable: "--font-big-shoulders",
   display: "swap",
   preload: true,
@@ -57,7 +57,7 @@ const bigShoulders = Big_Shoulders({
 // Noto Sans — LCP element uses this (hero subtitle); preload to reduce element render delay
 const notoSans = Noto_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "700"],
   variable: "--font-noto-sans-jp",
   display: "swap",
   preload: true,
@@ -65,7 +65,7 @@ const notoSans = Noto_Sans({
 })
 
 // ========== DYNAMIC METADATA IMPROVEMENTS ==========
-const SITE_URL = 'https://nirajandhungel.com.np';
+const SITE_URL = 'https://www.nirajandhungel.com.np';
 const SITE_NAME = 'Nirajan Dhungel';
 
 export const metadata: Metadata = {
@@ -257,7 +257,7 @@ const structuredData = {
       "sameAs": [
         "https://linkedin.com/in/nirajan-dhungel",
         "https://github.com/nirajandhungel",
-        "https://nirajandhungel.com.np",
+        "https://www.nirajandhungel.com.np",
         "https://lingotechsolutions.com"
       ]
     },
@@ -329,8 +329,6 @@ export default function RootLayout({
     >
       <head>
         {/* ========== CRITICAL PERFORMANCE OPTIMIZATION ========== */}
-        {/* Preconnect to self for CSS/JS/fonts — reduces connection start on first subresource */}
-        <link rel="preconnect" href="https://www.nirajandhungel.com.np" crossOrigin="anonymous" />
         {/* Preload LCP hero image (above-the-fold on home) for faster LCP */}
         <link rel="preload" href="/mickeylit-ai-generated-8227903.svg" as="image" />
         {/* Prefetch after load - use low priority to avoid competing with LCP */}
@@ -423,12 +421,12 @@ export default function RootLayout({
         <Analytics />
         {/* <SpeedInsights /> */}
         
-        {/* Google Analytics - Deferred for performance */}
+        {/* Google Analytics / Tag Manager - load after interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QPW4V2HWFE"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
