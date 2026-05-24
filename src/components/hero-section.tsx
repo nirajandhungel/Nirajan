@@ -9,7 +9,7 @@ export function HeroSection() {
     <section className="relative min-h-screen lg:h-screen bg-black overflow-hidden flex items-center">
       {/* Background - Pure Black with Subtle Texture */}
       <div
-  className="absolute inset-0 opacity-5"
+  className="absolute inset-0 opacity-20"
   style={{
     backgroundImage: `url("/optimized/hero-bg-image.avif")`,
     backgroundSize: "cover",
@@ -101,10 +101,10 @@ export function HeroSection() {
 
           {/* Right Image - Profile Photo (LCP) */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[500px] lg:max-w-[600px]">
+            <div className="relative w-full max-w-[500px] lg:max-w-[500px]">
               <div className="relative border-2 border-accent p-2">
                 <OptimizedImage
-                  src="/mickeylit-ai-generated-8227903.svg"
+                  src="/nirajan-dhungel.png"
                   alt="Nirajan Dhungel - Software Engineer & Web Developer"
                   title="Nirajan Dhungel - Professional Web Developer"
                   width={600}
