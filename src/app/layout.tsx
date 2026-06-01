@@ -258,7 +258,9 @@ const structuredData = {
         "https://linkedin.com/in/nirajan-dhungel",
         "https://github.com/nirajandhungel",
         "https://www.nirajandhungel.com.np",
-        "https://lingotechsolutions.com"
+        "https://lingotechsolutions.com",
+        "https://medium.com/@nirajandhungel",
+        "https://about.me/nirajandhungel"
       ]
     },
     {
