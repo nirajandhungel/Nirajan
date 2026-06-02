@@ -104,7 +104,7 @@ export function HeroSection() {
             <div className="relative w-full max-w-[500px] lg:max-w-[500px]">
               <div className="relative border-2 border-accent p-2">
                 <OptimizedImage
-                  src="/nirajan-dhungel.png"
+                  src="/nirajandhungel.png"
                   alt="Nirajan Dhungel - Software Engineer & Web Developer"
                   title="Nirajan Dhungel - Professional Web Developer"
                   width={600}
