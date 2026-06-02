@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface ServiceItem {
   name: string;
@@ -28,7 +29,7 @@ export const MobileServiceSection = ({ title, services, onCloseMenu }: MobileSer
             onClick={onCloseMenu}
           >
             <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
-              <img src={service.icon} alt={service.name} className="w-6 h-6" />
+              <Image src={service.icon} alt={service.name} width={24} height={24} />
             </div>
             <span className="text-xs">{service.name}</span>
           </Link>

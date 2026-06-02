@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     'Real Estate App Development',
     'E-commerce Solutions Nepal'
   ],
+  alternates: {
+    canonical: 'https://www.nirajandhungel.com.np/projects',
+  },
   openGraph: {
     title: 'Featured Projects | Nirajan Dhungel Portfolio',
     description: 'Discover how I solve complex business problems through code. View my latest work in web and mobile application development.',

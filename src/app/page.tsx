@@ -17,6 +17,14 @@ const FAQ = dynamic(() => import("../components/FAQ"));
 
 const BlogSection = dynamic(() => import("../components/blog-section").then(mod => ({ default: mod.BlogSection })));
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.nirajandhungel.com.np',
+  },
+};
+
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background">

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { NavLink } from "./navbar/NavLink";
 
@@ -76,7 +77,7 @@ export const ProductItem = ({
 }) => {
   return (
     <Link href={href} className="flex items-start p-3 transition-colors hover:bg-white/5 rounded-xl group">
-      <img src={src} alt={title} className="w-12 h-12 mr-4 shrink-0" />
+      <Image src={src} alt={title} width={48} height={48} className="mr-4 shrink-0" />
       <div>
         <div className="font-semibold text-white text-sm mb-1 group-hover:text-primary transition-colors">{title}</div>
         <div className="text-xs text-white leading-relaxed">{description}</div>

@@ -26,9 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/experience`,
+            url: `${baseUrl}/work`,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
+            changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
@@ -99,12 +99,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Pricing pages
     const pricingPages: MetadataRoute.Sitemap = [
-        {
-            url: `${baseUrl}/pricing`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.85,
-        },
         {
             url: `${baseUrl}/pricing/web-design`,
             lastModified: new Date(),

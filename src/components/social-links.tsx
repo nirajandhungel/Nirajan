@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { FaMedium } from 'react-icons/fa';
 import { SOCIAL_LINKS } from '@/data/contact';
 
 interface SocialLink {
@@ -18,6 +19,11 @@ const socialLinks: SocialLink[] = [
     name: SOCIAL_LINKS.linkedin.name,
     url: SOCIAL_LINKS.linkedin.url,
     icon: <Linkedin className="w-5 h-5" />,
+  },
+  {
+    name: SOCIAL_LINKS.medium.name,
+    url: SOCIAL_LINKS.medium.url,
+    icon: <FaMedium className="w-5 h-5" />,
   },
   {
     name: SOCIAL_LINKS.instagram.name,

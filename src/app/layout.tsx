@@ -70,16 +70,17 @@ const SITE_NAME = 'Nirajan Dhungel';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), // Required for proper URL resolution
-  
+
   title: {
     default: 'Nirajan Dhungel | Full Stack Developer & Co-founder at Lingo Tech Solutions',
     template: '%s | Nirajan Dhungel - Expert Software Engineer',
   },
-  
+
   description: 'Portfolio of Nirajan Dhungel, Full Stack Developer and Co-founder of Lingo Tech Solutions. Expert in building SEO-optimised web applications and digital products.',
-  
+
   keywords: [
-    'Nirajan Dhungel', 
+    'Nirajan',
+    'Nirajan Dhungel',
     'Full Stack Developer Nepal',
     'Lingo Tech Solutions Co-founder',
     'CTO Kathmandu',
@@ -90,11 +91,11 @@ export const metadata: Metadata = {
     'Best Software Engineer in Nepal',
     'IT Consultant Kathmandu'
   ],
-  
+
   authors: [{ name: 'Nirajan Dhungel', url: SITE_URL }],
   creator: 'Nirajan Dhungel',
   publisher: 'Nirajan Dhungel',
-  
+
   robots: {
     index: true,
     follow: true,
@@ -109,14 +110,14 @@ export const metadata: Metadata = {
       'notranslate': true,
     },
   },
-  
+
   alternates: {
     canonical: SITE_URL,
     languages: {
       'en-US': SITE_URL,
     },
   },
-  
+
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -136,7 +137,7 @@ export const metadata: Metadata = {
     phoneNumbers: [CONTACT.phone.display],
     countryName: 'Nepal',
   },
-  
+
   twitter: {
     card: 'summary_large_image',
     site: '@SubashDhungel18',
@@ -145,18 +146,18 @@ export const metadata: Metadata = {
     description: 'Expert web and mobile app development services in Nepal by Nirajan Dhungel. Transforming ideas into digital reality.',
     images: ['/optimized/nirajandhungel3.webp'],
   },
-  
+
   // ========== MODERN SEO TAGS ==========
   category: 'Technology & Computing',
   classification: 'Software Development, Web Design, SEO Services, IT Consulting',
-  
+
   // ========== APP INTEGRATION ==========
   appleWebApp: {
     capable: true,
     title: 'Nirajan Dhungel',
     statusBarStyle: 'black-translucent',
   },
-  
+
   // ========== ICONS & PWA ==========
   icons: {
     icon: [
@@ -180,9 +181,9 @@ export const metadata: Metadata = {
       },
     ],
   },
-  
+
   manifest: '/site.webmanifest',
-  
+
   // ========== ADDITIONAL SEO ==========
   verification: {
     google: 'your-google-site-verification-code',
@@ -195,7 +196,7 @@ export const metadata: Metadata = {
       ],
     },
   },
-  
+
   // ========== SEARCH ENGINE SPECIFIC ==========
   other: {
     'msapplication-TileColor': '#2563eb',
@@ -324,8 +325,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       className={`${poppins.variable} ${outfit.variable} ${lora.variable} ${jetbrainsMono.variable} ${bigShoulders.variable} ${notoSans.variable} scroll-smooth`}
       suppressHydrationWarning
     >
@@ -336,14 +337,14 @@ export default function RootLayout({
         {/* Prefetch after load - use low priority to avoid competing with LCP */}
         <link rel="prefetch" href="/about" />
         <link rel="prefetch" href="/contact" />
-        
+
         {/* ========== STRUCTURED DATA ========== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
           key="structured-data"
         />
-        
+
         {/* ========== ADDITIONAL SCHEMAS ========== */}
         <script
           type="application/ld+json"
@@ -376,17 +377,17 @@ export default function RootLayout({
           }}
           key="service-schema"
         />
-        
+
         {/* ========== MOBILE OPTIMIZATION ========== */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Nirajan Dhungel" />
 
         <meta name="yandex-verification" content="172b32e8df31e24a" />
-        
+
         {/* ========== SECURITY HEADERS (via next.config.js) ========== */}
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       </head>
-      
+
       <body className={`
         font-sans antialiased 
         bg-black 
@@ -402,27 +403,27 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        
-        <main 
+
+        <main
           id="main-content"
           className="min-h-screen "
           role="main"
         >
           <CursorProvider>
 
-          <ClientWrapper>
-          {children}
-        </ClientWrapper>
+            <ClientWrapper>
+              {children}
+            </ClientWrapper>
           </CursorProvider>
 
           {/* {children} */}
         </main>
-        
+
         {/* ========== PERFORMANCE & ANALYTICS ========== */}
         <DeferredScripts />
         <Analytics />
         {/* <SpeedInsights /> */}
-        
+
         {/* Google Analytics / Tag Manager - load after interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QPW4V2HWFE"
@@ -436,18 +437,18 @@ export default function RootLayout({
             gtag('config', 'G-QPW4V2HWFE');
           `}
         </Script>
-        
+
         {/* ========== PROGRESSIVE ENHANCEMENT ========== */}
         <noscript>
           <div className="fixed inset-0 bg-white z-50 flex items-center justify-center p-4">
             <div className="max-w-md text-center">
               <h1 className="text-2xl font-bold mb-4">JavaScript is disabled</h1>
               <p className="mb-4">
-                This website works best with JavaScript enabled. Please enable JavaScript 
+                This website works best with JavaScript enabled. Please enable JavaScript
                 for the full experience.
               </p>
-              <a 
-                href="https://www.enable-javascript.com/" 
+              <a
+                href="https://www.enable-javascript.com/"
                 className="text-primary hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
