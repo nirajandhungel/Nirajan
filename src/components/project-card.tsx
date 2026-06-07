@@ -53,9 +53,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.title}
         </h3>
         
-        <p className="text-white/60 mb-4 leading-relaxed text-sm">
-          {project.description}
-        </p>
+        <p 
+          className="text-white/60 mb-4 leading-relaxed text-sm"
+          dangerouslySetInnerHTML={{ __html: project.description }}
+        />
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-6">

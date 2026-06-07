@@ -11,10 +11,10 @@ export const projects: Project[] = [
     },
     {
         title: 'Futsmandu ',
-        description: 'A mobile app for Futsal enthusiasts with a Flutter frontend and a TypeScript Node.js backend, serving players, court owners, and admins.',
+        description: 'A mobile app for Futsal enthusiasts with a Flutter frontend and a TypeScript Node.js backend, serving players, court owners, and admins. <br/><br/> <a href="https://www.futsmandu.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold transition-colors">Book a Futsal Venues</a> | <a href="https://www.futsmandu.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold transition-colors">Register a Venue</a>',
         technologies: ['Flutter', 'Dart', 'Provider', 'TypeScript', 'Node.js', 'Express'],
         githubLink: 'https://github.com/nirajandhungel/futsmandu-app',
-        demoLink: '', // Add demo link if available
+        demoLink: 'https://www.futsmandu.com/',
         image: '/originals/projects/futsmandu_logo.png',
     },
     {
