@@ -6,7 +6,7 @@ export const experiences: Experience[] = [
         company: "Lingo Tech Solutions",
         companyLink: "https://lingotechsolutions.com/",
         period: "2025 – Present",
-        location: "Remote / Kathmandu, Nepal",
+        location: "Lalitpur, Nepal",
         type: "Software Development & IT Consulting",
         icon: "/originals/media/LT.jpeg",
         achievements: [
