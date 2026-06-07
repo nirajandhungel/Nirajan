@@ -226,11 +226,14 @@ const structuredData = {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
       "name": "Nirajan Dhungel",
-      "description": "Full Stack Developer and Co-founder of Lingo Tech Solutions, specializing in building robust, scalable web applications and SEO-optimized digital platforms.",
+      "description": "Full Stack Developer, Backend Engineer, and Co-founder of Lingo Tech Solutions. Sole architect and developer of Futsmandu futsal booking platform.",
       "url": SITE_URL,
       "image": [
-        `${SITE_URL}/nirajandhungel.jpeg`,
-        `${SITE_URL}/nirajandhungel3.png`,
+        `${SITE_URL}/nirajandhungel.png`,
+        `${SITE_URL}/nirajan.png`,
+        `${SITE_URL}/optimized/nirajandhungel.webp`,
+        `${SITE_URL}/optimized/nirajandhungel2.webp`,
+        `${SITE_URL}/optimized/nirajandhungel3.webp`
       ],
       "email": CONTACT.email,
       "telephone": CONTACT.phone.display,
@@ -253,7 +256,19 @@ const structuredData = {
         "React",
         "Node.js",
         "SEO Optimization",
-        "Software Engineering"
+        "Software Engineering",
+        "SaaS Architecture",
+        "PostgreSQL Advisory Locks",
+        "Docker Compose",
+        "Redis & BullMQ"
+      ],
+      "owns": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.futsmandu.com/#application",
+          "name": "Futsmandu",
+          "url": "https://www.futsmandu.com/"
+        }
       ],
       "sameAs": [
         "https://linkedin.com/in/nirajan-dhungel",
@@ -282,7 +297,19 @@ const structuredData = {
         }
       ]
     },
-
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.futsmandu.com/#application",
+      "name": "Futsmandu",
+      "url": "https://www.futsmandu.com/",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "Android, iOS, Web",
+      "description": "Production multi-tenant futsal booking and management SaaS platform. Architected, developed, and deployed by Nirajan Dhungel.",
+      "author": { "@id": `${SITE_URL}/#person` },
+      "creator": { "@id": `${SITE_URL}/#person` },
+      "publisher": { "@id": `${SITE_URL}/#person` },
+      "copyrightHolder": { "@id": `${SITE_URL}/#person` }
+    },
     {
       "@type": "Service",
       "serviceType": "Software Development",

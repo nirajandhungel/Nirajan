@@ -11,24 +11,35 @@ const SITE_URL = 'https://www.nirajandhungel.com.np'
 
 const images = [
   {
-    loc: `${SITE_URL}/nirajandhungel.jpeg`,
+    loc: `${SITE_URL}/nirajandhungel.png`,
     caption: 'Nirajan Dhungel - Best Software Engineer and Web Developer in Kathmandu, Nepal',
     title: 'Nirajan Dhungel',
   },
+
   {
-    loc: `${SITE_URL}/nirajandhungel2.jpeg`,
+    loc: `${SITE_URL}/optimized/nirajandhungel.webp`,
+    caption: 'Nirajan Dhungel - Professional Profile Picture',
+    title: 'Nirajan Dhungel Profile',
+  },
+  {
+    loc: `${SITE_URL}/optimized/nirajandhungel2.webp`,
     caption: 'Nirajan Dhungel - Full Stack Developer and SEO Expert Portfolio',
-    title: 'Nirajan Dhungel Portfolio',
+    title: 'Nirajan Dhungel Portfolio Screen',
   },
   {
-    loc: `${SITE_URL}/nirajandhungel3.png`,
+    loc: `${SITE_URL}/optimized/nirajandhungel3.webp`,
     caption: 'Nirajan Dhungel - Expert in Next.js, React, and Modern Web Technologies',
-    title: 'Nirajan Dhungel Developer Profile',
+    title: 'Nirajan Dhungel Developer Profile Card',
   },
   {
-    loc: `${SITE_URL}/kathmandu-youth-conclave.jpeg`,
+    loc: `${SITE_URL}/optimized/kathmandu-youth-conclave.webp`,
     caption: 'Nirajan Dhungel participating in Kathmandu Youth Conclave',
-    title: 'Nirajan Dhungel - Kathmandu Youth Conclave',
+    title: 'Nirajan Dhungel - Kathmandu Youth Conclave Event',
+  },
+  {
+    loc: `${SITE_URL}/originals/projects/futsmandu_logo.png`,
+    caption: 'Futsmandu - Futsal Venue Booking and Management SaaS Platform Solely Architected by Nirajan Dhungel',
+    title: 'Futsmandu Futsal SaaS Logo',
   },
   // Add favicons and other important images
   {
